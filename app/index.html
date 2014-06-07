@@ -8,7 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <!-- endbower -->
+    <!-- endbower --> 
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
@@ -24,8 +24,14 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a ng-href="#">Home</a></li>
+          <li><a ng-href="#/tournaments">Tournaments</a></li>
+          <li><a ng-href="#/members">Members</a></li>
+          <li><a ng-href="#/juniors">Juniors</a></li>
+          <li><a ng-href="#/events">Events</a></li>
+          <li><a ng-href="#/press">Press</a></li>
           <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
+          <li><a ng-hide='true' ng-href="#/contact">Contact</a></li>
+          <li><a ng-hide='true' ng-href="#/login">Login</a></li>
         </ul>
         <h3 class="text-muted">hkpga</h3>
       </div>
@@ -33,7 +39,7 @@
       <div ng-view=""></div>
 
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p>built with <span class="glyphicon glyphicon-heart"></span> by <a href="http://szs.io">SZS</a></p>
       </div>
     </div>
 
