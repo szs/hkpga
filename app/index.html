@@ -22,19 +22,7 @@
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/tournaments">Tournaments</a></li>
-          <li><a ng-href="#/members">Members</a></li>
-          <li><a ng-href="#/juniors">Juniors</a></li>
-          <li><a ng-href="#/events">Events</a></li>
-          <li><a ng-href="#/press">Press</a></li>
-          <li><a ng-href="#/admin">Admin</a></li>
-          <li><a ng-hide='true' ng-href="#/about">About</a></li>
-          <li><a ng-hide='true' ng-href="#/contact">Contact</a></li>
-          <li><a ng-hide='true' ng-href="#/login">Login</a></li>
-        </ul>
-        <h3 class="text-muted">hkpga</h3>
+        <div ng-include="'views/nav.html'"></div>
       </div>
 
       <div ng-view=""></div>
@@ -83,15 +71,19 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
+    <script src="bower_components/angularfire/angularfire.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/news.js"></script>
-        <script src="scripts/controllers/admin.js"></script>
-        <script src="scripts/services/news.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/admin.js"></script>
+    <script src="scripts/controllers/news.js"></script>
+    <script src="scripts/controllers/newsview.js"></script>
+    <script src="scripts/services/articles.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

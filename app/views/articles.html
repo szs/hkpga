@@ -1,0 +1,22 @@
+<div>
+  <h2>Articles</h2>
+  <div ng-repeat="(articleId, article) in articles">
+    <div ng-class="(article.draft) ? 'well' : ''">
+      <h3>{{article.title}}</h3>
+      <p>{{article.body}}</p>
+      <a ng-show="article.draft" ng-click="publishArticle(articleId)">Publish</a>
+      <a ng-hide="article.draft" ng-click="retractArticle(articleId)">Retract</a>
+      <a ng-click="deleteArticle(articleId)">Delete</a>
+    </div>
+  </div>
+  <h2>Preview</h2>
+  <h3>{{article.title}}</h3>
+  <p>{{article.body}}</p>
+
+   <form ng-submit="submitArticle()">
+    <input type="text" ng-model="article.title" />
+    <input type="textarea" ng-model="article.body" />
+    <input type="checkbox" checked ngChecked="true" ng-model="article.draft" />
+    <input type="submit" value="Add article" />
+  </form>
+</div>

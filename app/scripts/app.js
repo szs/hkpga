@@ -14,7 +14,8 @@ var app = angular.module('hkpgaApp', [
   'ngResource',
   'ngRoute',
   'ngSanitize',
-  'ngTouch'
+  'ngTouch',
+  'firebase'
 ]);
 
 app.config(function ($routeProvider) {
@@ -24,8 +25,16 @@ app.config(function ($routeProvider) {
           controller: 'MainCtrl'
         })
         .when('/admin', {
+          templateUrl: 'views/admin.html',
+          controller: 'AdminCtrl'
+        })
+        .when('/news', {
           templateUrl: 'views/news.html',
           controller: 'NewsCtrl'
+        })
+        .when('/news/:articleId', {
+          templateUrl: 'views/shownews.html',
+          controller: 'NewsViewCtrl'
         })
         .when('/tournaments', {
           templateUrl: 'views/tournaments.html',
@@ -70,4 +79,5 @@ app.config(function ($routeProvider) {
         .otherwise({
           redirectTo: '/'
         });
-    });
+    })
+  .constant('FIREBASE_URL', 'https://hkpga.firebaseio.com/');
