@@ -2,6 +2,11 @@
   "name": "hkpga",
   "version": "0.0.0",
   "dependencies": {},
+  "repository" :
+   { 
+     "type" : "git",
+     "url" : "http://github.com/szs/hkpga.git"
+   },
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-autoprefixer": "^0.7.3",
