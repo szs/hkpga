@@ -23,7 +23,12 @@
           <li><a ng-href="#/admin">Admin</a></li>
           <li><a ng-hide='true' ng-href="#/about">About</a></li>
           <li><a ng-hide='true' ng-href="#/contact">Contact</a></li>
-          <li><a ng-hide='true' ng-href="#/login">Login</a></li>
      </ul>
+     <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a ng-hide='signedIn()' ng-href="#/login">Login</a>
+        <a ng-show="signedIn()" href="#" ng-click="logout()">Logout</a>
+      </li>
+    </ul>
   </div><!-- /.navbar-collapse -->
 </nav>

@@ -15,7 +15,8 @@ var app = angular.module('hkpgaApp', [
   'ngRoute',
   'ngSanitize',
   'ngTouch',
-  'firebase'
+  'firebase',
+  'angular-redactor'
 ]);
 
 app.config(function ($routeProvider) {
@@ -23,6 +24,14 @@ app.config(function ($routeProvider) {
         .when('/', {
           templateUrl: 'views/main.html',
           controller: 'MainCtrl'
+        })
+        .when('/register', {
+          templateUrl: 'views/register.html',
+          controller: 'AuthCtrl'
+        })
+        .when('/login', {
+          templateUrl: 'views/login.html',
+          controller: 'AuthCtrl'
         })
         .when('/admin', {
           templateUrl: 'views/admin.html',
@@ -70,11 +79,6 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/contact.html',
           controller: 'ContactCtrl',
           controllerAs: 'contact'
-        })
-        .when('/login', {
-          templateUrl: 'views/login.html',
-          controller: 'LoginCtrl',
-          controllerAs: 'login'
         })
         .otherwise({
           redirectTo: '/'

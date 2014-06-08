@@ -10,6 +10,9 @@
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
+    <!-- build:css(.tmp) styles/redactor.css -->
+    <link rel="stylesheet" href="styles/redactor.css">
+    <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -22,7 +25,7 @@
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
-        <div ng-include="'views/nav.html'"></div>
+        <div ng-controller="NavCtrl" ng-include="'views/nav.html'"></div>
       </div>
 
       <div ng-view=""></div>
@@ -74,16 +77,23 @@
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
     <script src="bower_components/angularfire/angularfire.js"></script>
+    <script src="bower_components/angular-redactor-patched/angular-redactor.js"></script>
+    <script src="bower_components/nnnick-chartjs/Chart.min.js"></script>
+    <script src="bower_components/angles/angles.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/redactor.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/auth.js"></script>
     <script src="scripts/controllers/admin.js"></script>
+    <script src="scripts/controllers/nav.js"></script>
     <script src="scripts/controllers/news.js"></script>
     <script src="scripts/controllers/newsview.js"></script>
     <script src="scripts/services/articles.js"></script>
+    <script src="scripts/services/auth.js"></script>
     <!-- endbuild -->
 </body>
 </html>

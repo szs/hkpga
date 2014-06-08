@@ -20,7 +20,8 @@ app.factory('Article',
         return {
           title: '',
           body: '',
-          draft: true
+          draft: true,
+          timestamp: Date.now()
         };
       }
     };
