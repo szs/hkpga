@@ -1,8 +1,8 @@
 /* global app:true */
 'use strict';
 
-app.controller('NewsCtrl', function($scope){
-  $scope.articles = [];
+app.controller('NewsCtrl', function($scope, News){
+  $scope.articles = News.get()
   $scope.article = {
     title: '',
     body: '',
@@ -10,24 +10,29 @@ app.controller('NewsCtrl', function($scope){
   };
 
   $scope.submitArticle = function(){
-    $scope.articles.push($scope.article);
-    $scope.article = {
-      title: '',
-      body: '',
-      draft: true
-    };
+    News.save($scope.article, function(ref){
+      $scope.articles[ref.name] = $scope.article;
+      $scope.article = {
+        title: '',
+        body: '',
+        draft: true
+      };
+    });
   };
 
-  $scope.publishArticle = function(index){
-    $scope.articles[index].draft = false;
+  $scope.publishArticle = function(articleID){
+    // $scope.articles[articleID].draft = false;
+    // News.update($scope.article);
   };
 
-  $scope.retractArticle = function(index){
-    $scope.articles[index].draft = true;
+  $scope.retractArticle = function(articleID){
+    // $scope.articles[articleID].draft = true;
   };
 
-  $scope.deleteArticle = function(index) {
-      $scope.articles.splice(index, 1);
+  $scope.deleteArticle = function(articleID) {
+    Post.delete({id: articleID}, function(){
+      delete $scope.articles[articleID];
+    });
     };
 
 });
