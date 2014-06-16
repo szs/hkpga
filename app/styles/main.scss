@@ -1,7 +1,20 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
+
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
+
+
+/* BASE */
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+
 
 .browsehappy {
   margin: 0.2em 0;
@@ -10,11 +23,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
   padding: 0.2em 0;
 }
 
-/* Space out content a bit */
+/* Space out content a bit, offset navbar */
 body {
-  padding-top: 20px;
+  padding-top: 90px;
   padding-bottom: 20px;
+  background: #F3F3F3;
 }
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -28,8 +43,9 @@ body {
 .header {
   border-bottom: 1px solid #e5e5e5;
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
+
+/* Make the masthead heading the same height as the navigation */
+h3 {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
@@ -91,10 +107,6 @@ body {
   }
 }
 
-body {
-  background: #F3F3F3;
-}
-
 
 /* NAV BAR */
 .nav-pic {
@@ -104,6 +116,27 @@ body {
   -moz-border-radius: 100px;
   border-radius: 100px;
 }
+
+.navbar-brand {
+  img {
+    width: 130px;
+    margin-left: 80px;
+    margin-top: 5px;
+  }
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: 10px;
+}
+
+.navbar-nav {
+  float: right;
+  li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
 
 
 /* MAIN POSTS PAGE */
