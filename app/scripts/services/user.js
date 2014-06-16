@@ -6,30 +6,19 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth){
 
   var users = $firebase(ref);
 
-  var slug = function(str) {
-    var slug = '';
-    var trimmed = str.trim();
-    slug = trimmed.replace(/[^a-z0-9-]/gi, '-').
-      replace(/-+/g, '-').
-      replace(/^-|-$/g, '');
-    return slug.toLowerCase();
-  }
-
   var User = {
-    create : function (authUser, english_name){
-      var idx = slug(english_name);
-      users[idx] = {
-        md5_hash: authUser.md5_hash,
-        slug: idx,
-        $priority: authUser.uid
-      };
-      users.$save(idx).then(function(){
-          setCurrentUser(idx);
+    create : function (authUser, user){
+      var userObj = user;
+      userObj.md5_hash = authUser.md5_hash;
+      userObj.$priority = authUser.uid;
+      users[userObj.username] = userObj;
+      users.$save(userObj.username).then(function(){
+          setCurrentUser(userObj.username);
       });
     },
-    findBySlug: function (idx) {
-      if (idx) {
-        return users.$child(idx);
+    findByUsername: function (usr) {
+      if (usr) {
+        return users.$child(usr);
       }
     },
     getCurrent: function () {
@@ -40,13 +29,13 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth){
     }
   }
 
-  function setCurrentUser (idx) {
-    $rootScope.currentUser = User.findBySlug(idx);
+  function setCurrentUser (usr) {
+    $rootScope.currentUser = User.findByUsername(usr);
   }
 
   $rootScope.$on('$firebaseSimpleLogin:login', function (e, authUser) {
     var query = $firebase(ref.startAt(authUser.uid).endAt(authUser.uid));
-   
+
     query.$on('loaded', function () {
       setCurrentUser(query.$getIndex()[0]);
     });

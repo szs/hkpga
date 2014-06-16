@@ -10,6 +10,13 @@ app.controller('AuthCtrl', function($scope, $location, User, Auth){
     $location.path('/');
   });
 
+  var createUsername = function(str) {
+    var username = '';
+    var trimmed = str.trim();
+    username = trimmed.replace(/[^a-z0-9-]/gi, '');
+    return username.toLowerCase();
+  }
+
   $scope.login = function () {
     Auth.login($scope.user).then(function () {
       $location.path('/');
@@ -17,12 +24,13 @@ app.controller('AuthCtrl', function($scope, $location, User, Auth){
       $scope.error = error.toString().split(':')[3];
     });
   };
-  
-  $scope.register = function() {
-    Auth.register($scope.user).then(function(authUser){
-      User.create(authUser, $scope.user.email);
+
+  $scope.register = function () {
+    Auth.register($scope.user).then(function (authUser){
+      $scope.user.username = createUsername($scope.user.english_name);
+      User.create(authUser, $scope.user);
       $location.path('/');
-    }, function(error){
+    }, function (error){
       console.log(error);
       $scope.error = error.toString().split(':')[3];
     });
