@@ -29,7 +29,7 @@ app.controller('AuthCtrl', function($scope, $location, User, Auth){
     Auth.register($scope.user).then(function (authUser){
       $scope.user.username = createUsername($scope.user.english_name);
       User.create(authUser, $scope.user);
-      $location.path('/');
+      $location.path('/admin');
     }, function (error){
       console.log(error);
       $scope.error = error.toString().split(':')[3];
