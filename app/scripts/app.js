@@ -17,7 +17,8 @@ var app = angular.module('hkpgaApp', [
   'ngTouch',
   'firebase',
   'angular-redactor',
-  'pascalprecht.translate'
+  'pascalprecht.translate',
+  'ui.bootstrap'
 ]);
 
 app.config(function ($routeProvider) {

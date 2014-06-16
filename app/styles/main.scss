@@ -137,16 +137,23 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
         background-image: url(/images/discovery-bay-golf-course.png);
         background-size: cover;
         background-repeat: no-repeat;
+        background-position: center;
       }
       .item:nth-child(2) {
         background-image: url(/images/clear-water-bay-golf-course.png);
         background-size: cover;    
         background-repeat: no-repeat;
+        background-position: center;
+
       }
       .item:nth-child(3) {
         background-image: url(/images/kau-sai-chau-public-golf-course.png);
         background-size: cover;    
         background-repeat: no-repeat;
+        background-position: center;
+      }
+      .carousel-caption > p {
+        font-style: italic; 
       }
     }
 
