@@ -1,14 +1,172 @@
+{{user}}
 <div class="auth-forms">
   <h2>Register</h2>
  
-  <form ng-submit="register()">
-    <p ng-show="error" class="text-danger">{{ error }}</p>
-    <input type="text" ng-model="user.username" placeholder="Username" class="form-control"><br>
-    <input type="text" ng-model="user.chinese_name" placeholder="Chinese Name" class="form-control"><br>
-    <input type="text" ng-model="user.english_name" placeholder="English Name" class="form-control"><br>
-    <input type="email" ng-model="user.email" placeholder="Email" class="form-control"><br>
-    <input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
-    <input type="submit" value="Register" class="btn btn-primary" />
+  <form class="form-horizontal" role="form" ng-submit="register()">
+    <div class="form-group">
+      <label for="inputEnglishName" class="col-sm-2 control-label">English Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputEnglishName" placeholder="Tin Ho Wong" ng-model="user.english_name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputChineseName" class="col-sm-2 control-label">Chinese Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputChineseName" placeholder="李連杰" ng-model="user.chinese_name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="user.email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPhone" class="col-sm-2 control-label">Phone</label>
+      <div class="col-sm-10">
+        <input type="tel" class="form-control" id="inputPhone" placeholder="6827 2673" ng-model="user.phone">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" ng-model="user.password" class="form-control" id="inputPassword" placeholder="Password">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputRole" class="col-sm-2 control-label">Role</label>
+      <div class="col-sm-10">
+        <div class="radio" id="inputRole">
+          <label>
+            <input type="radio" ng-model="user.role" name="optionsRadios" id="optionsRadios1" value="admin">
+            Admin
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" ng-model="user.role" name="optionsRadios" id="optionsRadios2" value="member" checked>
+            Member
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" ng-model="user.role" name="optionsRadios" id="optionsRadios3" value="user">
+            User
+          </label>
+        </div>
+      </div>
+    </div>
+      <div class="form-group">
+        <label for="inputSex" class="col-sm-2 control-label">Sex</label>
+        <div class="col-sm-10">
+          <label class="radio-inline">
+            <input type="radio" ng-model="user.sex" id="inlineCheckboxSex1" value="male"> Male
+          </label>
+          <label class="radio-inline">
+            <input type="radio" ng-model="user.sex" id="inlineCheckboxSex2" value="female"> Female
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputImage" class="col-sm-2 control-label">Profile Picture</label>
+        <div class="col-sm-10">
+          <input type="url" class="form-control" id="inputPicture" placeholder="/images/freddy.jpg" ng-model="user.profile_picture">
+        </div>
+      </div>
+          <div class="form-group">
+      <label for="inputRole" class="col-sm-2 control-label">Relation</label>
+        <div class="col-sm-10">
+          <div class="radio" id="inputRelation">
+            <label>
+              <input type="radio" ng-model="user.status" name="relationRadio" id="relationRadio1" value="full">
+              Full Member
+            </label>
+          </div>
+          <div class="radio" id="inputRelation">
+            <label>
+              <input type="radio" ng-model="user.status" name="relationRadio" id="relationRadio2" value="tournament">
+              Tournament Member
+            </label>
+          </div>
+          <div class="radio" id="inputRelation">
+            <label>
+              <input type="radio" ng-model="user.status" name="relationRadio" id="relationRadio3" value="associate">
+              Associate Member
+            </label>
+          </div>
+          <div class="radio" id="inputRelation">
+            <label>
+              <input type="radio" ng-model="user.status" name="relationRadio" id="relationRadio4" value="trainer">
+              Certified Trainer
+            </label>
+          </div>
+          <div class="radio" id="inputRelation">
+            <label>
+              <input type="radio" ng-model="user.status" name="relationRadio" id="relationRadio5" value="trainee">
+              Trainee
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputMemberSince" class="col-sm-2 control-label">Member Since</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="inputMemberSince" placeholder="2014" ng-model="user.member_since">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputMemberSince" class="col-sm-2 control-label">Pro Since</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="inputProSince" placeholder="2010" ng-model="user.pro_since">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputQualificationsEN" class="col-sm-2 control-label">Qualifications (EN)</label>
+        <div class="col-sm-10">
+          <textarea rows="5" class="form-control" id="inputQualificationsEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.qualifications_en" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputQualificationsZH" class="col-sm-2 control-label">Qualifications (ZH)</label>
+        <div class="col-sm-10">
+          <textarea rows="5" class="form-control" id="inputQualificationsZH" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.qualifications_zh" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAchievementsEN" class="col-sm-2 control-label">Achievements (EN)</label>
+        <div class="col-sm-10">
+          <textarea rows="5" class="form-control" id="inputAchievementsEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.achievements_en" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAchievementsZH" class="col-sm-2 control-label">Achievements (ZH)</label>
+        <div class="col-sm-10">
+          <textarea rows="5" class="form-control" id="inputAchievementsZH" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.achievements_zh" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputQualificationsEN" class="col-sm-2 control-label">Teaching Experience (EN)</label>
+        <div class="col-sm-10">
+           <textarea rows="5" class="form-control" id="inputTeachingExperienceEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience_en" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputTeachingExperienceZH" class="col-sm-2 control-label">Teaching Experience (ZH)</label>
+        <div class="col-sm-10">
+           <textarea rows="5" class="form-control" id="inputTeachingExperienceZH" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience_zh" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputStatus" class="col-sm-2 control-label">Status</label>
+        <div class="col-sm-10">
+          <label class="radio-inline">
+            <input type="radio" ng-model="user.active" ng-value="true" id="inlineCheckboxActive1" value="true" checked> Active
+          </label>
+          <label class="radio-inline">
+            <input type="radio" ng-model="user.active" ng-value="false" id="inlineCheckboxActive2" value="false"> Inactive
+          </label>
+        </div>
+      </div>
+      <input type="submit" value="Register" class="btn btn-primary" />
   </form>
- 
-</div>
