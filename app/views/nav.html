@@ -13,21 +13,36 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/news">News</a></li>
-          <li><a ng-href="#/tournaments">Tournaments</a></li>
-          <li><a ng-href="#/members">Members</a></li>
-          <li><a ng-href="#/juniors">Juniors</a></li>
-          <li><a ng-href="#/events">Events</a></li>
-          <li><a ng-hide='true' ng-href="#/press">Press</a></li>
-          <li><a ng-href="#/admin">Admin</a></li>
-          <li><a ng-hide='true' ng-href="#/about">About</a></li>
-          <li><a ng-hide='true' ng-href="#/contact">Contact</a></li>
+          <li class="active"><a translate ng-href="#">MENU_HOME</a></li>
+          <li><a translate ng-href="#/news">MENU_NEWS</a></li>
+          <li><a translate ng-href="#/tournaments">MENU_TOURNAMENTS</a></li>
+          <li><a translate ng-href="#/members">MENU_MEMBERS</a></li>
+          <li><a translate ng-href="#/juniors">MENU_JUNIORS</a></li>
+          <li><a translate ng-href="#/events">MENU_EVENTS</a></li>
+          <li><a translate ng-hide='true' ng-href="#/press">MENU_PRESS</a></li>
+          <li><a translate ng-href="#/admin">MENU_ADMIN</a></li>
+          <li><a translate ng-hide='true' ng-href="#/about">MENU_ABOUT</a></li>
+          <li><a translate ng-hide='true' ng-href="#/contact">MENU_CONTACT</a></li>
      </ul>
-     <ul class="nav navbar-nav navbar-right">
-      <li>
-        <a ng-hide='signedIn()' ng-href="#/login">Login</a>
-        <a ng-show="signedIn()" href="#" ng-click="logout()">Logout</a>
+    <ul class="nav navbar-nav navbar-right">
+      <li ng-controller="LangCtrl">
+        <a ng-hide="getCurrentLanguage() == 'en'" ng-click="changeLanguage('en')" translate="LANG_EN" class="btn"></a>
+        <a ng-hide="getCurrentLanguage() == 'zh'" ng-click="changeLanguage('zh')" translate="LANG_ZH" class="btn"></a>
+      </li>
+      <li ng-show="signedIn()">
+        <a href="#/users/{{ currentUser.email }}">
+          <img ng-src="http://www.gravatar.com/avatar/{{ currentUser.md5_hash }}" class="nav-pic" />
+          {{ currentUser.email }}
+        </a>
+      </li>
+      <li ng-show="signedIn()">
+        <a translate href="#" ng-click="logout()">LOGOUT</a>
+      </li>
+      <li ng-hide="signedIn()">
+        <a translate href="#/register">REGISTER</a>
+      </li>
+      <li ng-hide="signedIn()">
+        <a translate href="#/login">LOGIN</a>
       </li>
     </ul>
   </div><!-- /.navbar-collapse -->

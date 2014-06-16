@@ -3,6 +3,9 @@
  
   <form ng-submit="register()">
     <p ng-show="error" class="text-danger">{{ error }}</p>
+    <input type="text" ng-model="user.username" placeholder="Username" class="form-control"><br>
+    <input type="text" ng-model="user.chinese_name" placeholder="Chinese Name" class="form-control"><br>
+    <input type="text" ng-model="user.english_name" placeholder="English Name" class="form-control"><br>
     <input type="email" ng-model="user.email" placeholder="Email" class="form-control"><br>
     <input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
     <input type="submit" value="Register" class="btn btn-primary" />

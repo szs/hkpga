@@ -16,7 +16,8 @@ var app = angular.module('hkpgaApp', [
   'ngSanitize',
   'ngTouch',
   'firebase',
-  'angular-redactor'
+  'angular-redactor',
+  'pascalprecht.translate'
 ]);
 
 app.config(function ($routeProvider) {
@@ -84,4 +85,10 @@ app.config(function ($routeProvider) {
           redirectTo: '/'
         });
     })
+  .config(['$translateProvider', function ($translateProvider) {
+    $translateProvider.translations('en', translationsEN);
+    $translateProvider.translations('zh', translationsZH);
+    $translateProvider.preferredLanguage('en');
+    $translateProvider.fallbackLanguage('en');
+  }])
   .constant('FIREBASE_URL', 'https://hkpga.firebaseio.com/');

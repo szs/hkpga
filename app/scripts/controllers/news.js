@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('NewsCtrl', function($scope, Article){
+app.controller('NewsCtrl', function($scope, $translate, Article){
   $scope.articles = Article.all;
   
   $scope.article = Article.new();
@@ -24,6 +24,10 @@ app.controller('NewsCtrl', function($scope, Article){
 
   $scope.deleteArticle = function(articleID) {
     Article.delete(articleID);
+  };
+
+  $scope.getCurrentLanguage = function () {
+    return $translate.use();
   };
 
 });
