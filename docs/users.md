@@ -1,11 +1,5 @@
 People
 
-*
-*
-*
-*
-
-
 Auth
 * email
 * password
@@ -15,8 +9,8 @@ User
 * role [admin/members/user]
 * profile_picture [id]
 * username
-* english_name
-* chinese_name
+* name_en
+* name_zh
 ! sex
 ! member
 * email
