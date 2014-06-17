@@ -54,8 +54,7 @@ app.config(function ($routeProvider) {
         })
         .when('/members', {
           templateUrl: 'views/members.html',
-          controller: 'MembersCtrl',
-          controllerAs: 'members'
+          controller: 'MembersCtrl'
         })
         .when('/juniors', {
           templateUrl: 'views/juniors.html',

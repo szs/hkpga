@@ -1,6 +1,6 @@
 /* global app:true */
 'use strict';
 
-app.controller('AdminCtrl', function($scope){
+app.controller('AdminCtrl', function($scope, User){
 
 });

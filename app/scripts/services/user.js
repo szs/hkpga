@@ -1,12 +1,13 @@
 /* global app:true */
 'use strict';
 
-app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth){
+app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
   var ref = new Firebase(FIREBASE_URL + 'users');
 
   var users = $firebase(ref);
 
   var User = {
+    all: users,
     create : function (authUser, user){
       var userObj = user;
       userObj.md5_hash = authUser.md5_hash;
@@ -26,7 +27,29 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth){
     },
     signedIn: function () {
       return $rootScope.currentUser !== undefined;
-    }
+    },
+    na : this['name_' + Lang.current()],
+    nam : this['name_' + Lang.current()],
+    name : function() {
+      return this['name_' + Lang.current()]
+    },
+    qualifications : function() {
+      this['qualifications_' + Lang.current()]
+    },
+    achievements : function() {
+      this['achievements_' + Lang.current()]
+    },
+    teaching_experience : function() {
+      this['teaching_experience_' + Lang.current()]
+    },
+    new : function(){
+        return {
+          username: '',
+          password: '',
+          name_en: '',
+          name_zh: ''
+        };
+      }
   }
 
   function setCurrentUser (usr) {
@@ -34,7 +57,9 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth){
   }
 
   $rootScope.$on('$firebaseSimpleLogin:login', function (e, authUser) {
+    console.log(authUser);
     var query = $firebase(ref.startAt(authUser.uid).endAt(authUser.uid));
+    console.log(query);
 
     query.$on('loaded', function () {
       setCurrentUser(query.$getIndex()[0]);
