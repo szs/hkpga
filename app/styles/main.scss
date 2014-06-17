@@ -7,6 +7,22 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 // endbower
 
 
+// 0. VARIABLES
+
+$gray-darker:  lighten(#000, 13.5%); // #222
+$gray-dark:    lighten(#000, 20%);   // #333
+$gray:         lighten(#000, 33.5%); // #555
+$gray-light:   lighten(#000, 60%);   // #999
+$gray-lighter: lighten(#000, 93.5%); // #eee
+$white:        white;
+
+$brand-green: #098743;
+$brand-gold: #bc994b;
+$brand-black: #231f20;
+
+
+
+
 // 1. BASE ------------------------------
 
 
@@ -21,7 +37,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
       // offset navbar
   }
 
-
+  h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $white;
+  } 
 
 
 // 2. LAYOUT ------------------------------
@@ -125,6 +146,17 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 
   /* CAROUSEL */
+
+    // Title
+
+    .hkpga-title {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      top: 270px;
+      z-index: 100;
+      margin: 0 auto;
+    }
 
     // Images
 
