@@ -43,7 +43,8 @@ $brand-black:       #231f20;
     padding-bottom: 20px;
     background: #F3F3F3;
     background-image: url(/images/subtle-white-bg.png);
-  }
+    padding-top: 90px;
+    }
 
   .content {
         padding-top: 90px;
@@ -118,6 +119,10 @@ $brand-black:       #231f20;
       .jumbotron {
         border-bottom: 0;
       }
+    }
+
+    #view-main {
+      margin-top: -90px;  
     }
 
 
