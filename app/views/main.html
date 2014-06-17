@@ -38,13 +38,17 @@
 		    <span><i class="fa fa-angle-right fa-2x"></i></span>
 		  </a>
 		</div>
-
-		<div class="container">
-			
-		</div>
-
 	</div>
 	<div class="container">
-		<div ng-include="'/views/news.html'" ng-controller="NewsCtrl"></div>
+		<div class="row">
+			<div class="col-md-9">
+				<div ng-include="'/views/news.html'" ng-controller="NewsCtrl"></div>
+			</div>
+			<div class="col-md-3">
+				<div ng-include="'/views/merit-widget.html'" ng-controller="MeritCtrl"></div>
+				<div ng-include="'/views/scores-widget.html'" ng-controller="TournamentCtrl"></div>
+				<div ng-include="'/views/magazine-widget.html'" ng-controller="MagazineCtrl"></div>
+			</div>
+		</div>
 	</div>
 </div>

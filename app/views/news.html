@@ -1,4 +1,4 @@
-<div class="container articles-page">
+<div class="articles-page">
   <h2>Articles | {{ getCurrentLanguage() }}</h2>
   <div class="article row" ng-repeat="(articleId, article) in articles">
     <div class="col-xs-1">
@@ -16,55 +16,4 @@
       <a ng-click="deleteArticle(articleId)">Delete</a>
     </div>
   </div>
-  <div class="preview article row">
-    <h2>Preview</h2>
-    <h3>{{article.title}}</h3>
-    <p>{{article.body}}</p>
-  </div>
-
-   <form ng-submit="submitArticle()">
-    <input type="text" ng-model="article.title" />
-    <input type="textarea" ng-model="article.body" />
-    <input type="checkbox" checked ngChecked="true" ng-model="article.draft" />
-    <input type="submit" value="Add article" />
-  </form>
-
-  <div class='row'>
-    <div class="col-md-12">
-    <textarea ng-model="content" redactor="{buttons: ['formatting', '|', 'bold', 'italic']}" cols="30" rows="10"></textarea>
-    </div>   
-  </div>
-  <h1>Demo</h1>
-
-<div class="panel panel-default">
-  <div class="panel-heading"><h3>Default</h3></div>
-  <div class="panel-body">
-    <div class="form-group">
-      <textarea ng-model="content" redactor cols="30" rows="10"></textarea>
-    </div>
-    <br/>
-    <p>{{content}}</p>
-    <div class="form-group">
-      <button class="btn btn-default" ng-click="changeContent()">Change content</button>
-    </div>
-
-    <strong>Markup</strong>
-    <pre>
-      &lt;textarea ng-model="content" redactor cols="30" rows="10"&gt;&lt;/textarea&gt;
-    </pre>
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">Air Option</div>
-  <div class="panel-body">
-    <div class="form-group">
-      <textarea ng-model="content" redactor="{air: true}" cols="30" rows="10"></textarea>
-    </div>
-    <strong>Markup</strong>
-    <pre>
-      &lt;textarea ng-model="content" redactor="{air: true}" cols="30" rows="10"&gt;&lt;/textarea&gt;
-    </pre>
-  </div>
-</div>
 </div>
