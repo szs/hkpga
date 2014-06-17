@@ -1,47 +1,50 @@
-<div class="banner">
-	<div class="hkpga-title">
-		<h1 >The Hong Kong Professional Golfers' Association</h1>
+<div id="view-main">
+	<div class="banner">
+		<div class="hkpga-title">
+			<h1 >The Hong Kong Professional Golfers' Association</h1>
+		</div>
+		<div id="carousel" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+		    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+		    <li data-target="#carousel" data-slide-to="1"></li>
+		    <li data-target="#carousel" data-slide-to="2"></li>
+		  </ol>
+
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner">
+		    <div class="item active">
+		      <div class="carousel-caption">
+		      	<p>Discovery Bay Golf Club</p>
+		      </div>
+		    </div>
+		    <div class="item">
+		      <div class="carousel-caption">
+		      	<p>Clearwater Bay Golf Club</p>
+		      </div>
+		    </div>	    
+		    <div class="item">
+		      <div class="carousel-caption">
+		      	<p>Kau Sai Chau Public Golf Course</p>
+		      </div>
+		    </div>
+		  </div>
+
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#carousel" data-slide="prev">
+		    <span><i class="fa fa-angle-left fa-2x"></i></span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel" data-slide="next">
+		    <span><i class="fa fa-angle-right fa-2x"></i></span>
+		  </a>
+		</div>
+
+		<div class="container">
+			
+		</div>
+
 	</div>
-	<div id="carousel" class="carousel slide" data-ride="carousel">
-	  <!-- Indicators -->
-	  <ol class="carousel-indicators">
-	    <li data-target="#carousel" data-slide-to="0" class="active"></li>
-	    <li data-target="#carousel" data-slide-to="1"></li>
-	    <li data-target="#carousel" data-slide-to="2"></li>
-	  </ol>
-
-	  <!-- Wrapper for slides -->
-	  <div class="carousel-inner">
-	    <div class="item active">
-	      <div class="carousel-caption">
-	      	<p>Discovery Bay Golf Club</p>
-	      </div>
-	    </div>
-	    <div class="item">
-	      <div class="carousel-caption">
-	      	<p>Clearwater Bay Golf Club</p>
-	      </div>
-	    </div>	    
-	    <div class="item">
-	      <div class="carousel-caption">
-	      	<p>Kau Sai Chau Public Golf Course</p>
-	      </div>
-	    </div>
-	  </div>
-
-	  <!-- Controls -->
-	  <a class="left carousel-control" href="#carousel" data-slide="prev">
-	    <span><i class="fa fa-angle-left"></i></span>
-	  </a>
-	  <a class="right carousel-control" href="#carousel" data-slide="next">
-	    <span><i class="fa fa-angle-right"></i></span>
-	  </a>
-	</div>
-
 	<div class="container">
-		
+		<div ng-include="'/views/news.html'" ng-controller="NewsCtrl"></div>
 	</div>
-
 </div>
-
-<div ng-include="'/views/news.html'" ng-controller="NewsCtrl"></div>

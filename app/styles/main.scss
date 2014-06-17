@@ -7,20 +7,32 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 // endbower
 
 
-// 0. VARIABLES
+// 0. VARIABLES & MIXINS
 
-$gray-darker:  lighten(#000, 13.5%); // #222
-$gray-dark:    lighten(#000, 20%);   // #333
-$gray:         lighten(#000, 33.5%); // #555
-$gray-light:   lighten(#000, 60%);   // #999
-$gray-lighter: lighten(#000, 93.5%); // #eee
-$white:        white;
+$grey-darker:       lighten(#000, 13.5%); // #222
+$grey-dark:         lighten(#000, 20%);   // #333
+$grey:              lighten(#000, 33.5%); // #555
+$grey-light:        lighten(#000, 60%);   // #999
+$grey-lighter:      lighten(#000, 93.5%); // #eee
 
-$brand-green: #098743;
-$brand-gold: #bc994b;
-$brand-black: #231f20;
+$white:             white;
+$black:             #090909;
+$text-grey:         #4d4d4e;
+$text-grey-lighter: #666766;
 
+$brand-green:       #098743;
+$brand-gold:        #bc994b;
+$brand-black:       #231f20;
 
+@mixin bar-height($bar-height) {
+  height: $bar-height * 1.8;
+}
+
+.left-bar {
+  border-left: 10px solid $brand-green;
+  padding-top: 1rem;
+  padding-left: 20px;
+}
 
 
 // 1. BASE ------------------------------
@@ -30,6 +42,7 @@ $brand-black: #231f20;
     font-family: 'Roboto Condensed', sans-serif;
     padding-bottom: 20px;
     background: #F3F3F3;
+    background-image: url(/images/subtle-white-bg.png);
   }
 
   .content {
@@ -38,11 +51,29 @@ $brand-black: #231f20;
   }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: $white;
   } 
+
+  h2 {
+    font-size: 2.9rem ;
+    color: $brand-gold;
+    text-transform: uppercase;
+    @extend .left-bar;
+    @include bar-height(2.9rem);
+  }
+
+// h1:before {
+//       content: "";
+//       position: absolute;
+//       display: inline-block;
+//       width: 10px;
+//       height: 5rem;
+//       background-color: $brand-green;
+//       margin-left: -30px;
+//     }
 
 
 // 2. LAYOUT ------------------------------
@@ -112,6 +143,59 @@ $brand-black: #231f20;
       margin-left:5px;
     }
 
+  /* .2 PROFILE PAGE */
+
+    .prof-img{
+      width:100%;
+      max-width:100px;
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      border-radius: 100px;
+    }
+
+    .name {
+      font-weight: bolder;
+      font-size: 1.5em;
+    }
+
+    .nav-tabs {
+      margin-top:30px;
+    }
+
+    .vote {
+      height:20px;
+      cursor: pointer;
+    }
+
+    .auth-forms {
+      max-width:400px;
+      margin:0 auto;
+      background: #fff;
+      padding:1px 25px 25px 25px;
+      -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+    }
+
+    .cmt-form {
+      margin-top:30px;
+    }
+
+    .cmt {
+      margin-top:10px;
+      padding-top:10px;
+      border-top:1px solid #ccc;
+    }
+
+    .cmt .author {
+      font-size:11px;
+      color:#bbb;
+    }
+
+
 
 
 // 3. MODULE ------------------------------
@@ -119,6 +203,20 @@ $brand-black: #231f20;
 
 
   /* NAV BAR */
+
+    .navbar-nav {
+      float: right;
+      li > a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+
+    .navbar-inverse {
+      opacity: 0.95;
+      border-bottom: solid 4px $black;
+      // background-image: url(/images/tactile-grey-bg.png);
+    }
 
     .navbar-brand {
       img {
@@ -132,20 +230,13 @@ $brand-black: #231f20;
       margin-right: 10px;
     }
 
-    .navbar-nav {
-      float: right;
-      li > a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-    }
-
-    .navbar-inverse {
-      opacity: 0.9;
-    }
 
 
   /* CAROUSEL */
+
+    #carousel {
+      border-bottom: 5px solid $black;
+    }
 
     // Title
 
@@ -153,7 +244,7 @@ $brand-black: #231f20;
       position: absolute;
       text-align: center;
       width: 100%;
-      top: 270px;
+      top: 272px;
       z-index: 100;
       margin: 0 auto;
     }
@@ -188,8 +279,6 @@ $brand-black: #231f20;
         font-style: italic; 
       }
     }
-
-
 
     // Toggles
 
@@ -227,10 +316,7 @@ $brand-black: #231f20;
       .fa-angle-right,
       .icon-prev,
       .icon-next {
-        width: 35px;
-        height: 35px;
         margin-top: -15px;
-        font-size: 35px;
       }
       .fa-angle-left,
       .icon-prev {
@@ -243,60 +329,21 @@ $brand-black: #231f20;
     }
 
 
-  /* .3 PROFILE PAGE */
-
-  .prof-img{
-    width:100%;
-    max-width:100px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    border-radius: 100px;
-  }
-
-  .name {
-    font-weight: bolder;
-    font-size: 1.5em;
-  }
-
-  .nav-tabs {
-    margin-top:30px;
-  }
-
-  .vote {
-    height:20px;
-    cursor: pointer;
-  }
-
-  .auth-forms {
-    max-width:400px;
-    margin:0 auto;
-    background: #fff;
-    padding:1px 25px 25px 25px;
-    -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-  }
-
-  .cmt-form {
-    margin-top:30px;
-  }
-
-  .cmt {
-    margin-top:10px;
-    padding-top:10px;
-    border-top:1px solid #ccc;
-  }
-
-  .cmt .author {
-    font-size:11px;
-    color:#bbb;
-  }
-
 
 // 4. STATE ------------------------------
+
+
+// 5. THEME ------------------------------
+
+  /* MAIN */
+
+    #view-main {
+      background-image: url(/images/tactile-grey-bg.png);
+      h1, h2, h3, h4, h5, p {
+
+      }
+    }
+
 
 
 
