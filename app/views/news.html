@@ -2,7 +2,7 @@
   <h2>Latest News &nbsp; | &nbsp; {{ getCurrentLanguage() }}</h2>
   <div class="article row" ng-repeat="(articleId, article) in articles">
     <div class="col-md-12">
-      <div class="info" ng-class="(article.draft) ? 'well' : ''">
+      <div class="info well" ng-class="(article.draft) ? 'draft' : ''">
         <a href="#/news/{{ articleId }}" >
           <div class="article-title-row clearfix">
             <h5>{{article.timestamp | date:'dd MMM yyyy'}}</h5>
