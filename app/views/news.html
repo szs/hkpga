@@ -1,9 +1,8 @@
 <div id="articles-page">
-{{ latest }}
   <h2>Latest News &nbsp; | &nbsp; {{ getCurrentLanguage() }}</h2>
-  <div class="article row">
+  <div class="article row" ng-repeat="latest in articles | orderByPriority | orderBy: 'timestamp':false | limitTo:1">
     <div class="col-md-12">
-      <div class="info well">
+      <div class="info">
         <a href="#/news/{{ latest.slug }}" >
           <div class="article-title-row clearfix">
             <h5>{{ latest.timestamp | date:'dd MMM yyyy'}}</h5>
@@ -12,11 +11,11 @@
           </div>
         </a>
         <img ng-show="latest.cover" class="cover" ng-src="{{articles[0].cover}}">
-        <div ng-bind-html="lang() == 'en' ? latest.en : latest.zh | words:50"></div>
+        <div ng-bind-html="lang() == 'en' ? latest.en : latest.zh | words:80"></div>
       </div>
     </div>
 
-  <div class="article row" ng-repeat="(articleId, article) in articles" ng-hide="$first">
+  <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | orderBy: 'timestamp':false" ng-hide="$first">
     <div class="col-md-12">
       <div class="info well" ng-class="(article.draft) ? 'draft' : ''">
         <a href="#/news/{{ articleId }}" >
