@@ -1,7 +1,7 @@
-<div id="view-main">
+<div id="main-page">
 	<div class="banner">
 		<div class="hkpga-title">
-			<h1 >The Hong Kong Professional Golfers' Association</h1>
+			<h1>The Hong Kong Professional Golfers' Association</h1>
 		</div>
 		<div id="carousel" class="carousel slide" data-ride="carousel">
 		  <!-- Indicators -->
@@ -9,11 +9,17 @@
 		    <li data-target="#carousel" data-slide-to="0" class="active"></li>
 		    <li data-target="#carousel" data-slide-to="1"></li>
 		    <li data-target="#carousel" data-slide-to="2"></li>
+		    <li data-target="#carousel" data-slide-to="3"></li>
 		  </ol>
 
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner">
 		    <div class="item active">
+		      <div class="carousel-caption">
+		      	<p>SkyCity Nine Eagles Golf Course</p>
+		      </div>
+		    </div>
+		    <div class="item">
 		      <div class="carousel-caption">
 		      	<p>Discovery Bay Golf Club</p>
 		      </div>
@@ -41,10 +47,10 @@
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-9">
+			<div class="col-md-8">
 				<div ng-include="'/views/news.html'" ng-controller="NewsCtrl"></div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<div ng-include="'/views/merit-widget.html'" ng-controller="MeritCtrl"></div>
 				<div ng-include="'/views/scores-widget.html'" ng-controller="TournamentCtrl"></div>
 				<div ng-include="'/views/magazine-widget.html'" ng-controller="MagazineCtrl"></div>

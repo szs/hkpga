@@ -17,7 +17,7 @@ $grey-lighter:      lighten(#000, 93.5%); // #eee
 
 $white:             white;
 $black:             #090909;
-$text-grey:         #4d4d4e;
+$text-grey:         #4d4d4d;
 $text-grey-lighter: #666766;
 
 $brand-green:       #098743;
@@ -31,6 +31,7 @@ $brand-black:       #231f20;
 .left-bar {
   border-left: 10px solid $brand-green;
   padding-top: 1rem;
+  padding-bottom: 1rem;
   padding-left: 20px;
 }
 
@@ -40,15 +41,14 @@ $brand-black:       #231f20;
 
   body {
     font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 25px;
+    color: $text-grey;
     padding-bottom: 20px;
     background: #F3F3F3;
     background-image: url(/images/subtle-white-bg.png);
     padding-top: 90px;
-    }
-
-  .content {
-        padding-top: 90px;
-      // offset navbar
   }
 
   h1 {
@@ -59,36 +59,42 @@ $brand-black:       #231f20;
   } 
 
   h2 {
-    font-size: 2.9rem ;
+    font-size: 2.7rem ;
     color: $brand-gold;
     text-transform: uppercase;
+    margin-top: 40px;
     @extend .left-bar;
     @include bar-height(2.9rem);
   }
 
-// h1:before {
-//       content: "";
-//       position: absolute;
-//       display: inline-block;
-//       width: 10px;
-//       height: 5rem;
-//       background-color: $brand-green;
-//       margin-left: -30px;
-//     }
+  // article title,
+  h4 {
+    font-size: 2rem;
+    color: $text-grey-lighter;
+    @extend .left-bar;
+    @include bar-height(2rem);
+  }
+
+  // date, column title
+  h5 {
+    font-size: 1.4rem;
+    color: $text-grey-lighter;
+  }
+
+
+  a {
+    color: $brand-gold !important;
+    :hover {
+      color: $brand-gold;
+      border-color: $brand-gold;
+    }
+  }
 
 
 // 2. LAYOUT ------------------------------
 
 
   // .2 Default - from ??
-
-    /* Everything but the jumbotron gets side spacing for mobile first views */
-    .header,
-    .marketing,
-    .footer {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
 
 
     /* Custom page footer */
@@ -104,9 +110,6 @@ $brand-black:       #231f20;
 
     /* Responsive: Portrait tablets and up */
     @media screen and (min-width: 768px) {
-      .container {
-        max-width: 730px;
-      }
 
       /* Remove the padding we set earlier */
       .header,
@@ -115,18 +118,13 @@ $brand-black:       #231f20;
         padding-left: 0;
         padding-right: 0;
       }
-      /* Remove the bottom border on the jumbotron for visual effect */
-      .jumbotron {
-        border-bottom: 0;
-      }
     }
 
-    #view-main {
+  // .2 MAIN POSTS PAGE //
+
+    #main-page{
       margin-top: -90px;  
     }
-
-
-  /* .2 MAIN POSTS PAGE */
 
     .post {
       background: #fff;
@@ -148,7 +146,7 @@ $brand-black:       #231f20;
       margin-left:5px;
     }
 
-  /* .2 PROFILE PAGE */
+  // .2 PROFILE PAGE //
 
     .prof-img{
       width:100%;
@@ -235,7 +233,22 @@ $brand-black:       #231f20;
       margin-right: 10px;
     }
 
+  /* NEWS ARTICLES */
 
+  .article-title-row {
+    h5, h4 {
+      float: left;
+      display: block;
+    }
+    i.arrow-more {
+      float: right;
+      display: block;
+      padding: 13px 20px;
+    }
+    h5 {
+      padding: 11px;
+    }
+  }
 
   /* CAROUSEL */
 
@@ -247,11 +260,17 @@ $brand-black:       #231f20;
 
     .hkpga-title {
       position: absolute;
-      text-align: center;
       width: 100%;
+      margin: 0 auto;
       top: 272px;
       z-index: 100;
-      margin: 0 auto;
+      h1 {
+        text-align: center;
+        max-width: 80%;
+        margin: 0 auto;
+        vertical-align: middle;
+        padding-top: 21px;
+      }
     }
 
     // Images
@@ -262,19 +281,25 @@ $brand-black:       #231f20;
         height: 600px;
       }
       .item:nth-child(1){
+        background-image: url(/images/skycity-nine-eagles-golf-course.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .item:nth-child(2){
         background-image: url(/images/discovery-bay-golf-course.png);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
       }
-      .item:nth-child(2) {
+      .item:nth-child(3) {
         background-image: url(/images/clear-water-bay-golf-course.png);
         background-size: cover;    
         background-repeat: no-repeat;
         background-position: center;
 
       }
-      .item:nth-child(3) {
+      .item:nth-child(4) {
         background-image: url(/images/kau-sai-chau-public-golf-course.png);
         background-size: cover;    
         background-repeat: no-repeat;
@@ -286,33 +311,33 @@ $brand-black:       #231f20;
     }
 
     // Toggles
+      .icon-prev,
+      .icon-next,
+      .fa-angle-left,
+      .fa-angle-right {
+        position: absolute;
+        top: 50%;
+        z-index: 5;
+        display: inline-block;
+      }
+      .icon-prev,
+      .fa-angle-left {
+        left: 50%;
+        margin-left: -10px;
+      }
+      .icon-next,
+      .fa-angle-right {
+        right: 50%;
+        margin-right: -10px;
+      }
+      .icon-prev,
+      .icon-next {
+        width:  25px;
+        height: 25px;
+        margin-top: -10px;
+        font-family: serif;
+      }
 
-    .icon-prev,
-    .icon-next,
-    .fa-angle-left,
-    .fa-angle-right {
-      position: absolute;
-      top: 50%;
-      z-index: 5;
-      display: inline-block;
-    }
-    .icon-prev,
-    .fa-angle-left {
-      left: 50%;
-      margin-left: -10px;
-    }
-    .icon-next,
-    .fa-angle-right {
-      right: 50%;
-      margin-right: -10px;
-    }
-    .icon-prev,
-    .icon-next {
-      width:  25px;
-      height: 25px;
-      margin-top: -10px;
-      font-family: serif;
-    }
 
     // Scale up the controls a smidge
 
@@ -342,7 +367,7 @@ $brand-black:       #231f20;
 
   /* MAIN */
 
-    #view-main {
+    #main-page {
       background-image: url(/images/tactile-grey-bg.png);
       h1, h2, h3, h4, h5, p {
 

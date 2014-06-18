@@ -1,19 +1,20 @@
 <div class="articles-page">
-  <h2>Articles | {{ getCurrentLanguage() }}</h2>
+  <h2>Latest News &nbsp; | &nbsp; {{ getCurrentLanguage() }}</h2>
   <div class="article row" ng-repeat="(articleId, article) in articles">
-    <div class="col-xs-1">
-    </div>
-    <div class="col-md-9 col-xs-11">
+    <div class="col-md-12">
       <div class="info" ng-class="(article.draft) ? 'well' : ''">
-        <h3>{{article.title}}</h3>
+        <a href="#/news/{{ articleId }}" >
+          <div class="article-title-row clearfix">
+            <h5>{{article.timestamp | date:'dd MMM yyyy'}}</h5>
+            <h4>{{article.title}}</h4>
+            <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
+          </div>
+        </a>
         <p>{{article.body}}</p>
-        <a href="#/news/{{ articleId }}" >More...</a>
       </div>
-    </div>
-    <div class="col-md-2">     
-      <a ng-show="article.draft" ng-click="publishArticle(articleId)">Publish</a>
-      <a ng-hide="article.draft" ng-click="retractArticle(articleId)">Retract</a>
-      <a ng-click="deleteArticle(articleId)">Delete</a>
+<!--         <a ng-show="article.draft" ng-click="publishArticle(articleId)">Publish</a>
+        <a ng-hide="article.draft" ng-click="retractArticle(articleId)">Retract</a>
+        <a ng-click="deleteArticle(articleId)">Delete</a> -->
     </div>
   </div>
 </div>
