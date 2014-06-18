@@ -4,19 +4,7 @@ app.factory('Article',
   function ($firebase, FIREBASE_URL) {
     var ref = new Firebase(FIREBASE_URL + 'articles');
     var articles = $firebase(ref);
-
-    var slug = function(str) {
-      var slug = '';
-      var trimmed = str.trim();
-      slug = trimmed.replace(/[^a-z0-9-]/gi, '-').
-        replace(/-+/g, '-').
-        replace(/^-|-$/g, '');
-      
-      return slug.toLowerCase();
-  }
-
-
-    
+ 
     var Article = {
       all: articles,
       create : function(article){
@@ -45,7 +33,8 @@ app.factory('Article',
       },
       new : function(){
         return {
-          title: '',
+          title_en: '',
+          title_zh: '',
           slug: '',
           author: '',
           en: '',
@@ -56,7 +45,6 @@ app.factory('Article',
         };
       }
     };
-
-
+    
     return Article;
 })

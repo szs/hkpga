@@ -18,7 +18,8 @@
     "angles": "*",
     "angular-translate": "~2.2.0",
     "fontawesome": "~4.1.0",
-    "angular-bootstrap": "~0.11.0"
+    "angular-bootstrap": "~0.11.0",
+    "angular-truncate": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",

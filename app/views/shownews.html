@@ -1,6 +1,13 @@
-<div>
-  <h2>{{article.title}}</h2>
-  {{article.body}}
-</div>
+<div class="article row">
+    <div class="col-md-12">
+      <div class="info" ng-class="(article.draft) ? 'well' : ''">
+          <div class="article-title-row clearfix">
+            <h5>{{article.timestamp | date:'dd MMM yyyy'}}</h5>
+            <h4>{{lang() == 'en' ? article.title_en : article.title_zh}}</h4>
+          </div>
+        <div ng-bind-html="lang() == 'en' ? article.en : article.zh"></div>
+      </div>
+    </div>
+  </div>
 
 <a href="#/news">Back to News</a>
