@@ -1,4 +1,4 @@
-People
+## People
 
 Auth
 * email
