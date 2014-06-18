@@ -1,13 +1,49 @@
 /* global app:true */
 'use strict';
 
-app.controller('NewsCtrl', function($scope, $translate, Article){
+app.controller('NewsCtrl', function($scope, $rootScope, $translate, Article, Lang){
   $scope.articles = Article.all;
   
   $scope.article = Article.new();
 
-  $scope.submitArticle = function(){
+  $scope.lang = function() {
+    return Lang.current()
+  }
 
+  var slug = function(str) {
+    var slug = '';
+    var trimmed = str.trim();
+    slug = trimmed.replace(/[^a-z0-9-]/gi, '-').
+      replace(/-+/g, '-').
+      replace(/^-|-$/g, '');
+    
+    return slug.toLowerCase();
+}
+
+  $scope.reset = function (){
+    $scope.article = Article.new();
+  };
+
+  $scope.save = function (){
+    console.log($rootScope.currentUser)
+    angular.extend($scope.article, {
+      author: $rootScope.currentUser,
+      slug: slug($scope.article.title),
+      timestamp: Date.now()
+    });
+          
+    articles[article.slug] = article;
+
+    return Article.create($scope.article).then(function(e){
+      console.log(e);
+    });
+  };
+
+  $scope.publish = function (){
+    return Article.publish($scope.article);
+  };
+  
+  $scope.submitArticle = function(){
     Article.create($scope.article).then(function(){
       $scope.article = Article.new();
     });

@@ -2,10 +2,6 @@
 'user strict'
 
 app.controller('AuthCtrl', function($scope, $location, User, Auth){
-  if (Auth.signedIn()){
-    $location.path('/');
-  }
-
   $scope.$on('$firebaseSimpleLogin:login', function () {
     $location.path('/');
   });

@@ -1,16 +1,15 @@
 <h1>Admin</h1>
-{{ content }}
 <h2>News Articles</h2>
-<div class='row'>
+<div class='row' ng-controller="NewsCtrl">
   <div class="col-md-6">
     <div class="panel panel-primary">
       <div class="panel-heading"><h3>English</h3></div>
       <div class="panel-body">
         <div class="form-group">
-          <textarea ng-model="content.en" redactor cols="30" rows="10"></textarea>
+          <textarea ng-model="article.en" redactor cols="30" rows="10"></textarea>
         </div>
         <br/>
-        <p>{{content.en}}</p>
+        <p>{{article.en}}</p>
       </div>
     </div>
   </div>
@@ -19,17 +18,19 @@
       <div class="panel-heading"><h3>Chinese</h3></div>
       <div class="panel-body">
         <div class="form-group">
-          <textarea ng-model="content.zh" redactor cols="30" rows="10"></textarea>
+          <textarea ng-model="article.zh" redactor cols="30" rows="10"></textarea>
         </div>
         <br/>
-        <p>{{content.zh}}</p>
+        <p>{{article.zh}}</p>
       </div>
     </div>
   </div>
   <div class="col-md-3 col-md-offset-9">
-    <a ng-click="Save()" href="#" class="btn btn-warning">Save</a>
-    <a ng-click="Publish()" href="#" ng-class="{disabled: content.draft == false}" class="btn btn-primary">Publish</a>    
+    <a ng-click="save()" class="btn btn-warning">Save</a>
+    <a ng-click="publish()" ng-class="{disabled: article.draft == false}" class="btn btn-primary">Publish</a>    
   </div>
+
+{{ article }}
 
 </div>
 <h2>Users</h2>
