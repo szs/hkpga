@@ -2,7 +2,7 @@
   <h2>Latest News &nbsp; | &nbsp; {{ getCurrentLanguage() }}</h2>
   <div class="article row" ng-repeat="latest in articles | orderByPriority | orderBy: 'timestamp':false | limitTo:1">
     <div class="col-md-12">
-      <div class="info">
+      <div class="info well latest-news">
         <a href="#/news/{{ latest.slug }}" >
           <div class="article-title-row clearfix">
             <h5>{{ latest.timestamp | date:'dd MMM yyyy'}}</h5>
