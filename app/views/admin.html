@@ -6,6 +6,7 @@
       <div class="panel-heading"><h3>English</h3></div>
       <div class="panel-body">
         <div class="form-group">
+        <input ng-model="article.title_en">
           <textarea ng-model="article.en" redactor cols="30" rows="10"></textarea>
         </div>
         <br/>
@@ -17,6 +18,7 @@
     <div class="panel panel-danger">
       <div class="panel-heading"><h3>Chinese</h3></div>
       <div class="panel-body">
+        <input ng-model="article.title_zh">
         <div class="form-group">
           <textarea ng-model="article.zh" redactor cols="30" rows="10"></textarea>
         </div>
@@ -30,7 +32,7 @@
     <a ng-click="publish()" ng-class="{disabled: article.draft == false}" class="btn btn-primary">Publish</a>    
   </div>
 
-{{ article }}
+  {{ article.title_en }}
 
 </div>
 <h2>Users</h2>
