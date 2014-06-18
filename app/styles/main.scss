@@ -25,13 +25,12 @@ $brand-gold:        #bc994b;
 $brand-black:       #231f20;
 
 @mixin bar-height($bar-height) {
-  height: $bar-height * 1.8;
+  height: $bar-height * 2;
 }
 
 .left-bar {
   border-left: 10px solid $brand-green;
   padding-top: 1rem;
-  padding-bottom: 1rem;
   padding-left: 20px;
 }
 
@@ -64,26 +63,32 @@ $brand-black:       #231f20;
     text-transform: uppercase;
     margin-top: 40px;
     @extend .left-bar;
-    @include bar-height(2.9rem);
+    @include bar-height(2.7rem);
+  }
+
+  // Module titles, h2 without green bar
+  h3 {
+    font-size: 2.3rem;
   }
 
   // article title,
   h4 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: $text-grey-lighter;
+    padding-top: 11px;
     @extend .left-bar;
     @include bar-height(2rem);
   }
 
   // date, column title
   h5 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: $text-grey-lighter;
   }
 
 
   a {
-    color: $brand-gold !important;
+    color: $text-grey-lighter;
     :hover {
       color: $brand-gold;
       border-color: $brand-gold;
@@ -145,6 +150,7 @@ $brand-black:       #231f20;
       font-size:13px;
       margin-left:5px;
     }
+    
 
   // .2 PROFILE PAGE //
 
@@ -247,8 +253,9 @@ $brand-black:       #231f20;
         padding: 13px 20px;
       }
       h5 {
-        padding: 11px;
+        padding: 12px 22px 12px 0;
       }
+
     }
   }
 
