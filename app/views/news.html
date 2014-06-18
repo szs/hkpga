@@ -1,4 +1,4 @@
-<div class="articles-page">
+<div id="articles-page">
   <h2>Latest News &nbsp; | &nbsp; {{ getCurrentLanguage() }}</h2>
   <div class="article row" ng-repeat="(articleId, article) in articles">
     <div class="col-md-12">
@@ -6,12 +6,15 @@
         <a href="#/news/{{ articleId }}" >
           <div class="article-title-row clearfix">
             <h5>{{article.timestamp | date:'dd MMM yyyy'}}</h5>
-            <h4>{{lang() == 'en' ? article.title_en : article.title_zh}}</h4>
+            <h4>{{article.title}}</h4>
             <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
           </div>
         </a>
-        <div ng-bind-html="lang() == 'en' ? article.en : article.zh"></div>
+        <p>{{article.body}}</p>
       </div>
+<!--         <a ng-show="article.draft" ng-click="publishArticle(articleId)">Publish</a>
+        <a ng-hide="article.draft" ng-click="retractArticle(articleId)">Retract</a>
+        <a ng-click="deleteArticle(articleId)">Delete</a> -->
     </div>
   </div>
 </div>
