@@ -10,7 +10,8 @@
             <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
           </div>
         </a>
-        <div ng-bind-html="lang() == 'en' ? article.en : article.zh"></div>
+        <img ng-show="article.cover" class="cover" ng-src="{{article.cover}}">
+        <div ng-bind-html="lang() == 'en' ? article.en : article.zh | words:50"></div>
       </div>
     </div>
   </div>
