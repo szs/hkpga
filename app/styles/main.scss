@@ -1,6 +1,6 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 
-@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400,300,700|Roboto:400,300,400italic,500,500italic);
 
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
@@ -12,12 +12,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 $grey-darker:       lighten(#000, 13.5%); // #222
 $grey-dark:         lighten(#000, 20%);   // #333
 $grey:              lighten(#000, 33.5%); // #555
-$grey-light:        lighten(#000, 60%);   // #999
+// $grey-light:        lighten(#000, 60%);   // #999
+$grey-light:        #cccccc;
 $grey-lighter:      lighten(#000, 93.5%); // #eee
 
 $white:             white;
 $black:             #090909;
-$text-grey:         #4d4d4d;
+$text-grey:         #5f6062;
 $text-grey-lighter: #666766;
 
 $brand-green:       #098743;
@@ -34,13 +35,23 @@ $brand-black:       #231f20;
   padding-left: 20px;
 }
 
+.widget-title {
+  border: 3px solid $white;
+  vertical-align: middle;
+  height: 50px;
+}
+
+.widget-body {
+  height: 300px;
+  display: table;
+}
 
 // 1. BASE ------------------------------
 
 
   body {
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-weight: 300;
     line-height: 25px;
     color: $text-grey;
@@ -57,18 +68,21 @@ $brand-black:       #231f20;
     color: $white;
   } 
 
+  // Section titles
   h2 {
-    font-size: 2.7rem ;
+    font-size: 2.4rem ;
     color: $brand-gold;
     text-transform: uppercase;
     margin-top: 40px;
+    margin-bottom: 20px;
     @extend .left-bar;
-    @include bar-height(2.7rem);
+    @include bar-height(2.4rem);
   }
 
   // Module titles, h2 without green bar
   h3 {
-    font-size: 2.3rem;
+    font-size: 2rem;
+    color: $brand-gold;
   }
 
   // article title,
@@ -80,12 +94,18 @@ $brand-black:       #231f20;
     @include bar-height(2rem);
   }
 
-  // date, column title
+  // date
   h5 {
     font-size: 1.5rem;
     color: $text-grey-lighter;
   }
 
+
+  p {
+    font-family: 'Roboto' sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+  }
 
   a {
     color: $text-grey-lighter;
@@ -94,6 +114,52 @@ $brand-black:       #231f20;
       border-color: $brand-gold;
     }
   }
+
+  // table {
+  //   border-collapse: separate;
+  //   background:#fff;
+  //   padding: 0px !important;
+  //   border: 3px solid $white;
+  //   border-top: none;
+  //   width: 100%;
+  // }
+
+  // thead, tbody {
+  //   padding-left: 0 !important;
+  //   display: block;
+  // }
+
+  // tr:nth-child(odd){
+  //     background-color: $white;
+  // }
+  // tr:nth-child(even){
+  //     background-color: $grey-lighter;
+  // }
+
+  // thead th {
+  //   font-family: 'Roboto', sans-serif;
+  //   font-size: 1.6rem;
+  //   font-weight: 400;
+  //   letter-spacing: -1px;
+  //   background-color: $grey-light;
+  //   font-weight: 700;
+  //   text-align: left;
+  //   padding: 10px 15px;
+  // }
+
+  // tbody tr td {
+  //   font-family: 'Roboto', sans-serif;
+  //   font-weight: 400;
+  //   color: #5f6062;
+  //   padding: 10px 15px;
+  //   border-bottom:1px solid #e0e0e0;
+  // }
+
+  // .widget {
+  //   margin-bottom: 40px;
+  //   padding-bottom: 40px;
+  //   height: 100%;
+  // }
 
 
 // 2. LAYOUT ------------------------------
@@ -150,7 +216,7 @@ $brand-black:       #231f20;
       font-size:13px;
       margin-left:5px;
     }
-    
+
 
   // .2 PROFILE PAGE //
 
@@ -243,6 +309,9 @@ $brand-black:       #231f20;
 
   #articles-page{  
     .article-title-row {
+      &:hover {
+        color: $brand-gold;
+      }
       h5, h4 {
         float: left;
         display: block;
@@ -255,7 +324,15 @@ $brand-black:       #231f20;
       h5 {
         padding: 12px 22px 12px 0;
       }
+    }
+  }
 
+  /* Widgets */
+
+  #merit-widget {
+    h3 {
+      vertical-align: middle;
+      margin: 12px 20px;
     }
   }
 
