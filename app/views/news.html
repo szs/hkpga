@@ -1,6 +1,6 @@
 <div id="articles-page">
   <h2>Latest News &nbsp; | &nbsp; {{ getCurrentLanguage() }}</h2>
-  <div class="article row" ng-repeat="latest in articles | orderByPriority | orderBy: 'timestamp':false | limitTo:1">
+  <div class="article row" ng-repeat="latest in articles | orderByPriority | orderBy: 'timestamp':true | limitTo:1">
     <div class="col-md-12">
       <div class="info well latest-news">
         <a href="#/news/{{ latest.slug }}" >
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-  <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | orderBy: 'timestamp':false" ng-hide="$first">
+  <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | orderBy: 'timestamp':true | limitTo:11" ng-hide="$first">
     <div class="col-md-12">
       <div class="info well" ng-class="(article.draft) ? 'draft' : ''">
         <a href="#/news/{{ articleId }}" >
