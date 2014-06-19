@@ -146,52 +146,6 @@ $brand-black:       #231f20;
 
 
 
-  // table {
-  //   border-collapse: separate;
-  //   background:#fff;
-  //   padding: 0px !important;
-  //   border: 3px solid $white;
-  //   border-top: none;
-  //   width: 100%;
-  // }
-
-  // thead, tbody {
-  //   padding-left: 0 !important;
-  //   display: block;
-  // }
-
-  // tr:nth-child(odd){
-  //     background-color: $white;
-  // }
-  // tr:nth-child(even){
-  //     background-color: $grey-lighter;
-  // }
-
-  // thead th {
-  //   font-family: 'Roboto', sans-serif;
-  //   font-size: 1.6rem;
-  //   font-weight: 400;
-  //   letter-spacing: -1px;
-  //   background-color: $grey-light;
-  //   font-weight: 700;
-  //   text-align: left;
-  //   padding: 10px 15px;
-  // }
-
-  // tbody tr td {
-  //   font-family: 'Roboto', sans-serif;
-  //   font-weight: 400;
-  //   color: #5f6062;
-  //   padding: 10px 15px;
-  //   border-bottom:1px solid #e0e0e0;
-  // }
-
-  // .widget {
-  //   margin-bottom: 40px;
-  //   padding-bottom: 40px;
-  //   height: 100%;
-  // }
-
 
 // 2. LAYOUT ------------------------------
 
@@ -364,6 +318,9 @@ $brand-black:       #231f20;
     h3 {
       vertical-align: middle;
       margin: 12px 12px;
+    }
+    .widget-footer {
+      
     }
   }
 
