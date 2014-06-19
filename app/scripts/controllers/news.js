@@ -3,14 +3,14 @@
 
 app.controller('NewsCtrl', function($scope, $rootScope, $translate, Article, Lang){
   $scope.articles = Article.all;
-  
-  $scope.article = Article.new();
 
+  $scope.article = Article.new();
+    
   $scope.lang = function() {
     return Lang.current()
   }
 
-  var slug = function(str) {
+  var getSlug = function(str) {
     var slug = '';
     var trimmed = str.trim();
     slug = trimmed.replace(/[^a-z0-9-]/gi, '-').
@@ -18,7 +18,17 @@ app.controller('NewsCtrl', function($scope, $rootScope, $translate, Article, Lan
       replace(/^-|-$/g, '');
     
     return slug.toLowerCase();
-}
+  }
+
+  var getCoverImage = function(html) {
+    var regex = /<img.*?src="(.*?)"/;
+    try {
+      var src = regex.exec(html)[1];
+    } catch (e) {
+      var src = ""
+    }
+    return src;
+  }
 
   $scope.reset = function (){
     $scope.article = Article.new();
@@ -26,24 +36,22 @@ app.controller('NewsCtrl', function($scope, $rootScope, $translate, Article, Lan
 
   $scope.save = function (){
 
-    console.log($scope.article);
-    console.log($rootScope.currentUser);
-
     angular.extend($scope.article, {
       author: $rootScope.currentUser,
-      slug: slug($scope.article.title_en),
+      slug: getSlug($scope.article.title_en),
+      $priority : Date.now(),
+      cover: getCoverImage($scope.article.en),
       timestamp: Date.now()
     });
 
     console.log($scope.article);
-    
-    Article.create($scope.article).then(function(e){
-      console.log(e);
-    });
+   
+    Article.create($scope.article)
   };
 
   $scope.publish = function (){
-    return Article.publish($scope.article);
+    $scope.article.draft = false;
+    $scope.save;
   };
   
   $scope.submitArticle = function(){

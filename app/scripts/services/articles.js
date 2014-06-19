@@ -16,15 +16,6 @@ app.factory('Article',
         });
 
       },
-      publish : function(article){
-        
-        angular.extend(article, {
-          draft: false
-        });
-
-        return articles.$add(article);
-
-      },
       find : function(articleId){
         return articles.$child(articleId);
       },
@@ -39,12 +30,12 @@ app.factory('Article',
           author: '',
           en: '',
           zh: '',
-          cover: 'http://www.decoco.co/wp/wp-content/uploads/2013/06/surrey-national-golf-club-placeholder.jpeg',
+          cover: '',
           draft: true,
           timestamp: Date.now()
         };
       }
     };
-    
+
     return Article;
 })

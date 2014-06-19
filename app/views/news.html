@@ -1,6 +1,21 @@
 <div id="articles-page">
   <h2>Latest News &nbsp; | &nbsp; {{ getCurrentLanguage() }}</h2>
-  <div class="article row" ng-repeat="(articleId, article) in articles">
+  <div class="article row" ng-repeat="latest in articles | orderByPriority | orderBy: 'timestamp':false | limitTo:1">
+    <div class="col-md-12">
+      <div class="info well latest-news">
+        <a href="#/news/{{ latest.slug }}" >
+          <div class="article-title-row clearfix">
+            <h5>{{ latest.timestamp | date:'dd MMM yyyy'}}</h5>
+            <h4>{{lang() == 'en' ? latest.title_en : latest.title_zh}}</h4>
+            <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
+          </div>
+        </a>
+        <img ng-show="latest.cover" class="cover" ng-src="{{articles[0].cover}}">
+        <div ng-bind-html="lang() == 'en' ? latest.en : latest.zh | words:80"></div>
+      </div>
+    </div>
+
+  <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | orderBy: 'timestamp':false" ng-hide="$first">
     <div class="col-md-12">
       <div class="info well" ng-class="(article.draft) ? 'draft' : ''">
         <a href="#/news/{{ articleId }}" >
@@ -10,7 +25,8 @@
             <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
           </div>
         </a>
-        <div ng-bind-html="lang() == 'en' ? article.en : article.zh"></div>
+        <img ng-show="article.cover" class="cover" ng-src="{{article.cover}}">
+        <div ng-bind-html="lang() == 'en' ? article.en : article.zh | words:50"></div>
       </div>
     </div>
   </div>
