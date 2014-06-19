@@ -37,6 +37,7 @@ $brand-black:       #231f20;
 
 .widget-title {
   border: 3px solid $white;
+  border-bottom: none;
   vertical-align: middle;
   height: 50px;
 }
@@ -114,6 +115,36 @@ $brand-black:       #231f20;
       border-color: $brand-gold;
     }
   }
+
+  .table-striped > tbody > tr:nth-child(even) > td,
+  .table-striped > tbody > tr:nth-child(even) > th {
+    background-color: $grey-lighter;
+  }
+
+  .table > thead > tr > th,
+  .table > thead > tr > td,
+  .table > tbody > tr > th,
+  .table > tbody > tr > td,
+  .table > tfoot > tr > th,
+  .table > tfoot > tr > td {
+    border-top: none;
+    padding-left: 15px;
+  }
+
+  .table {
+    border: 3px solid white;
+    thead {
+      background-color: $grey-light;
+      border: none;
+    }
+    tbody {
+      font-family: 'Roboto';
+      font-weight: 400;
+      font-size: 1.5rem;
+    }
+  }
+
+
 
   // table {
   //   border-collapse: separate;
@@ -332,7 +363,7 @@ $brand-black:       #231f20;
   #merit-widget {
     h3 {
       vertical-align: middle;
-      margin: 12px 20px;
+      margin: 12px 12px;
     }
   }
 
