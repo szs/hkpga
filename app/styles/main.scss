@@ -9,12 +9,17 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 // 0. VARIABLES & MIXINS
 
+$header-font:       'Roboto Condensed';
+$paragraph-font:    'Roboto';
+
 $grey-darker:       lighten(#000, 13.5%); // #222
 $grey-dark:         lighten(#000, 20%);   // #333
-$grey:              lighten(#000, 33.5%); // #555
+// $grey:              lighten(#000, 33.5%); // #555
 // $grey-light:        lighten(#000, 60%);   // #999
+$grey:              #5f6062;
 $grey-light:        #cccccc;
 $grey-lighter:      lighten(#000, 93.5%); // #eee
+$grey-shadow:       #b5b5b5;
 
 $white:             white;
 $black:             #090909;
@@ -35,23 +40,16 @@ $brand-black:       #231f20;
   padding-left: 20px;
 }
 
-.widget-title {
-  border: 3px solid $white;
-  border-bottom: none;
-  vertical-align: middle;
-  height: 50px;
-}
-
-.widget-body {
-  height: 300px;
-  display: table;
+.bottom-bar {
+  border-bottom: 3px solid $brand-green;
+  padding-bottom: 15px;
 }
 
 // 1. BASE ------------------------------
 
 
   body {
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: $header-font, sans-serif;
     font-size: 1.6rem;
     font-weight: 300;
     line-height: 25px;
@@ -103,7 +101,7 @@ $brand-black:       #231f20;
 
 
   p {
-    font-family: 'Roboto' sans-serif;
+    font-family: $paragraph-font, sans-serif;
     font-weight: 400;
     font-size: 1.4rem;
   }
@@ -115,6 +113,12 @@ $brand-black:       #231f20;
       border-color: $brand-gold;
     }
   }
+
+  .table-striped > tbody > tr:nth-child(odd) > td,
+  .table-striped > tbody > tr:nth-child(odd) > th {
+    background-color: $white;
+  }
+
 
   .table-striped > tbody > tr:nth-child(even) > td,
   .table-striped > tbody > tr:nth-child(even) > th {
@@ -138,7 +142,7 @@ $brand-black:       #231f20;
       border: none;
     }
     tbody {
-      font-family: 'Roboto';
+      font-family: $paragraph-font;
       font-weight: 400;
       font-size: 1.5rem;
     }
@@ -153,17 +157,6 @@ $brand-black:       #231f20;
   // .2 Default - from ??
 
 
-    /* Custom page footer */
-    .footer {
-      padding-top: 19px;
-      color: #777;
-      border-top: 1px solid #e5e5e5;
-    }
-
-    .container-narrow > hr {
-      margin: 30px 0;
-    }
-
     /* Responsive: Portrait tablets and up */
     @media screen and (min-width: 768px) {
 
@@ -175,6 +168,22 @@ $brand-black:       #231f20;
         padding-right: 0;
       }
     }
+
+    .footer {
+      padding-bottom: 40px;
+      p {
+        padding-left: 30px;
+      }
+      .copyright {
+        float: right;
+        margin: -35px 30px 0 0;
+      }
+      padding-top: 19px;
+      color: #777;
+      border-top: 1px solid #e5e5e5;
+      background-image: url(/images/tactile-grey-bg.png);
+    }
+
 
   // .2 MAIN POSTS PAGE //
 
@@ -255,8 +264,16 @@ $brand-black:       #231f20;
       color:#bbb;
     }
 
+    // 2. ADMIN PAGE
 
+    .panel-primary > .panel-heading,
+    .panel-danger > .panel-heading {
+      background-color: $grey;
+    }
 
+    .panel {
+      border: none;
+    }
 
 // 3. MODULE ------------------------------
 
@@ -292,6 +309,36 @@ $brand-black:       #231f20;
 
   /* NEWS ARTICLES */
 
+  // .3 MAIN ARTICLES STYLING
+
+    .latest-news {
+      margin-bottom: 20px;
+      .article-title-row {
+        background-color: none;
+        border: 3px solid $white;
+        padding-left: 20px;
+        h5, h4, i {
+          color: $white;
+        }
+      }
+      .latest-news-body {
+        background-color: $white;
+        color: $text-grey;
+        padding: 22px;
+        font-family: $paragraph-font;
+        font-weight: normal; 
+        margin-top: -27px;
+      }
+    }
+
+
+    .more-news {
+      border-radius: 0;
+      .article-title-row {
+        margin-bottom: 20px;
+      }
+    }
+
   #articles-page{  
     .article-title-row {
       &:hover {
@@ -319,15 +366,90 @@ $brand-black:       #231f20;
 
   /* Widgets */
 
-  #merit-widget {
+  .widget {
+      padding-bottom: 50px;
+    }
     h3 {
       vertical-align: middle;
       margin: 12px 12px;
     }
-    .widget-footer {
-
+    .widget-title {
+      border: 3px solid $white;
+      border-bottom: none;
+      vertical-align: middle;
+      height: 50px;
     }
-  }
+    .widget-footer {
+      margin-top: -20px;
+      padding: 0px 18px 13px;
+      button.btn {
+        float: right;
+        background-color: $brand-gold;
+        color: $white;
+        &:hover {
+            background-color: lighten($brand-gold, 5%);
+            color: $white;
+            box-shadow: 1px 1px 1px $grey-light;
+        }
+      }
+    }
+
+
+    #merit-widget {
+      @extend .bottom-bar;
+      .widget-footer {
+        background-color: $white;
+      }
+    }
+
+    #scores-widget {
+      @extend .bottom-bar;
+      .widget-footer {
+        background-color: $white;
+      }
+      .widget-title {
+        height: 100%;
+      }
+      h5 {
+        color: $brand-gold;
+        margin: 11px 12px;
+        font-style: italic;
+      }
+      h3 {
+        font-size: 1.7rem;
+        padding-bottom: 0;
+        margin: -10px 0 12px 12px;
+      }
+      .widget-footer {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+
+    #magazine-widget {
+      h2:nth-child(2) {
+        margin:  -34px 12px 16px 0px;
+        text-transform: capitalize;
+        font-size: 1.8rem;
+        @include bar-height(1.8rem);
+      }
+      .latest-magazine-thumbnail {
+        border: 3px solid $white;
+        padding: 5px 0;
+        width: 100%;
+        height: 481px;
+        background-image: url('/images/magazine-cover-march-14.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .widget-footer {
+          margin-top: 15px;
+          margin-bottom: 20px;
+      }
+      @extend .bottom-bar;
+    }
+
 
   /* CAROUSEL */
 
@@ -452,7 +574,6 @@ $brand-black:       #231f20;
     #main-page {
       background-image: url(/images/tactile-grey-bg.png);
       h1, h2, h3, h4, h5, p {
-
       }
     }
 
