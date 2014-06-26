@@ -96,7 +96,8 @@ app.config(function ($routeProvider) {
     })
   .config(['$translateProvider', function ($translateProvider) {
     $translateProvider.translations('en', translationsEN);
-    $translateProvider.translations('zh', translationsZH);
+    $translateProvider.translations('zh-hk', translationsZHHK);
+    $translateProvider.translations('zh-cn', translationsZHCN);
     $translateProvider.preferredLanguage('en');
     $translateProvider.fallbackLanguage('en');
   }])

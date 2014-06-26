@@ -13,12 +13,17 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class=" container-fluid collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <div class="clearfix">
-      <ul class="nav navbar-nav navbar-right clearfix">
-        <li ng-controller="LangCtrl">
-          <a ng-hide="getCurrentLanguage() == 'en'" ng-click="changeLanguage('en')" translate="LANG_EN" class="btn"></a>
-          <a ng-hide="getCurrentLanguage() == 'zh-hk'" ng-click="changeLanguage('zh')" translate="LANG_ZH_HK" class="btn"></a>
-          <a ng-hide="getCurrentLanguage() == 'zh-cn'" ng-click="changeLanguage('zh')" translate="LANG_ZH_CN" class="btn"></a>
+      <ul ng-controller="LangCtrl" class="nav navbar-nav navbar-right clearfix">
+        <li translate>LANG_CURRENT</li>
+        <li ng-hide="getCurrentLanguage() == 'en'">
+          <a ng-click="changeLanguage('en')" translate="LANG_EN" class="btn"></a>
+        
+        <li ng-hide="getCurrentLanguage() == 'zh-hk'">
+          <a ng-click="changeLanguage('zh-hk')" translate="LANG_ZH_HK" class="btn"></a>
         </li>
+        <li ng-hide="getCurrentLanguage() == 'zh-cn'"> 
+          <a ng-click="changeLanguage('zh-cn')" translate="LANG_ZH_CN" class="btn"></a>
+        </li> 
         <li ng-show="signedIn()">
           <a href="#/users/{{ currentUser.email }}">
             {{ currentUser.email }}
