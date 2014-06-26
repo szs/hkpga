@@ -37,22 +37,22 @@
       <label for="inputRole" class="col-sm-2 control-label" translate>ROLE</label>
       <div class="col-sm-10">
         <div class="radio" id="inputRole">
-          <label>
-            <input type="radio" ng-model="user.role" name="optionsRadios" id="optionsRadios1" value="admin" translate>
-            ADMIN
+          <label for="optionsRadios1" translate>
+          ADMIN
           </label>
+          <input type="radio" ng-model="user.role" name="optionsRadios" id="optionsRadios1" value="admin" />  
         </div>
         <div class="radio">
-          <label>
-            <input type="radio" ng-model="user.role" name="optionsRadios" id="optionsRadios2" value="member" checked translate>
-            MEMBER
+          <label for="optionsRadios2" translate>
+          MEMBER
           </label>
+          <input type="radio" ng-model="user.role" name="optionsRadios" id="optionsRadios2" value="member" checked />
         </div>
         <div class="radio">
-          <label>
-            <input type="radio" ng-model="user.role" name="optionsRadios" id="optionsRadios3" value="user" translate>
-            USER
+          <label for="optionsRadios3" translate>
+          USER
           </label>
+            <input type="radio" ng-model="user.role" name="optionsRadios" id="optionsRadios3" value="user"></input>
         </div>
       </div>
     </div>

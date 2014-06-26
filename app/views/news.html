@@ -7,7 +7,7 @@
           <a href="#/news/{{ latest.slug }}" >
             <div class="article-title-row clearfix">
               <h5>{{ latest.timestamp | date:'dd MMM yyyy'}}</h5>
-              <h4>{{lang() == 'en' ? latest.title_en : latest.title_zh}}</h4>
+              <h4>{{ lang() == 'en' ? latest.title_en : latest.title_zh }}</h4>
               <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
             </div>
           </a>
