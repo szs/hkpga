@@ -1,13 +1,31 @@
-<div class="article row">
-    <div class="col-md-12">
-      <div class="info" ng-class="(article.draft) ? 'well' : ''">
-          <div class="article-title-row clearfix">
-            <h5>{{article.timestamp | date:'dd MMM yyyy'}}</h5>
-            <h4>{{lang() == 'en' ? article.title_en : article.title_zh}}</h4>
+<div class="container" id="show-news">
+  <ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#/news">News</a></li>
+    <li class="active">Latest</li>
+  </ol>
+  <div class="row">
+    <div class="col-md-9">
+      <div id="show-article">
+        <div class="article row">
+          <div class="col-md-12">
+            <div class="info" ng-class="(article.draft) ? 'well' : ''">
+              <div class="article-title-row clearfix">
+                <h5>{{article.timestamp | date:'dd MMM yyyy'}}</h5>
+                <h4>{{lang() == 'en' ? article.title_en : article.title_zh}}</h4>
+              </div>
+              <div ng-bind-html="lang() == 'en' ? article.en : article.zh">
+              </div>
+            </div>
           </div>
-        <div ng-bind-html="lang() == 'en' ? article.en : article.zh"></div>
+        </div>
+        <a href="#">
+          <button type="button" class="btn back">Back</button>
+        </a>
       </div>
     </div>
+    <div class="sidenav col-md-3">
+      
+    </div>
   </div>
-
-<a href="#/news">Back to News</a>
+</div>
