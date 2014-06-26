@@ -1,8 +1,8 @@
 /* global app:true */
 'use strict';
 
-app.controller('MembersCtrl', function($scope, $translate, User, Lang){
-  $scope.members = User.all;
+app.controller('ProfessionalsCtrl', function($scope, $translate, User, Lang){
+  $scope.professionals = User.all;
   $scope.lang = function() {
     return Lang.current()
   }

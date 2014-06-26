@@ -14,38 +14,40 @@
   <div class=" container-fluid collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <div class="clearfix">
       <ul class="nav navbar-nav navbar-right clearfix">
-      <li ng-controller="LangCtrl">
-        <a ng-hide="getCurrentLanguage() == 'en'" ng-click="changeLanguage('en')" translate="LANG_EN" class="btn"></a>
-        <a ng-hide="getCurrentLanguage() == 'zh'" ng-click="changeLanguage('zh')" translate="LANG_ZH" class="btn"></a>
-      </li>
-      <li ng-show="signedIn()">
-        <a href="#/users/{{ currentUser.email }}">
-          <img ng-src="http://www.gravatar.com/avatar/{{ currentUser.md5_hash }}" class="nav-pic" />
-          {{ currentUser.email }}
-        </a>
-      </li>
-      <li ng-show="signedIn()">
-        <a translate href="#" ng-click="logout()">LOGOUT</a>
-      </li>
-      <li ng-hide="signedIn()">
-        <a translate href="#/register">REGISTER</a>
-      </li>
-      <li ng-hide="signedIn()">
-        <a translate href="#/login">LOGIN</a>
-      </li>
+        <li ng-controller="LangCtrl">
+          <a ng-hide="getCurrentLanguage() == 'en'" ng-click="changeLanguage('en')" translate="LANG_EN" class="btn"></a>
+          <a ng-hide="getCurrentLanguage() == 'zh'" ng-click="changeLanguage('zh')" translate="LANG_ZH" class="btn"></a>
+        </li>
+        <li ng-show="signedIn()">
+          <a href="#/users/{{ currentUser.email }}">
+            {{ currentUser.email }}
+          </a>
+        </li>
+        <li ng-show="signedIn()">
+          <a translate href="#" ng-click="logout()">LOGOUT</a>
+        </li>
+        <li ng-hide="signedIn()">
+          <a translate href="#/register">REGISTER</a>
+        </li>
+        <li ng-hide="signedIn()">
+          <a translate href="#/login">LOGIN</a>
+        </li>
+        <li>
+          <a translate ng-href="#/admin">
+            <span class="glyphicon glyphicon-cog"></span>
+          </a>
+        </li>
     </ul>
     </div>
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a translate ng-href="#">MENU_HOME</a></li>
-      <li><a translate ng-href="#/news">MENU_NEWS</a></li>
+      <li><a translate ng-href="#/about">MENU_ABOUT</a></li>
       <li><a translate ng-href="#/tournaments">MENU_TOURNAMENTS</a></li>
-      <li><a translate ng-href="#/members">MENU_MEMBERS</a></li>
+      <li><a translate ng-href="#/professionals">MENU_PROFESSIONALS</a></li>
       <li><a translate ng-href="#/juniors">MENU_JUNIORS</a></li>
       <li><a translate ng-href="#/events">MENU_EVENTS</a></li>
-      <li><a translate ng-hide='true' ng-href="#/press">MENU_PRESS</a></li>
-      <li><a translate ng-href="#/admin">MENU_ADMIN</a></li>
-      <li><a translate ng-hide='true' ng-href="#/about">MENU_ABOUT</a></li>
-      <li><a translate ng-hide='true' ng-href="#/contact">MENU_CONTACT</a></li>
+      <li><a translate ng-href="#/press">MENU_PRESS</a></li>
+      <li><a translate ng-href="#/contact">MENU_CONTACT</a></li>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
