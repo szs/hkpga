@@ -1,9 +1,9 @@
-<h1>Admin</h1>
-<h2>News Articles</h2>
+<h1 translate>ADMIN</h1>
+<h2 translate>NEWS_ARTICLE</h2>
 <div class='row' ng-controller="NewsCtrl">
   <div class="col-md-6">
     <div class="panel panel-primary">
-      <div class="panel-heading"><h3>English</h3></div>
+      <div class="panel-heading"><h3 translate>ENGLISH</h3></div>
       <div class="panel-body">
         <div class="form-group">
         <input ng-model="article.title_en">
@@ -16,7 +16,7 @@
   </div>
   <div class="col-md-6">
     <div class="panel panel-danger">
-      <div class="panel-heading"><h3>Chinese</h3></div>
+      <div class="panel-heading"><h3 translate>CHINESE</h3></div>
       <div class="panel-body">
         <input ng-model="article.title_zh">
         <div class="form-group">
@@ -28,14 +28,14 @@
     </div>
   </div>
   <div class="col-md-3 col-md-offset-9">
-    <a ng-click="save()" class="btn btn-warning">Save</a>
-    <a ng-click="publish()" ng-class="{disabled: article.draft == false}" class="btn btn-primary">Publish</a>    
+    <a ng-click="save()" class="btn btn-warning" translate>SAVE</a>
+    <a ng-click="publish()" ng-class="{disabled: article.draft == false}" class="btn btn-primary" translate>PUBLISH</a>    
   </div>
 
   {{ article.title_en }}
 
 </div>
-<h2>Users</h2>
+<h2 translate>USERS</h2>
 <div>
-  <a href="#/register" class="btn btn-primary">Register User</a>
+  <a href="#/register" class="btn btn-primary" translate>REGISTER_USER</a>
 </div>
