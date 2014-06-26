@@ -1,6 +1,6 @@
 var translationsEN = {
   MENU_HOME: 'Home',
-  MENU_PROFESSIONALS: 'News',
+  MENU_PROFESSIONALS: 'Professionals',
   MENU_TOURNAMENTS: 'Tournaments',
   MENU_MEMBERS: 'Members',
   MENU_JUNIORS: 'Juniors',
@@ -77,10 +77,10 @@ var translationsEN = {
 
 };
  
-var translationsZH = {
-  LANG_EN: '英语',
+var translationsZHHK = {
+  LANG_EN: '英语'
 };
 
-
-
-
+var translationsZHCN = {
+  LANG_EN: '英语'
+};
