@@ -12,10 +12,16 @@ var translationsEN = {
   REGISTER: 'Register',
   LOGIN: 'Login',
   LOGOUT: 'Logout',
-  LANG_ZH: '中文',
   LANG_EN: 'EN'
+  LANG_ZH_HK: '繁體',
+  LANG_ZH_CN: '中文',
+  
 };
  
-var translationsZH = {
+var translationsZHHK = {
+  LANG_EN: '英语'
+};
+
+var translationsZHCN = {
   LANG_EN: '英语'
 };

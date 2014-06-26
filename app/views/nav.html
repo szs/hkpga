@@ -16,7 +16,8 @@
       <ul class="nav navbar-nav navbar-right clearfix">
         <li ng-controller="LangCtrl">
           <a ng-hide="getCurrentLanguage() == 'en'" ng-click="changeLanguage('en')" translate="LANG_EN" class="btn"></a>
-          <a ng-hide="getCurrentLanguage() == 'zh'" ng-click="changeLanguage('zh')" translate="LANG_ZH" class="btn"></a>
+          <a ng-hide="getCurrentLanguage() == 'zh-hk'" ng-click="changeLanguage('zh')" translate="LANG_ZH_HK" class="btn"></a>
+          <a ng-hide="getCurrentLanguage() == 'zh-cn'" ng-click="changeLanguage('zh')" translate="LANG_ZH_CN" class="btn"></a>
         </li>
         <li ng-show="signedIn()">
           <a href="#/users/{{ currentUser.email }}">
@@ -27,12 +28,9 @@
           <a translate href="#" ng-click="logout()">LOGOUT</a>
         </li>
         <li ng-hide="signedIn()">
-          <a translate href="#/register">REGISTER</a>
-        </li>
-        <li ng-hide="signedIn()">
           <a translate href="#/login">LOGIN</a>
         </li>
-        <li>
+        <li ng-show="currentUser.role == 'admin'">  
           <a translate ng-href="#/admin">
             <span class="glyphicon glyphicon-cog"></span>
           </a>
