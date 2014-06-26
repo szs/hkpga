@@ -61,9 +61,9 @@ app.config(function ($routeProvider) {
           controller: 'TournamentsCtrl',
           controllerAs: 'tournaments'
         })
-        .when('/members', {
-          templateUrl: 'views/members.html',
-          controller: 'MembersCtrl'
+        .when('/professionals', {
+          templateUrl: 'views/professionals.html',
+          controller: 'ProfessionalsCtrl'
         })
         .when('/juniors', {
           templateUrl: 'views/juniors.html',
