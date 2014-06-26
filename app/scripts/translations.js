@@ -1,6 +1,5 @@
 var translationsEN = {
   MENU_HOME: 'Home',
-  MENU_NEWS: 'News',
   MENU_TOURNAMENTS: 'Tournaments',
   MENU_MEMBERS: 'Members',
   MENU_JUNIORS: 'Juniors',
@@ -13,7 +12,16 @@ var translationsEN = {
   LOGIN: 'Login',
   LOGOUT: 'Logout',
   LANG_ZH: '中文',
-  LANG_EN: 'EN'
+  LANG_EN: 'EN',
+  NEWS: 'News',
+  ADMIN: 'Admin',
+  NEWS_ARTICLE: 'News article',
+  ENGLISH: 'English',
+  CHINESE: 'Chinese',
+  SAVE: 'Save',
+  PUBLISH: 'Publish',
+  USERS: 'Users',
+  REGISTER_USER: 'Register user',
 };
  
 var translationsZH = {
