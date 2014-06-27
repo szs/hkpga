@@ -18,7 +18,7 @@ $grey-dark:         lighten(#000, 20%);   // #333
 // $grey-light:        lighten(#000, 60%);   // #999
 $grey:              #5f6062;
 $grey-light:        #cccccc;
-$grey-lighter:      lighten(#000, 93.5%); // #eee
+$grey-lighter:      lighten(#cccccc, 21%); // #eee
 $grey-shadow:       #b5b5b5;
 
 $white:             white;
@@ -45,7 +45,7 @@ $brand-black:       #231f20;
   padding-bottom: 15px;
 }
 
-// 1. BASE ------------------------------
+// 1. BASE ------------------------------------------------------------
 
   body {
     font-family: $header-font, sans-serif;
@@ -117,6 +117,14 @@ $brand-black:       #231f20;
   .breadcrumb {
     float: right;
     margin-top: 20px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: 2px solid $grey-dark;
+    li {
+      a:not(.active) {
+        color: $brand-gold;
+      }
+    }
   }
 
   .table-striped > tbody > tr:nth-child(odd) > td,
@@ -155,10 +163,11 @@ $brand-black:       #231f20;
 
   .well {
     padding: 20px 40px;
+    border-radius: 0px;
   }
 
 
-// 2. LAYOUT ------------------------------
+// 2. LAYOUT ------------------------------------------------------------
 
 
   // .2 Default - from ??
@@ -221,7 +230,7 @@ $brand-black:       #231f20;
 
   /* NEWS ARTICLES */
 
-  // .2 MAIN ARTICLES STYLING
+  // .2 MAIN
 
     .latest-news {
       margin-bottom: 20px;
@@ -252,53 +261,56 @@ $brand-black:       #231f20;
     }
 
 
-
-  #articles-section {
-    .article-title-row {
-      i.arrow-more {
-        float: right;
-        display: block;
-        padding: 13px 20px;
+    #articles-section {
+      .article-title-row {
+        i.arrow-more {
+          float: right;
+          display: block;
+          padding: 13px 20px;
+        }
+      }
+      img:not(.cover){
+        display: none;
       }
     }
-    img:not(.cover){
-      display: none;
-    }
-  }
 
-  #articles-section, 
-  #show-article {  
-    .article-title-row {
-      &:hover {
-        color: $brand-gold;
-      }
-      h5, h4 {
-        float: left;
-        display: block;
-      }
-      h5 {
-        padding: 12px 22px 12px 0;
+    #articles-section, 
+    #show-article {  
+      .article-title-row {
+        &:hover {
+          color: $brand-gold;
+        }
+        h5, h4 {
+          float: left;
+          display: block;
+        }
+        h5 {
+          padding: 12px 22px 12px 0;
+        }
       }
     }
-  }
 
-  #show-article {
-    margin-top: 80px;
-    .article-title-row {  
-      padding-bottom: 20px;
-      h4 {
-        font-size: 2.3rem;
-        font-weight: 500;
-        @include bar-height(2.4rem);
+    #show-article {
+      margin-top: 80px;
+      .article-title-row {  
+        padding-bottom: 10px;
+        border-bottom: 1px solid $text-grey;
+        h4 {
+          font-size: 2.3rem;
+          font-weight: 500;
+          @include bar-height(2.4rem);
+        }
+        h5 {
+          font-size: 2rem;
+        }
+        p:nth-child(2){
+          padding-top: 20px;
+        }
       }
-      h5 {
-        font-size: 2rem;
-      }
-      p:nth-child(2){
+      .article-body {
         padding-top: 20px;
       }
     }
-  }
 
 
 
@@ -366,10 +378,10 @@ $brand-black:       #231f20;
     }
 
 
-// 3. MODULE ------------------------------
+// 3. MODULE ------------------------------------------------------------
 
 
-  /* BUTTONS */
+  /* Buttons */
 
     button.btn {
       background-color: $brand-gold;
@@ -493,6 +505,36 @@ $brand-black:       #231f20;
     }
 
 
+
+  /* Side nav */
+    .side-nav {
+      padding: 20px 25px;
+      width: 100%;
+      height: auto;
+      background-color: $grey-dark;
+      color: $brand-gold;
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      li {
+        border-bottom: 1px solid $grey;
+        padding: 5px 0;
+      }
+      li.side-level-1{
+        font-family: $header-font;
+        font-size: 1.8rem;
+        font-weight: 400;
+      }
+      li.side-level-2 {
+        padding-left: 40px;
+      }
+      a {
+        color: $brand-gold;
+      }
+    }    
+
+
   /* CAROUSEL */
 
     #carousel {
@@ -530,7 +572,7 @@ $brand-black:       #231f20;
         background-position: center;
       }
       .item:nth-child(2){
-        background-image: url(/images/discovery-bay-golf-course.png);
+        background-image: url(/images/discovery-bay-golf-club.png);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;

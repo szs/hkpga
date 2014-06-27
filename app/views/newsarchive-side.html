@@ -1,6 +1,8 @@
-<ul>
-	<li translate>NEWS</li>
-		<ul>
-			<li ng-repeat="year in years"><a href="#/news/archive/{{ year }}" title="">{{ year }}</a></li>
-		</ul>
-</ul>
+<div class="side-nav">
+	<ul>
+		<li class="side-level-1" translate> NEWS </li>
+			<ul>
+				<li class="side-level-2" ng-repeat="year in years"><a href="#/news/archive/{{ year }}" title=""> / {{ year }}</a></li>
+			</ul>
+	</ul>
+</div>

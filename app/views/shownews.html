@@ -14,7 +14,7 @@
                 <h5>{{article.timestamp | date:'dd MMM yyyy'}}</h5>
                 <h4>{{lang() == 'en' ? article.title_en : article.title_zh}}</h4>
               </div>
-              <div ng-bind-html="lang() == 'en' ? article.en : article.zh">
+              <div class="article-body" ng-bind-html="lang() == 'en' ? article.en : article.zh">
               </div>
             </div>
           </div>
@@ -24,8 +24,8 @@
         </a>
       </div>
     </div>
-    <div class="sidenav col-md-3">
-
+    <div class="col-md-3">
+      <div ng-include="'/views/newsarchive-side.html'" ng-controller="NewsArchiveCtrl"></div>
     </div>
   </div>
 </div>
