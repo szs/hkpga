@@ -1,13 +1,12 @@
 /* global app:true */
 'user strict'
 
-app.controller('AuthCtrl', function($scope, $location, User, Auth){
+app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth){
   $scope.$on('$firebaseSimpleLogin:login', function () {
-    $location.path('/');
+    // $location.path('/');
   });
 
   var createUsername = function(str) {
-    console.log(str);
     var username = '';
     var trimmed = str.trim();
     username = trimmed.replace(/[^a-z0-9-]/gi, '');
@@ -16,11 +15,15 @@ app.controller('AuthCtrl', function($scope, $location, User, Auth){
 
   $scope.login = function () {
     Auth.login($scope.user).then(function () {
-      $location.path('/');
+      // $location.path('/');
     }, function(error){
       $scope.error = error.toString().split(':')[3];
     });
   };
+
+  $scope.logout = function(){
+    return Auth.logout();
+  }
 
   $scope.register = function () {
     Auth.register($scope.user).then(function (authUser){
@@ -32,4 +35,9 @@ app.controller('AuthCtrl', function($scope, $location, User, Auth){
       $scope.error = error.toString().split(':')[3];
     });
   };
+
+  $scope.signedIn = function (){
+    return Auth.signedIn();
+  };
+
 });

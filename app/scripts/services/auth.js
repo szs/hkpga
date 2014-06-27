@@ -18,12 +18,8 @@ app.factory('Auth',
         return auth.$login('password', user);
       },
       logout: function (){
-        auth.$logout();
+        return auth.$logout();
       }
-    };
-
-    $rootScope.signedIn = function (){
-      return Auth.signedIn();
     };
 
     return Auth;

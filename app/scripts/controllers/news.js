@@ -37,15 +37,13 @@ app.controller('NewsCtrl', function($scope, $rootScope, $translate, Article, Lan
   $scope.save = function (){
 
     angular.extend($scope.article, {
-      author: $rootScope.currentUser,
+      author: $rootScope.currentUser.username,
       slug: getSlug($scope.article.title_en),
       $priority : Date.now(),
       cover: getCoverImage($scope.article.en),
       timestamp: Date.now()
     });
-
-    console.log($scope.article);
-   
+  
     Article.create($scope.article)
   };
 

@@ -19,7 +19,7 @@ var app = angular.module('hkpgaApp', [
   'angular-redactor',
   'pascalprecht.translate',
   'ui.bootstrap',
-  'truncate'
+  'truncate',
 ]);
 
 app.config(function ($routeProvider) {
@@ -27,10 +27,6 @@ app.config(function ($routeProvider) {
         .when('/', {
           templateUrl: 'views/main.html',
           controller: 'MainCtrl'
-        })
-        .when('/register', {
-          templateUrl: 'views/register.html',
-          controller: 'AuthCtrl'
         })
         .when('/login', {
           templateUrl: 'views/login.html',
@@ -56,49 +52,63 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/shownews.html',
           controller: 'NewsViewCtrl'
         })
+        .when('/magazines', {
+          templateUrl: 'views/magazines.html',
+          controller: 'MagazineCtrl',
+        })
+        .when('/magazines/:year', {
+          templateUrl: 'views/magazines.html',
+          controller: 'MagazineCtrl',
+        })
         .when('/tournaments', {
           templateUrl: 'views/tournaments.html',
           controller: 'TournamentsCtrl',
-          controllerAs: 'tournaments'
         })
         .when('/professionals', {
           templateUrl: 'views/professionals.html',
           controller: 'ProfessionalsCtrl'
         })
+        .when('/professionals/new', {
+          templateUrl: 'views/register.html',
+          controller: 'AuthCtrl'
+        })
         .when('/juniors', {
           templateUrl: 'views/juniors.html',
           controller: 'JuniorsCtrl',
-          controllerAs: 'juniors'
         })
         .when('/events', {
           templateUrl: 'views/events.html',
           controller: 'EventsCtrl',
-          controllerAs: 'events'
         })
-        .when('/press', {
-          templateUrl: 'views/press.html',
-          controller: 'PressCtrl',
-          controllerAs: 'press'
+        .when('/pressreleases', {
+          templateUrl: 'views/pressreleases.html',
+          controller: 'PressReleaseCtrl',
+        })
+        .when('/:contentType/new', {
+          templateUrl: 'views/new.html',
+          controller: 'NewCtrl',
         })
         .when('/about', {
-          templateUrl: 'views/about.html',
-          controller: 'AboutCtrl',
-          controllerAs: 'about'
+          templateUrl: 'views/static.html',
+          controller: 'StaticCtrl',
         })
-        .when('/contact', {
-          templateUrl: 'views/contact.html',
-          controller: 'ContactCtrl',
-          controllerAs: 'contact'
+        .when('/:page', {
+          templateUrl: 'views/static.html',
+          controller: 'StaticCtrl',
+        })
+        .when('/:page/:action', {
+          templateUrl: 'views/static.html',
+          controller: 'StaticCtrl',
         })
         .otherwise({
-          redirectTo: '/'
+          redirectTo: '/',
         });
     })
-  .config(['$translateProvider', function ($translateProvider) {
+  .config(function ($translateProvider) {
     $translateProvider.translations('en', translationsEN);
     $translateProvider.translations('zh-hk', translationsZHHK);
     $translateProvider.translations('zh-cn', translationsZHCN);
     $translateProvider.preferredLanguage('en');
     $translateProvider.fallbackLanguage('en');
-  }])
+  })
   .constant('FIREBASE_URL', 'https://hkpga.firebaseio.com/');

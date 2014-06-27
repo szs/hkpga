@@ -1,0 +1,12 @@
+<div>
+  <h2>Magazines</h2>
+  <ul>
+    <li ng-repeat="(key, magazine) in magazines">
+      <h3>Magazine Issue {{ magazine.timestamp | data:'yy/MM'}</h3>
+      <a ng-href="magazine.url">
+        <h4>{{ magazine.coverstory[lang()] }}</h4>
+        <img ng-src="'http://drive.google.com/uc?export=view&id=' + magazine.cover">
+      </a>
+    </li>
+  </ul>
+</div>

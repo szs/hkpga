@@ -1,11 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('NavCtrl', function ($scope, $translate, Auth){
-  
-  $scope.logout = function(){
-    Auth.logout();
-  };
+app.controller('NavCtrl', function ($scope, $translate){
 
   $scope.getCurrentLanguage = function () {
     return $translate.use();

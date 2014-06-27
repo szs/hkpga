@@ -26,10 +26,9 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
       return $rootScope.currentUser;
     },
     signedIn: function () {
+      console.log($rootScope.currentUser);
       return $rootScope.currentUser !== undefined;
     },
-    na : this['name_' + Lang.current()],
-    nam : this['name_' + Lang.current()],
     name : function() {
       return this['name_' + Lang.current()]
     },
@@ -57,9 +56,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
   }
 
   $rootScope.$on('$firebaseSimpleLogin:login', function (e, authUser) {
-    console.log(authUser);
     var query = $firebase(ref.startAt(authUser.uid).endAt(authUser.uid));
-    console.log(query);
 
     query.$on('loaded', function () {
       setCurrentUser(query.$getIndex()[0]);

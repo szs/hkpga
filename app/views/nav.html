@@ -14,14 +14,14 @@
   <div class="container-fluid collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <div class="clearfix" id="user-nav">
 
-      <ul id="user-controls" class="nav navbar-nav navbar-right clearfix">
+      <ul ng-controller="AuthCtrl" id="user-controls" class="nav navbar-nav navbar-right clearfix">
         <li ng-show="signedIn()">
           <a href="#/users/{{ currentUser.email }}">
             {{ currentUser.email }}
           </a>
         </li>
         <li ng-show="signedIn()">
-          <a translate ng-click="logout()">LOGOUT</a>
+          <a translate href="" ng-click="logout()">LOGOUT</a>
         </li>
         <li ng-hide="signedIn()">
           <a translate href="#/login">LOGIN</a>

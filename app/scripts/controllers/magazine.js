@@ -1,33 +1,28 @@
 /* global app:true */
 'use strict';
 
-app.controller('MagazineCtrl', function($scope, $translate, Article){
-  $scope.articles = Article.all;
-  
-  $scope.article = Article.new();
+app.controller('MagazineCtrl', function($scope, $rootScope, $translate, $location, Magazine, Lang){
+  $scope.magazines = Magazine.all;
 
-  $scope.submitArticle = function(){
+  $scope.magazine = Magazine.new();
+    
+  $scope.lang = function() {
+    return Lang.current()
+  }
 
-    Article.create($scope.article).then(function(){
-      $scope.article = Article.new();
+  $scope.reset = function (){
+    $scope.magazine = Magazine.new();
+  };
+
+  $scope.submit = function(){
+
+    $scope.magazine.author = $rootScope.currentUser;
+
+    Magazine.create($scope.magazine).then(function(){
+      $scope.reset();
+      $location.path('#/magazines');
     });
   };
 
-  // $scope.publishArticle = function(articleID){
-    // $scope.articles[articleID].draft = false;
-    // Articles.update($scope.article);
-  // };
-
-  // $scope.retractArticle = function(articleID){
-    // $scope.articles[articleID].draft = true;
-  // };
-
-  $scope.deleteArticle = function(articleID) {
-    Article.delete(articleID);
-  };
-
-  $scope.getCurrentLanguage = function () {
-    return $translate.use();
-  };
 
 });
