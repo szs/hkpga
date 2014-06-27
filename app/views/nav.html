@@ -11,19 +11,10 @@
   </div>
  
   <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class=" container-fluid collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <div class="clearfix">
-      <ul ng-controller="LangCtrl" class="nav navbar-nav navbar-right clearfix">
-        <li translate>LANG_CURRENT</li>
-        <li ng-hide="getCurrentLanguage() == 'en'">
-          <a ng-click="changeLanguage('en')" translate="LANG_EN" class="btn"></a>
-        
-        <li ng-hide="getCurrentLanguage() == 'zh-hk'">
-          <a ng-click="changeLanguage('zh-hk')" translate="LANG_ZH_HK" class="btn"></a>
-        </li>
-        <li ng-hide="getCurrentLanguage() == 'zh-cn'"> 
-          <a ng-click="changeLanguage('zh-cn')" translate="LANG_ZH_CN" class="btn"></a>
-        </li> 
+  <div class="container-fluid collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="clearfix" id="user-nav">
+
+      <ul id="user-controls" class="nav navbar-nav navbar-right clearfix">
         <li ng-show="signedIn()">
           <a href="#/users/{{ currentUser.email }}">
             {{ currentUser.email }}
@@ -40,9 +31,22 @@
             <span class="glyphicon glyphicon-cog"></span>
           </a>
         </li>
-    </ul>
+      </ul>
+
+      <ul ng-controller="LangCtrl" class="nav navbar-nav navbar-right clearfix">
+        <li class="user-lang" translate>LANG_CURRENT</li>
+        <li class="user-lang" ng-hide="getCurrentLanguage() == 'en'">
+          <a ng-click="changeLanguage('en')" translate="LANG_EN" class="btn"></a>
+        <li class="user-lang" ng-hide="getCurrentLanguage() == 'zh-hk'">
+          <a ng-click="changeLanguage('zh-hk')" translate="LANG_ZH_HK" class="btn"></a>
+        </li>
+        <li class="user-lang" ng-hide="getCurrentLanguage() == 'zh-cn'"> 
+          <a ng-click="changeLanguage('zh-cn')" translate="LANG_ZH_CN" class="btn"></a>
+        </li> 
+      </ul>
+
     </div>
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right" id="page-nav">
       <li class="active"><a translate ng-href="#">MENU_HOME</a></li>
       <li><a translate ng-href="#/about">MENU_ABOUT</a></li>
       <li><a translate ng-href="#/tournaments">MENU_TOURNAMENTS</a></li>
