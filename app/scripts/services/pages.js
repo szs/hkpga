@@ -5,20 +5,24 @@ app.factory('Page',
     var ref = new Firebase(FIREBASE_URL + 'pages');
     var pages = $firebase(ref);
  
+    function checkIfPageExists(page, cb) {
+      ref.child(page).once('value', function(snapshot) {
+        cb(snapshot.val());
+      });
+    }
+
     var Page = {
       all: pages,
       create : function(page){
-        
         pages[page.slug] = page;
-        
         pages.$save(page.slug).then(function(){
           console.log('created ' + page.slug);
         });
 
       },
       current : function(page, cb){
-        checkIfPageExists(page, function(d){
-          cb(d);
+        return checkIfPageExists(page, function(result){
+          cb(result);
         });
       },
       find : function(pageId){
@@ -47,24 +51,6 @@ app.factory('Page',
     };
 
     return Page;
-
-    function pageExistsCallback(page, exists) {
-      if (exists) {
-        console.log(page);
-        return page;
-      } else {
-        console.log(page)
-        return Page.new();
-      }
-    }
      
-    // Tests to see if /users/<userId> has any data. 
-    function checkIfPageExists(page, cb) {
-      ref.child(page).once('value', function(snapshot) {
-        cb(snapshot.val());
-        // var exists = (snapshot.val() !== null);
-        // return pageExistsCallback(snapshot.val(), exists);
-      });
-    }
   }
 )

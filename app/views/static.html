@@ -1,5 +1,5 @@
  <div class="container">
-  <h2>{{ page.title[getCurrentLanguage()] }}</h2>
+  <h2 ng-if="page.title">{{ page.title[getCurrentLanguage()] }}</h2>
   <input ng-if="editable" ng-model="page.title[getCurrentLanguage()]">
   <textarea ng-if="editable" ng-model="page.html[getCurrentLanguage()]" redactor cols="60" rows="10"></textarea>
   <div class="col-md-3 col-md-offset-9">
