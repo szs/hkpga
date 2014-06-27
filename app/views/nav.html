@@ -15,24 +15,24 @@
     <div class="container-fluid collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <div class="clearfix" id="user-nav">
 
-        <ul id="user-controls" class="nav navbar-nav navbar-right clearfix">
-          <li ng-show="signedIn()">
-            <a href="#/users/{{ currentUser.email }}">
-              {{ currentUser.email }}
-            </a>
-          </li>
-          <li ng-show="signedIn()">
-            <a translate href="#" ng-click="logout()">LOGOUT</a>
-          </li>
-          <li ng-hide="signedIn()">
-            <a translate href="#/login">LOGIN</a>
-          </li>
-          <li ng-show="currentUser.role == 'admin'">  
-            <a translate ng-href="#/admin">
-              <span class="glyphicon glyphicon-cog"></span>
-            </a>
-          </li>
-        </ul>
+      <ul ng-controller="AuthCtrl" id="user-controls" class="nav navbar-nav navbar-right clearfix">
+        <li ng-show="signedIn()">
+          <a href="#/users/{{ currentUser.email }}">
+            {{ currentUser.email }}
+          </a>
+        </li>
+        <li ng-show="signedIn()">
+          <a translate href="" ng-click="logout()">LOGOUT</a>
+        </li>
+        <li ng-hide="signedIn()">
+          <a translate href="#/login">LOGIN</a>
+        </li>
+        <li ng-show="currentUser.role == 'admin'">  
+          <a translate ng-href="#/admin">
+            <span class="glyphicon glyphicon-cog"></span>
+          </a>
+        </li>
+      </ul>
 
         <ul ng-controller="LangCtrl" class="nav navbar-nav navbar-right clearfix">
           <li class="user-lang" translate>LANG_CURRENT</li>
@@ -84,7 +84,6 @@
           </li>
           <li><a translate ng-href="#/contact">MENU_CONTACT</a></li>
       </ul>
-
     </div><!-- /.navbar-collapse -->
   </div>
 </nav>
