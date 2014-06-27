@@ -21,18 +21,26 @@
   <body ng-app="hkpgaApp">
 
     <!-- Add your site or application content here -->
-    <div>
-      <div class="header">
-        <div ng-controller="NavCtrl" ng-include="'views/nav.html'"></div>
-      </div>
-
-      <div ng-view=""></div>
-
-      <div class="footer">
-        <p>Email: info@hkpga.com.hk |     Tel: +852 2671 7455     |      Fax: +852 2671 1489      |       Address: 70 Ting Kok Road, Tai Po, N. T. </p>
-        <p class="copyright">Copyright © 2002-2014 HKPGA. All Rights Reserved.</p>
-      </div>
+    <div class="header">
+      <div ng-controller="NavCtrl" ng-include="'views/nav.html'"></div>
     </div>
+
+  <div class="testdiv">
+    <div ng-view="">
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="footer">
+          <div class="col-md-6">
+            <p>Email: info@hkpga.com.hk | Tel: +852 2671 7455 | Fax: +852 2671 1489      | Address: 70 Ting Kok Road, Tai Po, N. T. </p>
+          </div>
+          <div class=" col-md-offset-2 col-md-4">
+            <p class="copyright">Copyright © 2002-2014 HKPGA. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

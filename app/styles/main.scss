@@ -18,7 +18,7 @@ $grey-dark:         lighten(#000, 20%);   // #333
 // $grey-light:        lighten(#000, 60%);   // #999
 $grey:              #5f6062;
 $grey-light:        #cccccc;
-$grey-lighter:      lighten(#cccccc, 21%); // #eee
+$grey-lighter:      #f3f3f3; 
 $grey-shadow:       #b5b5b5;
 
 $white:             white;
@@ -32,6 +32,10 @@ $brand-black:       #231f20;
 
 @mixin bar-height($bar-height) {
   height: $bar-height * 2;
+}
+
+.shadow {
+  box-shadow: 5px 5px 5px $black;
 }
 
 .left-bar {
@@ -55,11 +59,12 @@ $brand-black:       #231f20;
     color: $text-grey;
     padding-bottom: 20px;
     background: #F3F3F3;
-    background-image: url(/images/subtle-white-bg.png);
+    background-image: url(/images/tactile-grey-bg.png);
     background-position: fixed;
     padding-top: 90px;
     padding-bottom: 0;
   }
+
 
   h1 {
     font-size: 2.4rem;
@@ -120,7 +125,7 @@ $brand-black:       #231f20;
     margin-top: 20px;
     border-radius: 0px;
     background-color: transparent;
-    border-bottom: 2px solid $grey-dark;
+    border-bottom: 2px solid $grey;
     li {
       a:not(.active) {
         color: $brand-gold;
@@ -164,7 +169,8 @@ $brand-black:       #231f20;
 
   .well {
     padding: 20px 40px;
-    border-radius: 0px;
+    border-radius: 0px !important;
+    background-color: $white;
   }
 
 
@@ -186,16 +192,24 @@ $brand-black:       #231f20;
       }
     }
 
+    .testdiv {
+      position: relative;
+    }
+
     .footer {
       padding-bottom: 40px;
+      position: absolute;
+      // bottom: 0;
+      bottom: -200px;
+      width: 100%;
       p {
         padding-left: 30px;
       }
       .copyright {
         float: right;
-        margin: -35px 30px 0 0;
+        margin: 10px;
       }
-      padding-top: 19px;
+      padding-top: 20px;
       color: #777;
       border-top: 1px solid #e5e5e5;
       background-image: url(/images/tactile-grey-bg.png);
@@ -340,7 +354,7 @@ $brand-black:       #231f20;
     }
 
     .auth-forms {
-      max-width:400px;
+      max-width: 700px;
       margin:0 auto;
       background: #fff;
       padding:1px 25px 25px 25px;
@@ -376,6 +390,27 @@ $brand-black:       #231f20;
 
     .panel {
       border: none;
+    }
+
+    // 2. LOGIN PAGE
+
+    #login-page {
+      position: relative;
+      div.well {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        height: 288px;
+        width: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -200px;
+        margin-top: -144px;
+        @extend .shadow;
+      }
+      footer {
+        bottom: 0px;
+      }
     }
 
 
@@ -461,10 +496,8 @@ $brand-black:       #231f20;
     }
 
 
-
-
     .navbar-inverse {
-      opacity: 0.95;
+      opacity: 0.98;
       border-bottom: solid 4px $black;
       // background-image: url(/images/tactile-grey-bg.png);
     }
@@ -481,7 +514,13 @@ $brand-black:       #231f20;
       margin-right: 10px;
     }
 
+    /* Navbar dropdown */
 
+    .navbar-nav > li > .dropdown-menu {
+      margin-top: 3px;
+      left: 0;
+      right: auto;
+    }
 
   /* Widgets */
 
@@ -569,14 +608,14 @@ $brand-black:       #231f20;
       margin-bottom: 40px;
       width: 100%;
       height: auto;
-      background-color: $grey-dark;
       color: $brand-gold;
+      border: 2px solid $grey-light;
       ul {
         list-style-type: none;
         padding-left: 0;
       }
       li {
-        border-bottom: 1px solid $grey;
+        border-bottom: 1px solid $grey-light;
         padding: 7px 0;
       }
       li.side-level-1{
@@ -711,16 +750,11 @@ $brand-black:       #231f20;
 
 // 5. THEME ------------------------------
 
-  /* MAIN */
-
-    #main-page {
-      background-image: url(/images/tactile-grey-bg.png);
-      background-attachment: fixed;
-      h1, h2, h3, h4, h5, p {
-      }
-    }
 
 
 
+// 6. MEDIA QUERIES ----------------------------------
 
-
+#login-page {
+      min-height: 770px;
+}
