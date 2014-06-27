@@ -1,60 +1,90 @@
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="container-fluid navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#"><img src="/images/hkpga-logo.png"></a>
-  </div>
- 
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="container-fluid collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <div class="clearfix" id="user-nav">
-
-      <ul id="user-controls" class="nav navbar-nav navbar-right clearfix">
-        <li ng-show="signedIn()">
-          <a href="#/users/{{ currentUser.email }}">
-            {{ currentUser.email }}
-          </a>
-        </li>
-        <li ng-show="signedIn()">
-          <a translate href="#" ng-click="logout()">LOGOUT</a>
-        </li>
-        <li ng-hide="signedIn()">
-          <a translate href="#/login">LOGIN</a>
-        </li>
-        <li ng-show="currentUser.role == 'admin'">  
-          <a translate ng-href="#/admin">
-            <span class="glyphicon glyphicon-cog"></span>
-          </a>
-        </li>
-      </ul>
-
-      <ul ng-controller="LangCtrl" class="nav navbar-nav navbar-right clearfix">
-        <li class="user-lang" translate>LANG_CURRENT</li>
-        <li class="user-lang" ng-hide="getCurrentLanguage() == 'en'">
-          <a ng-click="changeLanguage('en')" translate="LANG_EN" class="btn"></a>
-        <li class="user-lang" ng-hide="getCurrentLanguage() == 'zh-hk'">
-          <a ng-click="changeLanguage('zh-hk')" translate="LANG_ZH_HK" class="btn"></a>
-        </li>
-        <li class="user-lang" ng-hide="getCurrentLanguage() == 'zh-cn'"> 
-          <a ng-click="changeLanguage('zh-cn')" translate="LANG_ZH_CN" class="btn"></a>
-        </li> 
-      </ul>
-
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="/images/hkpga-logo.png"></a>
     </div>
-    <ul class="nav navbar-nav navbar-right" id="page-nav">
-      <li class="active"><a translate ng-href="#">MENU_HOME</a></li>
-      <li><a translate ng-href="#/about">MENU_ABOUT</a></li>
-      <li><a translate ng-href="#/tournaments">MENU_TOURNAMENTS</a></li>
-      <li><a translate ng-href="#/professionals">MENU_PROFESSIONALS</a></li>
-      <li><a translate ng-href="#/juniors">MENU_JUNIORS</a></li>
-      <li><a translate ng-href="#/events">MENU_EVENTS</a></li>
-      <li><a translate ng-href="#/press">MENU_PRESS</a></li>
-      <li><a translate ng-href="#/contact">MENU_CONTACT</a></li>
-    </ul>
-  </div><!-- /.navbar-collapse -->
+   
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="container-fluid collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="clearfix" id="user-nav">
+
+        <ul id="user-controls" class="nav navbar-nav navbar-right clearfix">
+          <li ng-show="signedIn()">
+            <a href="#/users/{{ currentUser.email }}">
+              {{ currentUser.email }}
+            </a>
+          </li>
+          <li ng-show="signedIn()">
+            <a translate href="#" ng-click="logout()">LOGOUT</a>
+          </li>
+          <li ng-hide="signedIn()">
+            <a translate href="#/login">LOGIN</a>
+          </li>
+          <li ng-show="currentUser.role == 'admin'">  
+            <a translate ng-href="#/admin">
+              <span class="glyphicon glyphicon-cog"></span>
+            </a>
+          </li>
+        </ul>
+
+        <ul ng-controller="LangCtrl" class="nav navbar-nav navbar-right clearfix">
+          <li class="user-lang" translate>LANG_CURRENT</li>
+          <li class="user-lang" ng-hide="getCurrentLanguage() == 'en'">
+            <a ng-click="changeLanguage('en')" translate="LANG_EN" class="btn"></a>
+          <li class="user-lang" ng-hide="getCurrentLanguage() == 'zh-hk'">
+            <a ng-click="changeLanguage('zh-hk')" translate="LANG_ZH_HK" class="btn"></a>
+          </li>
+          <li class="user-lang" ng-hide="getCurrentLanguage() == 'zh-cn'"> 
+            <a ng-click="changeLanguage('zh-cn')" translate="LANG_ZH_CN" class="btn"></a>
+          </li> 
+        </ul>
+
+      </div>  
+      <ul class="nav navbar-nav navbar-right" id="page-nav">
+        <li><a translate ng-href="#">MENU_HOME</a></li>
+          <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_ABOUT</a>
+            <ul class="dropdown-menu">
+                <li><a ng-href="#/about"> About us </a></li>
+                <li><a href="#"> Partners </a></li>
+                <li><a href="#"> Committee &amp; Honorary Members </a></li>
+            </ul>
+          </li>
+          <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_TOURNAMENTS</a>
+            <ul class="dropdown-menu">
+                <li><a ng-href="#"> Order of Merit </a></li>
+                <li><a href="#"> Member Tournaments </a></li>
+                <li><a href="#"> Trainee tournaments </a></li>
+            </ul>
+          </li>
+          <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_PROFESSIONALS</a>
+            <ul class="dropdown-menu">
+                <li><a ng-href="#"> Directory</a></li>
+                <li><a href="#"> Training program </a></li>
+            </ul>
+          </li>
+          <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_JUNIORS</a>
+            <ul class="dropdown-menu">
+                <li><a ng-href="#"> Skyhigh </a></li>
+            </ul>
+          </li>    
+          <li><a translate ng-href="#/events">MENU_EVENTS</a></li>
+          <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_PRESS</a>
+            <ul class="dropdown-menu">
+                <li><a ng-href="#"> Press releases</a></li>
+                <li><a href="#"> Media coverage</a></li>
+                <li><a href="#"> Magazine </a></li>
+            </ul>
+          </li>
+          <li><a translate ng-href="#/contact">MENU_CONTACT</a></li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div>
 </nav>
