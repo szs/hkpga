@@ -408,11 +408,15 @@ $brand-black:       #231f20;
 
     #page-nav li a {
         text-transform: uppercase;
+        padding-top: 11px;
+        padding-bottom: 10px;
     }
 
     #user-nav {
       margin-bottom: -5px;
       margin-top: 7px;
+      font-family: Roboto;
+      font-size: 1.4rem;
       li {
         line-height: 22px;
         color: $brand-gold;
@@ -422,10 +426,11 @@ $brand-black:       #231f20;
       li > a {
         color: $white;        
         padding: 0px;
+        font-size: 1.3rem;
       }
       .user-lang {
-        padding-top: 4px;
-        padding-bottom: 4px;
+        padding-top: 2px;
+        padding-bottom: 2px;
         padding-left: 10px;
         padding-right: 10px;
         margin-top: 3px;
@@ -437,7 +442,7 @@ $brand-black:       #231f20;
     #user-controls {
       margin-right: 17px;
       li {
-        line-height: 22px;
+        line-height: 20px;
         padding-left: 10px;
         padding-right: 10px;
         padding-top: 8px;
@@ -445,7 +450,13 @@ $brand-black:       #231f20;
       }
       a {
         font-weight: 300;
+        font-family: Roboto;
+        font-size: 1.4rem;
+        :last-of-type {
+          font-size: 2rem;
+        }
       }
+
     }
 
 
