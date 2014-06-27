@@ -3,6 +3,16 @@
 
 app.controller('StaticCtrl', function($scope, $rootScope, $routeParams, Page){
   
+  var pageExists = function(page){
+    Page.current($routeParams.page, function(p){
+      if (p === null){
+        $scope.page = Page.new()
+      } else {
+        $scope.page = p;
+      }
+    })
+  }
+
   var getSlug = function(str) {
     var slug = '';
     var trimmed = str.trim();
@@ -15,7 +25,9 @@ app.controller('StaticCtrl', function($scope, $rootScope, $routeParams, Page){
 
   $scope.pages = Page.all;
 
-  $scope.page = Page.find($routeParams.page);
+  $scope.page = pageExists();
+
+  console.log($scope.page)
 
   $scope.editable = ($routeParams.action === 'edit');
 
@@ -31,4 +43,6 @@ app.controller('StaticCtrl', function($scope, $rootScope, $routeParams, Page){
 
     Page.create($scope.page);
   };
+
+
 });

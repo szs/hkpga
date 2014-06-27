@@ -16,6 +16,11 @@ app.factory('Page',
         });
 
       },
+      current : function(page, cb){
+        checkIfPageExists(page, function(d){
+          cb(d);
+        });
+      },
       find : function(pageId){
         return pages.$child(pageId);
       },
@@ -42,4 +47,24 @@ app.factory('Page',
     };
 
     return Page;
-})
+
+    function pageExistsCallback(page, exists) {
+      if (exists) {
+        console.log(page);
+        return page;
+      } else {
+        console.log(page)
+        return Page.new();
+      }
+    }
+     
+    // Tests to see if /users/<userId> has any data. 
+    function checkIfPageExists(page, cb) {
+      ref.child(page).once('value', function(snapshot) {
+        cb(snapshot.val());
+        // var exists = (snapshot.val() !== null);
+        // return pageExistsCallback(snapshot.val(), exists);
+      });
+    }
+  }
+)
