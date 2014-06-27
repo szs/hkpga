@@ -402,10 +402,54 @@ $brand-black:       #231f20;
     .navbar-nav {
       float: right;
       li > a {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        font-weight: 400;
       }
     }
+
+    #page-nav li a {
+        text-transform: uppercase;
+    }
+
+    #user-nav {
+      margin-bottom: -5px;
+      margin-top: 7px;
+      li {
+        line-height: 22px;
+        color: $brand-gold;
+        padding: 0px;
+        font-weight: 400;
+      }
+      li > a {
+        color: $white;        
+        padding: 0px;
+      }
+      .user-lang {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: 3px;
+        margin-left: -1px;
+        border: 2px solid black;
+      }
+    }
+
+    #user-controls {
+      margin-right: 17px;
+      li {
+        line-height: 22px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 8px;
+        vertical-align: middle;
+      }
+      a {
+        font-weight: 300;
+      }
+    }
+
+
+
 
     .navbar-inverse {
       opacity: 0.95;
@@ -424,6 +468,7 @@ $brand-black:       #231f20;
     .navbar-nav.navbar-right:last-child {
       margin-right: 10px;
     }
+
 
 
   /* Widgets */
@@ -509,6 +554,7 @@ $brand-black:       #231f20;
   /* Side nav */
     .side-nav {
       padding: 20px 25px;
+      margin-bottom: 40px;
       width: 100%;
       height: auto;
       background-color: $grey-dark;
@@ -519,7 +565,7 @@ $brand-black:       #231f20;
       }
       li {
         border-bottom: 1px solid $grey;
-        padding: 5px 0;
+        padding: 7px 0;
       }
       li.side-level-1{
         font-family: $header-font;
