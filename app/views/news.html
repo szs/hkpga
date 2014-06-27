@@ -7,7 +7,7 @@
           <a href="#/news/{{ latest.slug }}" >
             <div class="article-title-row clearfix">
               <h5>{{ latest.timestamp | date:'dd MMM yyyy'}}</h5>
-              <h4>{{lang() == 'en' ? latest.title_en : latest.title_zh}}</h4>
+              <h4>{{ lang() == 'en' ? latest.title_en : latest.title_zh }}</h4>
               <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
             </div>
           </a>
@@ -24,7 +24,7 @@
     <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | orderBy: 'timestamp':true | limitTo:11" ng-hide="$first">
       <div class="col-md-12">
         <div class="info well more-news" ng-class="(article.draft) ? 'draft' : ''">
-          <a href="#/news/{{ articleId }}" >
+          <a href="#/news/{{ article.slug }}" >
             <div class="article-title-row clearfix">
               <h5>{{article.timestamp | date:'dd MMM yyyy'}}</h5>
               <h4>{{lang() == 'en' ? article.title_en : article.title_zh}}</h4>
