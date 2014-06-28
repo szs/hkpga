@@ -35,10 +35,10 @@ app.controller('NewsCtrl', function($scope, $rootScope, $location, Article){
 
     angular.extend($scope.article, {
       author: $rootScope.currentUser.username,
-      slug: getSlug($scope.article.title_en),
+      slug: getSlug($scope.article.title.en),
       $priority : Date.now(),
       cover: getCoverImage($scope.article.en),
-      timestamp: Date.now()
+      updated_at: Date.now()
     });
   
     Article.create($scope.article)
@@ -52,7 +52,7 @@ app.controller('NewsCtrl', function($scope, $rootScope, $location, Article){
   
   $scope.submitArticle = function(){
     Article.create($scope.article).then(function(){
-      $scope.article = Article.new();
+      $scope.reset();
     });
   };
 

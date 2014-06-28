@@ -1,11 +1,12 @@
-<div class="container">
+<div ng-class="{admin: 'admin'}[currentUser.role]" class="container">
   <h2 translate>PROS</h2>
   Search: <input ng-model="search">
-
+  Filter: <select ng-model="filterItem.pro" ng-options="item.name for item in filterOptions.pros"></select>
+   <strong>Selected Filter dropdown item: </strong> {{filterItem.pro.name}}
   <div class="member row" ng-repeat="(alpha, pros) in alphaPro">
-    <div ng-repeat="pro in pros | filter:search">
+    <div ng-repeat="pro in pros | filter:search | filter:statusFilter">
     <h2 ng-show="$first">{{alpha}}</h2>
-      <a ng-href="#/pros/{{pro.username}}">{{pro.name[l10n()]}}</a>
+      <a class="{{pro.status}}" ng-href="#/pros/{{pro.username}}">{{pro.name[l10n()]}}</a>
     </div>
   </div>
 </div>

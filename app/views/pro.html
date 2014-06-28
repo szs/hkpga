@@ -1,7 +1,8 @@
 <div class="container">
   <h2 translate>PROFESSIONALS</h2>
   <div>
-    <h2>{{pro.name[l10n()]}}</h2>
+    <img ng-src="{{pro.profile_picture}}">
+    <h2>{{ pro.name[l10n()] }}</h2>
     <h3>Qualifactions</h3>
     <p>{{ pro.qualifications[l10n()] }}</p>
     <h3>Teaching Experience</h3>
@@ -10,4 +11,3 @@
     <p>{{ pro.achievement[l10n()] }}</p>
   </div>
 </div>
-{{ pro }}

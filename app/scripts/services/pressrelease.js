@@ -9,9 +9,9 @@ app.factory('PressRelease',
       all: pressreleases,
       create : function(release){
         
-        pressreleases[release.timestamp] = release;
+        pressreleases[release.created_at] = release;
         
-        return pressreleases.$save(release.timestamp).then(function(){
+        return pressreleases.$save(release.created_at).then(function(){
           console.log('released ' + release.title_en);
         });
 
@@ -24,14 +24,19 @@ app.factory('PressRelease',
       },
       new : function(){
         return {
-          title_en: '',
-          title_zh_hk: '',
-          title_zh_cn: '',
+          title: {
+            "en": "",
+            "zh-cn": "",
+            "zh-hk": ""
+          },
           author: '',
-          url_en: '',
-          url_zh_hk: '',
-          url_zh_cn: '',
-          timestamp: Date.now()
+          url :  {
+            "en": "",
+            "zh-cn": "",
+            "zh-hk": ""
+          },
+          created_at: Date.now(),
+          updated_at: Date.now()
         };
       }
     };

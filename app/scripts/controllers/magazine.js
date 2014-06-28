@@ -1,18 +1,15 @@
 /* global app:true */
 'use strict';
 
-app.controller('MagazineCtrl', function($scope, $rootScope, $translate, $location, Magazine, Lang){
-  $scope.magazines = Magazine.all;
+app.controller('MagazineCtrl', function($scope, $rootScope, $location, Magazine, Lang){
 
-  $scope.magazine = Magazine.new();
-    
-  $scope.lang = function() {
-    return Lang.current()
-  }
+  $scope.magazines = Magazine.all;
 
   $scope.reset = function (){
     $scope.magazine = Magazine.new();
   };
+
+  $scope.reset()
 
   $scope.submit = function(){
 
@@ -23,6 +20,4 @@ app.controller('MagazineCtrl', function($scope, $rootScope, $translate, $locatio
       $location.path('#/magazines');
     });
   };
-
-
 });

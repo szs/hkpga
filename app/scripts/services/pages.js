@@ -46,7 +46,8 @@ app.factory('Page',
             'zh-hk': '',
             'zh-cn': ''
           },
-          timestamp: Date.now()
+          updated_at: Date.now(),
+          created_at: Date.now()
         };
       }
     };

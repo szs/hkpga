@@ -24,15 +24,22 @@ app.factory('Article',
       },
       new : function(){
         return {
-          title_en: '',
-          title_zh: '',
+          title: {
+            'en' : '',
+            'zh-hk' : '',
+            'zh-cn' : ''
+          },
           slug: '',
           author: '',
-          en: '',
-          zh: '',
+          html : {
+            'en' : '',
+            'zh-hk' : '',
+            'zh-cn' : ''
+          },
           cover: '',
           draft: true,
-          timestamp: Date.now()
+          updated_at: Date.now(),
+          created_at: Date.now()
         };
       }
     };

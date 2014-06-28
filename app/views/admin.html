@@ -1,40 +1,58 @@
+<div class="container">
 <h1 translate>ADMIN</h1>
 <h2 translate>NEWS_ARTICLE</h2>
-<div class='row' ng-controller="NewsCtrl">
-  <div class="col-md-6">
+<div ng-controller="NewsCtrl">
+<div class='row' >
+  <div class="col-md-12">
     <div class="panel panel-primary">
       <div class="panel-heading"><h3 translate>ENGLISH</h3></div>
       <div class="panel-body">
         <div class="form-group">
-        <input ng-model="article.title_en">
-          <textarea ng-model="article.en" redactor cols="30" rows="10"></textarea>
+        <input ng-model="article.title.en">
+          <textarea ng-model="article.html.en" redactor cols="20" rows="10"></textarea>
         </div>
         <br/>
-        <p>{{article.en}}</p>
+        <p>{{article.html.en}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class="col-md-6">
+    <div class="panel panel-danger">
+      <div class="panel-heading"><h3 translate>CHINESE_HK</h3></div>
+      <div class="panel-body">
+        <input ng-model="article.title['zh-hk']">
+        <div class="form-group">
+          <textarea ng-model="article.html['zh-hk']" redactor cols="20" rows="10"></textarea>
+        </div>
+        <br/>
+        <p>{{article.html['zh-hk']}}</p>
       </div>
     </div>
   </div>
   <div class="col-md-6">
     <div class="panel panel-danger">
-      <div class="panel-heading"><h3 translate>CHINESE</h3></div>
+      <div class="panel-heading"><h3 translate>CHINESE_CN</h3></div>
       <div class="panel-body">
-        <input ng-model="article.title_zh">
+        <input ng-model="article.title['zh-cn']">
         <div class="form-group">
-          <textarea ng-model="article.zh" redactor cols="30" rows="10"></textarea>
+          <textarea ng-model="article.html['zh-cn']" redactor cols="20" rows="10"></textarea>
         </div>
         <br/>
-        <p>{{article.zh}}</p>
+        <p>{{article.html['zh-cn']}}</p>
       </div>
     </div>
   </div>
+</div>
+<div class='row'>
   <div class="col-md-3 col-md-offset-9">
     <a ng-click="save()" class="btn btn-warning" translate>SAVE</a>
     <a ng-click="publish()" ng-class="{disabled: article.draft == false}" class="btn btn-primary" translate>PUBLISH</a>    
   </div>
-
-  {{ article.title_en }}
-
 </div>
+</div>
+
 <h2 translate>Magazines</h2>
 <div>
   <a href="#/magazines/new" class="btn btn-primary" translate>PUBLISH_MAGAZINE</a>
@@ -50,4 +68,5 @@
 <h2 translate>USERS</h2>
 <div>
   <a href="#/professionals/register" class="btn btn-primary" translate>REGISTER_USER</a>
+</div>
 </div>

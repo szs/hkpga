@@ -6,8 +6,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1271833591,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 113,
     "member_number": 108,
@@ -33,7 +33,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1271833591,
+    "updated_at": 1403983873,
     "username": "akashi"
   },
   "andersonvictor": {
@@ -43,8 +43,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230565412,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 72,
     "member_number": 72,
@@ -70,7 +70,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230565412,
+    "updated_at": 1403983873,
     "username": "andersonvictor"
   },
   "balltrevor": {
@@ -80,8 +80,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230546517,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 33,
     "member_number": 33,
@@ -107,7 +107,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230546517,
+    "updated_at": 1403983873,
     "username": "balltrevor"
   },
   "bennyyeung": {
@@ -117,8 +117,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1300354317,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 119,
     "member_number": 112,
@@ -144,7 +144,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1300354317,
+    "updated_at": 1403983873,
     "username": "bennyyeung"
   },
   "chansauching": {
@@ -154,8 +154,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230566875,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 89,
     "member_number": 89,
@@ -181,7 +181,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566875,
+    "updated_at": 1403983873,
     "username": "chansauching"
   },
   "chantzekeung": {
@@ -191,8 +191,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230561942,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 44,
     "member_number": 44,
@@ -218,7 +218,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230561942,
+    "updated_at": 1403983873,
     "username": "chantzekeung"
   },
   "chanwaihung": {
@@ -228,8 +228,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1327029755,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 127,
     "member_number": 117,
@@ -255,7 +255,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1327029755,
+    "updated_at": 1403983873,
     "username": "chanwaihung"
   },
   "chanwanyu": {
@@ -265,8 +265,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230566772,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 87,
     "member_number": 87,
@@ -292,7 +292,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566772,
+    "updated_at": 1403983873,
     "username": "chanwanyu"
   },
   "chengalexander": {
@@ -302,8 +302,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230564047,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 60,
     "member_number": 60,
@@ -329,7 +329,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230564047,
+    "updated_at": 1403983873,
     "username": "chengalexander"
   },
   "chengkayiu": {
@@ -339,8 +339,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230564109,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 61,
     "member_number": 61,
@@ -366,7 +366,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230564109,
+    "updated_at": 1403983873,
     "username": "chengkayiu"
   },
   "chengkeehung": {
@@ -376,8 +376,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230541950,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 2,
     "member_number": 2,
@@ -403,7 +403,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230541950,
+    "updated_at": 1403983873,
     "username": "chengkeehung"
   },
   "chengmanngar": {
@@ -413,8 +413,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230561855,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 43,
     "member_number": 43,
@@ -440,7 +440,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230561855,
+    "updated_at": 1403983873,
     "username": "chengmanngar"
   },
   "cheungkinping": {
@@ -450,8 +450,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230562293,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 49,
     "member_number": 49,
@@ -477,7 +477,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230562293,
+    "updated_at": 1403983873,
     "username": "cheungkinping"
   },
   "cheungkwaihong": {
@@ -487,8 +487,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230562342,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 50,
     "member_number": 50,
@@ -514,7 +514,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230562342,
+    "updated_at": 1403983873,
     "username": "cheungkwaihong"
   },
   "chiangkwokleung": {
@@ -524,8 +524,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1263355393,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 110,
     "member_number": 105,
@@ -551,7 +551,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1263355393,
+    "updated_at": 1403983873,
     "username": "chiangkwokleung"
   },
   "chiutatkwai": {
@@ -561,8 +561,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230546040,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 28,
     "member_number": 28,
@@ -588,7 +588,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230546040,
+    "updated_at": 1403983873,
     "username": "chiutatkwai"
   },
   "choywilson": {
@@ -598,8 +598,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230562182,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 47,
     "member_number": 47,
@@ -625,7 +625,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230562182,
+    "updated_at": 1403983873,
     "username": "choywilson"
   },
   "chris": {
@@ -635,8 +635,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1373529078,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 136,
     "member_number": 122,
@@ -662,7 +662,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1373529078,
+    "updated_at": 1403983873,
     "username": "chris"
   },
   "chungsiulun": {
@@ -672,8 +672,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1311750016,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 125,
     "member_number": 114,
@@ -699,7 +699,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1311750016,
+    "updated_at": 1403983873,
     "username": "chungsiulun"
   },
   "dominique": {
@@ -709,8 +709,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230544674,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 11,
     "member_number": 11,
@@ -736,7 +736,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230544674,
+    "updated_at": 1403983873,
     "username": "dominique"
   },
   "downiepeter": {
@@ -746,8 +746,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230563043,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 55,
     "member_number": 55,
@@ -773,7 +773,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230563043,
+    "updated_at": 1403983873,
     "username": "downiepeter"
   },
   "eddychan": {
@@ -783,8 +783,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1389325662,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 138,
     "member_number": 127,
@@ -810,7 +810,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1389325662,
+    "updated_at": 1403983873,
     "username": "eddychan"
   },
   "freemandavid": {
@@ -820,8 +820,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230546095,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 29,
     "member_number": 29,
@@ -847,7 +847,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230546095,
+    "updated_at": 1403983873,
     "username": "freemandavid"
   },
   "fungderek": {
@@ -857,8 +857,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230545805,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 25,
     "member_number": 25,
@@ -884,7 +884,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230545805,
+    "updated_at": 1403983873,
     "username": "fungderek"
   },
   "fungsheungwai": {
@@ -894,8 +894,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1342166941,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 129,
     "member_number": 120,
@@ -921,7 +921,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1342166941,
+    "updated_at": 1403983873,
     "username": "fungsheungwai"
   },
   "fungwaikit": {
@@ -931,8 +931,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230564795,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 65,
     "member_number": 65,
@@ -958,7 +958,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230564795,
+    "updated_at": 1403983873,
     "username": "fungwaikit"
   },
   "fungwaikuen": {
@@ -968,8 +968,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230564661,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 63,
     "member_number": 63,
@@ -995,7 +995,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230564661,
+    "updated_at": 1403983873,
     "username": "fungwaikuen"
   },
   "gary": {
@@ -1005,8 +1005,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1373528548,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 132,
     "member_number": 2,
@@ -1032,7 +1032,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1373528548,
+    "updated_at": 1403983873,
     "username": "gary"
   },
   "gary123": {
@@ -1042,8 +1042,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1373528666,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 133,
     "member_number": 121,
@@ -1069,7 +1069,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1373528666,
+    "updated_at": 1403983873,
     "username": "gary123"
   },
   "gibsonmark": {
@@ -1079,8 +1079,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230708892,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 94,
     "member_number": 94,
@@ -1106,7 +1106,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230708892,
+    "updated_at": 1403983873,
     "username": "gibsonmark"
   },
   "goodandrew": {
@@ -1116,8 +1116,8 @@
       "zh-hk": "3 times British Open Final Qualifying (1991, 1992, 2005);\r\nOmega China Tour (2008) - One of the 10 internatinal players who qualified for the Omega China Tour and achieved 16th in the first tournament in 2008;\r\nHong Kong Open (2007) - One of the 5 players from Hong Kong who qualified for the Hong Kong Open European Tour;\r\nHong Kong PGA Order of Merit September 2007 - 3rd place;\r\nInternational PGA Order of Merit 2005 - 1st place;\r\nWinner of IPGA Masters - 2005;\r\nWinner of IPGA Pro Event - 2003;\r\n7 times winner of PGA Professional Tournaments in S. England (1987-1994)"
     },
     "active": true,
+    "created_at": 1230563872,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 58,
     "member_number": 58,
@@ -1143,7 +1143,7 @@
       "zh-cn": "Teaching Professional since 1996;\r\nSet up Good Golfing Limited in Hong Kong in 2002 for golf instruction;\r\nHead Professional and Head of Instruction, Dale Hill Golf Club, Tunbridge Wells, Kent (1996-2000);\r\nOwner of Golf Pro Shop, Dale Hill Golf Club, Tunbridge Wells, Kent (1996-2000);\r\nU.K. Golf Foundation - Schools Coach;\r\nSussex Country Golf Union Coach in England;",
       "zh-hk": "Teaching Professional since 1996;\r\nSet up Good Golfing Limited in Hong Kong in 2002 for golf instruction;\r\nHead Professional and Head of Instruction, Dale Hill Golf Club, Tunbridge Wells, Kent (1996-2000);\r\nOwner of Golf Pro Shop, Dale Hill Golf Club, Tunbridge Wells, Kent (1996-2000);\r\nU.K. Golf Foundation - Schools Coach;\r\nSussex Country Golf Union Coach in England;"
     },
-    "timestamp": 1230563872,
+    "updated_at": 1403983873,
     "username": "goodandrew"
   },
   "gouldingthan": {
@@ -1153,8 +1153,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1389325813,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 140,
     "member_number": 129,
@@ -1180,7 +1180,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1389325813,
+    "updated_at": 1403983873,
     "username": "gouldingthan"
   },
   "hardwickjoann": {
@@ -1190,8 +1190,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230545880,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 26,
     "member_number": 26,
@@ -1217,7 +1217,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230545880,
+    "updated_at": 1403983873,
     "username": "hardwickjoann"
   },
   "hindkevin": {
@@ -1227,8 +1227,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230566969,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 91,
     "member_number": 91,
@@ -1254,7 +1254,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566969,
+    "updated_at": 1403983873,
     "username": "hindkevin"
   },
   "hkpga": {
@@ -1264,8 +1264,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1389324956,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 137,
     "member_number": 10,
@@ -1291,7 +1291,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1389324956,
+    "updated_at": 1403983873,
     "username": "hkpga"
   },
   "hokalok": {
@@ -1301,8 +1301,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230565974,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 77,
     "member_number": 77,
@@ -1328,7 +1328,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230565974,
+    "updated_at": 1403983873,
     "username": "hokalok"
   },
   "homeidik": {
@@ -1338,8 +1338,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230566642,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 85,
     "member_number": 85,
@@ -1365,7 +1365,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566642,
+    "updated_at": 1403983873,
     "username": "homeidik"
   },
   "hongjingling": {
@@ -1375,8 +1375,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230714105,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 106,
     "member_number": 2,
@@ -1402,7 +1402,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230714105,
+    "updated_at": 1403983873,
     "username": "hongjingling"
   },
   "hoodrichard": {
@@ -1412,8 +1412,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230545660,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 23,
     "member_number": 23,
@@ -1439,7 +1439,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230545660,
+    "updated_at": 1403983873,
     "username": "hoodrichard"
   },
   "hoya": {
@@ -1449,8 +1449,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1373528840,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 134,
     "member_number": 124,
@@ -1476,7 +1476,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1373528840,
+    "updated_at": 1403983873,
     "username": "hoya"
   },
   "huihoman": {
@@ -1486,8 +1486,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1232593782,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 95,
     "member_number": 95,
@@ -1513,7 +1513,7 @@
       "zh-cn": "Golf teaching assistant in Markham Country Club, Toronto, Canada",
       "zh-hk": "Golf teaching assistant in Markham Country Club, Toronto, Canada"
     },
-    "timestamp": 1232593782,
+    "updated_at": 1403983873,
     "username": "huihoman"
   },
   "jannetsheng": {
@@ -1523,8 +1523,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1263355457,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 111,
     "member_number": 106,
@@ -1550,7 +1550,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1263355457,
+    "updated_at": 1403983873,
     "username": "jannetsheng"
   },
   "jengchelho": {
@@ -1560,8 +1560,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1260889803,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 109,
     "member_number": 5,
@@ -1587,7 +1587,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1260889803,
+    "updated_at": 1403983873,
     "username": "jengchelho"
   },
   "jimmyko": {
@@ -1597,8 +1597,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1294648261,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 114,
     "member_number": 109,
@@ -1624,7 +1624,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1294648261,
+    "updated_at": 1403983873,
     "username": "jimmyko"
   },
   "johnlai": {
@@ -1634,8 +1634,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1310527251,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 124,
     "member_number": 115,
@@ -1661,7 +1661,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1310527251,
+    "updated_at": 1403983873,
     "username": "johnlai"
   },
   "johnsonjacueline": {
@@ -1671,8 +1671,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230567021,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 92,
     "member_number": 92,
@@ -1698,7 +1698,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230567021,
+    "updated_at": 1403983873,
     "username": "johnsonjacueline"
   },
   "kamkavin": {
@@ -1708,8 +1708,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230562392,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 51,
     "member_number": 51,
@@ -1735,7 +1735,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230562392,
+    "updated_at": 1403983873,
     "username": "kamkavin"
   },
   "kamsun": {
@@ -1745,8 +1745,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1232593822,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 96,
     "member_number": 96,
@@ -1772,7 +1772,7 @@
       "zh-cn": "\u5341\u5e74",
       "zh-hk": "\u5341\u5e74"
     },
-    "timestamp": 1232593822,
+    "updated_at": 1403983873,
     "username": "kamsun"
   },
   "kanchikeung": {
@@ -1782,8 +1782,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230544946,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 14,
     "member_number": 14,
@@ -1809,7 +1809,7 @@
       "zh-cn": "The Clearwater Bay Golf & Country Club since 1989",
       "zh-hk": "The Clearwater Bay Golf & Country Club since 1989"
     },
-    "timestamp": 1230544946,
+    "updated_at": 1403983873,
     "username": "kanchikeung"
   },
   "kanfortai": {
@@ -1819,8 +1819,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230546314,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 30,
     "member_number": 30,
@@ -1846,7 +1846,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230546314,
+    "updated_at": 1403983873,
     "username": "kanfortai"
   },
   "kankingyau": {
@@ -1856,8 +1856,8 @@
       "zh-hk": "2007 HKPGA Order of Merit Leg 2 Champion (Senior Division);\r\n2006 HKPGA Order of Merit Leg 2, Leg 3 Champion (Senior Division);\r\nThe 4th Yinli HKPGA Classic 2006 Champion (Senior Division)"
     },
     "active": true,
+    "created_at": 1230545444,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 20,
     "member_number": 20,
@@ -1883,7 +1883,7 @@
       "zh-cn": "16\u5e74",
       "zh-hk": "16\u5e74"
     },
-    "timestamp": 1230545444,
+    "updated_at": 1403983873,
     "username": "kankingyau"
   },
   "kanpakkin": {
@@ -1893,8 +1893,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230546574,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 34,
     "member_number": 34,
@@ -1920,7 +1920,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230546574,
+    "updated_at": 1403983873,
     "username": "kanpakkin"
   },
   "kantommy": {
@@ -1930,8 +1930,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230546422,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 32,
     "member_number": 32,
@@ -1957,7 +1957,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230546422,
+    "updated_at": 1403983873,
     "username": "kantommy"
   },
   "kuyu": {
@@ -1967,8 +1967,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1389325746,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 139,
     "member_number": 128,
@@ -1994,7 +1994,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1389325746,
+    "updated_at": 1403983873,
     "username": "kuyu"
   },
   "kwokjason": {
@@ -2004,8 +2004,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230546359,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 31,
     "member_number": 31,
@@ -2031,7 +2031,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230546359,
+    "updated_at": 1403983873,
     "username": "kwokjason"
   },
   "laiwaiche": {
@@ -2041,8 +2041,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230487890,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 1,
     "member_number": 1,
@@ -2068,7 +2068,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230487890,
+    "updated_at": 1403983873,
     "username": "laiwaiche"
   },
   "laiwaiman": {
@@ -2078,8 +2078,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230545134,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 17,
     "member_number": 17,
@@ -2105,7 +2105,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230545134,
+    "updated_at": 1403983873,
     "username": "laiwaiman"
   },
   "laiwaiwa": {
@@ -2115,8 +2115,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230544727,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 12,
     "member_number": 12,
@@ -2142,7 +2142,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230544727,
+    "updated_at": 1403983873,
     "username": "laiwaiwa"
   },
   "lamchuncheung": {
@@ -2152,8 +2152,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230564998,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 68,
     "member_number": 68,
@@ -2179,7 +2179,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230564998,
+    "updated_at": 1403983873,
     "username": "lamchuncheung"
   },
   "laukwonghon": {
@@ -2189,8 +2189,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230561507,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 39,
     "member_number": 39,
@@ -2216,7 +2216,7 @@
       "zh-cn": "Coach at:\r\n1. Leisure and Cultural Service Department\r\n2. Joint Sports Centre\r\n\r\n",
       "zh-hk": "Coach at:\r\n1. Leisure and Cultural Service Department\r\n2. Joint Sports Centre\r\n\r\n"
     },
-    "timestamp": 1230561507,
+    "updated_at": 1403983873,
     "username": "laukwonghon"
   },
   "laulongkei": {
@@ -2226,8 +2226,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230565515,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 74,
     "member_number": 74,
@@ -2253,7 +2253,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230565515,
+    "updated_at": 1403983873,
     "username": "laulongkei"
   },
   "lee,eric": {
@@ -2263,8 +2263,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1327029806,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 128,
     "member_number": 118,
@@ -2290,7 +2290,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1327029806,
+    "updated_at": 1403983873,
     "username": "lee,eric"
   },
   "leejiyoun": {
@@ -2300,8 +2300,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1235466713,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 107,
     "member_number": 3,
@@ -2327,7 +2327,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1235466713,
+    "updated_at": 1403983873,
     "username": "leejiyoun"
   },
   "leekamchuen": {
@@ -2337,8 +2337,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230561632,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 41,
     "member_number": 41,
@@ -2364,7 +2364,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230561632,
+    "updated_at": 1403983873,
     "username": "leekamchuen"
   },
   "leekwokyan": {
@@ -2374,8 +2374,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1251779497,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 103,
     "member_number": 103,
@@ -2401,7 +2401,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1251779497,
+    "updated_at": 1403983873,
     "username": "leekwokyan"
   },
   "leemanlok": {
@@ -2411,8 +2411,8 @@
       "zh-hk": "2002 Asian Game Representative;\r\n2005 HKPGA Champion, KSC;"
     },
     "active": true,
+    "created_at": 1230562905,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 54,
     "member_number": 54,
@@ -2438,7 +2438,7 @@
       "zh-cn": "1996\u81f3\u4eca, KSC professional coach",
       "zh-hk": "1996\u81f3\u4eca, KSC professional coach"
     },
-    "timestamp": 1230562905,
+    "updated_at": 1403983873,
     "username": "leemanlok"
   },
   "leewingkei": {
@@ -2448,8 +2448,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230563172,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 57,
     "member_number": 57,
@@ -2475,7 +2475,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230563172,
+    "updated_at": 1403983873,
     "username": "leewingkei"
   },
   "leeyingtung": {
@@ -2485,8 +2485,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230566924,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 90,
     "member_number": 90,
@@ -2512,7 +2512,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566924,
+    "updated_at": 1403983873,
     "username": "leeyingtung"
   },
   "leeyuhin": {
@@ -2522,8 +2522,8 @@
       "zh-hk": "Trainee of the year 2008, Winner of 2008 KSC North HKPGA trainee tournament"
     },
     "active": true,
+    "created_at": 1232593860,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 97,
     "member_number": 97,
@@ -2549,7 +2549,7 @@
       "zh-cn": "New Zealand, Bintan - Indonesia, and Hong Kong.",
       "zh-hk": "New Zealand, Bintan - Indonesia, and Hong Kong."
     },
-    "timestamp": 1232593860,
+    "updated_at": 1403983873,
     "username": "leeyuhin"
   },
   "leungfungsang": {
@@ -2559,8 +2559,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230545189,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 18,
     "member_number": 18,
@@ -2586,7 +2586,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230545189,
+    "updated_at": 1403983873,
     "username": "leungfungsang"
   },
   "leunghonman": {
@@ -2596,8 +2596,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230543116,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 8,
     "member_number": 8,
@@ -2623,7 +2623,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230543116,
+    "updated_at": 1403983873,
     "username": "leunghonman"
   },
   "leungkawan": {
@@ -2633,8 +2633,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1342167051,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 130,
     "member_number": 119,
@@ -2660,7 +2660,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1342167051,
+    "updated_at": 1403983873,
     "username": "leungkawan"
   },
   "leungshuichoi": {
@@ -2670,8 +2670,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230565611,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 75,
     "member_number": 75,
@@ -2697,7 +2697,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230565611,
+    "updated_at": 1403983873,
     "username": "leungshuichoi"
   },
   "leungsingchoi": {
@@ -2707,8 +2707,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230544778,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 13,
     "member_number": 13,
@@ -2734,7 +2734,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230544778,
+    "updated_at": 1403983873,
     "username": "leungsingchoi"
   },
   "leungwaikan": {
@@ -2744,8 +2744,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230545242,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 19,
     "member_number": 19,
@@ -2771,7 +2771,7 @@
       "zh-cn": "48\u9ad8\u723e\u592b\u7403\u7d93\u9a57",
       "zh-hk": "48\u9ad8\u723e\u592b\u7403\u7d93\u9a57"
     },
-    "timestamp": 1230545242,
+    "updated_at": 1403983873,
     "username": "leungwaikan"
   },
   "lichunman": {
@@ -2781,8 +2781,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230564863,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 66,
     "member_number": 66,
@@ -2808,7 +2808,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230564863,
+    "updated_at": 1403983873,
     "username": "lichunman"
   },
   "limchoonshin": {
@@ -2818,8 +2818,8 @@
       "zh-hk": "Malaysian Tour Qualifying School 2001 finished 5th;\r\n1997-2000 National Amateur Golf Team Member;\r\n1996-2000 Club Champion (Subang International Golf Club)(5 years straight);\r\n1998 Club Champion of Champions;\r\n1997 Tourism of Malaysia Champion;\r\n1992 Malaysia International School Junior Champion;\r\n"
     },
     "active": false,
+    "created_at": 1230713929,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 104,
     "member_number": 104,
@@ -2845,7 +2845,7 @@
       "zh-cn": "2001 PING Golf Club customer fitter (Malaysia);\r\n2001 Head Instructor Glenmarie Golf Club (Malaysia);\r\n2002 Golf Instructor at Garden Farm (Sai Kung, HK);\r\n2003 Golf Instructor & Club-Fitting Specialist at Central Golf HK.",
       "zh-hk": "2001 PING Golf Club customer fitter (Malaysia);\r\n2001 Head Instructor Glenmarie Golf Club (Malaysia);\r\n2002 Golf Instructor at Garden Farm (Sai Kung, HK);\r\n2003 Golf Instructor & Club-Fitting Specialist at Central Golf HK."
     },
-    "timestamp": 1230713929,
+    "updated_at": 1403983873,
     "username": "limchoonshin"
   },
   "liukaimung": {
@@ -2855,8 +2855,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230566824,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 88,
     "member_number": 88,
@@ -2882,7 +2882,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566824,
+    "updated_at": 1403983873,
     "username": "liukaimung"
   },
   "liupingkwong": {
@@ -2892,8 +2892,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230542225,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 4,
     "member_number": 4,
@@ -2919,7 +2919,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230542225,
+    "updated_at": 1403983873,
     "username": "liupingkwong"
   },
   "liuwaiyin": {
@@ -2929,8 +2929,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230543066,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 7,
     "member_number": 7,
@@ -2956,7 +2956,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230543066,
+    "updated_at": 1403983873,
     "username": "liuwaiyin"
   },
   "longkingsley": {
@@ -2966,8 +2966,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1305274220,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 120,
     "member_number": 7,
@@ -2993,7 +2993,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1305274220,
+    "updated_at": 1403983873,
     "username": "longkingsley"
   },
   "longkinsley": {
@@ -3003,8 +3003,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1389325904,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 141,
     "member_number": 130,
@@ -3030,7 +3030,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1389325904,
+    "updated_at": 1403983873,
     "username": "longkinsley"
   },
   "longmichael": {
@@ -3040,8 +3040,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230561571,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 40,
     "member_number": 40,
@@ -3067,7 +3067,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230561571,
+    "updated_at": 1403983873,
     "username": "longmichael"
   },
   "makamfat": {
@@ -3077,8 +3077,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230562629,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 52,
     "member_number": 52,
@@ -3104,7 +3104,7 @@
       "zh-cn": "\u73fe\u4efb\u6ed8\u897f\u6d32\u8cfd\u99ac\u6703\u516c\u773e\u9ad8\u723e\u592b\u7403\u5834\u99d0\u5834\u6559\u7df4, \u64c1\u67097\u81f38\u5e74\u6559\u5b78\u7d93\u9a57",
       "zh-hk": "\u73fe\u4efb\u6ed8\u897f\u6d32\u8cfd\u99ac\u6703\u516c\u773e\u9ad8\u723e\u592b\u7403\u5834\u99d0\u5834\u6559\u7df4, \u64c1\u67097\u81f38\u5e74\u6559\u5b78\u7d93\u9a57"
     },
-    "timestamp": 1230562629,
+    "updated_at": 1403983873,
     "username": "makamfat"
   },
   "makinman": {
@@ -3114,8 +3114,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230565919,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 76,
     "member_number": 76,
@@ -3141,7 +3141,7 @@
       "zh-cn": "\u75312002\u5e749\u6708\u958b\u59cb\u6559\u5b78\u81f3\u4eca, \u8d85\u904e\u4e94\u5e74\u6559\u6388\u9752\u5c11\u5e74\u7d93\u9a57, \u5728\u6ed8\u897f\u6d32\u6559\u6388, \u99d0\u5834\u6559\u7df4",
       "zh-hk": "\u75312002\u5e749\u6708\u958b\u59cb\u6559\u5b78\u81f3\u4eca, \u8d85\u904e\u4e94\u5e74\u6559\u6388\u9752\u5c11\u5e74\u7d93\u9a57, \u5728\u6ed8\u897f\u6d32\u6559\u6388, \u99d0\u5834\u6559\u7df4"
     },
-    "timestamp": 1230565919,
+    "updated_at": 1403983873,
     "username": "makinman"
   },
   "manhunglap": {
@@ -3151,8 +3151,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230544230,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 9,
     "member_number": 9,
@@ -3178,7 +3178,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230544230,
+    "updated_at": 1403983873,
     "username": "manhunglap"
   },
   "marrschris": {
@@ -3188,8 +3188,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1389326119,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 143,
     "member_number": 132,
@@ -3215,7 +3215,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1389326119,
+    "updated_at": 1403983873,
     "username": "marrschris"
   },
   "marrschristopher": {
@@ -3225,8 +3225,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1306204006,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 122,
     "member_number": 9,
@@ -3252,7 +3252,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1306204006,
+    "updated_at": 1403983873,
     "username": "marrschristopher"
   },
   "masonvaughan": {
@@ -3262,8 +3262,8 @@
       "zh-hk": "Joined Australian PGA Trainee program, January 1989\r\n\r\nDiploma - Australian PGA Trainee Academy, December 1991\r\n\r\nCompleted training as a Trainee Professional in the following areas:\r\n\r\n- Golf Science\r\n- Tuition\r\n- Rules, Ethics and Tournaments\r\n- Playing\r\n- Club Construction and Repair\r\n\r\nProfessional Golfers Association of Australia Membership Certificate, January 1992.\r\n\r\nMember, International Professional Golfers Association, 2003.\r\n\r\nMember, Hong Kong Professional Golfers Association, 2004."
     },
     "active": true,
+    "created_at": 1230563984,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 59,
     "member_number": 59,
@@ -3289,7 +3289,7 @@
       "zh-cn": "20\u5e74",
       "zh-hk": "20\u5e74"
     },
-    "timestamp": 1230563984,
+    "updated_at": 1403983873,
     "username": "masonvaughan"
   },
   "michellesun": {
@@ -3299,8 +3299,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1294648340,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 115,
     "member_number": 110,
@@ -3326,7 +3326,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1294648340,
+    "updated_at": 1403983873,
     "username": "michellesun"
   },
   "mokyuklun": {
@@ -3336,8 +3336,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230544296,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 10,
     "member_number": 10,
@@ -3363,7 +3363,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230544296,
+    "updated_at": 1403983873,
     "username": "mokyuklun"
   },
   "moralesalfonso": {
@@ -3373,8 +3373,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230566147,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 79,
     "member_number": 79,
@@ -3400,7 +3400,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566147,
+    "updated_at": 1403983873,
     "username": "moralesalfonso"
   },
   "moralesalfonso11": {
@@ -3410,8 +3410,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1389326210,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 144,
     "member_number": 11,
@@ -3437,7 +3437,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1389326210,
+    "updated_at": 1403983873,
     "username": "moralesalfonso11"
   },
   "moralesalfredo": {
@@ -3447,8 +3447,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230714025,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 105,
     "member_number": 1,
@@ -3474,7 +3474,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230714025,
+    "updated_at": 1403983873,
     "username": "moralesalfredo"
   },
   "mossipmark": {
@@ -3484,8 +3484,8 @@
       "zh-hk": "Levels 1, 2, 3 and 4, Canadian PGA Teaching and Coaching Certification\r\nHogan Tour Member, Canada (1996-2000)\r\nAssistants' Representative on Board of Directors, BCPGA 1998-2000\r\nPresident, Lower Mainland Assistants', BCPGA 1998-2000\r\nAssistant Professional of the Year Nominee, BCPGA 1999\r\nLevels 1, 2 and 3, Canadian Coaching Certification - Sport Canada\r\nUSPGA Tommy Armour Teaching and Coaching Summit 1996, 1998, 2000\r\nHogan, Titleist and Ping Club Fitting Certification\r\nHong Kong PGA Advanced Golf Instruction 2006\r\nBachelors Degree, Physical and Health Education, University of Toronto\r\nHonours Diploma, Recreation Management, Seneca College, Toronto"
     },
     "active": true,
+    "created_at": 1230708815,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 93,
     "member_number": 93,
@@ -3511,7 +3511,7 @@
       "zh-cn": "18 years\r\n\r\nHong Kong:\r\nDiscovery Bay Golf Club, current\r\nSouth China Athletic Association, current\r\nCity Golf Club, current\r\nPalm Island Golf Academy, current contract Professional\r\nOriental Golf City, 2000-2006/Island Golf 2005-2008\r\n\r\nCanada:\r\nQuilchena Golf and Country Club, Richmond, Canada 1998-2000\r\nFraserview Golf Course, Vancouver, Canada  1997-98\r\nShaughnessy Golf and Country Club, Vancouver, Canada 1994-97\r\n*Apprenticed under R. Bruce Murray, Master Professional \r\n*PGA instructional courses by Rick Smith, Hank Haney, Chuck Cook, Stan Leonard, \r\nMichael Hebron, David Leadbetter, Jimmy Ballard, Jim McLean\r\n",
       "zh-hk": "18 years\r\n\r\nHong Kong:\r\nDiscovery Bay Golf Club, current\r\nSouth China Athletic Association, current\r\nCity Golf Club, current\r\nPalm Island Golf Academy, current contract Professional\r\nOriental Golf City, 2000-2006/Island Golf 2005-2008\r\n\r\nCanada:\r\nQuilchena Golf and Country Club, Richmond, Canada 1998-2000\r\nFraserview Golf Course, Vancouver, Canada  1997-98\r\nShaughnessy Golf and Country Club, Vancouver, Canada 1994-97\r\n*Apprenticed under R. Bruce Murray, Master Professional \r\n*PGA instructional courses by Rick Smith, Hank Haney, Chuck Cook, Stan Leonard, \r\nMichael Hebron, David Leadbetter, Jimmy Ballard, Jim McLean\r\n"
     },
-    "timestamp": 1230708815,
+    "updated_at": 1403983873,
     "username": "mossipmark"
   },
   "nelsondean": {
@@ -3521,8 +3521,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1298966199,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 118,
     "member_number": 6,
@@ -3548,7 +3548,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1298966199,
+    "updated_at": 1403983873,
     "username": "nelsondean"
   },
   "ngaisuilin": {
@@ -3558,8 +3558,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1232594057,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 101,
     "member_number": 101,
@@ -3585,7 +3585,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1232594057,
+    "updated_at": 1403983873,
     "username": "ngaisuilin"
   },
   "ngkwanho": {
@@ -3595,8 +3595,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230565050,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 69,
     "member_number": 69,
@@ -3622,7 +3622,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230565050,
+    "updated_at": 1403983873,
     "username": "ngkwanho"
   },
   "ngyungfoon": {
@@ -3632,8 +3632,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230566570,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 84,
     "member_number": 84,
@@ -3659,7 +3659,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566570,
+    "updated_at": 1403983873,
     "username": "ngyungfoon"
   },
   "niketutraniasih": {
@@ -3669,8 +3669,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1294648395,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 116,
     "member_number": 111,
@@ -3696,7 +3696,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1294648395,
+    "updated_at": 1403983873,
     "username": "niketutraniasih"
   },
   "parkerlee": {
@@ -3706,8 +3706,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230542096,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 3,
     "member_number": 3,
@@ -3733,7 +3733,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230542096,
+    "updated_at": 1403983873,
     "username": "parkerlee"
   },
   "ponyleung": {
@@ -3743,8 +3743,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1310027284,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 123,
     "member_number": 113,
@@ -3770,7 +3770,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1310027284,
+    "updated_at": 1403983873,
     "username": "ponyleung"
   },
   "reevesmark": {
@@ -3780,8 +3780,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230561456,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 38,
     "member_number": 38,
@@ -3807,7 +3807,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230561456,
+    "updated_at": 1403983873,
     "username": "reevesmark"
   },
   "richardfern": {
@@ -3817,8 +3817,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1252912831,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 108,
     "member_number": 4,
@@ -3844,7 +3844,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1252912831,
+    "updated_at": 1403983873,
     "username": "richardfern"
   },
   "rileypaul": {
@@ -3854,8 +3854,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230564934,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 67,
     "member_number": 67,
@@ -3881,7 +3881,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230564934,
+    "updated_at": 1403983873,
     "username": "rileypaul"
   },
   "roachtodd": {
@@ -3891,8 +3891,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230545723,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 24,
     "member_number": 24,
@@ -3918,7 +3918,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230545723,
+    "updated_at": 1403983873,
     "username": "roachtodd"
   },
   "robbinsjames": {
@@ -3928,8 +3928,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230566382,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 81,
     "member_number": 81,
@@ -3955,7 +3955,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566382,
+    "updated_at": 1403983873,
     "username": "robbinsjames"
   },
   "robertchung": {
@@ -3965,8 +3965,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1296548245,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 117,
     "member_number": 125,
@@ -3992,7 +3992,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1296548245,
+    "updated_at": 1403983873,
     "username": "robertchung"
   },
   "robertsiain": {
@@ -4002,8 +4002,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230546632,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 35,
     "member_number": 35,
@@ -4029,7 +4029,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230546632,
+    "updated_at": 1403983873,
     "username": "robertsiain"
   },
   "schadewitz": {
@@ -4039,8 +4039,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230545971,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 27,
     "member_number": 27,
@@ -4066,7 +4066,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230545971,
+    "updated_at": 1403983873,
     "username": "schadewitz"
   },
   "sethiurvashi": {
@@ -4076,8 +4076,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1305702033,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 121,
     "member_number": 8,
@@ -4103,7 +4103,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1305702033,
+    "updated_at": 1403983873,
     "username": "sethiurvashi"
   },
   "shawnmorley": {
@@ -4113,8 +4113,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1373269469,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 131,
     "member_number": 126,
@@ -4140,7 +4140,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1373269469,
+    "updated_at": 1403983873,
     "username": "shawnmorley"
   },
   "shumhingnam": {
@@ -4150,8 +4150,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230565206,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 71,
     "member_number": 71,
@@ -4177,7 +4177,7 @@
       "zh-cn": "\u5f9e2001\u5e74\u53d7\u8a13\u65bc\u9999\u6e2f\u9ad8\u723e\u592b\u7403\u5b78\u9662,\r\n\u73fe\u65bc\u9999\u6e2f\u9ad8\u723e\u592b\u7403\u5b78\u9662\u4efb\u6559,\u99d0\u5ee3\u5dde\u9577\u9686\u3002",
       "zh-hk": "\u5f9e2001\u5e74\u53d7\u8a13\u65bc\u9999\u6e2f\u9ad8\u723e\u592b\u7403\u5b78\u9662,\r\n\u73fe\u65bc\u9999\u6e2f\u9ad8\u723e\u592b\u7403\u5b78\u9662\u4efb\u6559,\u99d0\u5ee3\u5dde\u9577\u9686\u3002"
     },
-    "timestamp": 1230565206,
+    "updated_at": 1403983873,
     "username": "shumhingnam"
   },
   "siukampiu": {
@@ -4187,8 +4187,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230546699,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 36,
     "member_number": 36,
@@ -4214,7 +4214,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230546699,
+    "updated_at": 1403983873,
     "username": "siukampiu"
   },
   "smithmark": {
@@ -4224,8 +4224,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230565459,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 73,
     "member_number": 73,
@@ -4251,7 +4251,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230565459,
+    "updated_at": 1403983873,
     "username": "smithmark"
   },
   "sogeoffrey": {
@@ -4261,8 +4261,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230562136,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 46,
     "member_number": 46,
@@ -4288,7 +4288,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230562136,
+    "updated_at": 1403983873,
     "username": "sogeoffrey"
   },
   "stewartjames": {
@@ -4298,8 +4298,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230562235,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 48,
     "member_number": 48,
@@ -4325,7 +4325,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230562235,
+    "updated_at": 1403983873,
     "username": "stewartjames"
   },
   "sunghangman": {
@@ -4335,8 +4335,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230565125,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 70,
     "member_number": 70,
@@ -4362,7 +4362,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230565125,
+    "updated_at": 1403983873,
     "username": "sunghangman"
   },
   "sungsing": {
@@ -4372,8 +4372,8 @@
       "zh-hk": "Golf Association Tournament Winner Best Gross (1988)\r\nAmateur Championship (1993)\r\n2007 HKPGA Order of Merit - 3rd Leg (Senior Division) - Champion"
     },
     "active": true,
+    "created_at": 1230545013,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 15,
     "member_number": 15,
@@ -4399,7 +4399,7 @@
       "zh-cn": "Teaching in Hong Kong Golf Club (1993-2010)\r\nTeaching in Whitehead Golf Club (2010-2014)",
       "zh-hk": "Teaching in Hong Kong Golf Club (1993-2010)\r\nTeaching in Whitehead Golf Club (2010-2014)"
     },
-    "timestamp": 1230545013,
+    "updated_at": 1403983873,
     "username": "sungsing"
   },
   "sungyaufuk": {
@@ -4409,8 +4409,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230545511,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 21,
     "member_number": 21,
@@ -4436,7 +4436,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230545511,
+    "updated_at": 1403983873,
     "username": "sungyaufuk"
   },
   "tangchingpun": {
@@ -4446,8 +4446,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230566334,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 80,
     "member_number": 80,
@@ -4473,7 +4473,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566334,
+    "updated_at": 1403983873,
     "username": "tangchingpun"
   },
   "tangmankee": {
@@ -4483,8 +4483,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230545067,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 16,
     "member_number": 16,
@@ -4510,7 +4510,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230545067,
+    "updated_at": 1403983873,
     "username": "tangmankee"
   },
   "tangshingchi": {
@@ -4520,8 +4520,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230562038,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 45,
     "member_number": 45,
@@ -4547,7 +4547,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230562038,
+    "updated_at": 1403983873,
     "username": "tangshingchi"
   },
   "tangshuwah": {
@@ -4557,8 +4557,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230561368,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 37,
     "member_number": 37,
@@ -4584,7 +4584,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230561368,
+    "updated_at": 1403983873,
     "username": "tangshuwah"
   },
   "tangshuwing": {
@@ -4594,8 +4594,8 @@
       "zh-hk": "1973\u5e74\u7372\u5f97\u5168\u6e2f\u9752\u5c11\u5e74\u9ad8\u723e\u592b\u7403\u6bd4\u8cfd\u51a0\u8ecd;\r\n1982\u81f31983\u5e74\u7372\u5f97\u5168\u6e2f\u6700\u4f73\u696d\u9918\u9ad8\u723e\u592b\u7403\u54e1;\r\n1987\u81f31988\u5e74\u7372\u5f97\u8077\u696dOrder Merit\u6bd4\u8cfd\u51a0\u8ecd;\r\n\u7372\u5f97\u4e8c\u5c46\u9999\u6e2fClosed Amateur\u6bd4\u8cfd\u51a0\u8ecd;\r\n\u7372\u5f97\u4e8c\u5c46PGA\u696d\u9918\u6bd4\u8cfd\u51a0\u8ecd;\r\n\u7372\u5f97\u4e00\u5c46PGA\u6bd4\u8cfd\u51a0\u8ecd;\r\n\u516d\u5e74\u4ee3\u8868\u9999\u6e2f\u53c3\u52a0\u696d\u9918\u6bd4\u8cfd;\r\n\u4e8c\u5e74\u4ee3\u8868\u9999\u6e2f\u53c3\u52a0\u8077\u696d\u6bd4\u8cfd;\r\n2008 HKPGA Order of Merit Leg 1 & Leg 2 \u9577\u6625\u7d44\u51a0\u8ecd;"
     },
     "active": true,
+    "created_at": 1258652179,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 6,
     "member_number": 6,
@@ -4621,7 +4621,7 @@
       "zh-cn": "23\u5e74",
       "zh-hk": "23\u5e74"
     },
-    "timestamp": 1258652179,
+    "updated_at": 1403983873,
     "username": "tangshuwing"
   },
   "tangwaichun": {
@@ -4631,8 +4631,8 @@
       "zh-hk": "\u53c3\u52a0:\r\n1999-2002 HK Team;\r\n2002- Asia Games;\r\n2002 - World Amateur Team;\r\n\r\n2005\u5e74\u6210\u529f\u901a\u904eHKPGA Golf Professional Training Program"
     },
     "active": true,
+    "created_at": 1230564435,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 62,
     "member_number": 62,
@@ -4658,7 +4658,7 @@
       "zh-cn": "1996 - 2002, KSC\u52a9\u6559\r\n2005, \u6559\u7df4",
       "zh-hk": "1996 - 2002, KSC\u52a9\u6559\r\n2005, \u6559\u7df4"
     },
-    "timestamp": 1230564435,
+    "updated_at": 1403983873,
     "username": "tangwaichun"
   },
   "tangyuetmei": {
@@ -4668,8 +4668,8 @@
       "zh-hk": "HK Ladies' Open 2003 DIV II Champion;\r\nHKPGA Golf Professional Training Program Graduate;"
     },
     "active": true,
+    "created_at": 1232594017,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 100,
     "member_number": 100,
@@ -4695,7 +4695,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1232594017,
+    "updated_at": 1403983873,
     "username": "tangyuetmei"
   },
   "tangyukchui": {
@@ -4705,8 +4705,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230566500,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 83,
     "member_number": 83,
@@ -4732,7 +4732,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566500,
+    "updated_at": 1403983873,
     "username": "tangyukchui"
   },
   "taoyukwah": {
@@ -4742,8 +4742,8 @@
       "zh-hk": "Pass HKPGA Golf Professional Training Program 2008"
     },
     "active": true,
+    "created_at": 1237955243,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 102,
     "member_number": 102,
@@ -4769,7 +4769,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1237955243,
+    "updated_at": 1403983873,
     "username": "taoyukwah"
   },
   "tongchunpo": {
@@ -4779,8 +4779,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230561775,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 42,
     "member_number": 42,
@@ -4806,7 +4806,7 @@
       "zh-cn": "9\u5e74",
       "zh-hk": "9\u5e74"
     },
-    "timestamp": 1230561775,
+    "updated_at": 1403983873,
     "username": "tongchunpo"
   },
   "tsechunkee": {
@@ -4816,8 +4816,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1267601679,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 112,
     "member_number": 107,
@@ -4843,7 +4843,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1267601679,
+    "updated_at": 1403983873,
     "username": "tsechunkee"
   },
   "urvashisethi": {
@@ -4853,8 +4853,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1389326051,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 142,
     "member_number": 131,
@@ -4880,7 +4880,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1389326051,
+    "updated_at": 1403983873,
     "username": "urvashisethi"
   },
   "wongchingkwan": {
@@ -4890,8 +4890,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1232593903,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 98,
     "member_number": 98,
@@ -4917,7 +4917,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1232593903,
+    "updated_at": 1403983873,
     "username": "wongchingkwan"
   },
   "wongchunchun": {
@@ -4927,8 +4927,8 @@
       "zh-hk": "pass HKPGA trainee program"
     },
     "active": true,
+    "created_at": 1230566092,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 78,
     "member_number": 78,
@@ -4954,7 +4954,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566092,
+    "updated_at": 1403983873,
     "username": "wongchunchun"
   },
   "wonghoifung": {
@@ -4964,8 +4964,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230564718,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 64,
     "member_number": 64,
@@ -4991,7 +4991,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230564718,
+    "updated_at": 1403983873,
     "username": "wonghoifung"
   },
   "wonghoikin": {
@@ -5001,8 +5001,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230562731,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 53,
     "member_number": 53,
@@ -5028,7 +5028,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230562731,
+    "updated_at": 1403983873,
     "username": "wonghoikin"
   },
   "wonglai": {
@@ -5038,8 +5038,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1327029691,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 126,
     "member_number": 116,
@@ -5065,7 +5065,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1327029691,
+    "updated_at": 1403983873,
     "username": "wonglai"
   },
   "wongwoonman": {
@@ -5075,8 +5075,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230563105,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 56,
     "member_number": 56,
@@ -5102,7 +5102,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230563105,
+    "updated_at": 1403983873,
     "username": "wongwoonman"
   },
   "woohyunl": {
@@ -5112,8 +5112,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1373528939,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 135,
     "member_number": 123,
@@ -5139,7 +5139,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1373528939,
+    "updated_at": 1403983873,
     "username": "woohyunl"
   },
   "yausuiming": {
@@ -5149,8 +5149,8 @@
       "zh-hk": ""
     },
     "active": false,
+    "created_at": 1230542412,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 5,
     "member_number": 5,
@@ -5176,7 +5176,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230542412,
+    "updated_at": 1403983873,
     "username": "yausuiming"
   },
   "yimyuenshan": {
@@ -5186,8 +5186,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230566718,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 86,
     "member_number": 86,
@@ -5213,7 +5213,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566718,
+    "updated_at": 1403983873,
     "username": "yimyuenshan"
   },
   "yiponwah": {
@@ -5223,8 +5223,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230545583,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 22,
     "member_number": 22,
@@ -5250,7 +5250,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230545583,
+    "updated_at": 1403983873,
     "username": "yiponwah"
   },
   "yipyukling": {
@@ -5260,8 +5260,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1232593941,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 99,
     "member_number": 99,
@@ -5287,7 +5287,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1232593941,
+    "updated_at": 1403983873,
     "username": "yipyukling"
   },
   "yuenchiwan": {
@@ -5297,8 +5297,8 @@
       "zh-hk": ""
     },
     "active": true,
+    "created_at": 1230566441,
     "email": "",
-    "last_updated": 1403947992,
     "md5_hash": "",
     "member_id": 82,
     "member_number": 82,
@@ -5324,7 +5324,7 @@
       "zh-cn": "",
       "zh-hk": ""
     },
-    "timestamp": 1230566441,
+    "updated_at": 1403983873,
     "username": "yuenchiwan"
   },
   "martvandeven" : {
@@ -5359,6 +5359,8 @@
         "zh-hk" : "臿 蔊蓴蔖 蛶 錖霒 棎棦 劁 枅杺枙 螭蟅謕, 酳銪 銈銙鉾 嵉愊惵 葠蜄蛖 徲 郹酟 澉 馺骱魡 黐曮禷 裍裚詷, 櫱瀯灂 飹勫嫢",
         "zh-cn" : "臿 蔊蓴蔖 蛶 錖霒 棎棦 劁 枅杺枙 螭蟅謕, 酳銪 銈銙鉾 嵉愊惵 葠蜄蛖 徲 郹酟 澉 馺骱魡 黐曮禷 裍裚詷, 櫱瀯灂 飹勫嫢"
         },
-    "username" : "martvandeven"
+    "username" : "martvandeven",
+    "updated_at": 1403947992,
+    "created_at": 1403947992
   }
 }

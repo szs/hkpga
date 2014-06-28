@@ -32,8 +32,8 @@ def convert(member):
     "role" : 'member',
     "sex" : codeSex(member['sex']),
     "status" : codeStatus(member['mem_type']),
-    "timestamp" : int(member['add_date']),
-    "last_updated" : int(time.time()),
+    "created_at" : int(member['add_date']),
+    "updated_at" : int(time.time()),
     "teaching_experience" : {
       "en" : member['teaching_exp_e'],
       "zh-hk" : member['teaching_exp'],
