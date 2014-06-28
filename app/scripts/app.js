@@ -80,8 +80,12 @@ app.config(function ($routeProvider) {
           redirectTo: '/juniors/skyhigh',
         })
         .when('/juniors/skyhigh', {
-          templateUrl: 'views/juniors.html',
+          templateUrl: 'views/skyhigh.html',
           controller: 'JuniorsCtrl',
+        })
+        .when('/juniors/skyhigh/news', {
+          templateUrl: 'views/skyhigh-news.html',
+          controller: 'NewsCtrl',
         })
         .when('/events', {
           templateUrl: 'views/events.html',
@@ -92,7 +96,7 @@ app.config(function ($routeProvider) {
         })
         .when('/press/releases', {
           templateUrl: 'views/pressreleases.html',
-          controller: 'PressReleaseCtrl',
+          controller: 'ReleasesCtrl',
         })
         .when('/press/magazines', {
           templateUrl: 'views/magazines.html',
@@ -106,11 +110,11 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/new.html',
           controller: 'NewCtrl',
         })
-        .when('/:page', {
+        .when('/:category/:page', {
           templateUrl: 'views/static.html',
           controller: 'StaticCtrl',
         })
-        .when('/:page/:action', {
+        .when('/:category/:page/:action', {
           templateUrl: 'views/static.html',
           controller: 'StaticCtrl',
         })

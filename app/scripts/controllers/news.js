@@ -1,15 +1,12 @@
 /* global app:true */
 'use strict';
 
-app.controller('NewsCtrl', function($scope, $rootScope, $translate, Article, Lang){
+app.controller('NewsCtrl', function($scope, $rootScope, Article){
+  
   $scope.articles = Article.all;
 
   $scope.article = Article.new();
     
-  $scope.lang = function() {
-    return Lang.current()
-  }
-
   var getSlug = function(str) {
     var slug = '';
     var trimmed = str.trim();
@@ -69,10 +66,6 @@ app.controller('NewsCtrl', function($scope, $rootScope, $translate, Article, Lan
 
   $scope.deleteArticle = function(articleID) {
     Article.delete(articleID);
-  };
-
-  $scope.getCurrentLanguage = function () {
-    return $translate.use();
   };
 
 });

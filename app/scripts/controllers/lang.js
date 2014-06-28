@@ -8,7 +8,8 @@ app.controller('LangCtrl', function ($scope, $rootScope, $translate) {
     $translate.use(langKey);
   };
 
-  $rootScope.getCurrentLanguage = function () {
+  $rootScope.l10n = function () {
     return $translate.use();
   };
+
 });

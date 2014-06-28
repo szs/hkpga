@@ -38,6 +38,7 @@ app.factory('Page',
             'zh-hk': '',
             'zh-cn': ''
           },
+          category: '',
           slug: '',
           author: '',
           html: {
