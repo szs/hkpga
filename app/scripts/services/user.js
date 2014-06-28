@@ -56,7 +56,6 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
         "email": "",
         "last_updated": Date.now(),
         "md5_hash": "",
-        "member_id": null,
         "member_number": null,
         "member_since": new Date().getFullYear(),
         "name": {
