@@ -6,6 +6,22 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
 
   var users = $firebase(ref);
 
+  $rootScope.$on('$firebaseSimpleLogin:login', function (e, authUser) {
+    var query = $firebase(ref.startAt(authUser.uid).endAt(authUser.uid));
+
+    query.$on('loaded', function () {
+      setCurrentUser(query.$getIndex()[0]);
+    });
+  });
+
+  $rootScope.$on('$firebaseSimpleLogin:logout', function() {
+    delete $rootScope.currentUser;
+  });
+
+  function setCurrentUser (usr) {
+    $rootScope.currentUser = User.findByUsername(usr);
+  }
+
   var User = {
     all: users,
     create : function (authUser, user){
@@ -29,43 +45,46 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
       console.log($rootScope.currentUser);
       return $rootScope.currentUser !== undefined;
     },
-    name : function() {
-      return this['name_' + Lang.current()]
-    },
-    qualifications : function() {
-      this['qualifications_' + Lang.current()]
-    },
-    achievements : function() {
-      this['achievements_' + Lang.current()]
-    },
-    teaching_experience : function() {
-      this['teaching_experience_' + Lang.current()]
-    },
     new : function(){
-        return {
-          username: '',
-          password: '',
-          name_en: '',
-          name_zh: ''
-        };
+      return {
+        "achievements": {
+          "en": "",
+          "zh-cn": "",
+          "zh-hk": ""
+        },
+        "active": false,
+        "email": "",
+        "last_updated": Date.now(),
+        "md5_hash": "",
+        "member_id": null,
+        "member_number": null,
+        "member_since": new Date().getFullYear(),
+        "name": {
+          "en": "",
+          "zh-cn": "",
+          "zh-hk": ""
+        },
+        "phone": "",
+        "pro_since": null,
+        "profile_picture": "",
+        "qualifications": {
+          "en": "",
+          "zh-cn": "",
+          "zh-hk": ""
+        },
+        "role": "member",
+        "sex": "",
+        "status": "",
+        "teaching_experience": {
+          "en": "",
+          "zh-cn": "",
+          "zh-hk": ""
+        },
+        "timestamp": Date.now(),
+        "username": ""
       }
-  }
-
-  function setCurrentUser (usr) {
-    $rootScope.currentUser = User.findByUsername(usr);
-  }
-
-  $rootScope.$on('$firebaseSimpleLogin:login', function (e, authUser) {
-    var query = $firebase(ref.startAt(authUser.uid).endAt(authUser.uid));
-
-    query.$on('loaded', function () {
-      setCurrentUser(query.$getIndex()[0]);
-    });
-  });
-
-  $rootScope.$on('$firebaseSimpleLogin:logout', function() {
-    delete $rootScope.currentUser;
-  });
+    }
+  };
 
   return User;
 });
