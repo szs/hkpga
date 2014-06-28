@@ -1,0 +1,222 @@
+[
+  {
+    "add_date": "1311861909",
+    "chi_name": "\u5085\u83ef",
+    "eng_name": "William Fu",
+    "login_name": "williamfu",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "1",
+    "trainee_status": "Active",
+    "year": "4"
+  },
+  {
+    "add_date": "1311861968",
+    "chi_name": "\u8607\u77f3\u6c11",
+    "eng_name": "So Sek Man",
+    "login_name": "sosekman",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "2",
+    "trainee_status": "Non-Active",
+    "year": "3"
+  },
+  {
+    "add_date": "1311862005",
+    "chi_name": "\u99ae\u5c1a\u7152",
+    "eng_name": "Ray Fung",
+    "login_name": "rayfung",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "3",
+    "trainee_status": "Non-Active",
+    "year": "3"
+  },
+  {
+    "add_date": "1311862065",
+    "chi_name": "\u9673\u7152\u9d3b",
+    "eng_name": "Chan Wai Hung",
+    "login_name": "chanwaihung",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "4",
+    "trainee_status": "Non-Active",
+    "year": "2"
+  },
+  {
+    "add_date": "1311862100",
+    "chi_name": "\u937e\u5146\u57fa",
+    "eng_name": "Chung Siu Kei",
+    "login_name": "chungsiukei",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "5",
+    "trainee_status": "Non-Active",
+    "year": "2"
+  },
+  {
+    "add_date": "1311862134",
+    "chi_name": "\u4f55\u5fb7\u76db",
+    "eng_name": "Ho Tak Shing",
+    "login_name": "hotakshing",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "6",
+    "trainee_status": "Active",
+    "year": "2"
+  },
+  {
+    "add_date": "1311862174",
+    "chi_name": "\u7f85\u96c4\u69ae",
+    "eng_name": "Law Hung Wing",
+    "login_name": "lawhungwing",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "7",
+    "trainee_status": "Non-Active",
+    "year": "2"
+  },
+  {
+    "add_date": "1311862206",
+    "chi_name": "\u674e\u9298\u7686",
+    "eng_name": "Eric Lee",
+    "login_name": "ericlee",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "8",
+    "trainee_status": "Non-Active",
+    "year": "2"
+  },
+  {
+    "add_date": "1311862261",
+    "chi_name": "\u9673\u656c\u8861",
+    "eng_name": "Chan King Hang",
+    "login_name": "chankinghang",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "9",
+    "trainee_status": "Non-Active",
+    "year": "1"
+  },
+  {
+    "add_date": "1311862295",
+    "chi_name": "\u8607\u6f22\u6fa4",
+    "eng_name": "So Hon Chak Kaslan",
+    "login_name": "sohonchak",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "10",
+    "trainee_status": "Non-Active",
+    "year": "1"
+  },
+  {
+    "add_date": "1311862327",
+    "chi_name": "\u4f55\u51a0\u8f1d",
+    "eng_name": "Ho Koon Fai",
+    "login_name": "hokoonfai",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "11",
+    "trainee_status": "Active",
+    "year": "1"
+  },
+  {
+    "add_date": "1311862400",
+    "chi_name": "\u6881\u5609\u97fb",
+    "eng_name": "Jacqueline Leung",
+    "login_name": "jacquelineleung",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "f",
+    "trainee_id": "12",
+    "trainee_status": "Non-Active",
+    "year": "3"
+  },
+  {
+    "add_date": "1311862459",
+    "chi_name": "\u738b\u9e97",
+    "eng_name": "Wong Lai",
+    "login_name": "wonglai",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "f",
+    "trainee_id": "13",
+    "trainee_status": "Non-Active",
+    "year": "2"
+  },
+  {
+    "add_date": "1311862493",
+    "chi_name": "\u7f85\u6f54\u51dd",
+    "eng_name": "Jolia Lo Kit Ying",
+    "login_name": "jolialo",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "f",
+    "trainee_id": "14",
+    "trainee_status": "Non-Active",
+    "year": "2"
+  },
+  {
+    "add_date": "1311862531",
+    "chi_name": "\u5353\u5c0f\u82b3",
+    "eng_name": "Chuck Christine Karen",
+    "login_name": "chuckchristinekaren",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "f",
+    "trainee_id": "15",
+    "trainee_status": "Active",
+    "year": "2"
+  },
+  {
+    "add_date": "1311862581",
+    "chi_name": "\u90ed\u975c\u6c82",
+    "eng_name": "Jeanie Kwok",
+    "login_name": "jeaniekwok",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "f",
+    "trainee_id": "16",
+    "trainee_status": "Active",
+    "year": "2"
+  },
+  {
+    "add_date": "1311863797",
+    "chi_name": "\u8463\u5bb6\u88d5",
+    "eng_name": "Shark Tung",
+    "login_name": "sharktung",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "17",
+    "trainee_status": "Active",
+    "year": "5"
+  },
+  {
+    "add_date": "1311863836",
+    "chi_name": "\u5b6b\u57f9\u52dd",
+    "eng_name": "Lawrence Suen Pui Sing",
+    "login_name": "lawrencesuen",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "18",
+    "trainee_status": "Active",
+    "year": "5"
+  },
+  {
+    "add_date": "1311863884",
+    "chi_name": "\u9673\u9326\u8f1d",
+    "eng_name": "Chan Kam Fai",
+    "login_name": "chankamfai",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "19",
+    "trainee_status": "Active",
+    "year": "5"
+  },
+  {
+    "add_date": "1311863928",
+    "chi_name": "\u674e\u6c38\u660e",
+    "eng_name": "Lee Wing Ming",
+    "login_name": "leewingming",
+    "login_passwd": "d0970714757783e6cf17b26fb8e2298f",
+    "sex": "m",
+    "trainee_id": "20",
+    "trainee_status": "Non-Active",
+    "year": "5"
+  }
+]

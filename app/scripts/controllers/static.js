@@ -3,6 +3,10 @@
 
 app.controller('StaticCtrl', function($scope, $rootScope, $routeParams, Page){
   
+  $scope.pages = Page.all;
+  
+  $scope.page = Page.new()
+
   var pageExists = function(page){
     Page.current($routeParams.page, function(p){
       if (p === null){
@@ -23,11 +27,7 @@ app.controller('StaticCtrl', function($scope, $rootScope, $routeParams, Page){
     return slug.toLowerCase();
   }
 
-  $scope.pages = Page.all;
-
   $scope.page = pageExists();
-
-  console.log($scope.page)
 
   $scope.editable = ($routeParams.action === 'edit');
 
@@ -38,8 +38,6 @@ app.controller('StaticCtrl', function($scope, $rootScope, $routeParams, Page){
       $priority : Date.now(),
       last_edited: Date.now()
     });
-
-    console.log($scope.page);
 
     Page.create($scope.page);
   };

@@ -1,11 +1,9 @@
  <div class="container">
+  <h2 ng-if="page.title">{{ page.title[getCurrentLanguage()] }}</h2>
   <input ng-if="editable" ng-model="page.title[getCurrentLanguage()]">
   <textarea ng-if="editable" ng-model="page.html[getCurrentLanguage()]" redactor cols="60" rows="10"></textarea>
   <div class="col-md-3 col-md-offset-9">
     <a ng-if="editable" ng-click="save()" class="btn btn-primary" translate>SAVE</a>    
   </div>
   <div ng-if="!editable && page.title" ng-bind-html="page.html[getCurrentLanguage()]" class="static-body"></div>
-
 </div>
-
-{{page}}
