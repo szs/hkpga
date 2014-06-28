@@ -178,8 +178,13 @@ $brand-black:       #231f20;
   .well {
     padding: 20px 40px;
     border-radius: 0px !important;
-    background-color: $white;
+    background-color: $white;    
+    p {
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
   }
+
 
 
 // 2. LAYOUT ------------------------------------------------------------
@@ -817,3 +822,30 @@ $brand-black:       #231f20;
 #login-page {
       min-height: 770px;
 }
+
+
+
+/* Small devices (tablets, 768px and up) */
+// @media (min-width: @screen-sm-min) { 
+
+// }
+
+/* Medium devices (desktops, 992px and up) */
+// @media (min-width: @screen-md-min) { 
+
+// }
+
+/* Large devices (large desktops, 1200px and up) */
+// @media (min-width: @screen-lg-min) { 
+
+// }
+
+
+// 6. CUSTOM MEDIA QUERIES 
+
+
+
+
+
+
+
