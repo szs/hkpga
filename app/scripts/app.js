@@ -64,6 +64,10 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/tournaments.html',
           controller: 'TournamentsCtrl',
         })
+        .when('/about/partners', {
+          templateUrl: 'views/partners.html',
+          controller: 'PartnersCtrl',
+        })
         .when('/professionals', {
           templateUrl: 'views/professionals.html',
           controller: 'ProfessionalsCtrl'

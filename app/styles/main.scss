@@ -24,6 +24,7 @@ $grey-shadow:       #b5b5b5;
 $white:             white;
 $black:             #090909;
 $text-grey:         #5f6062;
+$text-grey-light:   #cccccc;
 $text-grey-lighter: #666766;
 
 $brand-green:       #098743;
@@ -47,6 +48,11 @@ $brand-black:       #231f20;
 .bottom-bar {
   border-bottom: 3px solid $brand-green;
   padding-bottom: 15px;
+}
+
+.title-row {
+  border: 2px solid $white;
+  background-color: transparent;
 }
 
 // 1. BASE ------------------------------------------------------------
@@ -93,16 +99,19 @@ $brand-black:       #231f20;
   // article title,
   h4 {
     font-size: 1.8rem;
-    color: $text-grey-lighter;
+    letter-spacing: 1px;
+    color: $text-grey-light;
     padding-top: 11px;
+    font-weight: 400;
     @extend .left-bar;
     @include bar-height(2rem);
   }
 
   // date
   h5 {
-    font-size: 1.5rem;
-    color: $text-grey-lighter;
+    font-size: 1.6rem;
+    color: $text-grey-light;
+    font-weight: normal;
   }
 
 
@@ -116,7 +125,6 @@ $brand-black:       #231f20;
     color: $text-grey-lighter;
     :hover {
       color: $brand-gold;
-      border-color: $brand-gold;
     }
   }
 
@@ -200,14 +208,11 @@ $brand-black:       #231f20;
       padding-bottom: 40px;
       position: absolute;
       // bottom: 0;
-      bottom: -200px;
+      bottom: -120px;
       width: 100%;
       p {
         padding-left: 30px;
-      }
-      .copyright {
-        float: right;
-        margin: 10px;
+        text-align: center;
       }
       padding-top: 20px;
       color: #777;
@@ -249,13 +254,8 @@ $brand-black:       #231f20;
 
     .latest-news {
       margin-bottom: 20px;
-      .article-title-row {
-        background-color: none;
-        border: 3px solid $white;
+      .title-row {
         padding-left: 20px;
-        h5, h4, i {
-          color: $white;
-        }
       }
       .latest-news-body {
         background-color: $white;
@@ -270,14 +270,17 @@ $brand-black:       #231f20;
 
     .more-news {
       border-radius: 0;
-      .article-title-row {
+      .title-row {
         margin-bottom: 20px;
+      }
+      h4,h5 {
+        color: $text-grey;
       }
     }
 
 
     #articles-section {
-      .article-title-row {
+      .title-row {
         i.arrow-more {
           float: right;
           display: block;
@@ -291,7 +294,7 @@ $brand-black:       #231f20;
 
     #articles-section, 
     #show-article {  
-      .article-title-row {
+      .title-row {
         &:hover {
           color: $brand-gold;
         }
@@ -305,18 +308,20 @@ $brand-black:       #231f20;
       }
     }
 
-    #show-article {
+    #show-news #show-article {
       margin-top: 80px;
-      .article-title-row {  
-        padding-bottom: 10px;
-        border-bottom: 1px solid $text-grey;
+      .title-row {  
+        margin-top: 3px;
         h4 {
-          font-size: 2.3rem;
-          font-weight: 500;
-          @include bar-height(2.4rem);
+          font-size: 1.8rem;
+          font-weight: 400;
+          @include bar-height(1.8rem);
+          color: $grey-light;
         }
         h5 {
-          font-size: 2rem;
+          font-size: 1.7rem;
+          margin-left: 39px;
+          color: $grey-light;
         }
         p:nth-child(2){
           padding-top: 20px;
@@ -413,6 +418,35 @@ $brand-black:       #231f20;
       }
     }
 
+    // 2. PARTNERS PAGE 
+    
+    #partners-page {
+      #partners-list {
+        position: relative;
+        a {
+          width: 160px;
+          height: 100px;
+          margin: 15px;
+          display: block;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          float: left;
+        }
+        a:nth-child(1) {
+            background-image: url(/images/logo-pgae-bw.png);
+        }
+        a:nth-child(2) {
+            background-image: url(/images/logo-hkga-bw.png);
+        }
+        a:nth-child(3) {
+            background-image: url(/images/logo-yinli-bw.png);
+        }
+        a:nth-child(4) {
+            background-image: url(/images/logo-lcsd-bw.png);
+        }
+    }
+  }
 
 // 3. MODULE ------------------------------------------------------------
 
@@ -531,10 +565,10 @@ $brand-black:       #231f20;
       margin: 12px 12px;
     }
     .widget-title {
-      border: 3px solid $white;
       border-bottom: none;
       vertical-align: middle;
       height: 50px;
+      @extend .title-row;
     }
     .widget-footer {
       margin-top: -20px;
@@ -584,7 +618,7 @@ $brand-black:       #231f20;
         @include bar-height(1.8rem);
       }
       .latest-magazine-thumbnail {
-        border: 3px solid $white;
+        border: 2px solid $white;
         padding: 5px 0;
         width: 100%;
         height: 481px;
@@ -609,13 +643,13 @@ $brand-black:       #231f20;
       width: 100%;
       height: auto;
       color: $brand-gold;
-      border: 2px solid $grey-light;
+      border: 2px solid $white;
       ul {
         list-style-type: none;
         padding-left: 0;
       }
       li {
-        border-bottom: 1px solid $grey-light;
+        border-bottom: 1px solid $white;
         padding: 7px 0;
       }
       li.side-level-1{

@@ -1,6 +1,6 @@
 var translationsEN = {
   MENU_HOME: 'Home',
-  MENU_PROFESSIONALS: 'Professionals',
+  MENU_PROFESSIONALS: 'Pros',
   MENU_TOURNAMENTS: 'Tournaments',
   MENU_MEMBERS: 'Members',
   MENU_JUNIORS: 'Juniors',

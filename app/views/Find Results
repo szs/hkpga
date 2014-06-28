@@ -1,0 +1,54 @@
+Searching 485 files for "article-title-row"
+
+/Users/szs/Code/hkpga/app/styles/main.scss:
+  251      .latest-news {
+  252        margin-bottom: 20px;
+  253:       .title-row {
+  254          background-color: none;
+  255          border: 3px solid $white;
+  ...
+  269      .more-news {
+  270        border-radius: 0;
+  271:       .title-row {
+  272          margin-bottom: 20px;
+  273        }
+  ...
+  279  
+  280      #articles-section {
+  281:       .title-row {
+  282          i.arrow-more {
+  283            float: right;
+  ...
+  293      #articles-section, 
+  294      #show-article {  
+  295:       .title-row {
+  296          &:hover {
+  297            color: $brand-gold;
+  ...
+  309      #show-news #show-article {
+  310        margin-top: 80px;
+  311:       .title-row {  
+  312          border: 2px solid $white;
+  313          background-color: transparent;
+
+/Users/szs/Code/hkpga/app/views/news.html:
+    6          <div class="info latest-news">
+    7            <a href="#/news/{{ latest.slug }}" >
+    8:             <div class="title-row clearfix">
+    9                <h5>{{ latest.timestamp | date:'dd MMM yyyy'}}</h5>
+   10                <h4>{{ lang() == 'en' ? latest.title_en : latest.title_zh }}</h4>
+   ..
+   26          <div class="info well more-news" ng-class="(article.draft) ? 'draft' : ''">
+   27            <a href="#/news/{{ article.slug }}" >
+   28:             <div class="title-row clearfix">
+   29                <h5>{{article.timestamp | date:'dd MMM yyyy'}}</h5>
+   30                <h4>{{lang() == 'en' ? article.title_en : article.title_zh}}</h4>
+
+/Users/szs/Code/hkpga/app/views/shownews.html:
+   10          <div class="article row">
+   11            <div class="col-md-12">
+   12:             <div class="title-row clearfix">
+   13                <h5>{{article.timestamp | date:'dd MMM yyyy'}}</h5>
+   14                <h4>{{lang() == 'en' ? article.title_en : article.title_zh}}</h4>
+
+8 matches across 3 files

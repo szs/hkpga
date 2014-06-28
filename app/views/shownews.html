@@ -9,11 +9,11 @@
       <div id="show-article">
         <div class="article row">
           <div class="col-md-12">
+            <div class="title-row clearfix">
+              <h5>{{article.timestamp | date:'dd MMM yyyy'}}</h5>
+              <h4>{{lang() == 'en' ? article.title_en : article.title_zh}}</h4>
+            </div>
             <div class="info" ng-class="(article.draft) ? 'well' : ''">
-              <div class="article-title-row clearfix">
-                <h5>{{article.timestamp | date:'dd MMM yyyy'}}</h5>
-                <h4>{{lang() == 'en' ? article.title_en : article.title_zh}}</h4>
-              </div>
               <div class="article-body" ng-bind-html="lang() == 'en' ? article.en : article.zh">
               </div>
             </div>
