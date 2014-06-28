@@ -811,6 +811,29 @@ $brand-black:       #231f20;
 
 // 4. STATE ------------------------------
 
+.admin .full:before{
+  background-color: purple;
+}
+.admin .tournament:before{
+  background-color: pink;
+}
+.admin .associate:before{
+  background-color: white;
+}
+
+.full:before, .tournament:before, .associate:before{
+  content: "!";
+  background-color: red;
+}
+.trainer:before{
+  content: "!";
+  background-color: blue;
+}
+.trainee:before{
+  content: "!";
+  background-color: green;
+}
+
 
 // 5. THEME ------------------------------
 
@@ -842,10 +865,3 @@ $brand-black:       #231f20;
 
 
 // 6. CUSTOM MEDIA QUERIES 
-
-
-
-
-
-
-
