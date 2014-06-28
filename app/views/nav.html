@@ -4,9 +4,7 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        MENU
       </button>
       <a class="navbar-brand" href="#"><img src="/images/hkpga-logo.png"></a>
     </div>
@@ -34,7 +32,7 @@
         </li>
       </ul>
 
-        <ul ng-controller="LangCtrl" class="nav navbar-nav navbar-right clearfix">
+        <ul ng-controller="LangCtrl" class="nav navbar-nav navbar-right clearfix" id="language-controls">
           <li class="user-lang" translate>LANG_CURRENT</li>
           <li class="user-lang" ng-hide="l10n() == 'en'">
             <a ng-click="changeLanguage('en')" translate="LANG_EN" class="btn"></a>
@@ -51,35 +49,35 @@
         <li><a translate ng-href="#">MENU_HOME</a></li>
           <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_ABOUT</a>
             <ul class="dropdown-menu">
-                <li><a ng-href="#/about/us"> About us </a></li>
-                <li><a href="#/about/partners"> Partners </a></li>
-                <li><a href="#/about/committee-honorary"> Committee &amp; Honorary Members </a></li>
+                <li><a ng-href="#/about/us"> / About us </a></li>
+                <li><a href="#/about/partners"> / Partners </a></li>
+                <li><a href="#/about/committee-honorary"> / Committee &amp; Honorary Members </a></li>
             </ul>
           </li>
           <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_TOURNAMENTS</a>
             <ul class="dropdown-menu">
-                <li><a ng-href="#/tournaments/merit"> Order of Merit </a></li>
-                <li><a href="#/tournaments/member"> Member Tournaments </a></li>
-                <li><a href="#/tournaments/trainee"> Trainee tournaments </a></li>
+                <li><a ng-href="#/tournaments/merit"> / Order of Merit </a></li>
+                <li><a href="#/tournaments/member"> / Member Tournaments </a></li>
+                <li><a href="#/tournaments/trainee"> / Trainee tournaments </a></li>
             </ul>
           </li>
           <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_PROS</a>
             <ul class="dropdown-menu">
-                <li><a ng-href="#/pros"> Directory</a></li>
-                <li><a href="#/pros/training-program"> Training program </a></li>
+                <li><a ng-href="#/pros"> / Directory</a></li>
+                <li><a href="#/pros/training-program"> / Training program </a></li>
             </ul>
           </li>
           <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_JUNIORS</a>
             <ul class="dropdown-menu">
-                <li><a ng-href="#/juniors/skyhigh"> Project Skyhigh </a></li>
+                <li><a ng-href="#/juniors/skyhigh"> / Project Skyhigh </a></li>
             </ul>
           </li>    
           <li><a translate ng-href="#/events">MENU_EVENTS</a></li>
           <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_PRESS</a>
             <ul class="dropdown-menu">
-                <li><a ng-href="#/press/releases"> Press releases</a></li>
-                <li><a href="#/press/media"> Media coverage</a></li>
-                <li><a href="#/press/magazine"> Magazine </a></li>
+                <li><a ng-href="#/press/releases"> / Press releases</a></li>
+                <li><a href="#/press/media"> / Media coverage</a></li>
+                <li><a href="#/press/magazine"> / Magazine </a></li>
             </ul>
           </li>
           <li><a translate ng-href="#/contact">MENU_CONTACT</a></li>

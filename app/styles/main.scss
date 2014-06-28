@@ -55,6 +55,7 @@ $brand-black:       #231f20;
   background-color: transparent;
 }
 
+
 // 1. BASE ------------------------------------------------------------
 
   body {
@@ -221,7 +222,7 @@ $brand-black:       #231f20;
       }
       padding-top: 20px;
       color: #777;
-      border-top: 1px solid #e5e5e5;
+      border-top: 4px solid $black;
       background-image: url(/images/tactile-grey-bg.png);
     }
 
@@ -435,7 +436,6 @@ $brand-black:       #231f20;
         width: 800px;
         margin: 0 auto;
         a {
-          width: 160px;
           height: 100px;
           margin: 15px;
           display: block;
@@ -447,6 +447,7 @@ $brand-black:       #231f20;
         }
         a:nth-child(1) {
             background-image: url(/images/logo-pgae-bw.png);
+            width: 150px;
         }
         a:nth-child(1):hover {
             background-image: url(/images/logo-pgae.png);
@@ -460,12 +461,14 @@ $brand-black:       #231f20;
         }
         a:nth-child(3) {
             background-image: url(/images/logo-yinli-bw.png);
+            width: 150px;
         }
         a:nth-child(3):hover {
             background-image: url(/images/logo-yinli.png);
         }
         a:nth-child(4) {
             background-image: url(/images/logo-lcsd-bw.png);
+            width: 160px;
         }
         a:nth-child(4):hover {
             background-image: url(/images/logo-lcsd.png);
@@ -499,22 +502,15 @@ $brand-black:       #231f20;
 
   /* NAV BAR */
 
-    .navbar-nav {
-      float: right;
-      li > a {
-        font-weight: 400;
-      }
-    }
-
     #page-nav li a {
         text-transform: uppercase;
-        padding-top: 11px;
-        padding-bottom: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
 
     #user-nav {
-      margin-bottom: -5px;
-      margin-top: 7px;
+      margin-bottom: 6px;
+      margin-top: 14px;
       font-family: Roboto;
       font-size: 1.4rem;
       li {
@@ -559,19 +555,17 @@ $brand-black:       #231f20;
 
     }
 
+    .navbar-nav {
+      float: right;
+      li > a {
+        font-weight: 400;
+      }
+    }
 
     .navbar-inverse {
       opacity: 0.98;
       border-bottom: solid 4px $black;
       // background-image: url(/images/tactile-grey-bg.png);
-    }
-
-    .navbar-brand {
-      img {
-        width: 130px;
-        margin-left: 80px;
-        margin-top: 5px;
-      }
     }
 
     .navbar-nav.navbar-right:last-child {
@@ -824,28 +818,160 @@ $brand-black:       #231f20;
 }
 
 
+.navbar .navbar-default .navbar-fixed-top .navbar-inverse {
+  height: 110px;
+}
+
+.navbar-brand {
+  img {
+    width: 86px;
+    margin-left: 10px;
+    margin-top: -12px;
+  }
+}
+
 
 /* Small devices (tablets, 768px and up) */
-// @media (min-width: @screen-sm-min) { 
+@media (min-width: $screen-sm-min) { 
+  .navbar-brand {
+    img {
+      width: 110px;
+      margin-left: 35px;
+      margin-top: -4px;
+    }
+  }
+}
 
-// }
+// Custom query 
+
+@media (min-width: 767px) and (max-width: 866px) {
+  .navbar-brand {
+    img {
+      width: 110px;
+      margin-left: 31px;
+      margin-top: -4px;
+    }
+  }
+}
+
+
 
 /* Medium devices (desktops, 992px and up) */
-// @media (min-width: @screen-md-min) { 
+@media (min-width: $screen-md-min) { 
+  .navbar-brand {
+    img {
+      width: 110px;
+      margin-left: 50px;
+      margin-top: -4px;
+    }
+  }
+}
 
-// }
 
 /* Large devices (large desktops, 1200px and up) */
-// @media (min-width: @screen-lg-min) { 
-
-// }
-
-
-// 6. CUSTOM MEDIA QUERIES 
-
-
-
-
-
+@media (min-width: $screen-lg-min) { 
+  .navbar-brand {
+    img {
+      width: 116px;
+      margin-left: 50px;
+      margin-top: 0px;
+    }
+  }
+}
 
 
+// Custom query 
+
+@media (min-width: 1620px) {
+  .navbar-brand {
+    img {
+      width: 124px;
+      margin-left: 60px;
+      margin-top: 2px;
+    }
+  }
+}
+
+
+
+
+
+
+// Changing navbar collapsing breakpoint
+
+@media (max-width: 865px) {
+  .navbar-header {
+    float: none;
+    height: 95px;
+  }
+  .navbar-left,.navbar-right {
+    float: none !important;
+  }
+  .navbar-toggle {
+    display: block;
+    padding: 4px 14px;
+    border: 2px solid $brand-gold;
+    border-radius: 0px;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #bc994b;
+    padding: 10px;
+    margin-top: 25px;
+    margin-right: 22px;
+  }
+  .navbar-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-fixed-top {
+  top: 0;
+  border-width: 0 0 1px;
+  }
+  .navbar-collapse.collapse {
+    display: none!important;
+  }
+  .navbar-nav {
+    float: none!important;
+  }
+  .navbar-nav>li {
+    float: none;
+  }
+  .navbar-nav>li>a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: center;
+  }
+  .navbar-nav>li>ul>li>a {
+    text-align: center;
+    ::before {
+      content: "/ ";
+    }
+  }
+  .collapse.in{
+    display:block !important;
+  }
+  #page-nav li {
+    a {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+  .navbar-inverse .navbar-toggle {
+    border-color: $brand-gold;
+  }
+  .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+    max-height: 466px;
+  }
+  #user-nav {
+    margin-top: 0;
+  }
+  #language-controls {
+    max-width: 150px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 8px;
+  }
+  .navbar .navbar-default .navbar-fixed-top .navbar-inverse {
+      border-bottom: 4px solid $black;
+  }
+}
