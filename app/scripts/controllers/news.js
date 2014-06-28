@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('NewsCtrl', function($scope, $rootScope, Article){
+app.controller('NewsCtrl', function($scope, $rootScope, $location, Article){
   
   $scope.articles = Article.all;
 
@@ -46,7 +46,8 @@ app.controller('NewsCtrl', function($scope, $rootScope, Article){
 
   $scope.publish = function (){
     $scope.article.draft = false;
-    $scope.save;
+    $scope.save();
+    $location.path('news/' + $scope.article.slug);
   };
   
   $scope.submitArticle = function(){
