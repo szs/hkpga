@@ -46,7 +46,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="row">
+		<div class="row" id="landing-content">
 			<div class="col-md-8">
 				<div ng-include="'/views/news.html'" ng-controller="NewsCtrl"></div>
 			</div>
@@ -55,6 +55,9 @@
 				<div ng-include="'/views/scores-widget.html'" ng-controller="TournamentCtrl"></div>
 				<div ng-include="'/views/magazine-widget.html'" ng-controller="MagazineCtrl"></div>
 			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12" ng-include="'/views/partners-widget.html'"></div>
 		</div>
 	</div>
 </div>

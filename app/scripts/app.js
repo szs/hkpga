@@ -52,35 +52,34 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/shownews.html',
           controller: 'NewsViewCtrl'
         })
-        .when('/magazines', {
-          templateUrl: 'views/magazines.html',
-          controller: 'MagazineCtrl',
-        })
-        .when('/magazines/:year', {
-          templateUrl: 'views/magazines.html',
-          controller: 'MagazineCtrl',
-        })
-        .when('/tournaments', {
-          templateUrl: 'views/tournaments.html',
-          controller: 'TournamentsCtrl',
+        .when('/about', {
+          templateUrl: 'views/static.html',
+          controller: 'StaticCtrl',
         })
         .when('/about/partners', {
           templateUrl: 'views/partners.html',
           controller: 'PartnersCtrl',
         })
-        .when('/professionals', {
-          templateUrl: 'views/professionals.html',
-          controller: 'ProfessionalsCtrl'
+        .when('/tournaments', {
+          templateUrl: 'views/tournaments.html',
+          controller: 'TournamentsCtrl',
         })
-        .when('/professionals/:username', {
-          templateUrl: 'views/professionals.html',
-          controller: 'ProfessionalsCtrl'
+        .when('/pros', {
+          templateUrl: 'views/pros.html',
+          controller: 'ProsCtrl'
         })
-        .when('/professionals/new', {
+        .when('/pros/new', {
           templateUrl: 'views/register.html',
           controller: 'AuthCtrl'
         })
+        .when('/pros/:username', {
+          templateUrl: 'views/pro.html',
+          controller: 'ProCtrl'
+        })
         .when('/juniors', {
+          redirectTo: '/juniors/skyhigh',
+        })
+        .when('/juniors/skyhigh', {
           templateUrl: 'views/juniors.html',
           controller: 'JuniorsCtrl',
         })
@@ -88,17 +87,24 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/events.html',
           controller: 'EventsCtrl',
         })
-        .when('/pressreleases', {
+        .when('/press', {
+          redirectTo: '/press/releases',
+        })
+        .when('/press/releases', {
           templateUrl: 'views/pressreleases.html',
           controller: 'PressReleaseCtrl',
+        })
+        .when('/press/magazines', {
+          templateUrl: 'views/magazines.html',
+          controller: 'MagazineCtrl',
+        })
+        .when('/press/magazines/:year', {
+          templateUrl: 'views/magazines.html',
+          controller: 'MagazineCtrl',
         })
         .when('/:contentType/new', {
           templateUrl: 'views/new.html',
           controller: 'NewCtrl',
-        })
-        .when('/about', {
-          templateUrl: 'views/static.html',
-          controller: 'StaticCtrl',
         })
         .when('/:page', {
           templateUrl: 'views/static.html',

@@ -332,7 +332,9 @@ $brand-black:       #231f20;
       }
     }
 
-
+    #landing-content {
+       @extend .bottom-bar;
+    }
 
   // .2 PROFILE PAGE //
 
@@ -419,10 +421,14 @@ $brand-black:       #231f20;
     }
 
     // 2. PARTNERS PAGE 
-    
-    #partners-page {
+  
+
+    #partners-widget {
       #partners-list {
-        position: relative;
+        width: 100%;
+        #logos {
+        width: 800px;
+        margin: 0 auto;
         a {
           width: 160px;
           height: 100px;
@@ -432,21 +438,40 @@ $brand-black:       #231f20;
           background-size: contain;
           background-position: center;
           float: left;
+          text-align: center;
         }
         a:nth-child(1) {
             background-image: url(/images/logo-pgae-bw.png);
         }
+        a:nth-child(1):hover {
+            background-image: url(/images/logo-pgae.png);
+        }
         a:nth-child(2) {
             background-image: url(/images/logo-hkga-bw.png);
+            width: 190px;
+        }
+        a:nth-child(2):hover {
+            background-image: url(/images/logo-hkga.png);
         }
         a:nth-child(3) {
             background-image: url(/images/logo-yinli-bw.png);
         }
+        a:nth-child(3):hover {
+            background-image: url(/images/logo-yinli.png);
+        }
         a:nth-child(4) {
             background-image: url(/images/logo-lcsd-bw.png);
         }
+        a:nth-child(4):hover {
+            background-image: url(/images/logo-lcsd.png);
+        }
+      }
     }
   }
+
+
+
+
 
 // 3. MODULE ------------------------------------------------------------
 

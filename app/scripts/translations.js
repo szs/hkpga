@@ -42,7 +42,7 @@ var translationsEN = {
   LOGIN: 'Login',
   MAGAZINE: 'Magazine',
   VIEW_MAGAZINES: 'See all magazines',
-  PROFESSIONALS: 'Professionals',
+  PROS: 'Pros',
   LATEST_TOURNAMENT_SCORES: 'Latest Tournament Scores',
   VENUE: 'Venue', 
   DATE: 'Date',
