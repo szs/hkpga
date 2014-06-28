@@ -332,7 +332,9 @@ $brand-black:       #231f20;
       }
     }
 
-
+    #landing-content {
+       @extend .bottom-bar;
+    }
 
   // .2 PROFILE PAGE //
 
