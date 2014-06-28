@@ -2,7 +2,6 @@ import json
 import time
 import codecs
 
-
 def convert(member):
   print member
   return {
@@ -40,19 +39,21 @@ def convert(member):
       "zh-hk" : member['teaching_exp'],
       "zh-cn" : member['teaching_exp']
       },
-    "username" : member['login_name']
+    "username" : codeUsername(member)
   }
 
 codeActive = lambda x : True if x == 'Active' else False
 codeSex = lambda x : 'male' if x == 'm' else 'female'
 codeAvatar = lambda x : 'http://media.hkpga.com.hk/' + x
 codeStatus = lambda x : ['','full','associate'][int(x)]
+codeUsername = lambda x :  nameToUsername(x) if x['login_name'].isdigit() else x['login_name'].lower()
+nameToUsername = lambda x : x['eng_name'].replace(' ','').lower() 
 
 with codecs.open('members.json','r',encoding='utf8') as f:
 
   members= json.load(f)
 
-  users = [convert(member) for member in members]
+  users = dict([(codeUsername(member), convert(member)) for member in members])
 
   with codecs.open('member_out.json','w',encoding='utf8') as out:
     out.write(unicode(json.dumps(users, ensure_ascii=False)))
