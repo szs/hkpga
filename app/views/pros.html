@@ -1,8 +1,10 @@
 <div class="container">
   <h2 translate>PROS</h2>
+  Search: <input ng-model="search">
+
   <div class="member row" ng-repeat="(alpha, pros) in alphaPro">
-    <h2>{{alpha}}</h2>
-    <div ng-repeat="pro in pros">
+    <div ng-repeat="pro in pros | filter:search">
+    <h2 ng-show="$first">{{alpha}}</h2>
       <a ng-href="#/pros/{{pro.username}}">{{pro.name[l10n()]}}</a>
     </div>
   </div>
