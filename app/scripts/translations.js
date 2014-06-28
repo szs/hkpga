@@ -10,7 +10,7 @@ var translationsEN = {
   MENU_CONTACT: 'Contact',
   MENU_ADMIN: 'Admin',
   REGISTER: 'Register',
-  LOGIN: 'Login',
+  LOGIN: 'Member Login',
   LOGOUT: 'Logout',
   LANG_EN: 'EN',
   LANG_ZH_HK: '繁體',
