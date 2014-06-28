@@ -4,11 +4,11 @@
 app.controller('ReleasesCtrl', function($scope, $rootScope, $location, PressRelease){
   $scope.releases = PressRelease.all;
 
-  $scope.release = PressRelease.new();
-    
   $scope.reset = function (){
     $scope.release = PressRelease.new();
   };
+
+  $scope.reset()
 
   $scope.submit = function(){
 

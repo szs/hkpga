@@ -1,8 +1,6 @@
 /* global app:true */
 'use strict';
 
-app.controller('ProCtrl', function($scope, $translate, $routeParams, User){
-  
+app.controller('ProCtrl', function($scope, $routeParams, User){
   $scope.pro = User.findByUsername($routeParams.username)
-
 });

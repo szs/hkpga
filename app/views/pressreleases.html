@@ -2,7 +2,7 @@
   <h2>Press Releases</h2>
   <ul>
     <li ng-repeat="(key, release) in releases">
-      <span>{{ release.timestamp | date:'yyyy/MMM '}}</span><a ng-href="{{ release.url_en }}">{{ l10n(key, 'title') }}</a>
+      <span>{{ release.updated_at | date:'yyyy/MMM '}}</span><a ng-href="{{ release.url[l10n()] }}">{{ release.title[l10n()] }}</a>
     </li>
   </ul>
 </div>

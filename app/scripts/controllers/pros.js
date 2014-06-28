@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('ProsCtrl', function($scope, $translate, User, Lang){
+app.controller('ProsCtrl', function($scope, User){
   
   $scope.pros = User.all;
 
@@ -22,7 +22,6 @@ app.controller('ProsCtrl', function($scope, $translate, User, Lang){
 
   });
 
-  //Contains the filter options
   $scope.filterOptions = {
     pros: [
       {id : 2, name : 'Show All', status: 4 },
@@ -32,13 +31,10 @@ app.controller('ProsCtrl', function($scope, $translate, User, Lang){
     ]
   };
 
-
-  //Mapped to the model to filter
   $scope.filterItem = {
     pro: $scope.filterOptions.pros[0]
   }
   
-  //Custom filter - filter based on the rating selected
   $scope.statusFilter = function (pro) {
     var memberStatus =  {
       'full' : 3,
@@ -47,8 +43,6 @@ app.controller('ProsCtrl', function($scope, $translate, User, Lang){
       'trainer' : 2,
       'trainee' : 1
     }
-    // console.log(memberStatus[data.status])
-    console.log($scope.filterItem.pro.status)
 
     if (memberStatus[pro.status] === $scope.filterItem.pro.status) {
       return true;

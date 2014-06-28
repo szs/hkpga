@@ -41,6 +41,4 @@ app.controller('StaticCtrl', function($scope, $rootScope, $routeParams, Page){
 
     Page.create($scope.page);
   };
-
-
 });

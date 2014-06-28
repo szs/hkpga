@@ -2,10 +2,7 @@
 'use strict';
 
 app.controller('NewsViewCtrl',
-  function($scope, $routeParams, Article, Lang){
-    $scope.lang = function() {
-      return Lang.current()
-    }
+  function($scope, $routeParams, Article){
     $scope.article = Article.find($routeParams.articleId);
   }
 );

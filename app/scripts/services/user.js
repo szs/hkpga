@@ -48,6 +48,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
     },
     new : function(){
       return {
+        "username": "",
         "achievements": {
           "en": "",
           "zh-cn": "",
@@ -55,7 +56,6 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
         },
         "active": false,
         "email": "",
-        "last_updated": Date.now(),
         "md5_hash": "",
         "member_number": null,
         "member_since": new Date().getFullYear(),
@@ -80,8 +80,8 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
           "zh-cn": "",
           "zh-hk": ""
         },
-        "timestamp": Date.now(),
-        "username": ""
+        "updated_at": Date.now(),
+        "created_at": Date.now(),
       }
     }
   };

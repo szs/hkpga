@@ -9,9 +9,9 @@ app.factory('Magazine',
       all: magazines,
       create : function(magazine){
         
-        magazines[magazine.timestamp] = magazine;
+        magazines[magazine.created_at] = magazine;
         
-        return magazines.$save(magazine.timestamp).then(function(){
+        return magazines.$save(magazine.created_at).then(function(){
           console.log('magazined ' + magazine.coverstory);
         });
 
@@ -32,7 +32,8 @@ app.factory('Magazine',
           cover: '',
           url: '',
           author: '',
-          timestamp: Date.now()
+          updated_at: Date.now(),
+          created_at: Date.now()
         };
       }
     };
