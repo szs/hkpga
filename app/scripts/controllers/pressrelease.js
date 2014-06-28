@@ -1,19 +1,11 @@
 /* global app:true */
 'use strict';
 
-app.controller('PressReleaseCtrl', function($scope, $rootScope, $translate, $window, $location, PressRelease, Lang){
+app.controller('ReleasesCtrl', function($scope, $rootScope, $location, PressRelease){
   $scope.releases = PressRelease.all;
 
   $scope.release = PressRelease.new();
     
-  $scope.lang = function() {
-    return Lang.current()
-  }
-
-  $scope.l10n = function(key, val) {
-    return PressRelease.find(key)[val  + '_' + $scope.lang()] ;
-  }
-
   $scope.reset = function (){
     $scope.release = PressRelease.new();
   };
@@ -24,12 +16,8 @@ app.controller('PressReleaseCtrl', function($scope, $rootScope, $translate, $win
 
     PressRelease.create($scope.release).then(function(){
       $scope.reset();
-      $location.path('#/pressreleases');
+      $location.path('#/press/releases');
     });
-  };
-
-  $scope.getCurrentLanguage = function () {
-    return $translate.use();
   };
 
 });

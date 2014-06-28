@@ -1,19 +1,9 @@
 <div class="container">
   <h2 translate>PROS</h2>
-  <div class="member row" ng-repeat="member in professionals">
-    <div class="col-md-9 col-xs-11">
-      <div class="info" ng-class="(member.active) ? 'well' : ''">
-        <!-- <h3>{{member}}</h3> -->
-        <h3>{{ member.name[getCurrentLanguage()] }}</h3>
-        <h3>Qualifactions</h3>
-        <p>{{ member.qualifications[getCurrentLanguage()] }}</p>
-        <h3>Teaching Experience</h3>
-        <p>{{ member.teaching_experience[getCurrentLanguage()] }}</p>
-        <h3>Achievements</h3>
-        <p>{{ member.achievement[getCurrentLanguage()] }}</p>
-        <h3>{{ member.username }}</h3>
-        <span>Member</span>
-      </div>
+  <div class="member row" ng-repeat="(alpha, pros) in alphaPro">
+    <h2>{{alpha}}</h2>
+    <div ng-repeat="pro in pros">
+      <a ng-href="#/pros/{{pro.username}}">{{pro.name[l10n()]}}</a>
     </div>
   </div>
 </div>

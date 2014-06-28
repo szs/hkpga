@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('MeritCtrl', function($scope, $translate, Article){
+app.controller('MeritCtrl', function($scope, Article){
   $scope.articles = Article.all;
   
   $scope.article = Article.new();
@@ -24,10 +24,6 @@ app.controller('MeritCtrl', function($scope, $translate, Article){
 
   $scope.deleteArticle = function(articleID) {
     Article.delete(articleID);
-  };
-
-  $scope.getCurrentLanguage = function () {
-    return $translate.use();
   };
 
 });
