@@ -4,18 +4,14 @@
     <div class="col-md-9 col-xs-11">
       <div class="info" ng-class="(member.active) ? 'well' : ''">
         <!-- <h3>{{member}}</h3> -->
-        <h3>{{ lang() == 'en' ? member.name_en : member.name_zh }}</h3>
+        <h3>{{ member.name[getCurrentLanguage()] }}</h3>
         <h3>Qualifactions</h3>
-        <p>{{ lang() == 'en' ? member.qualifications_en : member.qualifications_zh }}</p>
+        <p>{{ member.qualifications[getCurrentLanguage()] }}</p>
         <h3>Teaching Experience</h3>
-        <p>{{ lang() == 'en' ? member.teaching_experience_en : member.teaching_experience_zh }}</p>
+        <p>{{ member.teaching_experience[getCurrentLanguage()] }}</p>
         <h3>Achievements</h3>
-        <p>{{ lang() == 'en' ? member.achievement_en : member.achievement_zh }}</p>
-        <h3>{{ member.na }}</h3>
-        <!-- <h3>{{ member.name_en }}</h3> -->
-        <!-- <h3>{{ member.name_zh }}</h3> -->
-        <!-- <h3>{{ member.username }}</h3> -->
-        <h3>{{ lang() }}</h3>
+        <p>{{ member.achievement[getCurrentLanguage()] }}</p>
+        <h3>{{ member.username }}</h3>
         <span>Member</span>
       </div>
     </div>
