@@ -72,6 +72,10 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/professionals.html',
           controller: 'ProfessionalsCtrl'
         })
+        .when('/professionals/:username', {
+          templateUrl: 'views/professionals.html',
+          controller: 'ProfessionalsCtrl'
+        })
         .when('/professionals/new', {
           templateUrl: 'views/register.html',
           controller: 'AuthCtrl'

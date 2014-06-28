@@ -2,6 +2,7 @@
 'use strict';
 
 app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
+  
   var ref = new Firebase(FIREBASE_URL + 'users');
 
   var users = $firebase(ref);
