@@ -28,6 +28,10 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/main.html',
           controller: 'MainCtrl'
         })
+        .when('/contact', {
+          templateUrl: 'views/contact.html',
+          controller: 'ContactCtrl'
+        })
         .when('/login', {
           templateUrl: 'views/login.html',
           controller: 'AuthCtrl'

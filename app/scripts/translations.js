@@ -77,6 +77,7 @@ var translationsEN = {
   STATUS: 'Status',
   ACTIVE: 'Active',
   INACTIVE: 'Inactive',
+  CONTACT: 'Contact us',
 };
  
 var translationsZHHK = {
