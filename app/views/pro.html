@@ -1,13 +1,55 @@
-<div class="container">
-  <h2 translate>PROFESSIONALS</h2>
-  <div>
-    <img ng-src="{{pro.profile_picture}}">
-    <h2>{{ pro.name[l10n()] }}</h2>
-    <h3>Qualifactions</h3>
-    <p>{{ pro.qualifications[l10n()] }}</p>
-    <h3>Teaching Experience</h3>
-    <p>{{ pro.teaching_experience[l10n()] }}</p>
-    <h3>Achievements</h3>
-    <p>{{ pro.achievement[l10n()] }}</p>
+<div class="container" id="profile-page">
+  <h2 translate>PROFILE</h2>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="well clearfix">
+        <div class="pro-pic col-lg-3 col-md-4 col-sm-4 col-xs-5">
+          <img class="profile-pic img-responsive img-rounded" ng-src="{{pro.profile_picture}}">
+        </div>
+        <div class="pro-name col-lg-9 col-m3-8 col-sm-8 col-xs-7">
+          <h1>{{ pro.name[l10n()] }}</h1>
+        </div>
+        <div class="pro-details col-md-12 col-sm-12 col-xs-12">
+          <dl class="dl-horizontal">
+            <div ng-if="pro.qualifications[l10n()]">
+              <dt><h3>Qualifications</h3></dt>
+              <dd><p>{{ pro.qualifications[l10n()] }}</p></dd>
+            </div>
+            <div ng-if="pro.pro_since">
+              <dt><h3>Turned pro</h3></dt>
+              <dd><p>{{ pro.pro_since }}</p></dd>
+            </div>
+            <div ng-if="pro.achievements[l10n()]">
+              <dt><h3>Achievements</h3></dt>
+              <dd><p>{{ pro.achievements[l10n()] }}</p></dd>
+            </div>
+            <div ng-if="pro.teaching_experience[l10n()]">
+              <dt><h3>Teaching Experience</h3></dt>
+              <dd><p>{{ pro.teaching_experience[l10n()] }}</p></dd>
+            </div>
+            <div ng-if="pro.member_since">
+              <dt><h3>Member since</h3></dt>
+              <dd><p>{{ pro.member_since }}</p></dd>
+            </div>
+            <div ng-if="pro.email">
+              <dt><h3>Email</h3></dt>
+              <dd><p>{{ pro.email }}</p></dd>
+            </div>
+            <div ng-if="pro.phone">
+              <dt><h3>Phone</h3></dt>
+              <dd><p>{{ pro.phone }}</p></dd>
+            </div>
+          </dl>
+        </div>
+        <div class="col-md-12">
+          <a href="#/pros">
+            <button type="button" class="btn back" translation> <i class="fa fa-chevron-left"> </i> &nbsp; BACK</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div ng-include="'/views/newsarchive-side.html'" ng-controller="NewsArchiveCtrl"></div>
+    </div>
   </div>
 </div>
