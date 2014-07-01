@@ -32,6 +32,10 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/contact.html',
           controller: 'ContactCtrl'
         })
+        .when('/about/committee-honorary', {
+          templateUrl: 'views/committee.html',
+          controller: 'CommitteeCtrl'
+        })
         .when('/login', {
           templateUrl: 'views/login.html',
           controller: 'AuthCtrl'

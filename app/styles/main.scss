@@ -55,6 +55,21 @@ $brand-black:       #231f20;
   background-color: transparent;
 }
 
+.description-list {
+  dl {
+    h3 {
+        vertical-align: middle;
+        white-space: normal;
+    }
+    p {
+        line-height: 22px;
+        vertical-align: middle;
+        margin-top: 22px;
+        margin-bottom: 10px;
+    }
+  }
+}
+
 
 // 1. BASE ------------------------------------------------------------
 
@@ -523,16 +538,7 @@ $brand-black:       #231f20;
       }
       .pro-details {
         margin-top: 15px;
-        h3 {
-          vertical-align: middle;
-          white-space: normal;
-        }
-        p {
-          line-height: 22px;
-          vertical-align: middle;
-          margin-top: 22px;
-          margin-bottom: 10px;
-        }
+        @extend .description-list; 
       }
       .back {
           float: right;
@@ -540,23 +546,21 @@ $brand-black:       #231f20;
     }
 
 
+    // .2 COMMITTEE & HONORARY MEMBERS 
+
+
+
     // .2 CONTACT //
 
     #contact-page {
-      h3 {
-        vertical-align: middle;
-        white-space: normal;
-      }
-      p {
-        line-height: 22px;
-        vertical-align: middle;
-        margin-top: 22px;
-        margin-bottom: 10px;
-      }
+      @extend .description-list; 
       i {
         margin-right: 15px;
       }
     }
+
+
+
 
 
 // 3. MODULE ------------------------------------------------------------
@@ -958,6 +962,7 @@ $brand-black:       #231f20;
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: $screen-sm-min) { 
+
   .navbar-brand {
     img {
       width: 110px;
@@ -965,6 +970,29 @@ $brand-black:       #231f20;
       margin-top: -4px;
     }
   }
+
+  #committee-page {
+    @extend .description-list;
+    .dl-horizontal dt {
+      width: 300px;
+      h3 {
+        margin-top: 10px;
+        font-size: 1.7rem;
+        line-height: 20px;
+      }
+    }
+  }
+
+  #committee-page {
+    .dl-horizontal dd {
+      margin-left: 325px;
+      p {
+        margin-top: 11px;
+        line-height: 20px;
+      }
+    }
+  }
+
 }
 
 // Custom query 
@@ -983,6 +1011,7 @@ $brand-black:       #231f20;
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: $screen-md-min) { 
+
   .navbar-brand {
     img {
       width: 110px;
@@ -990,11 +1019,26 @@ $brand-black:       #231f20;
       margin-top: -4px;
     }
   }
+
+  #committee-page {
+    .dl-horizontal dt {
+      width: 375px;
+    }
+  }
+
+  #committee-page {
+    .dl-horizontal dd {
+      margin-left: 400px;
+    }
+  }
+  
+
 }
 
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: $screen-lg-min) { 
+
   .navbar-brand {
     img {
       width: 116px;
@@ -1002,6 +1046,22 @@ $brand-black:       #231f20;
       margin-top: 0px;
     }
   }
+
+  #committee-page {
+    span {
+      display: block;
+    }
+    .dl-horizontal dt {
+      width: 475px;
+    }
+  }
+
+  #committee-page {
+    .dl-horizontal dd {
+      margin-left: 500px;
+    }
+  }
+
 }
 
 
