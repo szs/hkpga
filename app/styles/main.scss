@@ -584,6 +584,10 @@ $brand-black:       #231f20;
 
   /* NAV BAR */
 
+    .navbar {
+      z-index: 10050;
+    }
+
     #page-nav li a {
         text-transform: uppercase;
         padding-top: 15px;
@@ -883,7 +887,11 @@ $brand-black:       #231f20;
       }
     }
 
+// Redactor
 
+.redactor_box .toolbar_fixed_box {
+  margin-bottom: -110px !important;
+}
 
 // 4. STATE ------------------------------
 
@@ -949,6 +957,7 @@ $brand-black:       #231f20;
 
 .navbar .navbar-default .navbar-fixed-top .navbar-inverse {
   height: 110px;
+  z-index: 10006;
 }
 
 .navbar-brand {
