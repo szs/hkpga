@@ -1,28 +1,27 @@
-<div class="container">
-	<div class="row">
-		<div ng-if="editable" class="col-md-12">
-		  <h2 ng-if="page.title">{{ page.title[l10n()] }}</h2>
-		  <label for="static-page-category">Category</label>
-		  <input id="static-page-category" ng-model="page.category">
-		  <label for="static-page-title">Title</label>
-		  <input id="static-page-title" ng-if="editable" ng-model="page.title[l10n()]">
-		  <div>
-		  	<textarea ng-model="page.html[l10n()]" redactor="{toolbarFixedBox: true, toolbarFixedTopOffset : 110}" cols="60" rows="10"></textarea>
-		  </div>
+<div class="container" id="static-pages">
+	<div ng-if="editable" class="row">
+		<h2 ng-if="page.title">{{ page.title[l10n()] }}</h2>
+		<div class="col-md-12">
+			<label for="static-page-category">Category</label>
+			<input id="static-page-category" ng-model="page.category">
+			<label for="static-page-title">Title</label>
+			<input id="static-page-title" ng-if="editable" ng-model="page.title[l10n()]">
+			<textarea ng-model="page.html[l10n()]" redactor="{toolbarFixedBox: true, toolbarFixedTopOffset : 110}" cols="60" rows="10"></textarea>
 		</div>
 	</div>
-	<div class="row">
-		<div ng-if="!editable" class="col-md-9">
-			<h2 ng-if="page.title">{{ page.title[l10n()] }}</h2>
+	<div ng-if="editable" class="row">
+	  	<div class="col-md-3 col-md-offset-8">
+	    	<a ng-click="save()" class="btn btn-primary" translate>SAVE</a>    
+	  	</div>
+	</div>
+	<div ng-if="!editable" class="row">
+		<h2 ng-if="page.title">{{ page.title[l10n()] }}</h2>
+		<div class="col-md-9">
 			<div ng-if="!editable && page.title" ng-bind-html="page.html[l10n()]" class="static-body well"></div>
 		</div>
 		<div ng-if="!editable" class="col-md-3">
 			<div ng-include="'/views/newsarchive-side.html'" ng-controller="NewsArchiveCtrl"></div>
 		</div>
 	</div>
-	<div ng-if="editable" class="row">
-	  <div class="col-md-3 col-md-offset-8">
-	    <a ng-click="save()" class="btn btn-primary" translate>SAVE</a>    
-	  </div>
-	</div>
 </div>
+
