@@ -42,6 +42,7 @@ var translationsEN = {
   MENS_SENIOR_DIVISION: 'Men\'s Senior Division',
   BACK: 'Back',
   LOGIN: 'Login',
+  EVENTS: 'Events',
   MAGAZINE: 'Magazine',
   VIEW_MAGAZINES: 'See all magazines',
   PROS: 'Professionals\' Directory',
