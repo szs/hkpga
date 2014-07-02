@@ -24,7 +24,7 @@ app.controller('ProsCtrl', function($scope, User){
 
   $scope.filterOptions = {
     pros: [
-      {id : 2, name : 'Show All', status: 4 },
+      {id : 2, name : 'All', status: 4 },
       {id : 3, name : 'Qualified Professionals', status: 3 },
       {id : 4, name : 'Certified Instructors', status: 2 },
       {id : 5, name : 'Trainees', status: 1 }

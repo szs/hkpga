@@ -8,6 +8,8 @@
 		  <input id="static-page-title" ng-if="editable" ng-model="page.title[l10n()]">
 		  <textarea ng-model="page.html[l10n()]" redactor="{toolbarFixedBox: true}" cols="60" rows="10"></textarea>
 		</div>
+	</div>
+	<div class="row">
 		<div ng-if="!editable" class="col-md-9">
 			<h2 ng-if="page.title">{{ page.title[l10n()] }}</h2>
 			<div ng-if="!editable && page.title" ng-bind-html="page.html[l10n()]" class="static-body well"></div>
