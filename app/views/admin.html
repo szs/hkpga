@@ -3,7 +3,8 @@
 <h2 translate>NEWS_ARTICLE</h2>
 <div ng-controller="NewsCtrl">
   <div class="form-group">
-      <label for="inputRole" class="col-sm-2 control-label" translate>ROLE</label>
+      <datepicker ng-model="article.publish_date" ng-required="true" show-weeks="false" class="well well-sm"></datepicker>
+      <label for="inputRole" class="col-sm-2 control-label" translate>CATEGORY</label>
       <div class="col-sm-10">
         <div class="radio" id="inputRole">
           <label for="optionsRadios1" translate>

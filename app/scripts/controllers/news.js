@@ -1,12 +1,11 @@
 /* global app:true */
 'use strict';
 
-app.controller('NewsCtrl', function($scope, $rootScope, $filter, $location, Article){
+app.controller('NewsCtrl', function($scope, $rootScope, $filter, $location, Article, Archive){
   
   $scope.articles = Article.all;
-
   $scope.article = Article.new();
-    
+  
   var getSlug = function(str) {
     var slug = '';
     var trimmed = str.trim();
@@ -37,11 +36,19 @@ app.controller('NewsCtrl', function($scope, $rootScope, $filter, $location, Arti
       author: $rootScope.currentUser.username,
       slug: getSlug($scope.article.title.en),
       $priority : Date.now(),
-      cover: getCoverImage($scope.article.en),
+      cover: getCoverImage($scope.article.html.en),
       updated_at: Date.now()
     });
+
+    if ($scope.article.category == 'news'){
+      var archiveItem = {
+        year : new Date($scope.article.created_at).getFullYear(),
+        category : 'news'
+      }
+      Archive.create(archiveItem);
+    }
   
-    Article.create($scope.article)
+    Article.create($scope.article);
   };
 
   $scope.publish = function (){
