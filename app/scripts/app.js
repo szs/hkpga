@@ -80,6 +80,10 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/register.html',
           controller: 'AuthCtrl'
         })
+        .when('/pros/training-program', {
+          templateUrl: 'views/static.html',
+          controller: 'StaticCtrl',
+        })
         .when('/pros/:username', {
           templateUrl: 'views/pro.html',
           controller: 'ProCtrl'
