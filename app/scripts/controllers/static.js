@@ -1,14 +1,15 @@
 /* global app:true */
 'use strict';
 
-app.controller('StaticCtrl', function($scope, $rootScope, $routeParams, Page){
+app.controller('StaticCtrl', function($scope, $rootScope,  $location, $routeParams, Page){
   
   $scope.pages = Page.all;
   
   $scope.page = Page.new()
 
   var pageExists = function(){
-    Page.current($routeParams.page, function(p){
+    var page = $routeParams.page ? $routeParams.page : $location.path().split('/')[2]
+    Page.current(page, function(p){
       if (p === null){
         $scope.page = Page.new()
       } else {
