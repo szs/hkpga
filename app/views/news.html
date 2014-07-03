@@ -32,7 +32,7 @@
     </div>
 
     <h2 translate>MORE_NEWS</h2>
-    <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | orderBy: 'updated_at':true | limitTo:11" ng-hide="$first">
+    <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | orderBy: 'publish_date':true | limitTo:11" ng-hide="$first">
       <div class="col-md-12">
         <div class="info well more-news clearfix" ng-class="{true: 'draft', false:''}[article.draft]">
           <a href="#/news/{{ article.slug }}" >
