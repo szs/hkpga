@@ -9,10 +9,6 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
     addArchives();
   });
 
-  $scope.archives.$on("change", function() {
-    console.log("A remote change was applied locally!");
-  });
-
   var menuStructure = {
     news : {},
     about : {
