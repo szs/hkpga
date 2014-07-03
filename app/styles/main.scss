@@ -815,7 +815,6 @@ $brand-black:       #231f20;
           margin-top: 15px;
           margin-bottom: 20px;
       }
-      @extend .bottom-bar;
     }
 
 
@@ -1074,6 +1073,11 @@ $brand-black:       #231f20;
 
 // Custom query 
 @media (min-width: 400px) and (max-width: 767px) {
+  #committee-page {
+    span {
+      display: block;
+    }
+  }
   #static-pages {
     table {
       td {
@@ -1097,6 +1101,9 @@ $brand-black:       #231f20;
   }
 
   #committee-page {
+    span {
+      display: block;
+    }
     @extend .description-list;
     .dl-horizontal dt {
       width: 300px;
@@ -1171,14 +1178,17 @@ $brand-black:       #231f20;
   }
 
   #committee-page {
+    span {
+      display: block;
+    }
     .dl-horizontal dt {
-      width: 375px;
+      width: 270px;
     }
   }
 
   #committee-page {
     .dl-horizontal dd {
-      margin-left: 400px;
+      margin-left: 300px;
     }
   }
   
@@ -1202,13 +1212,13 @@ $brand-black:       #231f20;
       display: block;
     }
     .dl-horizontal dt {
-      width: 475px;
+      width: 350px;
     }
   }
 
   #committee-page {
     .dl-horizontal dd {
-      margin-left: 500px;
+      margin-left: 380px;
     }
   }
 

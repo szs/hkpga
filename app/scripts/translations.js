@@ -43,6 +43,7 @@ var translationsEN = {
   MENS_SENIOR_DIVISION: 'Men\'s Senior Division',
   BACK: 'Back',
   LOGIN: 'Login',
+  OFFICIAL_PARTNERS: 'Official Partners',
   EVENTS: 'Events',
   MAGAZINE: 'Magazine',
   VIEW_MAGAZINES: 'See all magazines',

@@ -9,12 +9,12 @@
               <div class="col-md-2">
                 <h5>{{ latest.publish_date | date:'dd MMM yyyy'}}</h5>
               </div>
-              <div class="col-md-9">
+              <div class="col-md-10">
                 <h4>{{ latest.title[l10n()] }}</h4>
               </div>
-              <div class="col-md-1">
+<!--               <div class="col-md-1">
                 <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
-              </div>
+              </div> -->
             </div>
           </a>
         </div>
@@ -40,12 +40,12 @@
               <div class="col-md-2">
                 <h5>{{ article.publish_date | date:'dd MMM yyyy'}}</h5>
               </div>
-              <div class="col-md-9">
+              <div class="col-md-10">
                 <h4>{{ article.title[l10n()] }}</h4>
               </div>
-              <div class="col-md-1">
+<!--               <div class="col-md-1">
                 <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
-              </div>
+              </div> -->
             </div>
           </a>
           <img ng-show="article.cover" class="cover" ng-src="{{ article.cover }}">
