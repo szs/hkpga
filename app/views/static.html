@@ -15,7 +15,12 @@
 	  	</div>
 	</div>
 	<div ng-if="!editable" class="row">
-		<h2 ng-if="page.title">{{ page.title[l10n()] }}</h2>
+		<div class="col-md-6">
+			<h2 ng-if="page.title">{{ page.title[l10n()] }}</h2>
+		</div>
+		<div class="col-md-6">
+			<div ng-include="'views/breadcrumbs.html'"></div>
+		</div>
 		<div class="col-md-9">
 			<div ng-if="!editable && page.title" ng-bind-html="page.html[l10n()]" class="static-body well"></div>
 		</div>
