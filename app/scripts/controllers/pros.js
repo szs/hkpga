@@ -40,6 +40,7 @@ app.controller('ProsCtrl', function($scope, User){
       'full' : 3,
       'tournament' : 3,
       'associate' : 3,
+      'member' : 3,
       'trainer' : 2,
       'trainee' : 1
     }
