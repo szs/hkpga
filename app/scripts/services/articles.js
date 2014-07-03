@@ -37,6 +37,7 @@ app.factory('Article',
             'zh-cn' : ''
           },
           cover: '',
+          category: 'news',
           draft: true,
           updated_at: Date.now(),
           created_at: Date.now()

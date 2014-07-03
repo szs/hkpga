@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('StaticCtrl', function($scope, $rootScope,  $location, $routeParams, Page){
+app.controller('StaticCtrl', function($scope, $rootScope, $location, $routeParams, Page){
   
   $scope.pages = Page.all;
   
@@ -28,7 +28,7 @@ app.controller('StaticCtrl', function($scope, $rootScope,  $location, $routePara
     return slug.toLowerCase();
   }
 
-  $scope.page = pageExists();
+  pageExists();
 
   $scope.editable = ($routeParams.action === 'edit');
 
