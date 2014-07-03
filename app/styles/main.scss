@@ -152,6 +152,7 @@ $brand-black:       #231f20;
     background-color: transparent;
     border-bottom: 2px solid $grey;
     li {
+      text-transform: capitalize;
       a:not(.active) {
         color: $brand-gold;
       }
