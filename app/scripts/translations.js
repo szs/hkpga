@@ -19,6 +19,7 @@ var translationsEN = {
   LANG_ZH_CN: '中文',
   LANG_CURRENT: 'EN',
   NEWS: 'News',
+  READ_MORE: 'Read More',
   ADMIN: 'Admin',
   NEWS_ARTICLE: 'News article',
   ENGLISH: 'English',
