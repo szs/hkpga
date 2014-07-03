@@ -826,6 +826,7 @@ $brand-black:       #231f20;
       height: auto;
       color: $brand-gold;
       border: 2px solid $white;
+      text-transform: capitalize;
       ul {
         list-style-type: none;
         padding-left: 0;
