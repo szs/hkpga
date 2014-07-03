@@ -6,7 +6,7 @@
         <div class="info latest-news">
           <a href="#/news/{{ latest.slug }}" >
             <div class="title-row clearfix">
-              <h5>{{ latest.updated_at | date:'dd MMM yyyy'}}</h5>
+              <h5>{{ latest.publish_date | date:'dd MMM yyyy'}}</h5>
               <h4>{{ latest.title[l10n()] }}</h4>
               <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
             </div>
