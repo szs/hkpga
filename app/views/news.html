@@ -1,7 +1,7 @@
 
   <div id="articles-section">
     <h2 translate>LATEST_NEWS</h2>
-    <div class="article row" ng-repeat="latest in articles | orderByPriority | filter:{category : 'news'} | orderBy: 'updated_at':true | limitTo:1">
+    <div class="article row" ng-repeat="latest in articles | orderByPriority | filter:{category : 'news'} | orderBy: 'publish_date':true | limitTo:1">
       <div class="col-md-12">
         <div class="latest-news">
           <a href="#/news/{{ latest.slug }}" >
