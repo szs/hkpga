@@ -116,7 +116,6 @@ $brand-black:       #231f20;
   // article title,
   h4 {
     font-size: 1.8rem;
-    letter-spacing: 1px;
     color: $text-grey-light;
     padding-top: 11px;
     font-weight: 400;
@@ -259,51 +258,54 @@ $brand-black:       #231f20;
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
 
-    .info {
-      font-weight: bolder;
-      font-size: 16px;
-    }
-
-    .info .url {
-      font-weight: normal;
-      color:#999;
-      font-size:13px;
-      margin-left:5px;
-    }
-
 
   /* NEWS ARTICLES */
 
   // .2 MAIN
 
     .latest-news {
-      margin-bottom: 20px;
       .title-row {
         padding-left: 20px;
       }
-      .latest-news-body {
-        background-color: $white;
-        color: $text-grey;
-        padding: 22px;
-        font-family: $paragraph-font;
-        font-weight: normal; 
-        position: relative;
-        height: 100%;
+    }
+
+    .latest-news-body {
+      background-color: $white;
+      color: $text-grey;
+      padding: 22px;
+      font-family: $paragraph-font;
+      font-weight: normal; 
+      position: relative;
+      height: 100%;
+      img {
+        width: 100%;
+      }
+      button.btn {
+        float: right;
       }
     }
 
     .more-news {
       border-radius: 0;
+      img {
+        width: 100%;
+      }
       .title-row {
         margin-bottom: 20px;
       }
       h4,h5 {
         color: $text-grey;
       }
+      button.btn {
+        float: right;
+      }
     }
 
 
     #articles-section {
+      .well {
+        padding: 20px 30px;
+      }
       .title-row {
         i.arrow-more {
           float: right;
@@ -327,7 +329,7 @@ $brand-black:       #231f20;
           display: block;
         }
         h5 {
-          padding: 12px 22px 12px 0;
+          padding: 12px 0px 12px 0;
         }
       }
     }
@@ -842,6 +844,9 @@ $brand-black:       #231f20;
       }
       li.side-level-2 {
         padding-left: 40px;
+      }
+      li.side-level-3 {
+        padding-left: 60px;
       }
       a {
         color: $brand-gold;
