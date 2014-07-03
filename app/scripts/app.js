@@ -48,13 +48,9 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/news.html',
           controller: 'NewsCtrl'
         })
-        .when('/news/archive', {
-          templateUrl: 'views/newsarchive.html',
-          controller: 'NewsArchiveCtrl'
-        })
         .when('/news/archive/:year', {
-          templateUrl: 'views/shownewsarchive.html',
-          controller: 'NewsArchiveViewCtrl'
+          templateUrl: 'views/newsarchive.html',
+          controller: 'NewsCtrl'
         })
         .when('/news/:articleId', {
           templateUrl: 'views/shownews.html',

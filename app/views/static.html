@@ -25,7 +25,7 @@
 			<div ng-if="!editable && page.title" ng-bind-html="page.html[l10n()]" class="static-body well"></div>
 		</div>
 		<div ng-if="!editable" class="col-md-3">
-			<div ng-include="'/views/newsarchive-side.html'" ng-controller="NewsArchiveCtrl"></div>
+			<div ng-include="'/views/sidebar.html'" ng-controller="SidebarCtrl"></div>
 		</div>
 	</div>
 </div>

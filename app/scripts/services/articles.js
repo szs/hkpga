@@ -39,6 +39,7 @@ app.factory('Article',
           cover: '',
           category: 'news',
           draft: true,
+          publish_date: Date.now(),
           updated_at: Date.now(),
           created_at: Date.now()
         };
