@@ -32,6 +32,8 @@ app.factory('Magazine',
           cover: '',
           url: '',
           author: '',
+          month: '',
+          year: '',
           updated_at: Date.now(),
           created_at: Date.now()
         };
