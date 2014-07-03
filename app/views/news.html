@@ -1,6 +1,6 @@
 
   <div id="articles-section">
-    <h2 translate>LATEST_NEWS &nbsp; | &nbsp; {{ l10n() }}</h2>
+    <h2 translate>LATEST_NEWS</h2>
     <div class="article row" ng-repeat="latest in articles | orderByPriority | orderBy: 'updated_at':true | limitTo:1">
       <div class="col-md-12">
         <div class="info latest-news">
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <h2 translate>MORE_NEWS &nbsp; | &nbsp; {{ l10n() }}</h2>
+    <h2 translate>MORE_NEWS</h2>
     <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | orderBy: 'updated_at':true | limitTo:11" ng-hide="$first">
       <div class="col-md-12">
         <div class="info well more-news" ng-class="{true: 'draft', false:''}[article.draft]">
