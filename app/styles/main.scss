@@ -24,8 +24,8 @@ $grey-shadow:       #b5b5b5;
 $white:             white;
 $black:             #090909;
 $text-grey:         #5f6062;
-$text-grey-light:   #cccccc;
-$text-grey-lighter: #666766;
+$text-grey-light:   #a2a2a2;
+$text-grey-lighter: #cccccc;
 
 $brand-green:       #098743;
 $brand-gold:        #bc994b;
@@ -97,7 +97,8 @@ $brand-black:       #231f20;
 
   // Section titles
   h2 {
-    font-size: 2.4rem ;
+    font-size: 2.5rem ;
+    letter-spacing: 1px;
     color: $brand-gold;
     text-transform: uppercase;
     margin-top: 40px;
@@ -126,7 +127,7 @@ $brand-black:       #231f20;
   // date
   h5 {
     font-size: 1.6rem;
-    color: $text-grey-light;
+    color: $text-grey-lighter;
     font-weight: normal;
   }
 
@@ -563,6 +564,21 @@ $brand-black:       #231f20;
     // .2 STATIC //
 
     #static-pages {
+      h1 {
+        color: $brand-green;
+        font-size: 2.5rem;
+        font-weight: 500;
+        border-bottom: 1px solid $grey-light;
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+        margin-top: 30px;
+      }
+      h1:before {
+          font-family: FontAwesome;
+          content: "\f0a3"; // circle
+          display: inline-block;
+          padding-right: 18px;
+      }
       h2 {
         margin-left: 14px;
       }
@@ -570,15 +586,51 @@ $brand-black:       #231f20;
         border-bottom: 1px solid $grey-light;
         padding-bottom: 25px;
         margin-bottom: 25px;
+        margin-top: 30px;
+      }
+      h4 {
+        border-left: none;
+        padding-left: 0px; 
+        font-size: 2rem;
+      }
+      h5 {
+        color: $text-grey-light;
+        letter-spacing: 1px;
+      }
+      blockquote {
+        border-left: 3px solid $brand-green;
+        font-style: italic;
+        p {
+          margin-top: 6px;
+        }
+      }
+      blockquote p:last-child, blockquote ul:last-child, blockquote ol:last-child {
+        margin-bottom: 7px;
       }
       table {
         @extend .table-striped;
+        font-family: $paragraph-font;
+        font-weight: 400;
+        font-size: 1.4rem;
+        margin: 10px 0px 30px 0px;
+        td {
+          padding: 5px 30px 5px 20px;
+        }
+      }
+      a {
+        color: $brand-gold;
       }
       img {
-        width: 100%;
+        // min-height: 100%;
+        // min-width: 100%;
         margin-top: 15px;
         margin-bottom: -10px;
+        width: 100%;
       }
+      // div.img {
+      //   height: 550px;
+      //   width: 100%;
+      // }
     }
 
 
@@ -602,6 +654,7 @@ $brand-black:       #231f20;
     }
 
   /* NAV BAR */
+
 
     .navbar {
       z-index: 10050;
@@ -954,7 +1007,7 @@ $brand-black:       #231f20;
 }
 .trainer:before{
    font-family: FontAwesome;
-   content: "\f006"; // empty sar
+   content: "\f006"; // empty star
    display: inline-block;
    padding-right: 14px;
    font-size: 1.2rem;
@@ -1014,10 +1067,22 @@ $brand-black:       #231f20;
   }
 }
 
+// Custom query 
+@media (min-width: 400px) and (max-width: 767px) {
+  #static-pages {
+    table {
+      td {
+        padding-right: 7px;
+        padding-left: 3px;
+      }
+    }
+  }
+}
+
+
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: $screen-sm-min) { 
-
   .navbar-brand {
     img {
       width: 110px;
@@ -1048,11 +1113,17 @@ $brand-black:       #231f20;
     }
   }
 
+  #static-pages {
+    table {
+      td {
+        padding: 5px 15px 5px 15px;
+      }
+    }
+  }
 }
 
 // Custom query 
-
-@media (min-width: 767px) and (max-width: 866px) {
+@media (min-width: 769px) and (max-width: 866px) {
   .navbar-brand {
     img {
       width: 110px;
@@ -1062,7 +1133,26 @@ $brand-black:       #231f20;
   }
 }
 
+// Custom query 
+@media (min-width: 866px) {
+  .open > .dropdown-menu {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);  
+    opacity:1;
+  }
+    
+  .dropdown-menu {
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    -webkit-animation-fill-mode: forwards;  
+    animation-fill-mode: forwards; 
+    -webkit-transform: scale(1, 0);
+    display: block; 
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+  }
 
+}
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: $screen-md-min) { 
@@ -1121,7 +1211,6 @@ $brand-black:       #231f20;
 
 
 // Custom query 
-
 @media (min-width: 1620px) {
   .navbar-brand {
     img {
@@ -1131,8 +1220,6 @@ $brand-black:       #231f20;
     }
   }
 }
-
-
 
 
 
@@ -1214,5 +1301,11 @@ $brand-black:       #231f20;
   }
   .navbar .navbar-default .navbar-fixed-top .navbar-inverse {
       border-bottom: 4px solid $black;
+  }
+  ul.dropdown-menu > li {
+    background-color: $white;
+    a {
+      color: $text-grey !important;
+    }
   }
 }
