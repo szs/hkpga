@@ -39,7 +39,7 @@
           <li class="user-lang" ng-hide="l10n() == 'zh-hk'">
             <a ng-click="changeLanguage('zh-hk')" translate="LANG_ZH_HK" class="btn"></a>
           </li>
-          <li class="user-lang" ng-hide="l10n() == 'zh-cn'"> 
+          <li ng-hide="true" class="user-lang" ng-hide="l10n() == 'zh-cn'"> 
             <a ng-click="changeLanguage('zh-cn')" translate="LANG_ZH_CN" class="btn"></a>
           </li> 
         </ul>
@@ -72,7 +72,7 @@
                 <li><a ng-href="#/juniors/project-skyhigh"> / Project Skyhigh </a></li>
             </ul>
           </li>    
-          <li><a translate ng-href="#/events">MENU_EVENTS</a></li>
+          <li><a ng-hide="true" translate ng-href="#/events">MENU_EVENTS</a></li>
           <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_PRESS</a>
             <ul class="dropdown-menu">
                 <li><a ng-href="#/press/releases"> / Press releases</a></li>
