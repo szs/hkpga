@@ -144,6 +144,8 @@ $brand-black:       #231f20;
     }
   }
 
+  .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
   .breadcrumb {
     float: right;
     margin-top: 40px;
