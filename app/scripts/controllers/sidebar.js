@@ -46,11 +46,11 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
     events : [],
   }
 
-  $scope.subLevel = {
-    juniors : {
-      'project-skyhigh' : ['news']
-    }
-  }
+  // $scope.subLevel = {
+  //   juniors : {
+  //     'project-skyhigh' : ['news']
+  //   }
+  // }
 
   $scope.category = $location.path().split('/')[1]
 
