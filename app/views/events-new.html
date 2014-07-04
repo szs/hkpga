@@ -1,7 +1,7 @@
-<div ng-controller="NewsCtrl" ng-init="article.category = 'news'">
+<div ng-controller="EventsCtrl" ng-init="article.category = 'events'">
 
 <header class="admin-controls">
-  <h1>Article | {{ article.draft ? 'Draft' : 'Published'}}</h1>
+  <h1>Events | {{ article.draft ? 'Draft' : 'Published'}}</h1>
   <input bs-switch
     ng-model="article.internal"
     type="checkbox"
