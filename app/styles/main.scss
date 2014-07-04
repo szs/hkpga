@@ -410,52 +410,85 @@ $brand-black:       #231f20;
     // 2. PARTNERS PAGE 
   
     #partners-widget {
-      #partners-list {
-        width: 100%;
-        #logos {
-        width: 800px;
-        margin: 0 auto;
-        a {
-          height: 100px;
-          margin: 15px;
-          display: block;
+      .logos {
+        div {
+          height: 90px;
+          max-width: 180px;
           background-repeat: no-repeat;
           background-size: contain;
           background-position: center;
           float: left;
-          text-align: center;
+          margin: 8px 13px;
         }
-        a:nth-child(1) {
+        a {
+          height: 100%;
+          width: 100%;
+        }
+      }    
+      #official-partners .logos {
+        a:nth-child(1) div {
             background-image: url(/images/logo-pgae-bw.png);
             width: 150px;
         }
-        a:nth-child(1):hover {
+        a:nth-child(1):hover  div{
             background-image: url(/images/logo-pgae.png);
         }
-        a:nth-child(2) {
+        a:nth-child(2) div {
             background-image: url(/images/logo-hkga-bw.png);
             width: 190px;
         }
-        a:nth-child(2):hover {
+        a:nth-child(2):hover div {
             background-image: url(/images/logo-hkga.png);
         }
-        a:nth-child(3) {
-            background-image: url(/images/logo-yinli-bw.png);
+        a:nth-child(3)  div{
+            background-image: url(/images/logo-lcsd-bw.png);
             width: 150px;
         }
-        a:nth-child(3):hover {
-            background-image: url(/images/logo-yinli.png);
-        }
-        a:nth-child(4) {
-            background-image: url(/images/logo-lcsd-bw.png);
-            width: 160px;
-        }
-        a:nth-child(4):hover {
+        a:nth-child(3):hover div{
             background-image: url(/images/logo-lcsd.png);
         }
+        a:nth-child(4) div {
+            background-image: url(/images/logo-stjames-bw.png);
+            width: 160px;
+        }
+        a:nth-child(4):hover div {
+            background-image: url(/images/logo-stjames.png);
+        }
       }
+      #sponsors .logos {
+        a:nth-child(1) div{
+            background-image: url(/images/logo-ageas-bw.png);
+            width: 150px;
+        }
+        a:nth-child(1):hover div{
+            background-image: url(/images/logo-ageas.png);
+        }        
+      }
+      #supporting-organisations .logos {
+        a:nth-child(1) div{
+            background-image: url(/images/logo-nine-eagles-bw.png);
+            width: 150px;
+        }
+        a:nth-child(1):hover div{
+            background-image: url(/images/logo-nine-eagles.png);
+        }
+        a:nth-child(2) div{
+            background-image: url(/images/logo-phoenix-hill-bw.png);
+            width: 190px;
+        }
+        a:nth-child(2):hover div{
+            background-image: url(/images/logo-phoenix-hill.png);
+        }
+        a:nth-child(3) div{
+          background-image: url(/images/logo-yinli-bw.png);
+          width: 150px;
+        }
+        a:nth-child(3):hover div{
+          background-image: url(/images/logo-yinli.png);
+        }
+      }
+
     }
-  }
 
     // .2 PROS DIRECTORY PAGE //
 
@@ -815,7 +848,6 @@ $brand-black:       #231f20;
           margin-top: 15px;
           margin-bottom: 20px;
       }
-      @extend .bottom-bar;
     }
 
 
@@ -1075,6 +1107,11 @@ $brand-black:       #231f20;
 
 // Custom query 
 @media (min-width: 400px) and (max-width: 767px) {
+  #committee-page {
+    span {
+      display: block;
+    }
+  }
   #static-pages {
     table {
       td {
@@ -1098,6 +1135,9 @@ $brand-black:       #231f20;
   }
 
   #committee-page {
+    span {
+      display: block;
+    }
     @extend .description-list;
     .dl-horizontal dt {
       width: 300px;
@@ -1173,17 +1213,16 @@ $brand-black:       #231f20;
 
   #committee-page {
     .dl-horizontal dt {
-      width: 375px;
+      width: 270px;
     }
   }
 
   #committee-page {
     .dl-horizontal dd {
-      margin-left: 400px;
+      margin-left: 300px;
     }
   }
   
-
 }
 
 
@@ -1203,13 +1242,13 @@ $brand-black:       #231f20;
       display: block;
     }
     .dl-horizontal dt {
-      width: 475px;
+      width: 350px;
     }
   }
 
   #committee-page {
     .dl-horizontal dd {
-      margin-left: 500px;
+      margin-left: 380px;
     }
   }
 
