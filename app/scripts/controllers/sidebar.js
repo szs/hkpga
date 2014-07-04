@@ -56,7 +56,9 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
 
   $scope.pages = menuStructure[$scope.category]
 
-  $scope.page = $scope.pages[$location.path().split('/')[2]]
+  var page = $location.path().split('/')[2]
+
+  $scope.page = $scope.pages[page] || page;
 
   var addArchives = function (){
     var categories = $scope.archives.$getIndex();
