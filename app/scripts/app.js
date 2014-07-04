@@ -44,11 +44,11 @@ app.config(function ($routeProvider) {
           redirectTo: '/news/archive',
         })
         .when('/news/archive/:year', {
-          templateUrl: 'views/newsarchive.html',
+          templateUrl: 'views/archive.html',
           controller: 'NewsCtrl'
         })
         .when('/news/:articleId', {
-          templateUrl: 'views/shownews.html',
+          templateUrl: 'views/article.html',
           controller: 'NewsViewCtrl'
         })
         .when('/about', {
