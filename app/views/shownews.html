@@ -9,9 +9,18 @@
       <div id="show-article">
         <div class="article row">
           <div class="col-md-12">
+            <div class="row">
             <div class="title-row clearfix">
-              <h5>{{article.publish_date | date:'dd MMM yyyy'}}</h5>
-              <h4>{{article.title[l10n()] }}</h4>
+                <div class="col-md-2">
+                  <h5>{{ article.publish_date | date:'dd MMM yyyy'}}</h5>
+                </div>
+                <div class="col-md-1">
+                  <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
+                </div>
+                <div class="col-md-9">
+                  <h4>{{ article.title[l10n()] }}</h4>
+                </div>
+            </div>
             </div>
             <div class="info well">
               <div class="article-body" ng-bind-html="article.html[l10n()]">
@@ -20,7 +29,7 @@
           </div>
         </div>
         <a href="#">
-          <button type="button" class="btn back" translation>BACK</button>
+          <button type="button" class="btn back" translation>TEST</button>
         </a>
       </div>
     </div>
