@@ -332,7 +332,6 @@ $brand-black:       #231f20;
           color: $brand-gold;
         }
         h5, h4 {
-          float: left;
           display: block;
         }
         h5 {
@@ -342,7 +341,8 @@ $brand-black:       #231f20;
           display: block;
           padding: 13px 0px;
           text-align: center;
-          margin-left: -7px;
+          float: right;
+          margin-right: 12px;
         }
       }
     }
@@ -436,7 +436,7 @@ $brand-black:       #231f20;
       .logos {
         div {
           height: 90px;
-          max-width: 180px;
+          // max-width: 180px;
           background-repeat: no-repeat;
           background-size: contain;
           background-position: center;
