@@ -25,7 +25,7 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
       directory : 'Directory',
       'training-program'  : 'Training Programme'
     },
-    juniors : {
+    community : {
       'project-skyhigh' : 'Project Skyhigh'  
     },
     events : {},
@@ -47,7 +47,7 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
   }
 
   // $scope.subLevel = {
-  //   juniors : {
+  //   community : {
   //     'project-skyhigh' : ['news']
   //   }
   // }

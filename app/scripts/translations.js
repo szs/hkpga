@@ -3,7 +3,7 @@ var translationsEN = {
   MENU_PROS: 'Pros',
   MENU_TOURNAMENTS: 'Tournaments',
   MENU_MEMBERS: 'Members',
-  MENU_JUNIORS: 'Juniors',
+  MENU_COMMUNITY: 'Community',
   MENU_EVENTS: 'Events',
   MENU_PRESS: 'Press',
   MENU_ABOUT: 'About',

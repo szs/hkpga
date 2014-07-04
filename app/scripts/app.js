@@ -97,16 +97,12 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/pro.html',
           controller: 'ProCtrl'
         })
-        .when('/juniors', {
-          redirectTo: '/juniors/skyhigh',
+        .when('/community', {
+          redirectTo: '/community/project-skyhigh',
         })
-        .when('/juniors/project-skyhigh', {
+        .when('/community/project-skyhigh', {
           templateUrl: 'views/static.html',
           controller: 'StaticCtrl',
-        })
-        .when('/juniors/project-skyhigh/news', {
-          templateUrl: 'views/skyhigh-news.html',
-          controller: 'NewsCtrl',
         })
         .when('/events', {
           templateUrl: 'views/events.html',
