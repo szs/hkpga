@@ -20,6 +20,7 @@ var app = angular.module('hkpgaApp', [
   'pascalprecht.translate',
   'ui.bootstrap',
   'truncate',
+  'frapontillo.bootstrap-switch',
 ]);
 
 app.config(function ($routeProvider) {
@@ -46,17 +47,21 @@ app.config(function ($routeProvider) {
         .when('/news', {
           redirectTo: '/news/archive',
         })
-        .when('/news/archive/:year', {
-          templateUrl: 'views/archive.html',
-          controller: 'NewsCtrl'
+        .when('/news/new', {
+          templateUrl: 'views/new.html',
+          controller: 'NewCtrl'
+        })
+        .when('/news/:id/edit', {
+          templateUrl: 'views/new.html',
+          controller: 'NewCtrl'
         })
         .when('/news/:articleId', {
           templateUrl: 'views/article.html',
           controller: 'NewsViewCtrl'
         })
-        .when('/news/:id/edit', {
-          templateUrl: 'views/new.html',
-          controller: 'NewCtrl'
+        .when('/news/archive/:year', {
+          templateUrl: 'views/archive.html',
+          controller: 'NewsCtrl'
         })
         .when('/about', {
           redirectTo: '/about/us',
