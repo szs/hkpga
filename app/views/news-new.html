@@ -1,0 +1,40 @@
+<div ng-controller="NewsCtrl" ng-init="article.category = 'news'">
+
+<header class="admin-controls">
+  <h1>Article | {{ article.draft ? 'Draft' : 'Published'}}</h1>
+  <input bs-switch
+    ng-model="article.internal"
+    type="checkbox"
+    switch-active="true"
+    switch-size="large"
+    switch-animate="true"
+    switch-on-text="Internal"
+    switch-off-text="External"
+    switch-on-color="primary"
+    switch-off-color="danger" >
+  <pre>Selected date is: <em>{{article.publish_date | date:'fullDate' }}</em></pre><a ng-click="isOpen = !isOpen">CAL</a>
+  <div class="dropdown" ng-class="{ open: isOpen }">
+    <datepicker ng-model="article.publish_date" ng-required="true" show-weeks="false" class="well well-sm"></datepicker>
+  </div>
+  <a ng-if="article.draft" ng-click="publish()" class="btn btn-info">publish</a>
+  <a ng-click="save()" class="btn btn-primary">save</a>
+</header>
+
+<div class="">
+  <tabset justified="true" class="col-md-6">
+    <tab heading="English">
+      <input placeholder="Article Title" ng-model="article.title.en" class="input-article-title">
+      <textarea ng-model="article.html.en" redactor cols="100" rows="100"></textarea>
+    </tab>
+  </tabset>
+  <tabset justified="true" class="col-md-6">
+    <tab heading="Simplified">
+      <input placeholder="Article Title" ng-model="article.title['zh-hk']" class="input-article-title">
+      <textarea ng-model="article.html['zh-hk']" redactor cols="20" rows="20"></textarea>
+    </tab>
+    <tab heading="Traditional">
+      <input placeholder="Article Title" ng-model="article.title['zh-cn']" class="input-article-title">
+      <textarea ng-model="article.html['zh-cn']" redactor cols="20" rows="20"></textarea>
+    </tab>
+  </tabset>
+</div>
