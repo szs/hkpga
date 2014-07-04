@@ -1,12 +1,18 @@
 /* global app:true */
 'use strict';
 
-app.controller('SidebarCtrl', function ($scope, $location, $routeParams){
+app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive){
+
+  $scope.archives = Archive.all;
+
+  $scope.archives.$on("loaded", function(e) {
+    addArchives();
+  });
 
   var menuStructure = {
     news : {},
     about : {
-      us : 'About Us',
+      us : 'Us',
       partners : 'Partners',
       'committee-honorary' : 'Committee & Honorary Members',
     },
@@ -40,7 +46,7 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams){
     events : [],
   }
 
-  var subLevel = {
+  $scope.subLevel = {
     juniors : {
       'project-skyhigh' : ['news']
     }
@@ -51,5 +57,17 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams){
   $scope.pages = menuStructure[$scope.category]
 
   $scope.page = $scope.pages[$location.path().split('/')[2]]
-    
+
+  var addArchives = function (){
+    var categories = $scope.archives.$getIndex();
+    categories.forEach(function(key){
+      var years = {};
+      $scope.archives[key].forEach(function(i){
+          years[i] = i;
+        });
+      menuStructure[key] = years;
+    });
+    $scope.pages = menuStructure[$scope.category];
+  }
+
 })

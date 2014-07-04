@@ -1,8 +1,16 @@
 <div class="side-nav">
-	<ul>
-		<li class="side-level-1" translate> NEWS </li>
-			<ul>
-				<li class="side-level-2" ng-repeat="year in years"><a href="#/news/archive/{{ year }}" title=""> / {{ year }}</a></li>
-			</ul>
-	</ul>
+  <ul>
+    <li class="side-level-1" translate> {{ category }} </li>
+			<ul ng-repeat="(url, page) in pages | orderBy:url:reverse">
+				<li class="side-level-2" >
+          <a href="#/{{ category }}/{{ url }}" > / {{ page }}</a>
+        </li> 
+        <ul ng-if="url == key" ng-repeat="(key, value) in subLevel[category]">
+          <li class="side-level-3" ng-repeat="item in value">
+            <a href="#/{{ category }}/{{ url }}/{{ item }}" > / {{ item }}</a>
+          </li> 
+        </ul>
+      </ul>
+    </li> 
+  </ul>
 </div>

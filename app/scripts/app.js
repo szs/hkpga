@@ -87,11 +87,11 @@ app.config(function ($routeProvider) {
         .when('/juniors', {
           redirectTo: '/juniors/skyhigh',
         })
-        .when('/juniors/skyhigh', {
+        .when('/juniors/project-skyhigh', {
           templateUrl: 'views/skyhigh.html',
           controller: 'JuniorsCtrl',
         })
-        .when('/juniors/skyhigh/news', {
+        .when('/juniors/project-skyhigh/news', {
           templateUrl: 'views/skyhigh-news.html',
           controller: 'NewsCtrl',
         })
