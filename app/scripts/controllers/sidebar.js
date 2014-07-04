@@ -25,7 +25,7 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
       directory : 'Directory',
       'training-program'  : 'Training Programme'
     },
-    juniors : {
+    community : {
       'project-skyhigh' : 'Project Skyhigh'  
     },
     events : {},
@@ -46,17 +46,19 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
     events : [],
   }
 
-  $scope.subLevel = {
-    juniors : {
-      'project-skyhigh' : ['news']
-    }
-  }
+  // $scope.subLevel = {
+  //   community : {
+  //     'project-skyhigh' : ['news']
+  //   }
+  // }
 
   $scope.category = $location.path().split('/')[1]
 
   $scope.pages = menuStructure[$scope.category]
 
-  $scope.page = $scope.pages[$location.path().split('/')[2]]
+  var page = $location.path().split('/')[2]
+
+  $scope.page = $scope.pages[page] || page;
 
   var addArchives = function (){
     var categories = $scope.archives.$getIndex();

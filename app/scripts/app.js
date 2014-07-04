@@ -41,15 +41,14 @@ app.config(function ($routeProvider) {
           controller: 'AdminCtrl'
         })
         .when('/news', {
-          templateUrl: 'views/news.html',
-          controller: 'NewsCtrl'
+          redirectTo: '/news/archive',
         })
         .when('/news/archive/:year', {
-          templateUrl: 'views/newsarchive.html',
+          templateUrl: 'views/archive.html',
           controller: 'NewsCtrl'
         })
         .when('/news/:articleId', {
-          templateUrl: 'views/shownews.html',
+          templateUrl: 'views/article.html',
           controller: 'NewsViewCtrl'
         })
         .when('/about', {
@@ -97,16 +96,12 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/pro.html',
           controller: 'ProCtrl'
         })
-        .when('/juniors', {
-          redirectTo: '/juniors/skyhigh',
+        .when('/community', {
+          redirectTo: '/community/project-skyhigh',
         })
-        .when('/juniors/project-skyhigh', {
+        .when('/community/project-skyhigh', {
           templateUrl: 'views/static.html',
           controller: 'StaticCtrl',
-        })
-        .when('/juniors/project-skyhigh/news', {
-          templateUrl: 'views/skyhigh-news.html',
-          controller: 'NewsCtrl',
         })
         .when('/events', {
           templateUrl: 'views/events.html',
