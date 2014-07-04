@@ -33,7 +33,8 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
       releases : 'Releases',
       media : 'Media Coverage',
       magazine : 'Magazines'
-    }
+    },
+    contact : {},
   }
 
   var archiveList = {

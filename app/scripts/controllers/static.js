@@ -8,7 +8,7 @@ app.controller('StaticCtrl', function($scope, $rootScope, $location, $routeParam
   $scope.page = Page.new()
 
   var pageExists = function(){
-    var page = $routeParams.page ? $routeParams.page : $location.path().split('/')[2]
+    var page = $routeParams.page || $location.path().split('/')[2]
     Page.current(page, function(p){
       if (p === null){
         $scope.page = Page.new()
