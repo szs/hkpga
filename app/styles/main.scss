@@ -1101,26 +1101,26 @@ $brand-black:       #231f20;
   }
 
 // dropdown angular
-//   .dropdown {
-//     position: absolute;
-//     z-index: 50000;
-//     right: 0;
-//     background-color: #336699;
-//     height: 0;
-//     overflow: hidden;
-//     opacity: 0;
-//     padding: 0 10px;
-//     position: absolute;
-//     -webkit-transition: all 0.3s ease-in;
-//        -moz-transition: all 0.3s ease-in;
-//          -o-transition: all 0.3s ease-in;
-//             transition: all 0.3s ease-in;
-// }
-//   .dropdown.open {
-//       height: 300px;
-//       padding: 10px;
-//       opacity: 1.0;
-//   }
+  .dropdown {
+    position: absolute;
+    z-index: 50000;
+    right: 0;
+    background-color: #336699;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0 10px;
+    position: absolute;
+    -webkit-transition: all 0.3s ease-in;
+       -moz-transition: all 0.3s ease-in;
+         -o-transition: all 0.3s ease-in;
+            transition: all 0.3s ease-in;
+}
+  .dropdown.open {
+      height: 300px;
+      padding: 10px;
+      opacity: 1.0;
+  }
 
 
 

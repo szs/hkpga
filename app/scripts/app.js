@@ -121,7 +121,11 @@ app.config(function ($routeProvider) {
         })
         .when('/events', {
           templateUrl: 'views/events.html',
-          controller: 'EventsCtrl',
+          controller: 'NewsCtrl'
+        })
+        .when('/events/:articleId', {
+          templateUrl: 'views/event.html',
+          controller: 'NewsViewCtrl',
         })
         .when('/pros/:id/:action', {
           templateUrl: 'views/new.html',

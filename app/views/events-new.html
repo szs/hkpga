@@ -1,18 +1,8 @@
-<div ng-controller="EventsCtrl" ng-init="article.category = 'events'">
+<div ng-controller="NewsCtrl" ng-init="article.category = 'events'">
 
 <header class="admin-controls">
   <h1>Events | {{ article.draft ? 'Draft' : 'Published'}}</h1>
-  <input bs-switch
-    ng-model="article.internal"
-    type="checkbox"
-    switch-active="true"
-    switch-size="large"
-    switch-animate="true"
-    switch-on-text="Internal"
-    switch-off-text="External"
-    switch-on-color="primary"
-    switch-off-color="danger" >
-  <pre>Selected date is: <em>{{article.publish_date | date:'fullDate' }}</em></pre><a ng-click="isOpen = !isOpen">CAL</a>
+  <pre>Event Date date is: <em>{{article.publish_date | date:'fullDate' }}</em></pre><a ng-click="isOpen = !isOpen">CAL</a>
   <div class="dropdown" ng-class="{ open: isOpen }">
     <datepicker ng-model="article.publish_date" ng-required="true" show-weeks="false" class="well well-sm"></datepicker>
   </div>
@@ -24,16 +14,22 @@
   <tabset justified="true" class="col-md-6">
     <tab heading="English">
       <input placeholder="Article Title" ng-model="article.title.en" class="input-article-title">
+      <input placeholder="Venue" ng-model="article.venue.en" class="input-article-title">
+      <input placeholder="Oganizer" ng-model="article.organizer.en" class="input-article-title">
       <textarea ng-model="article.html.en" redactor cols="100" rows="100"></textarea>
     </tab>
   </tabset>
   <tabset justified="true" class="col-md-6">
     <tab heading="繁體">
       <input placeholder="Article Title" ng-model="article.title['zh-hk']" class="input-article-title">
+      <input placeholder="Venue" ng-model="article.venue['zh-hk']" class="input-article-title"> 
+      <input placeholder="Oganizer" ng-model="article.organizer['zh-hk']" class="input-article-title">
       <textarea ng-model="article.html['zh-hk']" redactor cols="20" rows="20"></textarea>
     </tab>
     <tab heading="中文">
       <input placeholder="Article Title" ng-model="article.title['zh-cn']" class="input-article-title">
+      <input placeholder="Venue" ng-model="article.venue['zh-cn']" class="input-article-title">  
+      <input placeholder="Oganizer" ng-model="article.organizer['zh-cn']" class="input-article-title">
       <textarea ng-model="article.html['zh-cn']" redactor cols="20" rows="20"></textarea>
     </tab>
   </tabset>
