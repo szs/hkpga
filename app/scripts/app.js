@@ -41,8 +41,7 @@ app.config(function ($routeProvider) {
           controller: 'AdminCtrl'
         })
         .when('/news', {
-          templateUrl: 'views/news.html',
-          controller: 'NewsCtrl'
+          redirectTo: '/news/archive',
         })
         .when('/news/archive/:year', {
           templateUrl: 'views/newsarchive.html',
