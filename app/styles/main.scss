@@ -138,10 +138,13 @@ $brand-black:       #231f20;
   }
 
   a {
-    color: $text-grey-lighter;
-    :hover {
-      color: $brand-gold;
-    }
+    color: $text-grey;
+    text-decoration: none;
+  }
+
+  a:hover, a:focus {
+    color: $text-grey;
+    text-decoration: none;
   }
 
   .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
@@ -265,9 +268,15 @@ $brand-black:       #231f20;
 
   // .2 MAIN
 
+
     .latest-news {
       .title-row {
         padding-left: 20px;
+      }
+      a.block-anchor:hover {
+        div.title-row {
+          border-color: $brand-gold;
+        }
       }
     }
 
@@ -305,6 +314,11 @@ $brand-black:       #231f20;
 
 
     #articles-section {
+      a.block-anchor:hover {
+        h5, h4 {
+          color: $brand-gold;
+        }
+      }
       .well {
         padding: 20px 30px;
       }
