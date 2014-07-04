@@ -32,10 +32,6 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/contact.html',
           controller: 'ContactCtrl'
         })
-        .when('/about/committee-honorary', {
-          templateUrl: 'views/committee.html',
-          controller: 'CommitteeCtrl'
-        })
         .when('/login', {
           templateUrl: 'views/login.html',
           controller: 'AuthCtrl'
@@ -57,28 +53,45 @@ app.config(function ($routeProvider) {
           controller: 'NewsViewCtrl'
         })
         .when('/about', {
-          templateUrl: 'views/static.html',
-          controller: 'StaticCtrl',
+          redirectTo: '/about/us',
         })
         .when('/about/partners', {
           templateUrl: 'views/partners.html',
           controller: 'PartnersCtrl',
         })
+        .when('/about/committee-honorary', {
+          templateUrl: 'views/committee.html',
+          controller: 'CommitteeCtrl'
+        })
         .when('/tournaments', {
+          redirectTo: '/tournaments/merit',
+        })
+        .when('/tournaments/merit', {
+          templateUrl: 'views/merit.html',
+          controller: 'TournamentCtrl',
+        })
+        .when('/tournaments/member', {
           templateUrl: 'views/tournaments.html',
-          controller: 'TournamentsCtrl',
+          controller: 'TournamentCtrl',
+        })
+        .when('/tournaments/trainee', {
+          templateUrl: 'views/tournaments.html',
+          controller: 'TournamentCtrl',
         })
         .when('/pros', {
+          redirectTo: '/pros/directory',
+        })
+        .when('/pros/directory', {
           templateUrl: 'views/pros.html',
           controller: 'ProsCtrl'
-        })
-        .when('/pros/new', {
-          templateUrl: 'views/register.html',
-          controller: 'AuthCtrl'
         })
         .when('/pros/training-program', {
           templateUrl: 'views/static.html',
           controller: 'StaticCtrl',
+        })
+        .when('/pros/new', {
+          templateUrl: 'views/register.html',
+          controller: 'AuthCtrl'
         })
         .when('/pros/:username', {
           templateUrl: 'views/pro.html',
@@ -88,8 +101,8 @@ app.config(function ($routeProvider) {
           redirectTo: '/juniors/skyhigh',
         })
         .when('/juniors/project-skyhigh', {
-          templateUrl: 'views/skyhigh.html',
-          controller: 'JuniorsCtrl',
+          templateUrl: 'views/static.html',
+          controller: 'StaticCtrl',
         })
         .when('/juniors/project-skyhigh/news', {
           templateUrl: 'views/skyhigh-news.html',

@@ -21,7 +21,7 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
       member : 'Members',
       trainee : 'Trainees'
     },
-    pro : {
+    pros : {
       directory : 'Directory',
       'training-program'  : 'Training Programme'
     },
