@@ -1,11 +1,11 @@
 /* global app:true */
 'use strict';
 
-app.controller('ReleasesCtrl', function($scope, $rootScope, $location, PressRelease){
-  $scope.releases = PressRelease.all;
+app.controller('ReleasesCtrl', function($scope, $rootScope, $location, Release){
+  $scope.releases = Release.all;
 
   $scope.reset = function (){
-    $scope.release = PressRelease.new();
+    $scope.release = Release.new();
   };
 
   $scope.reset()
@@ -14,7 +14,7 @@ app.controller('ReleasesCtrl', function($scope, $rootScope, $location, PressRele
 
     $scope.release.author = $rootScope.currentUser;
 
-    PressRelease.create($scope.release).then(function(){
+    Release.create($scope.release).then(function(){
       $scope.reset();
       $location.path('#/press/releases');
     });

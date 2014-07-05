@@ -17,7 +17,7 @@ app.controller('MagazineCtrl', function($scope, $rootScope, $location, Magazine,
 
     Magazine.create($scope.magazine).then(function(){
       $scope.reset();
-      $location.path('#/magazines');
+      $location.path('#/magazine');
     });
   };
 });

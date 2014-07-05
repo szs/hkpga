@@ -32,7 +32,7 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
     press : {
       releases : 'Releases',
       media : 'Media Coverage',
-      magazine : 'Magazines'
+      magazine : 'Magazine'
     },
     contact : {},
   }
