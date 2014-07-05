@@ -22,6 +22,8 @@ app.controller('ProsCtrl', function($scope, User){
 
   });
 
+
+
   $scope.filterOptions = {
     pros: [
       {id : 2, name : 'All', status: 4 },
@@ -54,6 +56,20 @@ app.controller('ProsCtrl', function($scope, User){
       {value : 'honorary-member', name : 'Honorary Member'},
       {value : 'founder-member', name : 'Founder Member'},
     ],
+    roles : [
+      {value : 'admin', name : 'Admin'},
+      {value : 'member', name : 'Member'},
+      {value : 'user', name : 'User'},
+      {value : 'non-affiliated', name : 'Non-Affiliated'},
+    ],
+    relations : [
+      {value : 'full', name : 'Full Member'},
+      {value : 'tournament', name : 'Tournament Member'},
+      {value : 'associate', name : 'Associate Member'},
+      {value : 'member', name : 'Member'},
+      {value : 'trainer', name : 'Certified Trainer'},
+      {value : 'trainee', name : 'Trainee'},
+    ]
   };
 
   $scope.filterItem = {

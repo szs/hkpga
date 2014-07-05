@@ -6,6 +6,12 @@ app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth)
     // $location.path('/');
   });
 
+  $scope.reset = function(){
+    $scope.user = User.new();
+  }
+
+  $scope.reset();
+
   var createUsername = function(str) {
     var username = '';
     var trimmed = str.trim();
