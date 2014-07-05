@@ -4,7 +4,15 @@
   <h1>Article | {{ article.draft ? 'Draft' : 'Published'}}</h1>
   <div class="admin-controls clearfix">
     <header>
-      <div class="col-md-3">
+      <div class="col-md-6">
+        <div class="date-picker">
+          <span class="date-view">Selected date is: <em>{{article.publish_date | date:'fullDate' }}</em><a ng-click="isOpen = !isOpen"><i class="fa fa-calendar"></i></a></span>
+          <div class="dropdown calendar" ng-class="{ open: isOpen }">
+            <datepicker ng-model="article.publish_date" ng-required="true" show-weeks="false" class="well well-sm"></datepicker>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
         <div class="locale-switch">
           <input bs-switch
             ng-model="article.internal"
@@ -13,20 +21,10 @@
             switch-size="large"
             switch-animate="true"
             switch-on-text="Internal"
-            switch-off-text="External"
+            switch-off-text="Public"
             switch-on-color="primary"
             switch-off-color="danger" >
         </div>
-      </div>
-      <div class="col-md-5">
-        <div class="date-picker">
-          <span class="date-view">Selected date is: <em>{{article.publish_date | date:'fullDate' }}</em><a ng-click="isOpen = !isOpen"><i class="fa fa-calendar"></i></a></span>
-          <div class="dropdown calendar" ng-class="{ open: isOpen }">
-            <datepicker ng-model="article.publish_date" ng-required="true" show-weeks="false" class="well well-sm"></datepicker>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
         <div class="publish-buttons">
           <a ng-if="article.draft" ng-click="publish()" class="btn btn-info"><i class="fa fa-send"></i>publish</a>
           <a ng-click="save()" class="btn btn-primary"><i class="fa fa-save"></i>save</a>
