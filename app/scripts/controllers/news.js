@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('NewsCtrl', function($scope, $rootScope, $filter, $location, Article, Archive){
+app.controller('NewsCtrl', function($scope, $rootScope, $location, Article, Archive){
   
   $scope.articles = Article.all;
   $scope.article = Article.new();
@@ -40,13 +40,11 @@ app.controller('NewsCtrl', function($scope, $rootScope, $filter, $location, Arti
       updated_at: Date.now()
     });
 
-    if ($scope.article.category == 'news'){
-      var archiveItem = {
-        year : new Date($scope.article.created_at).getFullYear(),
-        category : 'news'
-      }
-      Archive.create(archiveItem);
+    var archiveItem = {
+      year : new Date($scope.article.publish_date).getFullYear(),
+      category : $scope.article.category
     }
+    Archive.create(archiveItem);
   
     Article.create($scope.article);
   };
@@ -57,22 +55,7 @@ app.controller('NewsCtrl', function($scope, $rootScope, $filter, $location, Arti
     $location.path($scope.article.category + '/' + $scope.article.slug);
   };
   
-  $scope.submitArticle = function(){
-    Article.create($scope.article).then(function(){
-      $scope.reset();
-    });
-  };
-
-  // $scope.publishArticle = function(articleID){
-    // $scope.articles[articleID].draft = false;
-    // Articles.update($scope.article);
-  // };
-
-  // $scope.retractArticle = function(articleID){
-    // $scope.articles[articleID].draft = true;
-  // };
-
-  $scope.deleteArticle = function(articleID) {
+  $scope.delete = function(articleID) {
     Article.delete(articleID);
   };
 

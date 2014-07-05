@@ -2,12 +2,15 @@
   <h1 translate>ADMIN</h1>
 
   <div ng-if="unscored" class="row" ng-controller="TournamentCtrl">
-    <h2 translate>SCORE_TOURNAMENT</h2>
+    <h2 >{{unscored.title[l10n()]}}</h2>
+    <h3 >{{unscored.start_date | date}}</h3>
+    <span>{{unscored.no_days}}</span>
+    <a ng-href="#/tournaments/{{unscored.slug}}/score">score</a>
   </div>
 
   <div class="row" ng-controller="NewsCtrl">
     <h2 translate>LATEST_ARTICLES</h2>
-    <div ng-repeat="(id, article) in articles | orderByPriority | orderBy: 'publish_date':true | limitTo:3">
+    <div ng-repeat="(id, article) in articles | orderByPriority | orderBy: 'publish_date':true |filter:{category : 'news'} | limitTo:3">
         <a ng-href="#/news/{{article.slug}}">{{article.title[l10n()]}}</a> <a ng-if="article.draft" ng-click="publish()" class="btn">publish</a> <a ng-href="#/news/{{article.slug}}/edit" class="btn"> edit</a>
     </div>
     <div><a ng-href="#/news/new">+</a></div>

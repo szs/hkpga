@@ -44,6 +44,10 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/admin.html',
           controller: 'AdminCtrl'
         })
+        .when('/dashboard', {
+          templateUrl: 'views/dashboard.html',
+          controller: 'AdminCtrl'
+        })
         .when('/news', {
           redirectTo: '/news/archive',
         })
@@ -51,13 +55,13 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/new.html',
           controller: 'NewCtrl'
         })
-        .when('/news/:id/edit', {
-          templateUrl: 'views/new.html',
-          controller: 'NewCtrl'
-        })
         .when('/news/:articleId', {
           templateUrl: 'views/article.html',
           controller: 'NewsViewCtrl'
+        })
+        .when('/news/:id/edit', {
+          templateUrl: 'views/new.html',
+          controller: 'NewCtrl'
         })
         .when('/news/archive/:year', {
           templateUrl: 'views/archive.html',
@@ -76,6 +80,10 @@ app.config(function ($routeProvider) {
         })
         .when('/tournaments', {
           redirectTo: '/tournaments/merit',
+        })
+        .when('/tournaments/new', {
+          templateUrl: 'views/new.html',
+          controller: 'NewCtrl'
         })
         .when('/tournaments/merit', {
           templateUrl: 'views/merit.html',
@@ -96,8 +104,12 @@ app.config(function ($routeProvider) {
         .when('/pros', {
           redirectTo: '/pros/directory',
         })
+        .when('/pros/new', {
+          templateUrl: 'views/new.html',
+          controller: 'NewCtrl'
+        })
         .when('/pros/directory', {
-          templateUrl: 'views/pros.html',
+          templateUrl: 'views/regits.html',
           controller: 'ProsCtrl'
         })
         .when('/pros/training-program', {
@@ -121,7 +133,15 @@ app.config(function ($routeProvider) {
         })
         .when('/events', {
           templateUrl: 'views/events.html',
-          controller: 'EventsCtrl',
+          controller: 'NewsCtrl'
+        })
+        .when('/events/new', {
+          templateUrl: 'views/new.html',
+          controller: 'NewCtrl'
+        })
+        .when('/events/:articleId', {
+          templateUrl: 'views/event.html',
+          controller: 'NewsViewCtrl',
         })
         .when('/pros/:id/:action', {
           templateUrl: 'views/new.html',
@@ -129,18 +149,6 @@ app.config(function ($routeProvider) {
         })
         .when('/press', {
           redirectTo: '/press/releases',
-        })
-        .when('/press/releases', {
-          templateUrl: 'views/pressreleases.html',
-          controller: 'ReleasesCtrl',
-        })
-        .when('/press/magazines', {
-          templateUrl: 'views/magazines.html',
-          controller: 'MagazineCtrl',
-        })
-        .when('/press/magazines/:year', {
-          templateUrl: 'views/magazines.html',
-          controller: 'MagazineCtrl',
         })
         .when('/press/:contentType/edit', {
           redirectTo: '/press',
@@ -152,6 +160,22 @@ app.config(function ($routeProvider) {
         .when('/press/:category/:id/edit', {
           templateUrl: 'views/new.html',
           controller: 'NewCtrl'
+        })
+        .when('/press/releases', {
+          templateUrl: 'views/releases.html',
+          controller: 'ReleasesCtrl',
+        })
+        .when('/press/media', {
+          templateUrl: 'views/media.html',
+          controller: 'CoverageCtrl',
+        })
+        .when('/press/magazine', {
+          templateUrl: 'views/magazine.html',
+          controller: 'MagazineCtrl',
+        })
+        .when('/press/magazine/:year', {
+          templateUrl: 'views/magazine.html',
+          controller: 'MagazineCtrl',
         })
         .when('/:contentType/new', {
           templateUrl: 'views/new.html',

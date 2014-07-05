@@ -1,0 +1,22 @@
+<div class="container">
+  <h1 translate>DASHBOARD</h1>
+  <a ng-click="true" class="btn btn-danger btn-feedback">feedback</a>
+
+  <div ng-if="upcoming" class="row" ng-controller="TournamentCtrl">
+    <h2 >{{upcoming.title[l10n()]}}</h2>
+    <h3 >{{upcoming.start_date | date}}</h3>
+    <span>{{upcoming.no_days}}</span>
+    <a ng-click="signup()">sign up</a>
+  </div>
+
+  <div class="row" ng-controller="NewsCtrl">
+    <h2 translate>INTERNAL_ANNOUNCEMENTS</h2>
+    <div ng-repeat="(id, article) in articles | orderByPriority | orderBy: 'publish_date':true | filter:{internal:true} | limitTo:3">
+        <a ng-href="#/news/{{article.slug}}">{{article.title[l10n()]}}</a>
+    </div>
+  </div>
+
+  <div class="row" ng-controller="ScoresCtrl">
+    <h2 translate>RANKING</h2>
+  </div>
+</div>

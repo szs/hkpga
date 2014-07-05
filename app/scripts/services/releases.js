@@ -1,26 +1,26 @@
 'use strict';
 
-app.factory('PressRelease', 
+app.factory('Release', 
   function ($firebase, FIREBASE_URL) {
-    var ref = new Firebase(FIREBASE_URL + 'pressreleases');
-    var pressreleases = $firebase(ref);
+    var ref = new Firebase(FIREBASE_URL + 'releases');
+    var releases = $firebase(ref);
  
-    var PressRelease = {
-      all: pressreleases,
+    var Release = {
+      all: releases,
       create : function(release){
         
-        pressreleases[release.created_at] = release;
+        releases[release.created_at] = release;
         
-        return pressreleases.$save(release.created_at).then(function(){
-          console.log('released ' + release.title_en);
+        return releases.$save(release.created_at).then(function(){
+          console.log('released ' + release.title.en);
         });
 
       },
       find : function(releaseId){
-        return pressreleases.$child(releaseId);
+        return releases.$child(releaseId);
       },
       delete : function(releaseId){
-        return pressreleases.$remove(releaseId);
+        return releases.$remove(releaseId);
       },
       new : function(){
         return {
@@ -41,5 +41,5 @@ app.factory('PressRelease',
       }
     };
 
-    return PressRelease;
+    return Release;
 })
