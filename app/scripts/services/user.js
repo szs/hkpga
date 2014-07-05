@@ -80,6 +80,13 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
           "zh-cn": "",
           "zh-hk": ""
         },
+        "introduction" : {
+          "en": "",
+          "zh-cn": "",
+          "zh-hk": ""
+        },
+        "committee" : false,
+        "honorary" : false,
         "updated_at": Date.now(),
         "created_at": Date.now(),
       }

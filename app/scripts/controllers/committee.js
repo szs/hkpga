@@ -3,4 +3,6 @@
 
 app.controller('CommitteeCtrl', function($scope){
 
+	
+
 });
