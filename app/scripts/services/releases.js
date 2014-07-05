@@ -35,8 +35,9 @@ app.factory('Release',
             "zh-cn": "",
             "zh-hk": ""
           },
+          publish_date: Date.now(),
           created_at: Date.now(),
-          updated_at: Date.now()
+          updated_at: Date.now(),
         };
       }
     };

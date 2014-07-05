@@ -75,7 +75,7 @@
       <div class="col-md-9">
         <div> 
           <div class="date-picker">
-            <span class="date-view">Selected date is: <em>{{magazine.publish_date | date:'fullDate' }}</em><a ng-click="isOpen = !isOpen"><i class="fa fa-calendar"></i></a></span>
+            <span class="date-view">Selected date is: <em>{{coverage.publish_date | date:'fullDate' }}</em><a ng-click="isOpen = !isOpen"><i class="fa fa-calendar"></i></a></span>
             <div class="dropdown calendar" ng-class="{ open: isOpen }">
               <datepicker ng-model="coverage.publish_date" ng-required="true" show-weeks=" false" class="well well-sm"></datepicker>
             </div>
