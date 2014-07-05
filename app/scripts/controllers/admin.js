@@ -4,7 +4,7 @@
 app.controller('AdminCtrl', function($scope, User){
 
 	$scope.resources = {
-		'press/magazines' : 'Magazine',
+		'press/magazine' : 'Magazine',
 		'press/releases' : 'Press Release',
 		'press/media' : 'Media Coverage',
 		'events' : 'Event',
