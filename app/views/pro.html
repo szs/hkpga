@@ -11,6 +11,10 @@
         </div>
         <div class="pro-details col-md-12 col-sm-12 col-xs-12">
           <dl class="dl-horizontal">
+            <div ng-if="pro.introduction[l10n()]">
+              <dt><h3>Introduction</h3></dt>
+              <dd><p>{{ pro.introduction[l10n()] }}</p></dd>
+            </div>
             <div ng-if="pro.qualifications[l10n()]">
               <dt><h3>Qualifications</h3></dt>
               <dd><p>{{ pro.qualifications[l10n()] }}</p></dd>
@@ -28,7 +32,7 @@
               <dd><p>{{ pro.teaching_experience[l10n()] }}</p></dd>
             </div>
             <div ng-if="pro.member_since">
-              <dt><h3>Member since</h3></dt>
+              <dt><h3>Since</h3></dt>
               <dd><p>{{ pro.member_since }}</p></dd>
             </div>
             <div ng-if="pro.email">

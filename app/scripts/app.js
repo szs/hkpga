@@ -109,7 +109,7 @@ app.config(function ($routeProvider) {
           controller: 'NewCtrl'
         })
         .when('/pros/directory', {
-          templateUrl: 'views/regits.html',
+          templateUrl: 'views/pros.html',
           controller: 'ProsCtrl'
         })
         .when('/pros/training-program', {
@@ -120,9 +120,9 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/static.html',
           controller: 'StaticCtrl',
         })
-        .when('/pros/:username', {
+        .when('/pros/:id', {
           templateUrl: 'views/pro.html',
-          controller: 'ProCtrl'
+          controller: 'ProsCtrl'
         })
         .when('/pros/:id/edit', {
           templateUrl: 'views/new.html',
@@ -134,9 +134,9 @@ app.config(function ($routeProvider) {
         .when('/honorary/new', {
           redirectTo: '/pros/new',
         })
-        .when('/honorary/:username', {
+        .when('/honorary/:id', {
           templateUrl: 'views/pro.html',
-          controller: 'ProCtrl'
+          controller: 'ProsCtrl'
         })
         .when('/honorary/:id/edit', {
           redirectTo: '/pros/:id/edit',
