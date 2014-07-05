@@ -1106,7 +1106,7 @@ $admin-red:         #f06059;
 // 6. ADMIN ----------------------------------
 
 
-.admin {
+.admin#admin-styling {
 
     a {
       font-size: 1.7rem;
@@ -1135,11 +1135,13 @@ $admin-red:         #f06059;
       margin-right: 10px;
     }
 
-
     .btn:active {
       border: 2px solid $white;
     }
 
+}
+
+.admin {
 
 //  ADMIN CONTROLS
 
