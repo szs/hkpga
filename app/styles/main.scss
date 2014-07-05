@@ -31,12 +31,26 @@ $brand-green:       #098743;
 $brand-gold:        #bc994b;
 $brand-black:       #231f20;
 
+$admin-button-grey: #58585b;
+$admin-dark-grey:   #343434;
+$admin-blue:        #27a9e1;
+$admin-green:       #2ab573;
+$admin-yellow:      #fbaf3f;
+$admin-red:         #f06059;
+
+
+
+
 @mixin bar-height($bar-height) {
   height: $bar-height * 2;
 }
 
 .shadow {
   box-shadow: 5px 5px 5px $black;
+}
+
+.admin-shadow {
+  box-shadow: inset -2px -2px 3px $grey-dark;
 }
     
 .left-bar {
@@ -377,21 +391,6 @@ $brand-black:       #231f20;
 
     #landing-content {
        @extend .bottom-bar;
-    }
-
-    // 2. ADMIN PAGE
-
-    .admin-controls {
-      margin-bottom: 32px;
-    }
-
-    .input-article-title {
-      width: 100%;
-      padding: 20px;
-    }
-
-    .redactor_editor {
-      min-height : 300px;
     }
 
 
@@ -1100,36 +1099,168 @@ $brand-black:       #231f20;
     }
   }
 
-// dropdown angular
-//   .dropdown {
-//     position: absolute;
-//     z-index: 50000;
-//     right: 0;
-//     background-color: #336699;
-//     height: 0;
-//     overflow: hidden;
-//     opacity: 0;
-//     padding: 0 10px;
-//     position: absolute;
-//     -webkit-transition: all 0.3s ease-in;
-//        -moz-transition: all 0.3s ease-in;
-//          -o-transition: all 0.3s ease-in;
-//             transition: all 0.3s ease-in;
-// }
-//   .dropdown.open {
-//       height: 300px;
-//       padding: 10px;
-//       opacity: 1.0;
-//   }
-
 
 
 // 5. THEME ------------------------------
 
 
+// 6. ADMIN ----------------------------------
 
 
-// 6. MEDIA QUERIES ----------------------------------
+  .input-article-title {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .redactor_editor {
+    min-height : 300px;
+  }
+
+
+
+.admin {
+
+  a {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  i {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  h1 {
+    margin-top: 35px;
+  }
+
+  .btn:active {
+    border: 2px solid $white;
+  }
+
+//  ADMIN CONTROLS
+
+  .admin-controls {
+    background-color: $admin-dark-grey;
+    border-radius: 3px;
+    box-shadow: 6px 6px 6px $grey-darker;
+    margin-bottom: 37px;
+    margin-top: 30px;
+    text-transform: capitalize;
+
+    .locale-switch {
+      padding: 15px 25px;
+      .bootstrap-switch {
+        border: none;
+      }
+      .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
+        background-color: $admin-button-grey;
+        color: $admin-yellow;
+      }
+      .bootstrap-switch-handle-off.bootstrap-switch-danger {
+        background-color: $admin-button-grey;
+        color: $admin-green;
+      }
+    } 
+
+    .date-picker {
+      height: 39px;
+      margin-top: 14px;
+      background-color: $admin-button-grey;
+      border-radius: 3px;
+      span.date-view {
+        padding: 5px;
+        text-align: center;
+        color: $white;
+        width: 100%;
+        line-height: 39px;
+        height: 39px;
+        a {
+          float: right;
+          color: $brand-gold;
+          margin-top: 3px;
+          margin-right: -7px;
+        }
+        i {
+        font-size: 2.7rem;
+        }
+      }
+
+    }
+
+    .publish-buttons {
+      .btn {
+        float: right;
+        height: 39px;
+        padding: 8px 12px;
+      }
+      a {
+        vertical-align: middle;
+        margin-top: 15px;
+        background-color: $admin-button-grey;
+        border: none;
+      }
+      a:nth-child(1) {
+        margin-left: 10px;
+        border:none;
+        margin-right: 4px;
+        color: $admin-red;
+        padding-right: 20px;
+      }
+      a:nth-child(2) {
+        color: $admin-blue;
+        padding-right: 20px;
+      }
+    }
+  }
+
+  .dropdown .well {
+      padding: 20px 20px;
+      border: 5px solid $admin-dark-grey;
+  }
+
+  .dropdown {
+    button.btn {
+      background-color: transparent;
+      color: $brand-gold;
+    }
+    position: absolute;
+    z-index: 50000;
+    right: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0 10px;
+    position: absolute;
+    -webkit-transition: all 0.3s ease-in;
+       -moz-transition: all 0.3s ease-in;
+         -o-transition: all 0.3s ease-in;
+            transition: all 0.3s ease-in;
+    }
+    .dropdown.open {
+        height: 300px;
+        padding: 10px;
+        opacity: 1.0;
+    }
+  }
+
+
+//  ADMIN EDITOR
+
+  .admin-editor {
+    ul {
+      li.ng-isolate-scope {
+        background-color: $admin-dark-grey;
+        border-radius: 3px;
+      }
+    }
+  }
+
+
+
+
+// 7. MEDIA QUERIES ----------------------------------
 
 #login-page {
       min-height: 770px;
