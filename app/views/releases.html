@@ -1,4 +1,4 @@
-<div  class="container">
+<div class="container press-page">
 	<div class="row">
 		<div class = "col-md-6">
 	  		<h2>Press Releases</h2>
@@ -8,12 +8,15 @@
 	  	</div>
 	</div>
 	<div class="row">
-		<div class = "col-md-9">	
-			<ul>
-			    <li ng-repeat="(key, release) in releases">
-			      	<span>{{ release.updated_at | date:'yyyy/MMM '}}</span> | <a ng-href="{{ release.url[l10n()] }}">{{ release.title[l10n()] }}</a>
-			    </li>
-			</ul>
+		<div class = "col-md-9 col-sm-12 clearfix">
+			<div class="well">	
+				<ul class-"press-items">
+				    <li ng-repeat="(key, release) in releases">
+				      	<h5 class="release-date">{{ release.updated_at | date:'yyyy / MMM / dd '}}</h5>
+				      	<h4 class="press-title"><a ng-href="{{ release.url[l10n()] }}">{{ release.title[l10n()] }}</a></h4>
+				    </li>
+				</ul>
+			</div>
 		</div>
 		<div class = "col-md-3">	
 			<div ng-include="'/views/sidebar.html'" ng-controller="SidebarCtrl"></div>

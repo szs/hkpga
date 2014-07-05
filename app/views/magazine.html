@@ -1,21 +1,26 @@
-<div  class="container">
+<div class="container press-page">
   <div class="row">
     <div class = "col-md-6">
         <h2>HKPGA Magazine | {{magazineCount}} Issues</h2>
-      </div>
-      <div class="col-md-6">
-        <div ng-include="'views/breadcrumbs.html'"></div>
-      </div>
+    </div>
+    <div class="col-md-6">
+      <div ng-include="'views/breadcrumbs.html'"></div>
+    </div>
   </div>
   <div class="row">
     <div class = "col-md-9">  
-      <ul>
-          <li ng-repeat="(key, magazine) in magazines">
+      <div class="row">
+        <div ng-repeat="(key, magazine) in magazines" class="col-md-6">
+          <div class="media-card">
             <a ng-href="{{ magazine.url}}">
-            <img ng-src="http://drive.google.com/uc?export=view&id={{ magazine.cover }}">
-            <span>{{ magazine.publish_date | date:'yyyy' }} | {{ magazine.publish_date | date:'MMM'  }} </span> | {{ magazine.coverstory[l10n()] }} | </a>
-          </li>
-      </ul>
+              <h5> {{ magazine.publish_date | date:'yyyy' }} </h5> 
+              <h4> {{ magazine.publish_date | date:'MMM'  }} </h4>
+              <h4> {{ magazine.coverstory[l10n()] }} </h4>
+              <img ng-src="http://drive.google.com/uc?export=view&id={{ magazine.cover }}">
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
     <div class = "col-md-3">  
       <div ng-include="'/views/sidebar.html'" ng-controller="SidebarCtrl"></div>
