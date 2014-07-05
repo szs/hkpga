@@ -66,7 +66,7 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
     categories.forEach(function(key){
       var years = {};
       $scope.archives[key].forEach(function(i){
-          years[i] = i;
+          years['archive/'+ i] = i;
         });
       menuStructure[key] = years;
     });

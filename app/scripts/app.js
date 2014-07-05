@@ -21,6 +21,7 @@ var app = angular.module('hkpgaApp', [
   'ui.bootstrap',
   'truncate',
   'frapontillo.bootstrap-switch',
+  'DateFilters',
 ]);
 
 app.config(function ($routeProvider) {
@@ -155,6 +156,10 @@ app.config(function ($routeProvider) {
         .when('/events/:id', {
           templateUrl: 'views/event.html',
           controller: 'NewsCtrl',
+        })
+        .when('/events/archive/:year', {
+          templateUrl: 'views/archive.html',
+          controller: 'NewsCtrl'
         })
         .when('/pros/:id/:action', {
           templateUrl: 'views/new.html',

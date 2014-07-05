@@ -5,6 +5,8 @@ app.controller('NewsCtrl', function($scope, $rootScope, $routeParams, $location,
   
   $scope.articles = Article.all;
    
+  
+
   $scope.reset = function (){
     $scope.article = Article.new();
   };
@@ -14,6 +16,9 @@ app.controller('NewsCtrl', function($scope, $rootScope, $routeParams, $location,
   } else {
     $scope.reset();
   }
+
+  $scope.year = $routeParams.year || false;
+  $scope.category = $location.path().split('/')[1];
   
   var getSlug = function(str) {
     var slug = '';
@@ -64,5 +69,17 @@ app.controller('NewsCtrl', function($scope, $rootScope, $routeParams, $location,
   $scope.delete = function(articleID) {
     Article.delete(articleID);
   };
+
+  $scope.yearFilter = function() {
+    return function (objects, archiveYear) {
+      for (var i = 0; i < objects.length; i++) {
+        var year = new Date(objects[i].publish_date).getFullYear();
+        if (year == archiveYear) {
+          filtered_list.push(objects[i]);
+        }
+      }
+      return filtered_list;
+    }
+  }
 
 });
