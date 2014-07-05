@@ -690,6 +690,29 @@ $admin-red:         #f06059;
     }
 
 
+    // .2 PRESS - RELEASES
+
+  .press-page {
+      .well {
+        min-height: 214px;
+      }
+      h4 {
+        padding-top: 2px;
+        padding-bottom: 2px;
+        margin-top: 2px;
+        margin-bottom: 25px;
+      }
+      h5 {
+        font-size: 1.8rem;
+        color: $text-grey-light;
+        margin-bottom: 0px;
+        margin-top: 13px;
+      }
+
+
+  }
+
+
 // 3. MODULE ------------------------------------------------------------
 
 
@@ -1497,13 +1520,26 @@ $admin-red:         #f06059;
     span {
       display: block;
     }
-    @extend .description-list;
     .dl-horizontal dt {
       width: 300px;
       h3 {
         margin-top: 10px;
         font-size: 1.7rem;
         line-height: 20px;
+      }
+    }
+    .description-list {
+      dl {
+        h3 {
+            vertical-align: middle;
+            white-space: normal;
+        }
+        p {
+            line-height: 22px;
+            vertical-align: middle;
+            margin-top: 22px;
+            margin-bottom: 10px;
+        }
       }
     }
   }
