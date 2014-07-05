@@ -55,5 +55,13 @@
           <a ng-href="#/{{url}}/new">{{title}}<i class="fa fa-plus-square add-new"></i></a>
       </div>
     </div>
+
+    <div ng-if="currentUser.username == 'martvandeven'" class="row row-cards add-press" ng-controller="AdminCtrl">
+      <h2 translate>Super Admin</h2>
+      <div class="col-md-2 well">
+        <a ng-click="createSimpleLoginAccounts()">Create SimpleLogin Accounts</a>
+      </div>
+    </div>
+
   </div>
 </div>

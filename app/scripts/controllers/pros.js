@@ -7,6 +7,7 @@ app.controller('ProsCtrl', function($scope, $routeParams, User){
 
   if ($routeParams.id){
       $scope.user = User.findByUsername($routeParams.id)
+      $scope.pro = $scope.user;
   }
 
   User.all.$bind($scope, 'pros').then(function() {

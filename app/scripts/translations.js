@@ -69,6 +69,7 @@ var translationsEN = {
   MALE: 'Male',
   FEMALE: 'Female',
   PROFILE: 'Professional Profile',
+  HONORARYPROFILE: 'Honorary Profile',
   PROFILE_PICTURE: 'Profile picture',
   RELATION: 'HKPGA Relation',
   FULL_MEMBER: 'Full member',
