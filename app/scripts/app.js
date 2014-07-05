@@ -49,6 +49,10 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/dashboard.html',
           controller: 'AdminCtrl'
         })
+        .when('/feedback', {
+          templateUrl: 'views/feedback.html',
+          controller: 'FeedbackCtrl'
+        })
         .when('/news', {
           redirectTo: '/news/archive',
         })
