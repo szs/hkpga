@@ -1124,20 +1124,24 @@ $admin-red:         #f06059;
       font-size: 3.5rem;
     }
 
+    h2 {
+      border-left: none;
+      margin-left: none;
+      color: $white;
+    }
+
+    h2.left-i {
+      float: left;
+      margin-right: 10px;
+    }
+
+
     .btn:active {
       border: 2px solid $white;
     }
 
 
 //  ADMIN CONTROLS
-
-  .admin-controls {
-    background-color: $admin-dark-grey;
-    border-radius: 3px;
-    box-shadow: 6px 6px 6px $grey-darker;
-    margin-bottom: 37px;
-    margin-top: 30px;
-    text-transform: capitalize;
 
     .date-picker {
       height: 40px;
@@ -1164,6 +1168,15 @@ $admin-red:         #f06059;
         }
       }
     }
+
+
+  .admin-controls {
+    background-color: $admin-dark-grey;
+    border-radius: 3px;
+    box-shadow: 6px 6px 6px $grey-darker;
+    margin-bottom: 37px;
+    margin-top: 30px;
+    text-transform: capitalize;
 
     .locale-switch {
       padding: 15px 0px;
@@ -1295,7 +1308,7 @@ $admin-red:         #f06059;
 
   #admin-panel {
     .row {
-      border-bottom: 2px solid $brand-green;
+      border-bottom: 2px solid $white;
       padding-bottom: 40px;
     }
     .row-cards .well {
@@ -1346,7 +1359,7 @@ $admin-red:         #f06059;
 
 .new-content-form {
 
-    form.magazine-forms {
+    form {
       fieldset {
         h1 {
           color: $white;
@@ -1355,6 +1368,10 @@ $admin-red:         #f06059;
           margin-bottom: 30px;
           display: block;
         }
+      }
+      label {
+        color: $grey-light;
+        font-weight: normal;
       }
     }
 
@@ -1367,16 +1384,20 @@ $admin-red:         #f06059;
       }
     }
 
-    .publish-buttons.left-i {
-        position: relative;
-    }
-    .publish-buttons.left-i input {
-        padding-left: 30px;    
-    }
-    .publish-buttons.left-i i {
-        position: absolute;
-        padding: 10px 12px;
-        pointer-events: none;
+    .publish-buttons {
+      input {
+        float: right;
+        font-size: 1.7rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      i {
+        float: right;
+        line-height: 38px;
+        font-size: 2.3rem;
+        color: $white;
+        margin-right: 10px;
+      }
     }
 
 }

@@ -9,6 +9,7 @@
     </div>
 
     <div class="row" ng-controller="NewsCtrl">
+      <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>LATEST_ARTICLES</h2>
       <div class="well clearfix" ng-repeat="(id, article) in articles | orderByPriority | orderBy: 'publish_date':true |filter:{category : 'news'} | limitTo:3">
           <div class="col-md-10">
@@ -22,6 +23,7 @@
     </div>
 
     <div class="row" ng-controller="TournamentCtrl">
+      <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>LATEST_TOURNAMENTS</h2>
       <div ng-repeat="(id, tournament) in tournaments | orderByPriority | orderBy: 'start_date':true | limitTo:2" class="col-md-4 well">
           {{tournament.no_days}}
@@ -33,6 +35,7 @@
     </div>
 
     <div class="row row-cards" ng-controller="ProsCtrl">
+      <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>LATEST_PROS</h2>
       <div ng-repeat="(id, pro) in pros | orderByPriority | orderBy: 'updated_at':true | limitTo:3" class="col-md-3 well publish-buttons clearfix">
           <img ng-src="{{pro.profile_picture}}">
@@ -46,6 +49,7 @@
     </div>
 
     <div class="row row-cards add-press" ng-controller="AdminCtrl">
+      <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>PUBLISH_NEW</h2>
       <div ng-repeat="(url, title) in resources" class="col-md-2 well">
           <a ng-href="#/{{url}}/new">{{title}}<i class="fa fa-plus-square add-new"></i></a>

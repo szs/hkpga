@@ -8,56 +8,64 @@
   <div class="well clearfix">
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="magazine-cover-story-en">Cover Story (EN)</label>  
-      <div class="col-md-8">
+      <label class="col-md-2 control-label" for="magazine-cover-story-en">Cover Story (EN)</label>  
+      <div class="col-md-9">
       <input id="magazine-cover-story-en" name="magazine-cover-story-en" type="text" placeholder="e.g. The Hong Kong Professional Golfers" class="form-control input-md" required="" ng-model="magazine.coverstory.en">
       </div>
     </div>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="magazine-cover-story-zh-hk">Cover Story (HK)</label>  
-      <div class="col-md-8">
+      <label class="col-md-2 control-label" for="magazine-cover-story-zh-hk">Cover Story (HK)</label>  
+      <div class="col-md-9">
       <input id="magazine-cover-story-zh-hk" name="magazine-cover-story-zh-hk" type="text" placeholder="e.g. 香港職業高爾夫球協會宣布委任李家瑜為行政總裁" class="form-control input-md" required="" ng-model="magazine.coverstory['zh-hk']">
       </div>
     </div>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="magazine-cover-story-zh-cn">Cover Story (CN)</label>  
-      <div class="col-md-8">
+      <label class="col-md-2 control-label" for="magazine-cover-story-zh-cn">Cover Story (CN)</label>  
+      <div class="col-md-9">
       <input id="magazine-cover-story-zh-cn" name="magazine-cover-story-zh-cn" type="text" placeholder="e.g. 香港职业高尔夫球协会宣布委任李家瑜为行政总裁" class="form-control input-md" required="" ng-model="magazine.coverstory['zh-cn']">
-      </div>
-    </div>
-
-    <div class="form-group">
-    <label class="col-md-4 control-label" for="magazine-publish_date">Publication Date </label>  
-      <div class="col-md-8">
-     <datepicker ng-model="magazine.publish_date" ng-required="true" show-weeks="false" class="well well-sm"></datepicker>
       </div>
     </div>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="magazine-url">URL</label>  
-      <div class="col-md-8">
+      <label class="col-md-2 control-label" for="magazine-url">URL</label>  
+      <div class="col-md-9">
       <input id="magazine-url" name="magazine-url" type="text" placeholder="Google Docs URL" class="form-control input-md" required="" ng-model="magazine.url">
       </div>
     </div>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="magazine-cover">Cover Image</label>  
-      <div class="col-md-8">
+      <label class="col-md-2 control-label" for="magazine-cover">Cover Image</label>  
+      <div class="col-md-9">
       <input id="magazine-cover" name="magazine-cover" type="text" placeholder="Google Docs Image ID" class="form-control input-md" required="" ng-model="magazine.cover">
       </div>
     </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="magazine-publish_date">Publication Date </label>  
+      <div class="col-md-9">
+        <div> 
+          <div class="date-picker">
+            <span class="date-view">Selected date is: <em>{{magazine.publish_date | date:'fullDate' }}</em><a ng-click="isOpen = !isOpen"><i class="fa fa-calendar"></i></a></span>
+            <div class="dropdown calendar" ng-class="{ open: isOpen }">
+              <datepicker ng-model="magazine.publish_date" ng-required="true" show-weeks="false" class="well well-sm"></datepicker>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   </fieldset>
-  <div class="publish-buttons left-i">
-    <i class="fa fa-send"></i>
+  <div class="publish-buttons">
     <input type="submit" value="Publish" class="btn btn-primary" />
+    <i class="fa fa-send"></i>
   </div>
   </form>
 </div>
