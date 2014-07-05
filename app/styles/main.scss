@@ -722,6 +722,9 @@ $admin-red:         #f06059;
         font-size: 2.4rem;
         margin: 5px 8px;
         color: $nav-grey;
+        &:hover {
+          color: $white;
+        }
       }
     }
 
@@ -757,6 +760,9 @@ $admin-red:         #f06059;
         border: 2px solid black;
         width: 60px;
         text-align: center;
+        a:hover {
+          color: $white;
+        }
       }
     }
 
@@ -777,6 +783,9 @@ $admin-red:         #f06059;
         :last-of-type {
           font-size: 2rem;
         }
+      }
+      a:hover {
+          color: $white;
       }
     }
 
