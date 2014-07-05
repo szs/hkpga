@@ -1,27 +1,56 @@
 <div class="auth-forms" ng-controller="AuthCtrl">
-{{user}}
-  <h2 translate>REGISTER</h2>
- 
-  <form class="form-horizontal" role="form" ng-submit="register()">
-    <div class="form-group">
-      <label for="inputEnglishName" class="col-sm-2 control-label" translate>ENGLISH_NAME</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputEnglishName" placeholder="Tin Ho Wong" ng-model="user.name.en">
+  <h2 translate>USER PROFILE</h2>
+  
+  <form class="form-horizontal" role="form" ng-submit="register()" ng-controller="ProsCtrl">
+    <div ng-if="currentUser.role == 'admin'">
+    <h3>Name & Standing</h3>
+      <div class="form-group">
+        <label for="inputEnglishName" class="col-sm-2 control-label" translate>ENGLISH_NAME</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputEnglishName" placeholder="Tin Ho Wong" ng-model="user.name.en">
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="inputNameZHHK" class="col-sm-2 control-label" translate>CHINESE_NAME</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputNameZHHK" placeholder="李連杰" ng-model="user.name['zh-hk']">
+      <div class="form-group">
+        <label for="inputNameZHHK" class="col-sm-2 control-label" translate>CHINESE_NAME</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputNameZHHK" placeholder="李連杰" ng-model="user.name['zh-hk']">
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="inputNameZHCN" class="col-sm-2 control-label" translate>CHINESE_NAME</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputNameZHCN" placeholder="李連杰" ng-model="user.name['zh-cn']">
+      <div class="form-group">
+        <label for="inputNameZHCN" class="col-sm-2 control-label" translate>CHINESE_NAME</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputNameZHCN" placeholder="李連杰" ng-model="user.name['zh-cn']">
+        </div>
       </div>
+      <div class="form-group">
+        <label for="inputCOMMITTEE_MEMBER" class="col-sm-2 control-label" translate>COMMITTEE_MEMBER</label>
+        <div class="col-sm-10">
+          <select ng-init="user.committee = filterOptions.committee[0].value" ng-model="user.committee" ng-options="item.value as item.name for item in filterOptions.committee" class="form-control"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputHONORARY_POSITION" class="col-sm-2 control-label" translate>HONORARY_POSITION</label>
+        <div class="col-sm-10">
+        <select ng-init="user.honorary = filterOptions.honorary[0].value" ng-model="user.honorary" ng-options="item.value as item.name for item in filterOptions.honorary" class="form-control"></select>
+       </div>
+      </div>
+      <div class="form-group" ng-hide="user.honorary">
+        <label for="inputROLE" class="col-sm-2 control-label" translate>ROLE</label>
+        <div class="col-sm-10">
+        <select ng-init="user.role = filterOptions.roles[1].value" ng-model="user.role" ng-options="item.value as item.name for item in filterOptions.roles" class="form-control"></select>
+        </div>
+      </div>
+      <div class="form-group" ng-hide="user.honorary">
+        <label for="inputRELATION" class="col-sm-2 control-label" translate>RELATION</label>
+        <div class="col-sm-10">
+        <select ng-init="user.relation = filterOptions.relations[3].value" ng-model="user.relation" ng-options="item.value as item.name for item in filterOptions.relations" class="form-control"></select>
+        </div>
+      </div>
+      <hr/>
     </div>
-    <div class="form-group">
+    <div ng-hide="user.honorary">
+    <h3>Personal Details</h3>
+      <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label" translate>EMAIL</label>
       <div class="col-sm-10">
         <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="user.email">
@@ -40,84 +69,24 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="inputRole" class="col-sm-2 control-label" translate>ROLE</label>
+      <label for="inputSex" class="col-sm-2 control-label" translate>SEX</label>
       <div class="col-sm-10">
-        <div class="radio" id="inputRole">
-          <label for="optionsRadios1" translate>
-          ADMIN
-          </label>
-          <input type="radio" ng-model="user.role" name="optionsRadios" id="optionsRadios1" value="admin" />  
-        </div>
-        <div class="radio">
-          <label for="optionsRadios2" translate>
-          MEMBER
-          </label>
-          <input type="radio" ng-model="user.role" name="optionsRadios" id="optionsRadios2" value="member" checked />
-        </div>
-        <div class="radio">
-          <label for="optionsRadios3" translate>
-          USER
-          </label>
-            <input type="radio" ng-model="user.role" name="optionsRadios" id="optionsRadios3" value="user"></input>
-        </div>
+        <input bs-switch
+          ng-model="user.sex"
+          type="checkbox"
+          switch-active="true"
+          switch-size="large"
+          switch-animate="true"
+          switch-on-text="Male"
+          switch-off-text="Female"
+          switch-on-color="primary"
+          switch-off-color="info">
       </div>
-    </div>
-      <div class="form-group">
-        <label for="inputSex" class="col-sm-2 control-label" translate>SEX</label>
-        <div class="col-sm-10">
-          <label class="radio-inline">
-            <input type="radio" ng-model="user.sex" id="inlineCheckboxSex1" value="male" translate> MALE
-          </label>
-          <label class="radio-inline">
-            <input type="radio" ng-model="user.sex" id="inlineCheckboxSex2" value="female" translate> FEMALE
-          </label>
-        </div>
       </div>
       <div class="form-group">
         <label for="inputImage" class="col-sm-2 control-label" translate>PROFILE_PICTURE</label>
         <div class="col-sm-10">
           <input type="url" class="form-control" id="inputPicture" placeholder="/images/freddy.jpg" ng-model="user.profile_picture">
-        </div>
-      </div>
-          <div class="form-group">
-      <label for="inputRole" class="col-sm-2 control-label" translate>RELATION</label>
-        <div class="col-sm-10">
-          <div class="radio" id="inputRelation1">
-            <label>
-              <input type="radio" ng-model="user.status" name="relationRadio" id="relationRadio1" value="full" translate>
-              FULL_MEMBER
-            </label>
-          </div>
-          <div class="radio" id="inputRelation2">
-            <label>
-              <input type="radio" ng-model="user.status" name="relationRadio" id="relationRadio2" value="tournament" translate>
-              TOURNAMENT_MEMBER
-            </label>
-          </div>
-          <div class="radio" id="inputRelation3">
-            <label>
-              <input type="radio" ng-model="user.status" name="relationRadio" id="relationRadio3" value="associate" translate>
-              ASSOCIATE_MEMBER
-            </label>
-          </div>
-          <div class="radio" id="inputRelation4">
-            <label>
-              <input type="radio" ng-model="user.status" name="relationRadio" id="relationRadio4" value="member" translate>
-              MEMBER
-            </label>
-          </div>
-          <div class="radio" id="inputRelation5" translate>
-            <label>
-              <input type="radio" ng-model="user.status" name="relationRadio" id="relationRadio5" value="trainer" translate>
-              CERTIFIED_TRAINER
-            </label>
-          </div>
-          <div class="radio" id="inputRelation6">
-            <label>
-              <input type="radio" ng-model="user.status" name="relationRadio" id="relationRadio6" value="trainee" translate>
-              TRAINEE
-            </label>
-          </div>
         </div>
       </div>
       <div class="form-group">
@@ -132,7 +101,8 @@
           <input type="number" class="form-control" id="inputProSince" placeholder="2010" ng-model="user.pro_since">
         </div>
       </div>
-
+      <hr/>
+      <h3>Qualifications</h3>
       <div class="form-group">
         <label for="inputQualificationsEN" class="col-sm-2 control-label" translate>QUALIFICATIONS_EN</label>
         <div class="col-sm-10">
@@ -151,6 +121,8 @@
           <textarea rows="5" class="form-control" id="inputQualificationsZHCN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.qualifications['zh-cn']" />
         </div>
       </div>
+      <hr/>
+      <h3>Achievements</h3>
       <div class="form-group">
         <label for="inputAchievementsEN" class="col-sm-2 control-label" translate>ACHIEVEMENTS_EN</label>
         <div class="col-sm-10">
@@ -158,7 +130,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="inputAchievementsZHKH" class="col-sm-2 control-label" translate>ACHIEVEMENTS_ZH_TW</label>
+        <label for="inputAchievementsZHKH" class="col-sm-2 control-label" translate>ACHIEVEMENTS_ZH_HK</label>
         <div class="col-sm-10">
           <textarea rows="5" class="form-control" id="inputAchievementsZH" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.achievements['zh-hk']" />
         </div>
@@ -169,6 +141,8 @@
           <textarea rows="5" class="form-control" id="inputAchievementsZH" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.achievements['zh-cn']" />
         </div>
       </div>
+      <hr/>
+      <h3>Teaching Experience</h3>
       <div class="form-group">
         <label for="inputQualificationsEN" class="col-sm-2 control-label" translate>TEACHING_EXPERIENCE_EN</label>
         <div class="col-sm-10">
@@ -187,16 +161,50 @@
            <textarea rows="5" class="form-control" id="inputTeachingExperienceZHCN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience['zh-cn']" />
         </div>
       </div>
+    </div> 
+    <div ng-show="user.honorary">
+      <h3>Introduction</h3>
       <div class="form-group">
-        <label for="inputStatus" class="col-sm-2 control-label" translate>STATUS</label>
+        <label for="inputQualificationsEN" class="col-sm-2 control-label" translate>INTRODUCTION_EN</label>
         <div class="col-sm-10">
-          <label class="radio-inline">
-            <input type="radio" ng-model="user.active" ng-value="true" id="inlineCheckboxActive1" value="true" checked translate> ACTIVE
-          </label>
-          <label class="radio-inline">
-            <input type="radio" ng-model="user.active" ng-value="false" id="inlineCheckboxActive2" value="false" translate> INACTIVE
-          </label>
+           <textarea rows="5" class="form-control" id="inputIntroductionEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.introduction.en" />
         </div>
       </div>
-      <input type="submit" value="Register" class="btn btn-primary" />
+      <div class="form-group">
+        <label for="inputIntroductionZHHK" class="col-sm-2 control-label" translate>INTRODUCTION_ZH_HK</label>
+        <div class="col-sm-10">
+           <textarea rows="5" class="form-control" id="inputIntroductionZHHK" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.introduction['zh-hk']" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputIntroductionZHCN" class="col-sm-2 control-label" translate>INTRODUCTION_ZH_CN</label>
+        <div class="col-sm-10">
+           <textarea rows="5" class="form-control" id="inputIntroductionZHCN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.introduction['zh-cn']" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputRoleSince" class="col-sm-2 control-label" translate>ROLE_SINCE</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="inputRoleSince" placeholder="2014" ng-model="user.member_since">
+        </div>
+      </div>
+    </div> 
+    <hr/>
+    <div class="form-group">
+      <label for="inputStatus" class="col-sm-2 control-label" translate>STATUS</label>
+      <div class="col-sm-10">
+        <input bs-switch
+          ng-model="user.active"
+          type="checkbox"
+          switch-active="true"
+          switch-size="large"
+          switch-animate="true"
+          switch-on-text="Active"
+          switch-off-text="Inactive"
+          switch-on-color="primary"
+          switch-off-color="danger">
+      </div>
+    </div>
+    <input type="submit" value="Save" class="btn btn-primary" />
   </form>
+</div> 

@@ -11,7 +11,7 @@ def convert(member):
       "zh-cn" : member['achievement'] 
       },
     "active" : codeActive(member['mem_status']),
-    "email" : '',
+    "email" : codeUsername(member) + '@hkpga.com.hk',
     "md5_hash" : '',
     "member_id" : int(member['mem_id']),
     "member_number" : int(member['mem_num']),
@@ -38,6 +38,13 @@ def convert(member):
       "en" : member['teaching_exp_e'],
       "zh-hk" : member['teaching_exp'],
       "zh-cn" : member['teaching_exp']
+      },
+    "committee" : False,
+    "honorary" : False,
+    "introduction" : {
+      "en" : "",
+      "zh-hk" : "",
+      "zh-cn" : ""
       },
     "username" : codeUsername(member)
   }

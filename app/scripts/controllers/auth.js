@@ -6,6 +6,12 @@ app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth)
     // $location.path('/');
   });
 
+  $scope.reset = function(){
+    $scope.user = User.new();
+  }
+
+  $scope.reset();
+
   var createUsername = function(str) {
     var username = '';
     var trimmed = str.trim();
@@ -27,9 +33,13 @@ app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth)
 
   $scope.register = function () {
     Auth.register($scope.user).then(function (authUser){
-      $scope.user.username = createUsername($scope.user.name_en);
+      $scope.user.username = createUsername($scope.user.name.en);
+
+      // honorary members don't have logins
+      $scope.user.role = $scope.user.honorary ? 'resource' : $scope.user.role;
+
       User.create(authUser, $scope.user);
-      $location.path('#/admin');
+      $location.path('/admin');
     }, function (error){
       console.log(error);
       $scope.error = error.toString().split(':')[3];

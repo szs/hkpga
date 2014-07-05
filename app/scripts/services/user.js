@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
+app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth){
   
   var ref = new Firebase(FIREBASE_URL + 'users');
 
@@ -54,7 +54,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
           "zh-cn": "",
           "zh-hk": ""
         },
-        "active": false,
+        "active": true,
         "email": "",
         "md5_hash": "",
         "member_number": null,
@@ -80,6 +80,13 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth, Lang){
           "zh-cn": "",
           "zh-hk": ""
         },
+        "introduction" : {
+          "en": "",
+          "zh-cn": "",
+          "zh-hk": ""
+        },
+        "committee" : false,
+        "honorary" : false,
         "updated_at": Date.now(),
         "created_at": Date.now(),
       }
