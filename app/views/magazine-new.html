@@ -30,28 +30,6 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <label class="col-md-2 control-label" for="magazine-publish_date">Publication Date </label>  
-      <div class="col-md-9">
-        <div> 
-
-          <div class="date-picker">
-            <span class="date-view">Selected date is: <em>{{magazine.publish_date | date:'fullDate' }}</em><a ng-click="isOpen = !isOpen"><i class="fa fa-calendar"></i></a></span>
-            <div class="dropdown calendar" ng-class="{ open: isOpen }">
-              <datepicker ng-model="magazine.publish_date" ng-required="true" show-weeks="false" class="well well-sm"></datepicker>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
     <!-- Text input-->
     <div class="form-group">
       <label class="col-md-2 control-label" for="magazine-url">URL</label>  
@@ -67,6 +45,21 @@
       <input id="magazine-cover" name="magazine-cover" type="text" placeholder="Google Docs Image ID" class="form-control input-md" required="" ng-model="magazine.cover">
       </div>
     </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="magazine-publish_date">Publication Date </label>  
+      <div class="col-md-9">
+        <div> 
+          <div class="date-picker">
+            <span class="date-view">Selected date is: <em>{{magazine.publish_date | date:'fullDate' }}</em><a ng-click="isOpen = !isOpen"><i class="fa fa-calendar"></i></a></span>
+            <div class="dropdown calendar" ng-class="{ open: isOpen }">
+              <datepicker ng-model="magazine.publish_date" ng-required="true" show-weeks="false" class="well well-sm"></datepicker>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   </fieldset>
