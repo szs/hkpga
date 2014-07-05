@@ -12,8 +12,8 @@
       <ul>
           <li ng-repeat="(key, magazine) in magazines">
             <a ng-href="{{ magazine.url}}">
-            <img ng-src="{{ magazine.cover}}">
-            <span>{{ release.year }} | {{ release.month }} |</span> | {{ release.coverstory[l10n()] }} | </a>
+            <img ng-src="http://drive.google.com/uc?export=view&id={{ magazine.cover}}">
+            <span>{{ magazine.year }} | {{ magazine.month }} |</span> | {{ magazine.coverstory[l10n()] }} | </a>
           </li>
       </ul>
     </div>
