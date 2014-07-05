@@ -1,5 +1,4 @@
 <form class="form-horizontal" role="form" ng-submit="submit()" class="magazine-forms" ng-controller="MagazineCtrl">
-{{ magazine }}
 <fieldset>
 
 <!-- Form Name -->
@@ -17,7 +16,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="magazine-cover-story-zh-hk">Cover Story (HK)</label>  
   <div class="col-md-8">
-  <input id="magazine-cover-story-zh-hk" name="magazine-cover-story-zh-hk" type="text" placeholder="e.g. 香港職業高爾夫球協會宣布委任李家瑜為行政總裁" class="form-control input-md" required="" ng-model="magazine.coverstory['zh_hk']">
+  <input id="magazine-cover-story-zh-hk" name="magazine-cover-story-zh-hk" type="text" placeholder="e.g. 香港職業高爾夫球協會宣布委任李家瑜為行政總裁" class="form-control input-md" required="" ng-model="magazine.coverstory['zh-hk']">
   </div>
 </div>
 
@@ -25,23 +24,14 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="magazine-cover-story-zh-cn">Cover Story (CN)</label>  
   <div class="col-md-8">
-  <input id="magazine-cover-story-zh-cn" name="magazine-cover-story-zh-cn" type="text" placeholder="e.g. 香港职业高尔夫球协会宣布委任李家瑜为行政总裁" class="form-control input-md" required="" ng-model="magazine.coverstory['zh_cn']">
+  <input id="magazine-cover-story-zh-cn" name="magazine-cover-story-zh-cn" type="text" placeholder="e.g. 香港职业高尔夫球协会宣布委任李家瑜为行政总裁" class="form-control input-md" required="" ng-model="magazine.coverstory['zh-cn']">
   </div>
 </div>
 
-<!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="magazine-cover-story-zh-cn">Issue month </label>  
+<label class="col-md-4 control-label" for="magazine-publish_date">Publication Date </label>  
   <div class="col-md-8">
-  <input id="magazine-month" name="magazine-month" type="text" placeholder="e.g. 1" class="form-control input-md" required="" ng-model="magazine.month">
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="magazine-cover-story-zh-cn">Issue year </label>  
-  <div class="col-md-8">
-  <input id="magazine-year" name="magazine-year" type="text" placeholder="e.g. 2014" class="form-control input-md" required="" ng-model="magazine.year">
+ <datepicker ng-model="magazine.publish_date" ng-required="true" show-weeks="false" class="well well-sm"></datepicker>
   </div>
 </div>
 
@@ -55,9 +45,9 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="magazine-url-hk">Cover Image (HK)</label>  
+  <label class="col-md-4 control-label" for="magazine-cover">Cover Image</label>  
   <div class="col-md-8">
-  <input id="magazine-url-hk" name="magazine-url-hk" type="text" placeholder="Google Docs Image ID" class="form-control input-md" required="" ng-model="magazine.cover">
+  <input id="magazine-cover" name="magazine-cover" type="text" placeholder="Google Docs Image ID" class="form-control input-md" required="" ng-model="magazine.cover">
   </div>
 </div>
 

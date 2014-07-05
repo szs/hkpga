@@ -1,7 +1,7 @@
 
   <div id="articles-section">
     <h2 translate>LATEST_NEWS</h2>
-    <div class="article row" ng-repeat="latest in articles | orderByPriority | orderBy: 'publish_date':true | filter:{category : 'news'} | limitTo:1">
+    <div class="article row" ng-repeat="latest in articles | orderByPriority | orderBy: 'publish_date':true | filter:{category : 'news'} | filter:{internal : false} |  limitTo:1">
       <div class="col-md-12 latest-news">
         <a href="#/news/{{ latest.slug }}" class="block-anchor">
           <div>
@@ -32,7 +32,7 @@
     </div>
 
     <h2 translate>MORE_NEWS</h2>
-    <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | orderBy: 'publish_date':true | filter:{category : 'news'} | limitTo:11" ng-hide="$first">
+    <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | orderBy: 'publish_date':true | filter:{category : 'news'} | filter:{internal : false} | limitTo:11" ng-hide="$first">
       <div class="col-md-12">
         <a href="#/news/{{ article.slug }}" class="block-anchor">
           <div class="info well more-news clearfix" ng-class="{true: 'draft', false:''}[article.draft]">

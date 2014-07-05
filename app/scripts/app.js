@@ -165,6 +165,10 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/releases.html',
           controller: 'ReleasesCtrl',
         })
+        .when('/press/media', {
+          templateUrl: 'views/media.html',
+          controller: 'CoverageCtrl',
+        })
         .when('/press/magazine', {
           templateUrl: 'views/magazine.html',
           controller: 'MagazineCtrl',

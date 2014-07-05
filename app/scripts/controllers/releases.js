@@ -12,7 +12,7 @@ app.controller('ReleasesCtrl', function($scope, $rootScope, $location, Release){
 
   $scope.submit = function(){
 
-    $scope.release.author = $rootScope.currentUser;
+    $scope.release.author = $rootScope.currentUser.username;
 
     Release.create($scope.release).then(function(){
       $scope.reset();

@@ -1,7 +1,7 @@
 <div  class="container">
   <div class="row">
     <div class = "col-md-6">
-        <h2>Magazines</h2>
+        <h2>HKPGA Magazine | {{magazineCount}} Issues</h2>
       </div>
       <div class="col-md-6">
         <div ng-include="'views/breadcrumbs.html'"></div>
@@ -12,8 +12,8 @@
       <ul>
           <li ng-repeat="(key, magazine) in magazines">
             <a ng-href="{{ magazine.url}}">
-            <img ng-src="http://drive.google.com/uc?export=view&id={{ magazine.cover}}">
-            <span>{{ magazine.year }} | {{ magazine.month }} |</span> | {{ magazine.coverstory[l10n()] }} | </a>
+            <img ng-src="http://drive.google.com/uc?export=view&id={{ magazine.cover }}">
+            <span>{{ magazine.publish_date | date:'yyyy' }} | {{ magazine.publish_date | date:'MMM'  }} </span> | {{ magazine.coverstory[l10n()] }} | </a>
           </li>
       </ul>
     </div>
