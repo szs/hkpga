@@ -1,9 +1,13 @@
 /* global app:true */
 'use strict';
 
-app.controller('ProsCtrl', function($scope, User){
+app.controller('ProsCtrl', function($scope, $routeParams, User){
   
   $scope.pros = User.all;
+
+  if ($routeParams.id){
+      $scope.user = User.findByUsername($routeParams.id)
+  }
 
   User.all.$bind($scope, 'pros').then(function() {
     var usernames = $scope.pros.$getIndex();
@@ -21,7 +25,6 @@ app.controller('ProsCtrl', function($scope, User){
     $scope.alphaPro = alphaPro;
 
   });
-
 
 
   $scope.filterOptions = {
