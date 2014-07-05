@@ -8,34 +8,35 @@
       </button>
       <a class="navbar-brand" href="#"><img src="/images/hkpga-logo.png"></a>
     </div>
-   
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="container-fluid collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <div class="clearfix" id="user-nav">
 
-      <ul ng-controller="AuthCtrl" id="user-controls" class="nav navbar-nav navbar-right clearfix">
-        <li ng-show="signedIn()">
-          <a href="#/pros/{{ currentUser.username }}">
-            {{ currentUser.email }}
-          </a>
-        </li>
-        <li ng-show="signedIn()">
-          <a translate href="" ng-click="logout()">LOGOUT</a>
-        </li>
-        <li ng-hide="signedIn()">
-          <a translate href="#/login">LOGIN</a>
-        </li>
-        <li ng-show="currentUser.role == 'admin'">  
-          <a translate ng-href="#/admin">
-            <span class="glyphicon glyphicon-cog"></span>
-          </a>
-        </li>
-      </ul>
+        <ul ng-controller="AuthCtrl" id="user-controls" class="nav navbar-nav navbar-right clearfix">
+          <li ng-show="signedIn()">
+            <a href="#/pros/{{ currentUser.username }}">
+              {{ currentUser.email }}
+            </a>
+          </li>
+          <li ng-show="signedIn()">
+            <a translate href="" ng-click="logout()">LOGOUT</a>
+          </li>
+          <li ng-hide="signedIn()">
+            <a translate href="#/login">LOGIN</a>
+          </li>
+          <li ng-show="currentUser.role == 'admin'">  
+            <a translate ng-href="#/admin">
+              <span class="glyphicon glyphicon-cog"></span>
+            </a>
+          </li>
+        </ul>
 
         <ul ng-controller="LangCtrl" class="nav navbar-nav navbar-right clearfix" id="language-controls">
           <li class="user-lang" translate>LANG_CURRENT</li>
           <li class="user-lang" ng-hide="l10n() == 'en'">
             <a ng-click="changeLanguage('en')" translate="LANG_EN" class="btn"></a>
+          <li>
           <li class="user-lang" ng-hide="l10n() == 'zh-hk'">
             <a ng-click="changeLanguage('zh-hk')" translate="LANG_ZH_HK" class="btn"></a>
           </li>
@@ -44,7 +45,15 @@
           </li> 
         </ul>
 
+        <ul class="nav navbar-nav navbar-right clearfix" id="social-media">
+          <li><i class="fa fa-facebook"></i></li>
+          <li><i class="fa fa-twitter"></i></li>
+          <li><i class="fa fa-weibo"></i></li>
+          <li><i class="fa fa-youtube"></i></li>
+          <li><i class="fa fa-linkedin"></i></li>
+        </ul>
       </div>  
+
       <ul class="nav navbar-nav navbar-right" id="page-nav">
         <li><a translate ng-href="#">MENU_HOME</a></li>
           <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_ABOUT</a>
@@ -82,6 +91,7 @@
           </li>
           <li><a translate ng-href="#/contact">MENU_CONTACT</a></li>
       </ul>
+
     </div><!-- /.navbar-collapse -->
   </div>
 </nav>
