@@ -1,10 +1,19 @@
 /* global app:true */
 'use strict';
 
-app.controller('NewsCtrl', function($scope, $rootScope, $location, Article, Archive){
+app.controller('NewsCtrl', function($scope, $rootScope, $routeParams, $location, Article, Archive){
   
   $scope.articles = Article.all;
-  $scope.article = Article.new();
+   
+  $scope.reset = function (){
+    $scope.article = Article.new();
+  };
+
+  if ($routeParams.id){
+    $scope.article = Article.find($routeParams.id);
+  } else {
+    $scope.reset();
+  }
   
   var getSlug = function(str) {
     var slug = '';
@@ -26,9 +35,6 @@ app.controller('NewsCtrl', function($scope, $rootScope, $location, Article, Arch
     return src;
   }
 
-  $scope.reset = function (){
-    $scope.article = Article.new();
-  };
 
   $scope.save = function (){
 
