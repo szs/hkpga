@@ -1,5 +1,6 @@
 <div class="container" id="profile-page">
-  <h2 translate>PROFILE</h2>
+  <h2 ng-if="!pro.honorary" translate>PROFILE</h2>
+  <h2 ng-if="pro.honorary" translate>HONORARYPROFILE</h2>
   <div class="row">
     <div class="col-md-9">
       <div class="well clearfix">
