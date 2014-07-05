@@ -1106,37 +1106,28 @@ $admin-red:         #f06059;
 // 6. ADMIN ----------------------------------
 
 
-  .input-article-title {
-    width: 100%;
-    padding: 20px;
-  }
+  .admin {
 
-  .redactor_editor {
-    min-height : 300px;
-  }
+    a {
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
 
+    i {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
 
+    h1 {
+      margin-top: 35px;
+      font-size: 3.5rem;
+    }
 
-.admin {
+    .btn:active {
+      border: 2px solid $white;
+    }
 
-  a {
-    font-size: 1.7rem;
-    text-transform: uppercase;
-    font-weight: 400;
-  }
-
-  i {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-
-  h1 {
-    margin-top: 35px;
-  }
-
-  .btn:active {
-    border: 2px solid $white;
-  }
 
 //  ADMIN CONTROLS
 
@@ -1149,7 +1140,7 @@ $admin-red:         #f06059;
     text-transform: capitalize;
 
     .locale-switch {
-      padding: 15px 25px;
+      padding: 15px 0px;
       .bootstrap-switch {
         border: none;
       }
@@ -1164,8 +1155,10 @@ $admin-red:         #f06059;
     } 
 
     .date-picker {
-      height: 39px;
-      margin-top: 14px;
+      height: 40px;
+      margin-top: 15px;
+      margin-bottom: 14px;
+      padding: 0px 15px;
       background-color: $admin-button-grey;
       border-radius: 3px;
       span.date-view {
@@ -1185,32 +1178,51 @@ $admin-red:         #f06059;
         font-size: 2.7rem;
         }
       }
-
     }
 
     .publish-buttons {
-      .btn {
-        float: right;
-        height: 39px;
-        padding: 8px 12px;
+      height: 39px;
+      i {
+        padding-right: 15px;
       }
       a {
-        vertical-align: middle;
         margin-top: 15px;
-        background-color: $admin-button-grey;
-        border: none;
       }
       a:nth-child(1) {
-        margin-left: 10px;
-        border:none;
-        margin-right: 4px;
         color: $admin-red;
-        padding-right: 20px;
       }
       a:nth-child(2) {
         color: $admin-blue;
-        padding-right: 20px;
       }
+    }
+
+// End of .admin
+  }
+
+
+
+  // ADMIN MODULES 
+
+
+  .publish-buttons {
+    .btn {
+      float: right;
+      padding: 8px 12px;
+    }
+    a {
+      vertical-align: middle;
+      background-color: $admin-button-grey;
+      border: none;
+      display: block;
+    }
+    a:nth-child(1) {
+      margin-left: 10px;
+      border:none;
+      margin-right: 4px;
+      padding-right: 20px;
+    }
+    a:nth-child(2) {
+      padding-right: 20px;
     }
   }
 
@@ -1244,6 +1256,15 @@ $admin-red:         #f06059;
     }
   }
 
+  .input-article-title {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .redactor_editor {
+    min-height : 300px;
+  }
+
 
 //  ADMIN EDITOR
 
@@ -1255,6 +1276,68 @@ $admin-red:         #f06059;
       }
     }
   }
+
+
+// ADMIN PANEL
+
+
+  #admin-panel.well {
+      background-color: $admin-dark-grey;
+      margin-top: 30px;
+      .well {
+        border-radius: 3px !important;
+        @extend .shadow;
+      }
+  }
+
+  #admin-panel {
+    .row {
+      border-bottom: 2px solid $brand-green;
+      padding-bottom: 40px;
+    }
+    .row-cards .well {
+      margin-right: 20px;
+      height: 280px;
+      @extend .shadow;
+      position: relative;
+      span a {
+        margin: 10px 0px;
+      }
+      a.btn {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+      }
+      i.add-new {
+        margin: 0 auto;
+        vertical-align: middle;
+      }
+    }
+    .publish-buttons a {
+      color: $admin-blue;
+      display: block;
+    }
+    .add-new {
+      font-size: 5rem;
+      color: $brand-gold;
+    }
+    .row-cards.add-press {
+      a {
+        font-size: 2rem;
+      }
+    }
+    .row-cards.add-press .well {
+      height: 180px;
+      position: relative;
+      padding-left: 30px;
+      i {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  }
+
 
 
 

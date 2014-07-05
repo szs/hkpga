@@ -1,16 +1,29 @@
-<div ng-controller="NewsCtrl" ng-init="article.category = 'events'">
+<div ng-controller="NewsCtrl" ng-init="article.category = 'events'" class="admin">
 
-<header class="admin-controls">
+<div class="row">
   <h1>Events | {{ article.draft ? 'Draft' : 'Published'}}</h1>
-  <pre>Event Date date is: <em>{{article.publish_date | date:'fullDate' }}</em></pre><a ng-click="isOpen = !isOpen">CAL</a>
-  <div class="dropdown" ng-class="{ open: isOpen }">
-    <datepicker ng-model="article.publish_date" ng-required="true" show-weeks="false" class="well well-sm"></datepicker>
+  <div class="admin-controls clearfix">
+    <header>
+      <div class="col-md-6">
+        <div class="date-picker">
+          <span class="date-view">Event Date date is: <em>{{article.publish_date | date:'fullDate' }}</em><a ng-click="isOpen = !isOpen"><i class="fa fa-calendar"></i></a></span>
+          <div class="dropdown calendar" ng-class="{ open: isOpen }">
+            <datepicker ng-model="article.publish_date" ng-required="true" show-weeks="false" class="well well-sm"></datepicker>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="publish-buttons">
+          <a ng-if="article.draft" ng-click="publish()" class="btn btn-info"><i class="fa fa-send"></i>publish</a>
+          <a ng-click="save()" class="btn btn-primary"><i class="fa fa-save"></i>save</a>
+        </div>
+      </div>
+    </header>
   </div>
-  <a ng-if="article.draft" ng-click="publish()" class="btn btn-info">publish</a>
-  <a ng-click="save()" class="btn btn-primary">save</a>
-</header>
+</div>
 
-<div>
+
+<div class="row admin-editor">
   <tabset justified="true" class="col-md-6">
     <tab heading="English">
       <input placeholder="Article Title" ng-model="article.title.en" class="input-article-title">

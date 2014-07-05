@@ -104,6 +104,11 @@ var translationsEN = {
   ADVISOR_CONSTITUTION: 'Advisor (Constitution)',
   HONORARY_MEMBER: 'Honorary Member',
   FOUNDER_MEMBER: 'Founder Member',
+  PUBLISH_NEW: 'Publish New',
+  LATEST_PROS: 'Latest Professionals',
+  LATEST_TOURNAMENTS: 'Latest Tournaments',
+  LATEST_ARTICLES: 'Latest Articles',
+
 };
  
 var translationsZHHK = {
