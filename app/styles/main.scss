@@ -1106,7 +1106,7 @@ $admin-red:         #f06059;
 // 6. ADMIN ----------------------------------
 
 
-  .admin {
+.admin {
 
     a {
       font-size: 1.7rem;
@@ -1139,21 +1139,6 @@ $admin-red:         #f06059;
     margin-top: 30px;
     text-transform: capitalize;
 
-    .locale-switch {
-      padding: 15px 0px;
-      .bootstrap-switch {
-        border: none;
-      }
-      .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
-        background-color: $admin-button-grey;
-        color: $admin-yellow;
-      }
-      .bootstrap-switch-handle-off.bootstrap-switch-danger {
-        background-color: $admin-button-grey;
-        color: $admin-green;
-      }
-    } 
-
     .date-picker {
       height: 40px;
       margin-top: 15px;
@@ -1180,8 +1165,23 @@ $admin-red:         #f06059;
       }
     }
 
+    .locale-switch {
+      padding: 15px 0px;
+      float: left;
+      .bootstrap-switch {
+        border: none;
+      }
+      .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
+        background-color: $admin-button-grey;
+        color: $admin-yellow;
+      }
+      .bootstrap-switch-handle-off.bootstrap-switch-danger {
+        background-color: $admin-button-grey;
+        color: $admin-green;
+      }
+    } 
+
     .publish-buttons {
-      height: 39px;
       i {
         padding-right: 15px;
       }
@@ -1197,7 +1197,10 @@ $admin-red:         #f06059;
     }
 
 // End of .admin
-  }
+}
+
+
+
 
 
 
@@ -1338,8 +1341,45 @@ $admin-red:         #f06059;
     }
   }
 
+// NEW CONTENT FORM 
 
 
+.new-content-form {
+
+    form.magazine-forms {
+      fieldset {
+        h1 {
+          color: $white;
+          font-size: 3rem;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          display: block;
+        }
+      }
+    }
+
+    .well {
+      background-color: $admin-dark-grey;
+      .well {
+        background-color: $white;
+        border-radius: 4px !important;
+        box-shadow: inset 2px 2px 2px $grey-light;
+      }
+    }
+
+    .publish-buttons.left-i {
+        position: relative;
+    }
+    .publish-buttons.left-i input {
+        padding-left: 30px;    
+    }
+    .publish-buttons.left-i i {
+        position: absolute;
+        padding: 10px 12px;
+        pointer-events: none;
+    }
+
+}
 
 
 // 7. MEDIA QUERIES ----------------------------------
