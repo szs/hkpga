@@ -16,7 +16,7 @@
 		            </dt>
 		            <dd>
 		            	<p>
-		            		<span ng-repeat="(key, pro) in pros | orderByPriority | filter:{committee: item.value}"> {{ pro.name[l10n()] }}<span>
+		            		<span ng-repeat="(key, pro) in pros | orderByPriority | filter:{committee: item.value}"> <a ng-href="#/pros/{{pro.username}}">{{ pro.name[l10n()] }}</a><span>
 		            		
 		            	</p>
 		            </dd>
@@ -30,7 +30,7 @@
 		            </dt>
 		            <dd>
 		            	<p>
-		            		<span ng-repeat="(key, pro) in pros | orderByPriority | filter:{committee: item.value}"> {{ pro.name[l10n()] }}<span>		            		
+		            		<span ng-repeat="(key, pro) in pros | orderByPriority | filter:{committee: item.value}"><a ng-href="#/honorary/{{pro.username}}">{{ pro.name[l10n()] }}</a><span>		            		
 		            	</p>
 		            </dd>
 		        </dl>
