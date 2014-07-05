@@ -26,6 +26,7 @@ $black:             #090909;
 $text-grey:         #5f6062;
 $text-grey-light:   #a2a2a2;
 $text-grey-lighter: #cccccc;
+$nav-grey:          #999999;
 
 $brand-green:       #098743;
 $brand-gold:        #bc994b;
@@ -37,8 +38,6 @@ $admin-blue:        #27a9e1;
 $admin-green:       #2ab573;
 $admin-yellow:      #fbaf3f;
 $admin-red:         #f06059;
-
-
 
 
 @mixin bar-height($bar-height) {
@@ -717,6 +716,15 @@ $admin-red:         #f06059;
       z-index: 10050;
     }
 
+    #social-media {
+      margin-right: 27px;
+      li > i {
+        font-size: 2.4rem;
+        margin: 5px 8px;
+        color: $nav-grey;
+      }
+    }
+
     #page-nav li a {
         text-transform: uppercase;
         padding-top: 15px;
@@ -735,11 +743,11 @@ $admin-red:         #f06059;
         font-weight: 400;
       }
       li > a {
-        color: $white;        
+        color: $nav-grey;        
         padding: 0px;
         font-size: 1.3rem;
       }
-      .user-lang {
+      li.user-lang {
         padding-top: 2px;
         padding-bottom: 2px;
         padding-left: 10px;
@@ -747,6 +755,8 @@ $admin-red:         #f06059;
         margin-top: 3px;
         margin-left: -1px;
         border: 2px solid black;
+        width: 60px;
+        text-align: center;
       }
     }
 
@@ -757,6 +767,7 @@ $admin-red:         #f06059;
         padding-left: 10px;
         padding-right: 10px;
         padding-top: 8px;
+        margin-right: 12px;
         vertical-align: middle;
       }
       a {
@@ -767,7 +778,10 @@ $admin-red:         #f06059;
           font-size: 2rem;
         }
       }
+    }
 
+    #language-controls {
+      margin-right: 20px;
     }
 
     .navbar-nav {
@@ -1139,6 +1153,22 @@ $admin-red:         #f06059;
       border: 2px solid $white;
     }
 
+}
+
+.admin#news-new-page,
+.admin#events-new-page
+ {
+  .publish-buttons {
+    a {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    }
+    i {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  }
 }
 
 .admin {
