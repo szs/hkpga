@@ -55,9 +55,9 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/new.html',
           controller: 'NewCtrl'
         })
-        .when('/news/:articleId', {
+        .when('/news/:id', {
           templateUrl: 'views/article.html',
-          controller: 'NewsViewCtrl'
+          controller: 'NewsCtrl'
         })
         .when('/news/:id/edit', {
           templateUrl: 'views/new.html',
@@ -76,7 +76,7 @@ app.config(function ($routeProvider) {
         })
         .when('/about/committee-honorary', {
           templateUrl: 'views/committee.html',
-          controller: 'CommitteeCtrl'
+          controller: 'ProsCtrl'
         })
         .when('/tournaments', {
           redirectTo: '/tournaments/merit',
@@ -128,6 +128,19 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/new.html',
           controller: 'NewCtrl'
         })
+        .when('/honorary', {
+          redirectTo: '/about/committee-honorary',
+        })
+        .when('/honorary/new', {
+          redirectTo: '/pros/new',
+        })
+        .when('/honorary/:username', {
+          templateUrl: 'views/pro.html',
+          controller: 'ProCtrl'
+        })
+        .when('/honorary/:id/edit', {
+          redirectTo: '/pros/:id/edit',
+        })
         .when('/community', {
           redirectTo: '/community/project-skyhigh',
         })
@@ -139,9 +152,9 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/new.html',
           controller: 'NewCtrl'
         })
-        .when('/events/:articleId', {
+        .when('/events/:id', {
           templateUrl: 'views/event.html',
-          controller: 'NewsViewCtrl',
+          controller: 'NewsCtrl',
         })
         .when('/pros/:id/:action', {
           templateUrl: 'views/new.html',
