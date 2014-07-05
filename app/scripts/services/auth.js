@@ -9,7 +9,8 @@ app.factory('Auth',
 
     var Auth = {
       register: function (user){
-        return auth.$createUser(user.email, user.password);
+        var password = user.password || Math.random().toString(36).substring(7); 
+        return auth.$createUser(user.email, password);
       },
       signedIn: function (){
         return auth.user !== null;

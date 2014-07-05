@@ -54,7 +54,7 @@ codeSex = lambda x : 'male' if x == 'm' else 'female'
 codeAvatar = lambda x : 'http://media.hkpga.com.hk/' + x
 codeStatus = lambda x : ['','full','associate'][int(x)]
 codeUsername = lambda x :  nameToUsername(x) if x['login_name'].isdigit() else x['login_name'].lower()
-nameToUsername = lambda x : x['eng_name'].replace(' ','').lower() 
+nameToUsername = lambda x : x['eng_name'].replace(',','').replace(' ','').lower() 
 
 with codecs.open('members.json','r',encoding='utf8') as f:
 
