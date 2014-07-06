@@ -1,7 +1,7 @@
 'use strict';
 
 app.factory('Utils', 
-  function ($location) {
+  function ($rootScope, $location) {
 
   var createSlug = function(str) {
     var slug = '';
@@ -11,6 +11,18 @@ app.factory('Utils',
       replace(/^-|-$/g, '');
     
     return slug.toLowerCase();
+  }
+
+  var getCurrentUser = function (prop){
+    var userProperty = $rootScope.currentUser[prop] || null;
+    return userProperty;
+  }
+
+  var logUpdate = function(obj){
+    return angular.extend(obj, {
+      author: getCurrentUser('username'),
+      updated_at: Date.now()
+    });
   }
 
   var extractImg = function(html) {
@@ -24,8 +36,10 @@ app.factory('Utils',
   }
  
     var Utils = {
+      extractImg : extractImg,
+      getCurrentUser : getCurrentUser,
+      logUpdate : logUpdate,
       slugify : createSlug,
-      extractImg : extractImg
     };
 
     return Utils;

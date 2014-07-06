@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('StaticCtrl', function($scope, $rootScope, $location, $routeParams, Utils, Page){
+app.controller('StaticCtrl', function($scope, $location, $routeParams, Utils, Page){
   
   $scope.pages = Page.all;
   
@@ -22,14 +22,16 @@ app.controller('StaticCtrl', function($scope, $rootScope, $location, $routeParam
 
   $scope.editable = ($routeParams.action === 'edit');
 
-  $scope.save = function (){
-    angular.extend($scope.page, {
-      author: $rootScope.currentUser.username,
-      slug: Utils.slugify($scope.page.title.en),
+  $scope.save = function (p){
+    var p = p || $scope.page;
+    
+    p = Utils.logUpdate(p);
+
+    angular.extend(p, {
+      slug: Utils.slugify(p.title.en),
       $priority : Date.now(),
-      update_at: Date.now()
     });
 
-    Page.create($scope.page);
+    Page.create(p);
   };
 });

@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('MagazineCtrl', function($scope, $rootScope, $location, Magazine){
+app.controller('MagazineCtrl', function($scope, $location, Utils, Magazine){
 
   $scope.magazines = Magazine.all;
 
@@ -15,12 +15,12 @@ app.controller('MagazineCtrl', function($scope, $rootScope, $location, Magazine)
 
   $scope.reset()
 
-  $scope.submit = function(){
+  $scope.submit = function(m){
+    var m = m || $scope.magazine;
 
-    $scope.magazine.author = $rootScope.currentUser.username;
-    $scope.magazine.updated_at = Date.now();
+    m = Utils.logUpdate(m);
 
-    Magazine.create($scope.magazine).then(function(){
+    Magazine.create(m).then(function(){
       $scope.reset();
       $location.path('/press/magazine');
     });

@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('NewsCtrl', function($scope, $rootScope, $routeParams, $location, Utils, Article, Archive){
+app.controller('NewsCtrl', function($scope, $routeParams, $location, Utils, Article, Archive){
   
   $scope.articles = Article.all;
    
@@ -19,23 +19,24 @@ app.controller('NewsCtrl', function($scope, $rootScope, $routeParams, $location,
   $scope.category = $location.path().split('/')[1];
   
 
-  $scope.save = function (){
+  $scope.save = function (a){
+    var a = a || $scope.article;
+    
+    a = Utils.logUpdate(a);
 
-    angular.extend($scope.article, {
-      author: $rootScope.currentUser.username,
-      slug: Utils.slugify($scope.article.title.en),
+    angular.extend(a, {
+      slug: Utils.slugify(a.title.en),
       $priority : Date.now(),
-      cover: Utils.extractImg($scope.article.html.en),
-      updated_at: Date.now()
+      cover: Utils.extractImg(a.html.en),
     });
 
     var archiveItem = {
-      year : new Date($scope.article.publish_date).getFullYear(),
-      category : $scope.article.category
+      year : new Date(a.publish_date).getFullYear(),
+      category : a.category
     }
     Archive.create(archiveItem);
   
-    Article.create($scope.article);
+    Article.create(a);
   };
 
   $scope.publish = function (){

@@ -13,18 +13,13 @@ app.controller('AdminCtrl', function($scope, Auth, User){
 	}
 
 	$scope.createSimpleLoginAccounts = function(){
-		console.log('Creating Simple Logins');
 		var usernames = User.all.$getIndex()
-		console.log(usernames)
 		usernames.forEach(function(key){
 			if (User.all.$child(key).md5_hash == ''){
 				Auth.register(User.all.$child(key)).then(function (authUser){
 					User.create(authUser, User.all.$child(key))
-		      		console.log('SIGNED:')
-		      		console.log(authUser)
 		    	}, function (error){
 		      		console.log(error);
-		      		console.log(User.all.$child(key).email);
 		    	});
 			}
 		})
