@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('ProsCtrl', function($scope, $routeParams, User){
+app.controller('ProsCtrl', function($scope, $filter, $routeParams, User){
   
   $scope.pros = User.all;
 
@@ -27,6 +27,15 @@ app.controller('ProsCtrl', function($scope, $routeParams, User){
 
   });
 
+  $scope.pros.$on('loaded',function(){
+    $scope.hunt = $filter('orderByPriority')($scope.pros);
+    $scope.hunt.forEach(function(e){
+      e['name_en'] = e.name['en'];
+      e['name_hk'] = e.name['zh-hk'];
+      e['name_ch'] = e.name['zh-cn'];
+    });
+    $scope.done = $scope.hunt; 
+  });
 
   $scope.filterOptions = {
     pros: [

@@ -3,6 +3,18 @@
 app.factory('Utils', 
   function ($rootScope, $location) {
 
+  var nestedObject = function( base, names, value ) {
+    var lastName = arguments.length === 3 ? names.pop() : false;
+
+    for( var i = 0; i < names.length; i++ ) {
+        base = base[ names[i] ] = base[ names[i] ] || {};
+    }
+
+    if( lastName ) base = base[ lastName ] = value;
+
+    return base;
+};
+
   var createSlug = function(str) {
     var slug = '';
     var trimmed = str.trim();
@@ -40,6 +52,7 @@ app.factory('Utils',
       getCurrentUser : getCurrentUser,
       logUpdate : logUpdate,
       slugify : createSlug,
+      nestedObject : nestedObject,
     };
 
     return Utils;

@@ -1,13 +1,18 @@
 <div class="container admin" id="admin-styling">
   <h1 translate>ADMIN</h1>
   <div class="well clearfix" id="admin-panel">
-    <div ng-if="unscored" class="row" ng-controller="TournamentsCtrl">
-      <h2 >{{unscored.title[l10n()]}}</h2>
-      <h3 >{{unscored.start_date | date}}</h3>
-      <span>{{unscored.no_days}}</span>
-      <a ng-href="#/tournaments/{{unscored.slug}}/score">score</a>
+    <div class="row" ng-controller="TournamentsCtrl">
+      <h2 class="left-i"><i class="fa fa-database"></i></h2>
+      <h2 translate>UNSCORED_TOURNAMENT</h2>
+      <div ng-repeat="(key, unscored) in recent | orderByPriority | filter:!scored | limitTo:1">
+        <div class="col-md-10">
+          <span>{{unscored.start_date | date }}</span> <i class="fa fa-rocket"></i><a ng-href="#/tournaments/{{unscored.slug}}">{{unscored.name[l10n()]}}</a> 
+        </div>
+        <div class="col-md-2 publish-buttons">
+          <a ng-href="#/news/{{unscored.slug}}/score" class="btn"> <i class="fa fa-dice"></i> score</a>
+        </div>
+      </div>
     </div>
-
     <div class="row" ng-controller="NewsCtrl">
       <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>LATEST_ARTICLES</h2>
@@ -35,9 +40,10 @@
     <div class="row" ng-controller="TournamentsCtrl">
       <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>LATEST_TOURNAMENTS</h2>
-      <div ng-repeat="(id, tournament) in tournaments | orderByPriority | orderBy: 'start_date':true | limitTo:2" class="col-md-4 well">
+      <div ng-repeat="(id, tournament) in upcoming | orderByPriority | orderBy: 'start_date':false | limitTo:2" class="col-md-4 well">
           {{tournament.no_days}}
-          <a ng-href="#/tournaments/{{tournament.slug}}">{{tournament.title[l10n()]}}</a><a ng-href="#/news/{{tournament.slug}}/edit" class="btn publish-buttons"><i class="fa fa-pencil"></i> edit</a>
+          <a ng-href="#/tournaments/{{tournament.slug}}">{{tournament.name[l10n()]}}</a><a ng-href="#/tournaments/{{tournament.slug}}/edit" class="btn publish-buttons"><i class="fa fa-pencil"></i> edit</a>
+          <footer>{{tournament.start_date | date }}</footer> 
       </div>
         <div class="col-md-4">
           <a ng-href="#/tournaments/new"><i class="fa fa-plus-square add-new"></i></a>    

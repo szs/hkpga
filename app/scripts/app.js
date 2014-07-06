@@ -22,6 +22,7 @@ var app = angular.module('hkpgaApp', [
   'truncate',
   'frapontillo.bootstrap-switch',
   'DateFilters',
+  'angucomplete-alt'
 ]);
 
 app.config(function ($routeProvider) {
@@ -108,7 +109,7 @@ app.config(function ($routeProvider) {
         })
         .when('/tournaments/:id/checklist', {
           templateUrl: 'views/checklist.html',
-          controller: 'TournamentsCtrl',
+          controller: 'ProsCtrl',
         })
         .when('/tournaments/:id/score', {
           templateUrl: 'views/scores.html',
