@@ -13,13 +13,23 @@
       <h2 translate>LATEST_ARTICLES</h2>
       <div class="well clearfix" ng-repeat="(id, article) in articles | orderByPriority | orderBy: 'publish_date':true |filter:{category : 'news'} | limitTo:3">
           <div class="col-md-10">
-            <a ng-href="#/news/{{article.slug}}">{{article.title[l10n()]}}</a> 
+            <span>{{article.publish_date | date }}</span> <i class="fa fa-file-o"></i><a ng-href="#/news/{{article.slug}}">{{article.title[l10n()]}}</a> 
           </div>
           <div class="col-md-2 publish-buttons">
             <a ng-href="#/news/{{article.slug}}/edit" class="btn"> <i class="fa fa-pencil"></i> edit</a>
           </div>
       </div>
       <div class="col-md-12"><a ng-href="#/news/new"><i class="fa fa-plus-square add-new"></i></a></div>
+    </div>
+
+    <div class="row" ng-controller="FeedbackCtrl">
+      <h2 class="left-i"><i class="fa fa-database"></i></h2>
+      <h2 translate>LATEST_FEEDBACK</h2>
+      <div class="well clearfix" ng-repeat="(id, feedback) in fb | orderByPriority | orderBy: 'created_at':true | limitTo:3">
+          <div class="col-md-10">
+            <span>{{feedback.created_at | date }}</span> <i class="fa fa-comment-o"></i> <a href="#/feedback">{{feedback.text | characters:200}}</a>
+          </div>
+      </div>
     </div>
 
     <div class="row" ng-controller="TournamentCtrl">

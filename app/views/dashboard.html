@@ -1,6 +1,14 @@
-<div class="container">
+<div class="container" ng-controller="FeedbackCtrl">
+  <form class="form-horizontal feedback-form" role="form" ng-submit="post()" ng-class="{ open: isOpen }">
+    <h3>Feedback</h3>
+    <textarea ng-model="feedback.text" ng-class="{ open: isOpen }" class="feedback" placeholder="Please provide your comments or suggestions. They are anonymous and we will treat them with care.">
+    </textarea>
+    <input type="text" value="Close" class="pull-right btn btn-primary" ng-click="isOpen = !isOpen"/>
+    <input type="submit" value="Send" class="pull-right btn btn-primary" ng-class="{ open: isOpen }"/>
+    
+  </form>
   <h1 translate>DASHBOARD</h1>
-  <a ng-click="true" class="btn btn-danger btn-feedback">feedback</a>
+  <a ng-click="isOpen = !isOpen" class="btn btn-danger pull-right btn-feedback">feedback</a>
 
   <div ng-if="upcoming" class="row" ng-controller="TournamentCtrl">
     <h2 >{{upcoming.title[l10n()]}}</h2>

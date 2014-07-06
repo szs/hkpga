@@ -31,7 +31,7 @@
 	                </div>
 	              </div>
 	            <!-- <img ng-show="article.cover" class="cover" ng-src="{{ article.cover }}"> -->
-	            <div class="more-news-body" ng-bind-html="article.html[l10n()] | words:50"></div>
+	            <div class="more-news-body" ng-bind-html="article.html[l10n()] | characters:350:l10n()"></div>
 	            <div class="widget-footer col-md-12">
 	              <button type="button" class="btn" translate>READ_MORE</button>
 	            </div>

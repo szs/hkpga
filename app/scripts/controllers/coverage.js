@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('CoverageCtrl', function($scope, $rootScope, $location, Coverage){
+app.controller('CoverageCtrl', function($scope, $location, Utils, Coverage){
 
   $scope.coverages = Coverage.all;
 
@@ -11,12 +11,12 @@ app.controller('CoverageCtrl', function($scope, $rootScope, $location, Coverage)
 
   $scope.reset()
 
-  $scope.submit = function(){
+  $scope.submit = function(c){
+    var c = c || $scope.coverage;
+    
+    c = Utils.logUpdate(c);
 
-    $scope.coverage.author = $rootScope.currentUser.username;
-    $scope.coverage.updated_at = Date.now();
-
-    Coverage.create($scope.coverage).then(function(){
+    Coverage.create(c).then(function(){
       $scope.reset();
       $location.path('/press/media');
     });

@@ -12,7 +12,7 @@ app.factory('Coverage',
         coverages[coverage.created_at] = coverage;
         
         return coverages.$save(coverage.created_at).then(function(){
-          console.log('Released ' + coverage.title);
+          console.log('Released ' + coverage.title.en);
         });
 
       },

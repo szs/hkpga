@@ -19,7 +19,8 @@
           </div>
           <div class="latest-news-body clearfix well">
             <img  class="cover col-md-12" ng-show="latest.cover" ng-src="{{latest.cover}}">
-            <div class="col-md-12" ng-bind-html="latest.html[l10n()] | words:80">
+            <div class="col-md-12">
+            {{ latest.html[l10n()] | characters:550:l10n() }}
             </div>
             <div class="widget-footer col-md-12">
               <a href="#/news/{{ latest.slug }}">
@@ -48,7 +49,9 @@
                 </div>
               </div>
             <img ng-show="article.cover" class="cover" ng-src="{{ article.cover }}">
-            <div class="more-news-body" ng-bind-html="article.html[l10n()] | words:50"></div>
+            <div class="more-news-body">
+              <p>{{ article.html[l10n()] | characters:350:l10n() }}</p>
+            </div>
             <div class="widget-footer col-md-12">
               <button type="button" class="btn" translate>READ_MORE</button>
             </div>

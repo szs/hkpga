@@ -10,11 +10,12 @@ app.controller('ReleasesCtrl', function($scope, $rootScope, $location, Release){
 
   $scope.reset()
 
-  $scope.submit = function(){
+  $scope.submit = function(r){
+    var r = r || $scope.release;
 
-    $scope.release.author = $rootScope.currentUser.username;
+    r = Utils.logUpdate(r);
 
-    Release.create($scope.release).then(function(){
+    Release.create(r).then(function(){
       $scope.reset();
       $location.path('#/press/releases');
     });
