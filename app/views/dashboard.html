@@ -10,7 +10,7 @@
   <h1 translate>DASHBOARD</h1>
   <a ng-click="isOpen = !isOpen" class="btn btn-danger pull-right btn-feedback">feedback</a>
 
-  <div ng-if="upcoming" class="row" ng-controller="TournamentCtrl">
+  <div ng-if="upcoming" class="row" ng-controller="TournamentsCtrl">
     <h2 >{{upcoming.title[l10n()]}}</h2>
     <h3 >{{upcoming.start_date | date}}</h3>
     <span>{{upcoming.no_days}}</span>

@@ -1,7 +1,7 @@
 <div class="auth-forms" ng-controller="AuthCtrl">
   <h2 translate>USER PROFILE</h2>
   
-  <form class="form-horizontal" role="form" ng-submit="register()" ng-controller="ProsCtrl">
+  <form class="form-horizontal" role="form" ng-submit="register(user)" ng-controller="ProsCtrl">
     <div ng-if="currentUser.role == 'admin'">
     <h3>Name & Standing</h3>
       <div class="form-group">

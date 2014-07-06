@@ -1326,15 +1326,11 @@ $admin-red:         #f06059;
   }
 
   .dropdown .well {
-      padding: 20px 20px;
-      border: 5px solid $admin-dark-grey;
+    padding: 20px 20px;
+    border: 5px solid $admin-dark-grey;
   }
 
   .dropdown {
-    button.btn {
-      background-color: transparent;
-      color: $brand-gold;
-    }
     position: absolute;
     z-index: 50000;
     right: 0;
@@ -1347,11 +1343,14 @@ $admin-red:         #f06059;
        -moz-transition: all 0.3s ease-in;
          -o-transition: all 0.3s ease-in;
             transition: all 0.3s ease-in;
-    }
-    .dropdown.open {
+    &.open {
         height: 300px;
         padding: 10px;
         opacity: 1.0;
+      }
+    button.btn {
+      background-color: transparent;
+      color: $brand-gold;
     }
   }
 
@@ -1402,6 +1401,7 @@ $admin-red:         #f06059;
     min-height : 300px;
   }
 
+} 
 
 //  ADMIN EDITOR
 

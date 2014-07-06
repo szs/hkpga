@@ -1,7 +1,7 @@
 <div class="container admin" id="admin-styling">
   <h1 translate>ADMIN</h1>
   <div class="well clearfix" id="admin-panel">
-    <div ng-if="unscored" class="row" ng-controller="TournamentCtrl">
+    <div ng-if="unscored" class="row" ng-controller="TournamentsCtrl">
       <h2 >{{unscored.title[l10n()]}}</h2>
       <h3 >{{unscored.start_date | date}}</h3>
       <span>{{unscored.no_days}}</span>
@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <div class="row" ng-controller="TournamentCtrl">
+    <div class="row" ng-controller="TournamentsCtrl">
       <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>LATEST_TOURNAMENTS</h2>
       <div ng-repeat="(id, tournament) in tournaments | orderByPriority | orderBy: 'start_date':true | limitTo:2" class="col-md-4 well">

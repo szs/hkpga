@@ -92,15 +92,35 @@ app.config(function ($routeProvider) {
         })
         .when('/tournaments/merit', {
           templateUrl: 'views/merit.html',
-          controller: 'TournamentCtrl',
+          controller: 'TournamentsCtrl',
         })
         .when('/tournaments/member', {
           templateUrl: 'views/tournaments.html',
-          controller: 'TournamentCtrl',
+          controller: 'TournamentsCtrl',
         })
         .when('/tournaments/trainee', {
           templateUrl: 'views/tournaments.html',
-          controller: 'TournamentCtrl',
+          controller: 'TournamentsCtrl',
+        })
+        .when('/tournaments/:id', {
+          templateUrl: 'views/tournaments.html',
+          controller: 'TournamentsCtrl',
+        })
+        .when('/tournaments/:id/checklist', {
+          templateUrl: 'views/checklist.html',
+          controller: 'TournamentsCtrl',
+        })
+        .when('/tournaments/:id/score', {
+          templateUrl: 'views/scores.html',
+          controller: 'TournamentsCtrl',
+        })
+        .when('/tournaments/:id/teeofftime', {
+          templateUrl: 'views/teeofftime.html',
+          controller: 'TournamentsCtrl',
+        })
+        .when('/tournaments/:id/pricemoney', {
+          templateUrl: 'views/pricemoney.html',
+          controller: 'TournamentsCtrl',
         })
         .when('/tournaments/:id/edit', {
           templateUrl: 'views/new.html',
