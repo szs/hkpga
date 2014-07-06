@@ -27,7 +27,7 @@
       <h2 translate>LATEST_FEEDBACK</h2>
       <div class="well clearfix" ng-repeat="(id, feedback) in fb | orderByPriority | orderBy: 'created_at':true | limitTo:3">
           <div class="col-md-10">
-            <span>{{feedback.created_at | date }}</span> <i class="fa fa-comment-o"></i> <a href="#/feedback">{{feedback.text | words:30}}</a>
+            <span>{{feedback.created_at | date }}</span> <i class="fa fa-comment-o"></i> <a href="#/feedback">{{feedback.text | characters:200}}</a>
           </div>
       </div>
     </div>
