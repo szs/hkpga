@@ -16,10 +16,9 @@
     "angularfire": "~0.7.1",
     "angular-redactor-patched": "~1.0.1",
     "angles": "*",
-    "angular-translate": "~2.2.0",
     "fontawesome": "~4.1.0",
     "angular-bootstrap": "~0.11.0",
-    "angular-truncate": "*",
+    "angular-truncate": "https://github.com/tijptjik/angular-truncate.git",
     "ng-grid": "~2.0.11",
     "angular-bootstrap-switch": "~0.3.0"
   },
