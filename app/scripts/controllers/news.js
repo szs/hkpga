@@ -1,12 +1,10 @@
 /* global app:true */
 'use strict';
 
-app.controller('NewsCtrl', function($scope, $rootScope, $routeParams, $location, Article, Archive){
+app.controller('NewsCtrl', function($scope, $rootScope, $routeParams, $location, Utils, Article, Archive){
   
   $scope.articles = Article.all;
    
-  
-
   $scope.reset = function (){
     $scope.article = Article.new();
   };
@@ -20,34 +18,14 @@ app.controller('NewsCtrl', function($scope, $rootScope, $routeParams, $location,
   $scope.year = $routeParams.year || false;
   $scope.category = $location.path().split('/')[1];
   
-  var getSlug = function(str) {
-    var slug = '';
-    var trimmed = str.trim();
-    slug = trimmed.replace(/[^a-z0-9-]/gi, '-').
-      replace(/-+/g, '-').
-      replace(/^-|-$/g, '');
-    
-    return slug.toLowerCase();
-  }
-
-  var getCoverImage = function(html) {
-    var regex = /<img.*?src="(.*?)"/;
-    try {
-      var src = regex.exec(html)[1];
-    } catch (e) {
-      var src = ""
-    }
-    return src;
-  }
-
 
   $scope.save = function (){
 
     angular.extend($scope.article, {
       author: $rootScope.currentUser.username,
-      slug: getSlug($scope.article.title.en),
+      slug: Utils.slugify($scope.article.title.en),
       $priority : Date.now(),
-      cover: getCoverImage($scope.article.html.en),
+      cover: Utils.extractImg($scope.article.html.en),
       updated_at: Date.now()
     });
 
