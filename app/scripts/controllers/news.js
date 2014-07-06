@@ -39,10 +39,11 @@ app.controller('NewsCtrl', function($scope, $routeParams, $location, Utils, Arti
     Article.create(a);
   };
 
-  $scope.publish = function (){
-    $scope.article.draft = false;
-    $scope.save();
-    $location.path($scope.article.category + '/' + $scope.article.slug);
+  $scope.publish = function (article){
+    var a = a || $scope.article;
+    a.draft = false;
+    a.save();
+    $location.path(a.category + '/' + a.slug);
   };
   
   $scope.delete = function(articleID) {

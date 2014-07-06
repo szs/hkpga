@@ -26,8 +26,8 @@
             switch-off-color="danger" >
         </div>
         <div class="publish-buttons">
-          <a ng-if="article.draft" ng-click="publish()" class="btn btn-info"><i class="fa fa-send"></i>publish</a>
-          <a ng-click="save()" class="btn btn-primary"><i class="fa fa-save"></i>save</a>
+          <a ng-if="article.draft" ng-click="publish(article)" class="btn btn-info"><i class="fa fa-send"></i>publish</a>
+          <a ng-click="save(article)" class="btn btn-primary"><i class="fa fa-save"></i>save</a>
         </div>
       </div>
     </header>
