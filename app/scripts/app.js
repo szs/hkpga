@@ -55,7 +55,7 @@ app.config(function ($routeProvider) {
           controller: 'FeedbackCtrl'
         })
         .when('/news', {
-          redirectTo: '/news/archive',
+          redirectTo: '/news/archive/latest',
         })
         .when('/news/new', {
           templateUrl: 'views/new.html',
@@ -68,6 +68,9 @@ app.config(function ($routeProvider) {
         .when('/news/:id/edit', {
           templateUrl: 'views/new.html',
           controller: 'NewCtrl'
+        })
+        .when('/news/archive', {
+          redirectTo: '/news/archive/latest',
         })
         .when('/news/archive/:year', {
           templateUrl: 'views/archive.html',

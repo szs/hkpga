@@ -19,6 +19,13 @@ app.controller('NewsCtrl', function($scope, $routeParams, $location, Utils, Arti
   $scope.category = $location.path().split('/')[1];
 
 
+  if ($scope.year == 'latest'){
+    var archives = Archive.all;
+    archives.$on('loaded', function(){
+      $scope.year = archives[$scope.category].sort().reverse()[0];
+    })
+  }
+
   $scope.save = function (a, cb){
     var a = a || $scope.article;
 
