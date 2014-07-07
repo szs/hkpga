@@ -2,9 +2,9 @@
 'use strict';
 
 app.controller('NewsCtrl', function($scope, $routeParams, $location, Utils, Article, Archive){
-  
+
   $scope.articles = Article.all;
-   
+
   $scope.reset = function (){
     $scope.article = Article.new();
   };
@@ -17,11 +17,11 @@ app.controller('NewsCtrl', function($scope, $routeParams, $location, Utils, Arti
 
   $scope.year = $routeParams.year || false;
   $scope.category = $location.path().split('/')[1];
-  
+
 
   $scope.save = function (a){
     var a = a || $scope.article;
-    
+
     a = Utils.logUpdate(a);
 
     angular.extend(a, {
@@ -34,18 +34,19 @@ app.controller('NewsCtrl', function($scope, $routeParams, $location, Utils, Arti
       year : new Date(a.publish_date).getFullYear(),
       category : a.category
     }
+
     Archive.create(archiveItem);
-  
+
     Article.create(a);
   };
 
-  $scope.publish = function (article){
+  $scope.publish = function (a){
     var a = a || $scope.article;
     a.draft = false;
-    a.save();
+    $scope.save(a);
     $location.path(a.category + '/' + a.slug);
   };
-  
+
   $scope.delete = function(articleID) {
     Article.delete(articleID);
   };
