@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth){
+app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
   
   var ref = new Firebase(FIREBASE_URL + 'users');
 
@@ -23,8 +23,13 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth){
     $rootScope.currentUser = User.findByUsername(usr);
   }
 
+  var pointsEligible = ['full','associate','tournament','member'];
+
   var User = {
     all: users,
+    isEligable: function(user){
+      return pointsEligible.indexOf(user.status) > -1 && user.active;
+    },
     create : function (authUser, user){
       var userObj = user;
       userObj.md5_hash = authUser.md5_hash;
@@ -43,8 +48,13 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Auth){
       return $rootScope.currentUser;
     },
     signedIn: function () {
-      console.log($rootScope.currentUser);
       return $rootScope.currentUser !== undefined;
+    },
+    addTournament : function(user, tournament){
+
+        Utils.nestedObject( users[user.username], ['results', tournament.year, tournament.id, 'status'], 'signedup');
+        
+        return users.$save(user.username);
     },
     new : function(){
       return {

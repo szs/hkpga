@@ -22,6 +22,7 @@ var app = angular.module('hkpgaApp', [
   'truncate',
   'frapontillo.bootstrap-switch',
   'DateFilters',
+  'angucomplete-alt'
 ]);
 
 app.config(function ($routeProvider) {
@@ -54,7 +55,7 @@ app.config(function ($routeProvider) {
           controller: 'FeedbackCtrl'
         })
         .when('/news', {
-          redirectTo: '/news/archive',
+          redirectTo: '/news/archive/latest',
         })
         .when('/news/new', {
           templateUrl: 'views/new.html',
@@ -67,6 +68,9 @@ app.config(function ($routeProvider) {
         .when('/news/:id/edit', {
           templateUrl: 'views/new.html',
           controller: 'NewCtrl'
+        })
+        .when('/news/archive', {
+          redirectTo: '/news/archive/latest',
         })
         .when('/news/archive/:year', {
           templateUrl: 'views/archive.html',
@@ -108,7 +112,7 @@ app.config(function ($routeProvider) {
         })
         .when('/tournaments/:id/checklist', {
           templateUrl: 'views/checklist.html',
-          controller: 'TournamentsCtrl',
+          controller: 'ProsCtrl',
         })
         .when('/tournaments/:id/score', {
           templateUrl: 'views/scores.html',
@@ -118,7 +122,7 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/teeofftime.html',
           controller: 'TournamentsCtrl',
         })
-        .when('/tournaments/:id/pricemoney', {
+        .when('/tournaments/:id/prizemoney', {
           templateUrl: 'views/pricemoney.html',
           controller: 'TournamentsCtrl',
         })

@@ -8,14 +8,16 @@
     
   </form>
   <h1 translate>DASHBOARD</h1>
-  <a ng-click="isOpen = !isOpen" class="btn btn-danger pull-right btn-feedback">feedback</a>
 
-  <div ng-if="upcoming" class="row" ng-controller="TournamentsCtrl">
-    <h2 >{{upcoming.title[l10n()]}}</h2>
-    <h3 >{{upcoming.start_date | date}}</h3>
-    <span>{{upcoming.no_days}}</span>
-    <a ng-click="signup()">sign up</a>
-  </div>
+  <a ng-click="isOpen = !isOpen" class="btn btn-danger pull-right btn-feedback">feedback</a>
+  
+  <div class="row" ng-controller="TournamentsCtrl">
+    <div ng-repeat="(id, tournament) in upcoming | orderByPriority | orderBy: 'start_date':false | limitTo:2" class="col-md-4 well">
+      <h2><a ng-href="#tournaments/{{ tournament.slug }}">{{tournament.name[l10n()]}}</a></h2>
+      <h3>{{tournament.start_date | date}}</h3>
+      <span>{{tournament.no_days}}</span>
+      <a ng-click="addParticipant(tournament, division, currentUser)" ng-repeat="division in divisions" class="btn btn-primary"> {{ division }}</a> | 
+    </div>
 
   <div class="row" ng-controller="NewsCtrl">
     <h2 translate>INTERNAL_ANNOUNCEMENTS</h2>

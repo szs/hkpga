@@ -11,9 +11,7 @@ app.factory('Article',
         
         articles[article.slug] = article;
         
-        articles.$save(article.slug).then(function(){
-          console.log('published ' + article.slug);
-        });
+        return articles.$save(article.slug)
 
       },
       find : function(articleId){

@@ -1,0 +1,26 @@
+<div>    
+   <angucomplete-alt id="ex1"
+     place-holder="Search countries"
+     pause="100"
+     selected-object="user"
+     local-data="hunt"
+     search-fields="name_en,name_hk"
+     title-field="name_en"
+     minlength="1"
+     input-class="form-control form-control-small"/>
+</div>
+   
+<div ng-controller="TournamentsCtrl">
+   <a ng-click="addParticipant(tournament, division, $parent.user)" ng-repeat="division in divisions" class="btn btn-primary"> {{ division }}</a> 
+
+<div ng-repeat="(division, players) in tournament.results">
+   <h2>{{division}}</h2>
+   <div ng-repeat="player in players" class="row">
+      <div class="col-md-12 panel panel-default">
+         <a href="#/pros/{{player.username}}">{{player.name[l10n()]}}</a>
+         <div class="col-md-4">{{player.status}}</div>
+   </div>
+</div>
+
+
+

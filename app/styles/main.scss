@@ -1513,7 +1513,11 @@ $admin-red:         #f06059;
     }
     .row.row-cards.new-tournament {
       .well {
-      height: 200px;
+        height: 220px;
+      }
+      h4 {
+        padding-top: 6px;
+        font-size: 1.9rem;
       }
     }
     .new-pro {
