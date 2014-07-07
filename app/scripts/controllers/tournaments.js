@@ -29,13 +29,15 @@ app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, 
 
   $scope.category = $location.path().split('/')[1];
   $scope.view = $location.path().split('/')[2];
-  $scope.year = $routeParams.year || $location.path().split('/')[3];
+  $scope.year = $location.path().split('/')[3];
   $scope.now = Date.now();
 
   var archives = Archive.all;
   archives.$on('loaded', function(){
     if ($scope.year == 'latest') {
       $scope.year = archives[$scope.category].sort().reverse()[0];
+    } else {
+      $scope.year = parseInt($scope.year);
     }
   })
 

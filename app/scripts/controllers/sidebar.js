@@ -62,15 +62,27 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
   $scope.page = $scope.pages[page] || page;
 
   var addArchives = function (){
-    var categories = $scope.archives.$getIndex();
-    categories.forEach(function(key){
-      var years = {};
-      $scope.archives[key].forEach(function(i){
-          years['archive/'+ i] = i;
-        });
-      menuStructure[key] = years;
-    });
-    $scope.pages = menuStructure[$scope.category];
+    if ($scope.category = 'tournaments') {
+      var categories = $scope.archives.$getIndex();
+      categories.forEach(function(key){
+        var years = {};
+        $scope.archives[key].forEach(function(i){
+            years[page + '/' + i] = i;
+          });
+        menuStructure[key] = years;
+      });
+      $scope.pages = menuStructure[$scope.category];
+    } else {
+      var categories = $scope.archives.$getIndex();
+      categories.forEach(function(key){
+        var years = {};
+        $scope.archives[key].forEach(function(i){
+            years['archive/'+ i] = i;
+          });
+        menuStructure[key] = years;
+      });
+      $scope.pages = menuStructure[$scope.category];
+    }
   }
 
 })

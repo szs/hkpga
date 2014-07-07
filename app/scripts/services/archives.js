@@ -1,13 +1,15 @@
 'use strict';
 
 app.factory('Archive', 
-  function ($firebase, FIREBASE_URL) {
+  function ($firebase, $q, FIREBASE_URL) {
     var ref = new Firebase(FIREBASE_URL + 'archives');
     var archives = $firebase(ref);
 
     var Archive = {
       all: archives,
       create : function(archive){
+        var deferred = $q.defer()
+
         archives[archive.category]
 
         if (!archives.hasOwnProperty(archive.category)) {
@@ -21,7 +23,8 @@ app.factory('Archive',
               console.log('Added ' + archive.year + ' to ' + archive.category);
             });
         } else {
-          return false;
+          deferred.resolve();
+          return deferred.promise;
         }
       },
       find : function(category){

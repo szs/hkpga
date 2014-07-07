@@ -22,6 +22,7 @@ var app = angular.module('hkpgaApp', [
   'truncate',
   'frapontillo.bootstrap-switch',
   'DateFilters',
+  'TournamentFilters',
   'angucomplete-alt'
 ]);
 
@@ -97,21 +98,21 @@ app.config(function ($routeProvider) {
         .when('/tournaments/merit', {
           redirectTo: '/tournaments/merit/latest',
         })
-        .when('/tournaments/merit/latest', {
+        .when('/tournaments/merit/:year', {
           templateUrl: 'views/merit.html',
           controller: 'TournamentsCtrl',
         })
         .when('/tournaments/member', {
           redirectTo: '/tournaments/member/latest',
         })
-        .when('/tournaments/member/latest', {
+        .when('/tournaments/member/:year', {
           templateUrl: 'views/tournaments.html',
           controller: 'TournamentsCtrl',
         })
         .when('/tournaments/trainee', {
           redirectTo: '/tournaments/trainee/latest',
         })
-        .when('/tournaments/trainee/latest', {
+        .when('/tournaments/trainee/:year', {
           templateUrl: 'views/tournaments.html',
           controller: 'TournamentsCtrl',
         })
@@ -188,19 +189,23 @@ app.config(function ($routeProvider) {
         })
         .when('/events/new', {
           templateUrl: 'views/new.html',
-          controller: 'NewCtrl'
+          controller: 'NewCtrl',
         })
         .when('/events/:id', {
           templateUrl: 'views/event.html',
           controller: 'NewsCtrl',
         })
+        .when('/events/:id/edit', {
+          templateUrl: 'views/new.html',
+          controller: 'NewCtrl',
+        })
         .when('/events/archive/:year', {
           templateUrl: 'views/archive.html',
-          controller: 'NewsCtrl'
+          controller: 'NewsCtrl',
         })
         .when('/pros/:id/:action', {
           templateUrl: 'views/new.html',
-          controller: 'NewCtrl'
+          controller: 'NewCtrl',
         })
         .when('/press', {
           redirectTo: '/press/releases',
