@@ -19,7 +19,7 @@ app.controller('NewsCtrl', function($scope, $routeParams, $location, Utils, Arti
   $scope.category = $location.path().split('/')[1];
 
 
-  $scope.save = function (a){
+  $scope.save = function (a, cb){
     var a = a || $scope.article;
 
     a = Utils.logUpdate(a);
@@ -37,15 +37,21 @@ app.controller('NewsCtrl', function($scope, $routeParams, $location, Utils, Arti
 
     Archive.create(archiveItem);
 
-    Article.create(a);
+    Article.create(a).then(function(){
+        console.log('published ' + a.slug);
+        if (cb){
+          cb();
+        }
+      });
   };
 
   $scope.publish = function (a){
     var a = a || $scope.article;
 
     a.draft = false;
-    $scope.save(a);
-    $scope.reset();
+    $scope.save(a, function(){
+      $scope.reset();
+    });
     // $location.path(a.category + '/' + a.slug);
   };
 
