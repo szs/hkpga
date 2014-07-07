@@ -117,7 +117,7 @@ app.config(function ($routeProvider) {
           controller: 'TournamentsCtrl',
         })
         .when('/tournaments/:id', {
-          templateUrl: 'views/tournaments.html',
+          templateUrl: 'views/tournament.html',
           controller: 'TournamentsCtrl',
         })
         .when('/tournaments/:id/checklist', {
