@@ -324,7 +324,7 @@ $admin-red:         #f06059;
     }
 
 
-    #articles-section {
+    .articles-section {
       a.block-anchor:hover {
         h5, h4 {
           color: $brand-gold;
@@ -338,7 +338,7 @@ $admin-red:         #f06059;
       }
     }
 
-    #articles-section, 
+    .articles-section, 
     #show-article {  
       .title-row {
         &:hover {
@@ -361,7 +361,7 @@ $admin-red:         #f06059;
     }
 
     #archive #show-article,
-    #show-news #show-article {
+    .show-news #show-article {
       .title-row {  
         i.arrow-more {
             display: block;
@@ -773,8 +773,7 @@ $admin-red:         #f06059;
         padding-bottom: 22px;
       }
     }
-  }
-
+  } 
 
 
 
@@ -1194,19 +1193,8 @@ $admin-red:         #f06059;
   // .4 Coming soon //
 
   #events-page {
-    h2 {
-      color: $text-grey;
-      border-left-color: $text-grey;
-    }
-    .coming-soon {
-      h5 {
-        color: $text-grey;
-        font-style: italic;
-      }
-      .well {
-        height: 100px;
-        margin-bottom: 500px;
-      }
+    .well {
+      margin-bottom: 70px;
     }
   }
 
@@ -1217,7 +1205,8 @@ $admin-red:         #f06059;
 // 6. ADMIN ----------------------------------
 
 
-.admin#admin-styling {
+.admin,
+.admin.admin-styling {
 
     a {
       font-size: 1.7rem;
@@ -1337,6 +1326,7 @@ $admin-red:         #f06059;
         color: $admin-blue;
       }
     }
+
 
 // End of .admin
 }
@@ -1464,6 +1454,8 @@ $admin-red:         #f06059;
 // ADMIN PANEL
 
 
+
+
   #admin-panel.well {
       background-color: $admin-dark-grey;
       margin-top: 30px;
@@ -1519,7 +1511,18 @@ $admin-red:         #f06059;
         right: 20px;
       }
     }
+    .row.row-cards.new-tournament {
+      .well {
+      height: 200px;
+      }
+    }
+    .new-pro {
+      img {
+         max-height: 152px;
+      }
+    }
   }
+
 
 // NEW CONTENT FORM 
 
@@ -1567,6 +1570,22 @@ $admin-red:         #f06059;
       }
     }
 
+    #tournament-divisions {
+      text-transform: capitalize;
+      input {
+        -webkit-transform: scale(1.6,1.6);
+        -moz-transform: scale(1.6,1.6);
+        -o-transform: scale(1.6,1.6);
+        width: 60px;
+      }
+      .checkbox-inline {
+        margin-left: 10px;
+        padding-right: 10px;
+      }
+      #division-label { 
+        line-height: 40px;
+      }
+    }
 }
 
 
