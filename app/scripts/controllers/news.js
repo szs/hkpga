@@ -42,9 +42,11 @@ app.controller('NewsCtrl', function($scope, $routeParams, $location, Utils, Arti
 
   $scope.publish = function (a){
     var a = a || $scope.article;
+
     a.draft = false;
     $scope.save(a);
-    $location.path(a.category + '/' + a.slug);
+    $scope.reset();
+    // $location.path(a.category + '/' + a.slug);
   };
 
   $scope.delete = function(articleID) {
