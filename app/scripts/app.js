@@ -95,14 +95,23 @@ app.config(function ($routeProvider) {
           controller: 'NewCtrl'
         })
         .when('/tournaments/merit', {
+          redirectTo: '/tournaments/merit/latest',
+        })
+        .when('/tournaments/merit/latest', {
           templateUrl: 'views/merit.html',
           controller: 'TournamentsCtrl',
         })
         .when('/tournaments/member', {
+          redirectTo: '/tournaments/member/latest',
+        })
+        .when('/tournaments/member/latest', {
           templateUrl: 'views/tournaments.html',
           controller: 'TournamentsCtrl',
         })
         .when('/tournaments/trainee', {
+          redirectTo: '/tournaments/trainee/latest',
+        })
+        .when('/tournaments/trainee/latest', {
           templateUrl: 'views/tournaments.html',
           controller: 'TournamentsCtrl',
         })
