@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('TournamentsCtrl', function($scope, $location, $routeParams, Utils, Tournament, User){
+app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, Utils, Tournament, User, Archive){
   
   $scope.tournaments = Tournament.all;
   
@@ -27,6 +27,17 @@ app.controller('TournamentsCtrl', function($scope, $location, $routeParams, Util
     } 
   })
 
+  $scope.year = $routeParams.year || false;
+  $scope.category = $location.path().split('/')[1];
+  $scope.view = $location.path().split('/')[2];
+
+  if ($scope.year == 'latest'){
+    var archives = Archive.all;
+    archives.$on('loaded', function(){
+      $scope.year = archives[$scope.category].sort().reverse()[0];
+    })
+  }
+
   $scope.addParticipant = function(t, division, user){
     var t = t || $scope.tournament;
     var user = user.originalObject;
@@ -45,15 +56,16 @@ app.controller('TournamentsCtrl', function($scope, $location, $routeParams, Util
 
     Tournament.addParticipant(t, division, participant)
       .then(function(){
-        User.addTournament(user, tournament)
+        User.addTournament(user, tournament);
       })
   }
 
   $scope.publish = function(t){
     var t = t || $scope.tournament;
 
-    t.start_date = Date.parse(t.start_date);
-    t.signup_before = Date.parse(t.signup_before);
+    
+    // t.start_date = Date.parse(t.start_date);
+    // t.signup_before = Date.parse(t.signup_before);
 
     t = Utils.logUpdate(t);
 
@@ -62,9 +74,27 @@ app.controller('TournamentsCtrl', function($scope, $location, $routeParams, Util
 
     $scope.tournaments[t.created_at] = t;
 
-    Tournament.create(t).then(function(){
-      $scope.reset();
-      $location.path('/tournaments/'+ t.slug);
-    })
+    Tournament.create(t)
+      .then(updateArchives)
+      .then(function(){
+        $scope.reset();
+        $location.path('/tournaments/'+ t.slug);})
   };
+
+
+  function updateArchives(){
+    var deferred = $q.defer()
+
+    var archiveItem = {
+      year : new Date($scope.tournament.start_date).getFullYear(),
+      category : 'tournaments'
+    }
+        
+    Archive.create(archiveItem).then(function(){
+      deferred.resolve();
+    })
+
+    return deferred.promise;
+  }
+
 });

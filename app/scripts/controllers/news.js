@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('NewsCtrl', function($scope, $routeParams, $location, Utils, Article, Archive){
+app.controller('NewsCtrl', function($scope, $q, $routeParams, $location, Utils, Article, Archive){
 
   $scope.articles = Article.all;
 
@@ -37,14 +37,9 @@ app.controller('NewsCtrl', function($scope, $routeParams, $location, Utils, Arti
       cover: Utils.extractImg(a.html.en),
     });
 
-    var archiveItem = {
-      year : new Date(a.publish_date).getFullYear(),
-      category : a.category
-    }
-
-    Archive.create(archiveItem);
-
-    Article.create(a).then(function(){
+    Article.create(a)
+      .then(updateArchives)
+      .then(function(){
         console.log('published ' + a.slug);
         if (cb){
           cb();
@@ -65,5 +60,21 @@ app.controller('NewsCtrl', function($scope, $routeParams, $location, Utils, Arti
   $scope.delete = function(articleID) {
     Article.delete(articleID);
   };
+
+  function updateArchives(){
+      var deferred = $q.defer()
+
+      var archiveItem = {
+        year : new Date($scope.article.publish_date).getFullYear(),
+        category : $scope.article.category
+      }
+          
+      Archive.create(archiveItem).then(function(){
+        deferred.resolve();
+      })
+
+      return deferred.promise;
+    }
+
 
 });

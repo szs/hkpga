@@ -22,9 +22,6 @@ app.factory('Tournament',
 
       },
       addParticipant : function (tournament, division, participant){
-        console.log(tournament)
-        console.log(division)
-        console.log(participant)
         Utils.nestedObject( tournaments[tournament.created_at], ['results', division, participant.username], participant);
         
         return tournaments.$save(tournament.created_at);

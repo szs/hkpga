@@ -13,7 +13,7 @@
   
   <div class="row" ng-controller="TournamentsCtrl">
     <div ng-repeat="(id, tournament) in upcoming | orderByPriority | orderBy: 'start_date':false | limitTo:2" class="col-md-4 well">
-      <h2>{{tournament.name[l10n()]}}</h2>
+      <h2><a ng-href="#tournaments/{{ tournament.slug }}">{{tournament.name[l10n()]}}</a></h2>
       <h3>{{tournament.start_date | date}}</h3>
       <span>{{tournament.no_days}}</span>
       <a ng-click="addParticipant(tournament, division, currentUser)" ng-repeat="division in divisions" class="btn btn-primary"> {{ division }}</a> | 

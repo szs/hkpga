@@ -16,9 +16,10 @@ app.factory('Archive',
 
         if (archives[archive.category].indexOf(archive.year) == -1) {
           archives[archive.category].push(archive.year);
-          return archives.$save(archive.category).then(function(){
-            console.log('Added ' + archive.year + ' to ' + archive.category);
-          });
+          return archives.$save(archive.category)
+            .then(function(){
+              console.log('Added ' + archive.year + ' to ' + archive.category);
+            });
         } else {
           return false;
         }

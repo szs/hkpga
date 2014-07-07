@@ -122,7 +122,7 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/teeofftime.html',
           controller: 'TournamentsCtrl',
         })
-        .when('/tournaments/:id/pricemoney', {
+        .when('/tournaments/:id/prizemoney', {
           templateUrl: 'views/pricemoney.html',
           controller: 'TournamentsCtrl',
         })
