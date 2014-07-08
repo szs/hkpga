@@ -83,6 +83,8 @@ app.controller('ProsCtrl', function($scope, $filter, $routeParams, User){
       {value : 'member', name : 'Member'},
       {value : 'trainer', name : 'Certified Trainer'},
       {value : 'trainee', name : 'Trainee'},
+      {value : 'honorary', name : 'Honorary'},
+      {value : 'none', name : 'None'},
     ]
   };
 
