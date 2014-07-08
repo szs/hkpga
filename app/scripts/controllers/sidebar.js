@@ -62,7 +62,7 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
   $scope.page = $scope.pages[page] || page;
 
   var addArchives = function (){
-    if ($scope.category = 'tournaments') {
+    if ($scope.category == 'tournaments') {
       var categories = $scope.archives.$getIndex();
       categories.forEach(function(key){
         var years = {};
@@ -75,11 +75,13 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
     } else {
       var categories = $scope.archives.$getIndex();
       categories.forEach(function(key){
-        var years = {};
-        $scope.archives[key].forEach(function(i){
-            years['archive/'+ i] = i;
-          });
-        menuStructure[key] = years;
+        if (key != 'tournaments'){
+          var years = {};
+          $scope.archives[key].forEach(function(i){
+              years['archive/'+ i] = i;
+            });
+          menuStructure[key] = years;
+        }
       });
       $scope.pages = menuStructure[$scope.category];
     }
