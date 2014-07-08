@@ -15,7 +15,7 @@ app.controller('NewsCtrl', function($scope, $q, $routeParams, $location, Utils, 
     $scope.reset();
   }
 
-  $scope.year = $routeParams.year || false;
+  $scope.year = parseInt($routeParams.year) || false;
   $scope.category = $location.path().split('/')[1];
 
 
