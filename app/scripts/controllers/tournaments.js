@@ -44,7 +44,7 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $location, $r
   })
 
   $scope.addParticipant = function(t, division, user){
-    var t = t || $scope.tournament;
+    var t = $scope.tournament;
     var user = user.originalObject;
 
     var participant = {
@@ -59,20 +59,18 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $location, $r
         id : t.start_date,
     }
 
-    t.results[division][participant.username] = participant;
-    console.log(t.results[division][participant.username])
-
-    Tournament.addParticipant(t, division, participant)
-      .then(function(){
-        User.addTournament(user, tournament);
-      })
-      .then(function(){
-        $rootScope.$$phase || $rootScope.$apply()
-      })
+    Utils.nestedObject($scope.tournaments[t.created_at], ['results', division, participant.username], participant);
+   
+    $rootScope.$apply(function(){
+      Tournament.addParticipant(t, division, participant)
+        .then(function(){
+          User.addTournament(user, tournament);
+        })
+    })
   }
 
   $scope.removeParticipant = function(t, division, p){
-    delete $scope.tournaments[t.created_at]['results'][division][p.username]
+    delete $scope.tournaments[t.created_at]['results'][division][p.username] 
     Tournament.removeParticipant(t, division, p)
       .then(function(){
         User.removeTournament(p, t);
