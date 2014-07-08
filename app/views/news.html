@@ -6,13 +6,8 @@
         <a href="#/news/{{ latest.slug }}" class="block-anchor">
           <div>
             <div class="title-row clearfix">
-              <div class="col-md-2">
+              <div class="col-md-12">
                 <h5>{{ latest.publish_date | date:'dd MMM yyyy'}}</h5>
-              </div>
-              <div class="col-md-1">
-                <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
-              </div>
-              <div class="col-md-9">
                 <h4>{{ latest.title[l10n()] }}</h4>
               </div>
             </div>
@@ -38,13 +33,8 @@
         <a href="#/news/{{ article.slug }}" class="block-anchor">
           <div class="info well more-news clearfix" ng-class="{true: 'draft', false:''}[article.draft]">
               <div class="title-row clearfix row">
-                <div class="col-md-2">
+                <div class="col-md-12">
                   <h5>{{ article.publish_date | date:'dd MMM yyyy'}}</h5>
-                </div>
-                <div class="col-md-1">
-                  <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
-                </div>
-                <div class="col-md-9">
                   <h4>{{ article.title[l10n()] }}</h4>
                 </div>
               </div>

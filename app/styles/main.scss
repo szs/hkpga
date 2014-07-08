@@ -1235,8 +1235,7 @@ $admin-red:         #f06059;
 // 6. ADMIN ----------------------------------
 
 
-.admin,
-.admin.admin-styling {
+.admin-styling {
 
     a {
       font-size: 1.7rem;
@@ -1271,8 +1270,8 @@ $admin-red:         #f06059;
 
 }
 
-.admin#news-new-page,
-.admin#events-new-page
+.admin-styling#news-new-page,
+.admin-styling#events-new-page
  {
   .publish-buttons {
     a {
@@ -1287,7 +1286,7 @@ $admin-red:         #f06059;
   }
 }
 
-.admin {
+.admin-styling {
 
 //  ADMIN CONTROLS
 
@@ -1358,7 +1357,7 @@ $admin-red:         #f06059;
     }
 
 
-// End of .admin
+// End of .admin-styling
 }
 
 
@@ -1543,11 +1542,12 @@ $admin-red:         #f06059;
     }
     .row.row-cards.new-tournament {
       .well {
-        height: 220px;
+        height: 250px;
       }
       h4 {
         padding-top: 6px;
         font-size: 1.9rem;
+        line-height: 26px;
       }
     }
     .new-pro {

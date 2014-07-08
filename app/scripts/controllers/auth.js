@@ -46,6 +46,11 @@ app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth)
     });
   };
 
+  $scope.update = function (user) {
+    User.update(user);
+    $location.path('/admin');
+  };
+
   $scope.signedIn = function (){
     return Auth.signedIn();
   };

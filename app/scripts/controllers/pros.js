@@ -6,6 +6,7 @@ app.controller('ProsCtrl', function($scope, $filter, $routeParams, User){
   $scope.pros = User.all;
 
   if ($routeParams.id){
+      $scope.edit = true
       $scope.user = User.findByUsername($routeParams.id)
       $scope.pro = $scope.user;
   }
@@ -82,6 +83,8 @@ app.controller('ProsCtrl', function($scope, $filter, $routeParams, User){
       {value : 'member', name : 'Member'},
       {value : 'trainer', name : 'Certified Trainer'},
       {value : 'trainee', name : 'Trainee'},
+      {value : 'honorary', name : 'Honorary'},
+      {value : 'none', name : 'None'},
     ]
   };
 
