@@ -53,10 +53,18 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
       return $rootScope.currentUser !== undefined;
     },
     addTournament : function(user, tournament){
-
+        if (angular.isNumber(tournament) == false){
+          tournament.id = Date.parse(tournament.id)
+        }
         Utils.nestedObject( users[user.username], ['results', tournament.year, tournament.id, 'status'], 'signedup');
         
         return users.$save(user.username);
+    },
+    removeTournament : function(user, tournament){
+        return users
+          .$child('results')
+          .$child(new Date(tournament.created_at).getFullYear())
+          .$remove(tournament.created_at);
     },
     new : function(){
       return {

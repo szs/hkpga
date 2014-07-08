@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, Utils, Tournament, User, Archive){
+app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $location, $routeParams, Utils, Tournament, User, Archive){
   
   $scope.tournaments = Tournament.all;
   
@@ -10,6 +10,7 @@ app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, 
   $scope.recent = Tournament.recent;
   
   $scope.divisions = ['open','ladies','senior','trainee'];
+  $scope.status = ['signedup','registered','played','cancelled','forfeited','disqualified'];
 
   $scope.reset = function (){
     $scope.tournament = Tournament.new();
@@ -58,9 +59,23 @@ app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, 
         id : t.start_date,
     }
 
+    t.results[division][participant.username] = participant;
+    console.log(t.results[division][participant.username])
+
     Tournament.addParticipant(t, division, participant)
       .then(function(){
         User.addTournament(user, tournament);
+      })
+      .then(function(){
+        $rootScope.$$phase || $rootScope.$apply()
+      })
+  }
+
+  $scope.removeParticipant = function(t, division, p){
+    delete $scope.tournaments[t.created_at]['results'][division][p.username]
+    Tournament.removeParticipant(t, division, p)
+      .then(function(){
+        User.removeTournament(p, t);
       })
   }
 
@@ -92,6 +107,14 @@ app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, 
         $location.path('/admin');
       });
   };
+
+  $scope.nextStatus = function(player, tournament, division){
+    var next = ($scope.status.indexOf(player.status) + 1) % $scope.status.length;
+    Tournament.updatePlayerStatus(player, tournament, division)
+      .then(function(){
+        player.status = $scope.status[next];
+      })
+  }
 
 
   function updateArchives(){
