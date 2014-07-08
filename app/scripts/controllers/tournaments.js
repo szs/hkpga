@@ -17,6 +17,7 @@ app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, 
 
   $scope.tournaments.$on('loaded',function(){
     if ($routeParams.id){
+      $scope.edit = true
       angular.forEach($scope.tournaments, function(value, key) {
           if (value.slug == $routeParams.id){
             $scope.tournament = $scope.tournaments[key];
@@ -88,7 +89,7 @@ app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, 
     var t = t || $scope.tournament;
     Tournament.delete(t.created_at)
       .then(function(){
-        $location.path('/');
+        $location.path('/admin');
       });
   };
 

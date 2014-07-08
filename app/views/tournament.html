@@ -35,7 +35,6 @@
               </div>
           </a>
           <div ng-if="currentUser.role === 'admin' ">
-            <a class="btn btn-primary" ng-click="delete(tournament)">Delete</a>
             <a class="btn btn-primary" ng-href="#/tournaments/{{ tournament.slug }}/edit">Edit</a>
           </div>
         </div>
