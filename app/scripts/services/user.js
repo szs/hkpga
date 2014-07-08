@@ -61,6 +61,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
     new : function(){
       return {
         "username": "",
+        "isAdmin": false,
         "achievements": {
           "en": "",
           "zh-cn": "",
