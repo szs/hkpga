@@ -39,6 +39,12 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
           setCurrentUser(userObj.username);
       });
     },
+    update : function (user){
+      users[user.username] = user;
+      users.$save(user.username).then(function(){
+          setCurrentUser(user.username);
+      });
+    },
     findByUsername: function (usr) {
       if (usr) {
         return users.$child(usr);
