@@ -31,6 +31,7 @@ $nav-grey:          #999999;
 $brand-green:       #098743;
 $brand-gold:        #bc994b;
 $brand-black:       #231f20;
+$brand-green-light: lighten(#098743, 8%);
 
 $admin-button-grey: #58585b;
 $admin-dark-grey:   #343434;
@@ -156,6 +157,10 @@ $admin-red:         #f06059;
   a:hover, a:focus {
     color: $text-grey;
     text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
   }
 
   .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
@@ -388,6 +393,31 @@ $admin-red:         #f06059;
         padding-top: 20px;
       }
     }
+
+
+    .article-body {
+      table {
+        margin-bottom: 40px;
+        margin-top: 30px;
+        border: 2px solid $grey-lighter;
+        td {
+          padding: 3px 12px;
+        }
+        tr {
+          vertical-align: top;
+        }
+        @extend .table-striped;
+        tr:nth-of-type(1) td {
+          border: 2px solid $text-grey;
+          padding: 15px;
+        }
+      }
+      p em {
+        display: block;
+        max-width: 500px;
+      }
+    }
+
 
     #landing-content {
        @extend .bottom-bar;
@@ -1591,6 +1621,41 @@ $admin-red:         #f06059;
       }
     }
 }
+
+
+// TOURNAMENT CHECKLIST
+
+  #tournament-checklist {
+    .search-bar {
+      width: 80%;
+      margin: 0 auto;
+      h2 {
+        text-align: center;
+      }
+    }
+    .add-division .btn {
+      background-color: $brand-green;
+      border: none;
+      width: 100px;
+      display: block;
+      float: left;
+      margin-right: 15px;
+      margin-left: 15px;
+      margin-top: 20px;
+      box-shadow: 3px 3px 3px $black;
+      &:active {
+        background-color: $brand-green-light;
+      }
+    }
+    .players-list {
+      .title-h3{
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+    }
+  }
+
 
 
 // 7. MEDIA QUERIES ----------------------------------
