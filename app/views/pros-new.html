@@ -88,13 +88,13 @@
           <input type="url" class="form-control" id="inputPicture" placeholder="/images/freddy.jpg" ng-model="user.profile_picture">
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-hide="user.relation == 'trainee' || user.relation == 'trainer'">
         <label for="inputMemberSince" class="col-sm-2 control-label" translate>MEMBER_SINCE</label>
         <div class="col-sm-10">
           <input type="number" class="form-control" id="inputMemberSince" placeholder="2014" ng-model="user.member_since">
         </div>
       </div>
-      <div class="form-group">
+      <div ng-hide="user.relation == 'trainee' || user.relation == 'trainer'" class="form-group">
         <label for="inputMemberSince" class="col-sm-2 control-label" translate>PRO_SINCE</label>
         <div class="col-sm-10">
           <input type="number" class="form-control" id="inputProSince" placeholder="2010" ng-model="user.pro_since">
@@ -141,23 +141,25 @@
         </div>
       </div>
       <hr/>
-      <h3>Teaching Experience</h3>
-      <div class="form-group">
-        <label for="inputQualificationsEN" class="col-sm-2 control-label" translate>TEACHING_EXPERIENCE_EN</label>
-        <div class="col-sm-10">
-           <textarea rows="5" class="form-control" id="inputTeachingExperienceEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience.en" />
+      <div ng-if="user.relation != 'trainee'">
+        <h3>Teaching Experience</h3>
+        <div class="form-group">
+          <label for="inputQualificationsEN" class="col-sm-2 control-label" translate>TEACHING_EXPERIENCE_EN</label>
+          <div class="col-sm-10">
+             <textarea rows="5" class="form-control" id="inputTeachingExperienceEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience.en" />
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="inputTeachingExperienceZHHK" class="col-sm-2 control-label" translate>TEACHING_EXPERIENCE_ZH_HK</label>
-        <div class="col-sm-10">
-           <textarea rows="5" class="form-control" id="inputTeachingExperienceZHHK" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience['zh-hk']" />
+        <div class="form-group">
+          <label for="inputTeachingExperienceZHHK" class="col-sm-2 control-label" translate>TEACHING_EXPERIENCE_ZH_HK</label>
+          <div class="col-sm-10">
+             <textarea rows="5" class="form-control" id="inputTeachingExperienceZHHK" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience['zh-hk']" />
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="inputTeachingExperienceZHCN" class="col-sm-2 control-label" translate>TEACHING_EXPERIENCE_ZH_CN</label>
-        <div class="col-sm-10">
-           <textarea rows="5" class="form-control" id="inputTeachingExperienceZHCN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience['zh-cn']" />
+        <div class="form-group">
+          <label for="inputTeachingExperienceZHCN" class="col-sm-2 control-label" translate>TEACHING_EXPERIENCE_ZH_CN</label>
+          <div class="col-sm-10">
+             <textarea rows="5" class="form-control" id="inputTeachingExperienceZHCN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience['zh-cn']" />
+          </div>
         </div>
       </div>
     </div> 
@@ -181,7 +183,7 @@
            <textarea rows="5" class="form-control" id="inputIntroductionZHCN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.introduction['zh-cn']" />
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-hide="user.relation == 'trainee' || user.relation == 'trainer'">
         <label for="inputRoleSince" class="col-sm-2 control-label" translate>ROLE_SINCE</label>
         <div class="col-sm-10">
           <input type="number" class="form-control" id="inputRoleSince" placeholder="2014" ng-model="user.member_since">

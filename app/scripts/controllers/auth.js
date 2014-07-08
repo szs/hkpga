@@ -32,18 +32,23 @@ app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth)
   }
 
   $scope.register = function () {
-    Auth.register($scope.user).then(function (authUser){
-      $scope.user.username = createUsername($scope.user.name.en);
+    // honorary members don't have logins
+    $scope.user.role = $scope.user.honorary ? 'resource' : $scope.user.role;
+    if ($scope.user.role != 'resource'){
+      Auth.register($scope.user).then(function (authUser){
 
-      // honorary members don't have logins
-      $scope.user.role = $scope.user.honorary ? 'resource' : $scope.user.role;
+        $scope.user.username = createUsername($scope.user.name.en);
 
-      User.create(authUser, $scope.user);
-      $location.path('/admin');
-    }, function (error){
-      console.log(error);
-      $scope.error = error.toString().split(':')[3];
-    });
+        User.create(authUser, $scope.user);
+        $location.path('/admin');
+      }, function (error){
+        console.log(error);
+        $scope.error = error.toString().split(':')[3];
+      });
+    } else {
+      $scope.user.username = createUsername($scope.user.name.en);      
+      $scope.update($scope.user);         
+    }
   };
 
   $scope.update = function (user) {

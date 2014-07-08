@@ -84,6 +84,14 @@ app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, 
         $location.path('/tournaments/'+ t.slug);})
   };
 
+   $scope.delete = function(t){
+    var t = t || $scope.tournament;
+    Tournament.delete(t.created_at)
+      .then(function(){
+        $location.path('/');
+      });
+  };
+
 
   function updateArchives(){
     var deferred = $q.defer()
