@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('TournamentsCtrl', function($scope, $filter, $rootScope, $q, $location, $routeParams, Utils, Tournament, User, Archive){
+app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $location, $routeParams, Utils, Tournament, User, Archive){
   
   $scope.tournaments = Tournament.all;
   
@@ -24,17 +24,10 @@ app.controller('TournamentsCtrl', function($scope, $filter, $rootScope, $q, $loc
             $scope.tournament = $scope.tournaments[key];
           }
        })
-      $scope.toScore = $filter('orderByPriority')($scope.tournament);
-      $scope.toScore = $scope.tournament;
-      $scope.gridOptions = { data: 'toScore' };
-      $scope.convertToScoreTable($scope.tournament.results)
     } else {
       $scope.reset();
     } 
   })
-
-  $scope.convertToScoreTable = function(data){
-  }
 
   $scope.category = $location.path().split('/')[1];
   $scope.view = $location.path().split('/')[2];
@@ -68,12 +61,14 @@ app.controller('TournamentsCtrl', function($scope, $filter, $rootScope, $q, $loc
 
     Utils.nestedObject($scope.tournaments[t.created_at], ['results', division, participant.username], participant);
    
-    $rootScope.$apply(function(){
+    $timeout(function() {
       Tournament.addParticipant(t, division, participant)
-      .then(function(){
-        User.addTournament(user, tournament);
-      })
-    })
+        .then(function(){
+          User.addTournament(user, tournament);
+        }).then(function(){
+          $scope.tournaments[t.created_at] = t
+        })
+      });
   }
 
   $scope.removeParticipant = function(t, division, p){
@@ -81,6 +76,8 @@ app.controller('TournamentsCtrl', function($scope, $filter, $rootScope, $q, $loc
     Tournament.removeParticipant(t, division, p)
       .then(function(){
         User.removeTournament(p, t);
+      }).then(function(){
+        $scope.tournaments[t.created_at] = t
       })
   }
 
@@ -138,4 +135,3 @@ app.controller('TournamentsCtrl', function($scope, $filter, $rootScope, $q, $loc
   }
 
 });
-
