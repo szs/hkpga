@@ -20,7 +20,7 @@
     "angular-bootstrap": "~0.11.0",
     "angular-truncate": "https://github.com/tijptjik/angular-truncate.git",
     "ng-grid": "~2.0.11",
-    "angular-bootstrap-switch": "~0.3.0",
+    "angular-bootstrap-switch": "tijptjik/angular-bootstrap-switch#~0.3.0",
     "angular-translate": "~2.2.0",
     "angucomplete-alt": "~0.0.7"
   },

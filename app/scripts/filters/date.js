@@ -3,7 +3,7 @@ angular.module('DateFilters', []).filter('filterYear', function() {
     var filtered_list = [];
     for (var i = 0; i < objects.length; i++) {
       var year = new Date(objects[i][dateKey]).getFullYear();
-      if (year === archiveYear) {
+      if (year === parseInt(archiveYear)) {
         filtered_list.push(objects[i]);
       }
     }
