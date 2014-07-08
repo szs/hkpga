@@ -32,21 +32,35 @@ app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth)
   }
 
   $scope.register = function () {
-    Auth.register($scope.user).then(function (authUser){
-      $scope.user.username = createUsername($scope.user.name.en);
+    
+    $scope.user.role = $scope.user.honorary ? 'user' : roleMap[$scope.user.relation];
 
-      // honorary members don't have logins
-      $scope.user.role = $scope.user.honorary ? 'resource' : $scope.user.role;
+    if ($scope.user.role == 'member' || $scope.user.isAdmin){
+      Auth.register($scope.user).then(function (authUser){
 
-      User.create(authUser, $scope.user);
-      $location.path('/admin');
-    }, function (error){
-      console.log(error);
-      $scope.error = error.toString().split(':')[3];
-    });
+        if ($scope.user.isAdmin){
+          $scope.user.role = 'admin'
+        }
+
+        $scope.user.username = createUsername($scope.user.name.en);
+
+        User.create(authUser, $scope.user);
+        $location.path('/admin');
+      }, function (error){
+        console.log(error);
+        $scope.error = error.toString().split(':')[3];
+      });
+    } else {
+      $scope.user.username = createUsername($scope.user.name.en);      
+      $scope.update($scope.user);         
+    }
   };
 
   $scope.update = function (user) {
+    $scope.user.role = $scope.user.honorary ? 'user' : roleMap[$scope.user.relation];
+    if ($scope.user.isAdmin){
+      $scope.user.role = 'admin'
+    }
     User.update(user);
     $location.path('/admin');
   };
@@ -54,5 +68,16 @@ app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth)
   $scope.signedIn = function (){
     return Auth.signedIn();
   };
+
+  var roleMap = {
+      'full' : 'member',
+      'tournament' : 'member',
+      'associate' : 'member',
+      'member' : 'member',
+      'trainer' : 'user',
+      'trainee' : 'user',
+      'honorary' : 'user',
+      'none' : 'legacy'
+  }
 
 });

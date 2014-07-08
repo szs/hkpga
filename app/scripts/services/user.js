@@ -35,15 +35,11 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
       userObj.md5_hash = authUser.md5_hash;
       userObj.$priority = authUser.uid;
       users[userObj.username] = userObj;
-      users.$save(userObj.username).then(function(){
-          setCurrentUser(userObj.username);
-      });
+      users.$save(userObj.username);
     },
     update : function (user){
       users[user.username] = user;
-      users.$save(user.username).then(function(){
-          setCurrentUser(user.username);
-      });
+      users.$save(user.username);
     },
     findByUsername: function (usr) {
       if (usr) {
@@ -65,6 +61,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
     new : function(){
       return {
         "username": "",
+        "isAdmin": false,
         "achievements": {
           "en": "",
           "zh-cn": "",

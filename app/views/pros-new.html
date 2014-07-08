@@ -33,12 +33,21 @@
         <select ng-init="user.honorary = filterOptions.honorary[0].value" ng-model="user.honorary" ng-options="item.value as item.name for item in filterOptions.honorary" class="form-control"></select>
        </div>
       </div>
-      <div class="form-group" ng-hide="user.honorary">
-        <label for="inputROLE" class="col-sm-2 control-label" translate>ROLE</label>
-        <div class="col-sm-10">
-        <select ng-init="user.role = filterOptions.roles[1].value" ng-model="user.role" ng-options="item.value as item.name for item in filterOptions.roles" class="form-control"></select>
-        </div>
+      <div class="form-group">
+      <label for="inputStatus" class="col-sm-2 control-label" translate>ADMIN</label>
+      <div class="col-sm-10">
+        <input bs-switch
+          ng-model="user.isAdmin"
+          type="checkbox"
+          switch-active="true"
+          switch-size="large"
+          switch-animate="true"
+          switch-on-text="ON"
+          switch-off-text="Off"
+          switch-on-color="primary"
+          switch-off-color="danger">
       </div>
+    </div>
       <div class="form-group" ng-hide="user.honorary">
         <label for="inputRELATION" class="col-sm-2 control-label" translate>RELATION</label>
         <div class="col-sm-10">
@@ -47,146 +56,171 @@
       </div>
       <hr/>
     </div>
-    <div ng-hide="user.honorary">
-    <h3>Personal Details</h3>
-      <div class="form-group">
-      <label for="inputEmail3" class="col-sm-2 control-label" translate>EMAIL</label>
-      <div class="col-sm-10">
-        <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="user.email">
+    <div ng-if="!user.honorary">
+
+    <div ng-if="user.relation != 'none'">
+      <h3 ng-if="!user.isAdmin">Personal Details</h3>
+      <div ng-if="!user.isAdmin" class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label" translate>EMAIL</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="user.email">
+        </div>
+      </div>
+      <div ng-if="!user.isAdmin" class="form-group">
+        <label for="inputPassword" class="col-sm-2 control-label" translate>PASSWORD</label>
+        <div class="col-sm-10">
+          <input type="password" ng-model="user.password" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
       </div>
     </div>
-    <div class="form-group">
-      <label for="inputPhone" class="col-sm-2 control-label" translate>PHONE</label>
-      <div class="col-sm-10">
-        <input type="tel" class="form-control" id="inputPhone" placeholder="6827 2673" ng-model="user.phone">
+    <div ng-if="user.isAdmin">
+      <h3>Personal Details</h3>
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label" translate>EMAIL</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="user.email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword" class="col-sm-2 control-label" translate>PASSWORD</label>
+        <div class="col-sm-10">
+          <input type="password" ng-model="user.password" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
       </div>
     </div>
-    <div class="form-group">
-      <label for="inputPassword" class="col-sm-2 control-label" translate>PASSWORD</label>
-      <div class="col-sm-10">
-        <input type="password" ng-model="user.password" class="form-control" id="inputPassword" placeholder="Password">
-      </div>
+
+      <div ng-if="user.relation != 'none'">
+        <div class="form-group">
+          <label for="inputPhone" class="col-sm-2 control-label" translate>PHONE</label>
+          <div class="col-sm-10">
+            <input type="tel" class="form-control" id="inputPhone" placeholder="6827 2673" ng-model="user.phone">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputSex" class="col-sm-2 control-label" translate>SEX</label>
+          <div class="col-sm-10">
+            <input bs-switch
+              ng-model="user.sex"
+              type="checkbox"
+              switch-active="true"
+              switch-size="large"
+              switch-animate="true"
+              switch-on-text="Male"
+              switch-off-text="Female"
+              switch-on-color="primary"
+              switch-off-color="info">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputImage" class="col-sm-2 control-label" translate>PROFILE_PICTURE</label>
+          <div class="col-sm-10">
+            <input type="url" class="form-control" id="inputPicture" placeholder="/images/freddy.jpg" ng-model="user.profile_picture">
+          </div>
+        </div>
+        <div class="form-group" ng-hide="user.relation == 'trainee' || user.relation == 'trainer'">
+          <label for="inputMemberSince" class="col-sm-2 control-label" translate>MEMBER_SINCE</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputMemberSince" placeholder="2014" ng-model="user.member_since">
+          </div>
+        </div>
+        <div ng-hide="user.relation == 'trainee' || user.relation == 'trainer'" class="form-group">
+          <label for="inputMemberSince" class="col-sm-2 control-label" translate>PRO_SINCE</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputProSince" placeholder="2010" ng-model="user.pro_since">
+          </div>
+        </div>
+        <hr/>
+        <h3>Qualifications</h3>
+        <div class="form-group">
+          <label for="inputQualificationsEN" class="col-sm-2 control-label" translate>QUALIFICATIONS_EN</label>
+          <div class="col-sm-10">
+            <textarea rows="5" class="form-control" id="inputQualificationsEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.qualifications.en" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputQualificationsZHHK" class="col-sm-2 control-label" translate>QUALIFICATIONS_ZH_HK</label>
+          <div class="col-sm-10">
+            <textarea rows="5" class="form-control" id="inputQualificationsZHHK" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.qualifications['zh-hk']" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputQualificationsZHCN" class="col-sm-2 control-label" translate>QUALIFICATIONS_ZH_CN</label>
+          <div class="col-sm-10">
+            <textarea rows="5" class="form-control" id="inputQualificationsZHCN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.qualifications['zh-cn']" />
+          </div>
+        </div>
+        <hr/>
+        <h3>Achievements</h3>
+        <div class="form-group">
+          <label for="inputAchievementsEN" class="col-sm-2 control-label" translate>ACHIEVEMENTS_EN</label>
+          <div class="col-sm-10">
+            <textarea rows="5" class="form-control" id="inputAchievementsEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.achievements.en" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAchievementsZHKH" class="col-sm-2 control-label" translate>ACHIEVEMENTS_ZH_HK</label>
+          <div class="col-sm-10">
+            <textarea rows="5" class="form-control" id="inputAchievementsZH" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.achievements['zh-hk']" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAchievementsZHCN" class="col-sm-2 control-label" translate>ACHIEVEMENTS_ZH_CN</label>
+          <div class="col-sm-10">
+            <textarea rows="5" class="form-control" id="inputAchievementsZH" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.achievements['zh-cn']" />
+          </div>
+        </div>
+        <hr/>
+        <div ng-if="user.relation != 'trainee'">
+          <h3>Teaching Experience</h3>
+          <div class="form-group">
+            <label for="inputQualificationsEN" class="col-sm-2 control-label" translate>TEACHING_EXPERIENCE_EN</label>
+            <div class="col-sm-10">
+               <textarea rows="5" class="form-control" id="inputTeachingExperienceEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience.en" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputTeachingExperienceZHHK" class="col-sm-2 control-label" translate>TEACHING_EXPERIENCE_ZH_HK</label>
+            <div class="col-sm-10">
+               <textarea rows="5" class="form-control" id="inputTeachingExperienceZHHK" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience['zh-hk']" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputTeachingExperienceZHCN" class="col-sm-2 control-label" translate>TEACHING_EXPERIENCE_ZH_CN</label>
+            <div class="col-sm-10">
+               <textarea rows="5" class="form-control" id="inputTeachingExperienceZHCN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience['zh-cn']" />
+            </div>
+          </div>
+        </div>
+      </div> 
     </div>
-    <div class="form-group">
-      <label for="inputSex" class="col-sm-2 control-label" translate>SEX</label>
-      <div class="col-sm-10">
-        <input bs-switch
-          ng-model="user.sex"
-          type="checkbox"
-          switch-active="true"
-          switch-size="large"
-          switch-animate="true"
-          switch-on-text="Male"
-          switch-off-text="Female"
-          switch-on-color="primary"
-          switch-off-color="info">
-      </div>
-      </div>
-      <div class="form-group">
-        <label for="inputImage" class="col-sm-2 control-label" translate>PROFILE_PICTURE</label>
-        <div class="col-sm-10">
-          <input type="url" class="form-control" id="inputPicture" placeholder="/images/freddy.jpg" ng-model="user.profile_picture">
+    <div ng-if="user.relation != 'none'"> 
+      <div ng-show="user.honorary">
+        <h3>Introduction</h3>
+        <div class="form-group">
+          <label for="inputQualificationsEN" class="col-sm-2 control-label" translate>INTRODUCTION_EN</label>
+          <div class="col-sm-10">
+             <textarea rows="5" class="form-control" id="inputIntroductionEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.introduction.en" />
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="inputMemberSince" class="col-sm-2 control-label" translate>MEMBER_SINCE</label>
-        <div class="col-sm-10">
-          <input type="number" class="form-control" id="inputMemberSince" placeholder="2014" ng-model="user.member_since">
+        <div class="form-group">
+          <label for="inputIntroductionZHHK" class="col-sm-2 control-label" translate>INTRODUCTION_ZH_HK</label>
+          <div class="col-sm-10">
+             <textarea rows="5" class="form-control" id="inputIntroductionZHHK" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.introduction['zh-hk']" />
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="inputMemberSince" class="col-sm-2 control-label" translate>PRO_SINCE</label>
-        <div class="col-sm-10">
-          <input type="number" class="form-control" id="inputProSince" placeholder="2010" ng-model="user.pro_since">
+        <div class="form-group">
+          <label for="inputIntroductionZHCN" class="col-sm-2 control-label" translate>INTRODUCTION_ZH_CN</label>
+          <div class="col-sm-10">
+             <textarea rows="5" class="form-control" id="inputIntroductionZHCN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.introduction['zh-cn']" />
+          </div>
         </div>
-      </div>
-      <hr/>
-      <h3>Qualifications</h3>
-      <div class="form-group">
-        <label for="inputQualificationsEN" class="col-sm-2 control-label" translate>QUALIFICATIONS_EN</label>
-        <div class="col-sm-10">
-          <textarea rows="5" class="form-control" id="inputQualificationsEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.qualifications.en" />
+        <div class="form-group" ng-hide="user.relation == 'trainee' || user.relation == 'trainer'">
+          <label for="inputRoleSince" class="col-sm-2 control-label" translate>ROLE_SINCE</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputRoleSince" placeholder="2014" ng-model="user.member_since">
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="inputQualificationsZHHK" class="col-sm-2 control-label" translate>QUALIFICATIONS_ZH_HK</label>
-        <div class="col-sm-10">
-          <textarea rows="5" class="form-control" id="inputQualificationsZHHK" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.qualifications['zh-hk']" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputQualificationsZHCN" class="col-sm-2 control-label" translate>QUALIFICATIONS_ZH_CN</label>
-        <div class="col-sm-10">
-          <textarea rows="5" class="form-control" id="inputQualificationsZHCN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.qualifications['zh-cn']" />
-        </div>
-      </div>
-      <hr/>
-      <h3>Achievements</h3>
-      <div class="form-group">
-        <label for="inputAchievementsEN" class="col-sm-2 control-label" translate>ACHIEVEMENTS_EN</label>
-        <div class="col-sm-10">
-          <textarea rows="5" class="form-control" id="inputAchievementsEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.achievements.en" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputAchievementsZHKH" class="col-sm-2 control-label" translate>ACHIEVEMENTS_ZH_HK</label>
-        <div class="col-sm-10">
-          <textarea rows="5" class="form-control" id="inputAchievementsZH" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.achievements['zh-hk']" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputAchievementsZHCN" class="col-sm-2 control-label" translate>ACHIEVEMENTS_ZH_CN</label>
-        <div class="col-sm-10">
-          <textarea rows="5" class="form-control" id="inputAchievementsZH" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.achievements['zh-cn']" />
-        </div>
-      </div>
-      <hr/>
-      <h3>Teaching Experience</h3>
-      <div class="form-group">
-        <label for="inputQualificationsEN" class="col-sm-2 control-label" translate>TEACHING_EXPERIENCE_EN</label>
-        <div class="col-sm-10">
-           <textarea rows="5" class="form-control" id="inputTeachingExperienceEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience.en" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputTeachingExperienceZHHK" class="col-sm-2 control-label" translate>TEACHING_EXPERIENCE_ZH_HK</label>
-        <div class="col-sm-10">
-           <textarea rows="5" class="form-control" id="inputTeachingExperienceZHHK" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience['zh-hk']" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputTeachingExperienceZHCN" class="col-sm-2 control-label" translate>TEACHING_EXPERIENCE_ZH_CN</label>
-        <div class="col-sm-10">
-           <textarea rows="5" class="form-control" id="inputTeachingExperienceZHCN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.teaching_experience['zh-cn']" />
-        </div>
-      </div>
-    </div> 
-    <div ng-show="user.honorary">
-      <h3>Introduction</h3>
-      <div class="form-group">
-        <label for="inputQualificationsEN" class="col-sm-2 control-label" translate>INTRODUCTION_EN</label>
-        <div class="col-sm-10">
-           <textarea rows="5" class="form-control" id="inputIntroductionEN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.introduction.en" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputIntroductionZHHK" class="col-sm-2 control-label" translate>INTRODUCTION_ZH_HK</label>
-        <div class="col-sm-10">
-           <textarea rows="5" class="form-control" id="inputIntroductionZHHK" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.introduction['zh-hk']" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputIntroductionZHCN" class="col-sm-2 control-label" translate>INTRODUCTION_ZH_CN</label>
-        <div class="col-sm-10">
-           <textarea rows="5" class="form-control" id="inputIntroductionZHCN" placeholder="Please provide a short description or rely on the user to add it later..." ng-model="user.introduction['zh-cn']" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputRoleSince" class="col-sm-2 control-label" translate>ROLE_SINCE</label>
-        <div class="col-sm-10">
-          <input type="number" class="form-control" id="inputRoleSince" placeholder="2014" ng-model="user.member_since">
-        </div>
-      </div>
+      </div> 
     </div> 
     <hr/>
     <div class="form-group">
