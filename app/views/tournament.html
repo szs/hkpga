@@ -23,8 +23,8 @@
                 <div class="col-md-9">
                   <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }}
                       <a class="btn btn-primary" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">
-                        {{division}} 
-                      </a> | {{ tournament.no_days }} day tournament | 
+                        {{division}}
+                      </a> | {{ tournament.no_days }} day tournament |
                       <span ng-if="tournament.start_date > now">
                         <a href="#/tournaments/ {{ tournament.rules_url }}">Rules</a>
                         <a href="#/tournaments/{{ tournament.slug }}/prizemoney">Prize Money</a>
