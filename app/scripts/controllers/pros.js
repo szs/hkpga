@@ -1,9 +1,13 @@
 /* global app:true */
 'use strict';
 
-app.controller('ProsCtrl', function($scope, $filter, $routeParams, User){
+app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, User){
   
   $scope.pros = User.all;
+
+  $scope.category = $location.path().split('/')[1];
+  $scope.view = $location.path().split('/')[2];
+  $scope.action = $location.path().split('/')[3];
 
   if ($routeParams.id){
       $scope.edit = true
@@ -28,15 +32,18 @@ app.controller('ProsCtrl', function($scope, $filter, $routeParams, User){
 
   });
 
-  $scope.pros.$on('loaded',function(){
-    $scope.hunt = $filter('orderByPriority')($scope.pros);
-    $scope.hunt.forEach(function(e){
-      e['name_en'] = e.name['en'];
-      e['name_hk'] = e.name['zh-hk'];
-      e['name_ch'] = e.name['zh-cn'];
+  if ($scope.action == 'checklist'){
+    $scope.pros.$on('loaded',function(){
+      $scope.hunt = $filter('orderByPriority')($scope.pros);
+      $scope.hunt.forEach(function(e){
+        console.log(e)
+        e['name_en'] = e.name['en'];
+        e['name_hk'] = e.name['zh-hk'];
+        e['name_ch'] = e.name['zh-cn'];
+      });
+      $scope.done = $scope.hunt; 
     });
-    $scope.done = $scope.hunt; 
-  });
+  }
 
   $scope.filterOptions = {
     pros: [

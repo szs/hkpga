@@ -79,10 +79,7 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
 
     }, tournamentScores)
 
-    console.log(tournamentScores.open)
-
     $scope.toScore = tournamentScores;
-    console.log($scope.toScore)
     
     var r1 = hasRound(1)
     var r2 = hasRound(2)
@@ -156,7 +153,6 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
   };
 
   var hasRound = function(round){
-    console.log($scope.tournament.no_days >= round);
     var x = ($scope.tournament.no_days >= round);
     return x;
   }
