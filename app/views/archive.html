@@ -17,7 +17,7 @@
       <div id="show-article">
         <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | filter:search | orderBy: 'publish_date':true | filterYear:year:'publish_date' | filter:{category : category} | filter:{internal : false} ">
 	      <div class="col-md-12">
-	        <a href="#/news/{{ article.slug }}" class="block-anchor">
+	        <a href="#/{{ category }}/{{ article.slug }}" class="block-anchor">
 	          <div class="info well more-news clearfix" ng-class="{true: 'draft', false:''}[article.draft]">
 	              <div class="title-row clearfix row">
 	                <div class="col-md-2">
