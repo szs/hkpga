@@ -5,7 +5,7 @@
       <div class="col-md-12 latest-news">
         <a href="#/news/{{ latest.slug }}" class="block-anchor">
           <div>
-            <div class="title-row clearfix">
+            <div class="title-row title-row-transparent clearfix">
               <div class="col-lg-2 col-md-3">
                 <h5>{{ latest.publish_date | date:'dd MMM yyyy'}}</h5>
               </div>
@@ -36,7 +36,7 @@
       <div class="col-md-12">
         <a href="#/news/{{ article.slug }}" class="block-anchor">
           <div class="info more-news clearfix" ng-class="{true: 'draft', false:''}[article.draft]">
-              <div class="title-row clearfix">
+              <div class="title-row title-row-fill clearfix">
                 <div class="col-lg-2 col-md-3">
                   <h5>{{ article.publish_date | date:'dd MMM yyyy'}}</h5>
                 </div> 

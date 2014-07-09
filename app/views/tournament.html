@@ -1,49 +1,62 @@
 <div class="container" id="tournaments">
+
   <div class="row">
-    <div class = "col-md-8">
+    <div class = "col-md-6">
       <h2 translate>{{ {member : 'MEMBER', trainee : 'TRAINEE'}[view] }} Tournaments</h2>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div ng-include="'views/breadcrumbs.html'"></div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-9">
-        <div class="row">
-        <div class="col-md-12">
+      <div>
+          <div class="info well more-news clearfix">
           <a href="#/tournaments/{{ tournament.slug }}" class="block-anchor">
-            <div class="info well more-news clearfix">
-              <div class="title-row clearfix row">
-                <div class="col-md-2">
-                  <h5>{{ tournament.start_date | date:'dd MMM yyyy'}}</h5>
+            <div class="title-row title-row-fill clearfix row">
+              <div class="col-lg-2 col-md-3">
+                <h5>{{ tournament.start_date | date:'dd MMM yyyy'}}</h5>
+              </div>
+              <div class="col-lg-10 col-md-9">
+                <div class="row">
+                  <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }} {{ tournament.no_days }} day tournament | </h4>
                 </div>
-                <div class="col-md-1">
-                  <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
-                </div>
-                <div class="col-md-9">
-                  <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }}
-                      <a class="btn btn-primary" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">
-                        {{division}}
-                      </a> | {{ tournament.no_days }} day tournament |
-                      <span ng-if="tournament.start_date > now">
-                        <a href="#/tournaments/ {{ tournament.rules_url }}">Rules</a>
-                        <a href="#/tournaments/{{ tournament.slug }}/prizemoney">Prize Money</a>
-                        <a href="#/tournaments/{{ tournament.slug }}/teeofftime">Tee Off Time</a>
-                      </span>
-                  </h4>
+                <div class="row">
+                  <a class="btn btn-primary" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</a>
                 </div>
               </div>
+
+
+
+<!--               <div class="col-lg-10 col-md-9">
+                <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }} {{ tournament.no_days }} day tournament | </h4>
+              </div>
+ -->        </div>
           </a>
-          <div ng-if="currentUser.role === 'admin' ">
-            <a class="btn btn-primary" ng-href="#/tournaments/{{ tournament.slug }}/edit">Edit</a>
-            <a class="btn btn-primary" ng-href="#/tournaments/{{ tournament.slug }}/checklist">Checklist</a>
-            <a class="btn btn-primary" ng-href="#/tournaments/{{ tournament.slug }}/score">Score</a>
+            <div>
+              <h4><a class="btn btn-primary" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</a></h4>
+                <span ng-if="tournament.start_date > now">
+                  <a href="#/tournaments/ {{ tournament.rules_url }}">Rules</a>
+                  <a href="#/tournaments/{{ tournament.slug }}/prizemoney">Prize Money</a>
+                  <a href="#/tournaments/{{ tournament.slug }}/teeofftime">Tee Off Time</a>
+                </span>
+            </div>
+
           </div>
+
+        <div ng-if="currentUser.role === 'admin' ">
+          <a class="btn btn-primary" ng-href="#/tournaments/{{ tournament.slug }}/edit">Edit</a>
+          <a class="btn btn-primary" ng-href="#/tournaments/{{ tournament.slug }}/checklist">Checklist</a>
+          <a class="btn btn-primary" ng-href="#/tournaments/{{ tournament.slug }}/score">Score</a>
         </div>
       </div>
+
     </div>
+
     <div class="col-md-3">
       <div ng-include="'/views/sidebar.html'" ng-controller="SidebarCtrl"></div>
     </div>
   </div>
+
 </div>

@@ -13,14 +13,11 @@
         <div class="col-md-12">
           <a href="#/tournaments/{{ tournament.slug }}" class="block-anchor">
             <div class="info well more-news clearfix">
-              <div class="title-row clearfix row">
-                <div class="col-md-2">
+              <div class="title-row title-row-fill clearfix row">
+                <div class="col-lg-2 col-md-3">
                   <h5>{{ tournament.start_date | date:'dd MMM yyyy'}}</h5>
                 </div>
-                <div class="col-md-1">
-                  <span><i class="fa fa-angle-right fa-2x arrow-more"></i></span>
-                </div>
-                <div class="col-md-9">
+                <div class="col-lg-10 col-md-9">
                   <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }}
                       <a class="btn btn-primary" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">
                         {{division}} 
