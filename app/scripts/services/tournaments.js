@@ -41,6 +41,12 @@ app.factory('Tournament',
           .$child('status')
           .$set(participant.status);
       },
+      updateResults : function (tournament) {
+         return tournaments
+          .$child(tournament.created_at)
+          .$child('results')
+          .$update(tournament.results)
+      },
       findBySlug : function(slug){
 
       },

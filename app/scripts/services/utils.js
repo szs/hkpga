@@ -15,6 +15,17 @@ app.factory('Utils',
     return base;
 };
 
+  var sumObj = function(obj){
+    var values = [];
+      for (var k in obj) {
+        if (obj.hasOwnProperty(k)) {
+          values.push(obj[k]);
+        }
+      }
+    return values.reduce(function(a,b){return a + b});
+  }
+
+
   var goHome = function(){
     $location.path('/')    
   }
@@ -57,6 +68,7 @@ app.factory('Utils',
       logUpdate : logUpdate,
       slugify : createSlug,
       nestedObject : nestedObject,
+      sumObj : sumObj
     };
 
     return Utils;

@@ -15,6 +15,7 @@ var app = angular.module('hkpgaApp', [
   'ngRoute',
   'ngSanitize',
   'ngTouch',
+  'ngGrid',
   'firebase',
   'angular-redactor',
   'pascalprecht.translate',
