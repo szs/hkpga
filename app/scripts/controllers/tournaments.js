@@ -24,6 +24,9 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
             $scope.tournament = $scope.tournaments[key];
           }
        })
+
+      $scope.mapScoreData();
+
     } else {
       $scope.reset();
     } 
@@ -42,6 +45,152 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
       $scope.year = parseInt($scope.year);
     }
   })
+
+  $scope.mapScoreData = function(){
+    var tournamentScores = {}
+    var width = $scope.tournament.no_days
+    // console.log(width)
+
+    angular.forEach($scope.tournament.results, function(players, division){
+      // console.log(players)
+      var scores = [];
+      
+      angular.forEach(players, function(player, id){
+        // console.log(player);
+        
+        var scoreRow = {
+          name: player.name.en,
+          username: player.username
+        };
+
+        player.rounds = player.rounds || roundsObj(width);
+
+        angular.forEach(player.rounds, function(score, round){
+          // console.log(score)
+
+          this[round] = score;
+        }, scoreRow)
+
+        this.push(scoreRow)
+
+      }, scores)
+
+      this[division] = scores
+
+    }, tournamentScores)
+
+    $scope.toScore = tournamentScores;
+    
+    var r1 = hasRound(1)
+    var r2 = hasRound(2)
+    var r3 = hasRound(3)
+    var r4 = hasRound(4)
+
+    // $scope.gridOptions = { data: 'toScoreOpen' }
+    $scope.gridOptions = {
+      open : {  data: 'toScore.open',
+                enableCellSelection: true,
+                enableRowSelection: false,
+                enableCellEditOnFocus: true,
+                columnDefs: [
+                  {field:'name', displayName:'Name', enableCellEdit: false},
+                  {field: '1', displayName: 'Round 1', enableCellEdit: true, visible:r1}, 
+                  {field: '2', displayName: 'Round 2', enableCellEdit: true, visible:r2}, 
+                  {field: '3', displayName: 'Round 3', enableCellEdit: true, visible:r3}, 
+                  {field: '4', displayName: 'Round 4', enableCellEdit: true, visible:r4}, 
+                  {field:'username', displayName:'Username', enableCellEdit: false, visible:false}]
+            },
+      ladies : { data: 'toScore.ladies',
+                enableCellSelection: true,
+                enableRowSelection: false,
+                enableCellEditOnFocus: true,
+                columnDefs: [
+                  {field:'name', displayName:'Name', enableCellEdit: false},
+                  {field: '1', displayName: 'Round 1', enableCellEdit: true, visible:r1}, 
+                  {field: '2', displayName: 'Round 2', enableCellEdit: true, visible:r2}, 
+                  {field: '3', displayName: 'Round 3', enableCellEdit: true, visible:r3}, 
+                  {field: '4', displayName: 'Round 4', enableCellEdit: true, visible:r4}, 
+                  {field:'username', displayName:'Username', enableCellEdit: false, visible:false}]
+            },
+      senior : { data: 'toScore.senior',
+                enableCellSelection: true,
+                enableRowSelection: false,
+                enableCellEditOnFocus: true,
+                columnDefs: [
+                  {field:'name', displayName:'Name', enableCellEdit: false},
+                  {field: '1', displayName: 'Round 1', enableCellEdit: true, visible:r1}, 
+                  {field: '2', displayName: 'Round 2', enableCellEdit: true, visible:r2}, 
+                  {field: '3', displayName: 'Round 3', enableCellEdit: true, visible:r3}, 
+                  {field: '4', displayName: 'Round 4', enableCellEdit: true, visible:r4}, 
+                  {field:'username', displayName:'Username', enableCellEdit: false, visible:false}]
+            }, 
+      trainee : { data: 'toScore.trainee',
+                enableCellSelection: true,
+                enableRowSelection: false,
+                enableCellEditOnFocus: true,
+                columnDefs: [
+                  {field:'name', displayName:'Name', enableCellEdit: false},
+                  {field: '1', displayName: 'Round 1', enableCellEdit: true, visible:r1}, 
+                  {field: '2', displayName: 'Round 2', enableCellEdit: true, visible:r2}, 
+                  {field: '3', displayName: 'Round 3', enableCellEdit: true, visible:r3}, 
+                  {field: '4', displayName: 'Round 4', enableCellEdit: true, visible:r4}, 
+                  {field:'username', displayName:'Username', enableCellEdit: false, visible:false}]
+            }, 
+    }
+  }
+
+  $scope.printScore = function(){
+    console.log($scope.tournament.results)
+    console.log($scope.toScore)
+  }
+
+  $scope.getTableStyle= function(division) {
+     var rowHeight=30;
+     var headerHeight=45;
+     return {
+        height: ($scope.toScore[division].length * rowHeight + headerHeight) + "px"
+     };
+  };
+
+  var hasRound = function(round){
+    var x = ($scope.tournament.no_days >= round);
+    return x;
+  }
+
+  var roundsObj = function(days, player){
+    var rounds = {};
+    var player = player || {};
+    for (var i = 0; i < days; i++) {
+      rounds[i+1] = parseInt(player[i+1]) || 0
+    };
+    return rounds;
+  }
+
+
+  $scope.submitScores = function (){
+    
+    angular.forEach($scope.toScore, 
+      function(players, division){
+        players.forEach(function(player, index){
+          var scores = roundsObj($scope.tournament.no_days, player);
+          $scope.tournament.results[division][player.username]['rounds'] = scores;
+          $scope.tournament.results[division][player.username]['totalScore'] = Utils.sumObj(scores);
+        })
+      }
+    );
+
+    Tournament.updateResults($scope.tournament)
+      .then(function(){
+        angular.forEach($scope.tournament.results, 
+          function(players, division){
+            angular.forEach(players, 
+              function(player, username){
+                User.updateResults(player, $scope.tournament)
+            })
+          })
+      })
+      .then($scope.printScore)
+  }
 
   $scope.addParticipant = function(t, division, user){
     var t = $scope.tournament;
@@ -117,7 +266,6 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
         player.status = $scope.status[next];
       })
   }
-
 
   function updateArchives(){
     var deferred = $q.defer()

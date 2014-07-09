@@ -60,6 +60,23 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
         
         return users.$save(user.username);
     },
+    updateResults : function(user, tournament){
+
+        var year = new Date(tournament.start_date).getFullYear();
+
+        var results = {
+          isPointsEligible : user.isEligable,
+          rounds : user.rounds,
+          totalScore: user.totalScore
+        }
+
+        return users
+          .$child(user.username)
+          .$child('results')
+          .$child(year)
+          .$child(tournament.created_at)
+          .$update(results);  
+    },
     removeTournament : function(user, tournament){
         return users
           .$child('results')
