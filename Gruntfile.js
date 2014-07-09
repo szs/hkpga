@@ -1,7 +1,6 @@
 // Generated on 2014-06-07 using generator-angular 0.9.0-0
 'use strict';
 
-
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -9,6 +8,8 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
+
+
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
@@ -212,12 +213,48 @@ module.exports = function (grunt) {
         flow: {
           html: {
             steps: {
+              // js: ['concat'],
               js: ['concat', 'uglifyjs'],
               css: ['cssmin']
             },
-            post: {}
+            post: {
+              js: [{
+                name: 'uglifyjs',
+                createConfig: function(context, block) {
+                  grunt.log.writeln(JSON.stringify(context));
+                  grunt.log.writeln('\n\n\n\n');
+                  context.options = {
+                    beautify: true,
+                    mangle: false,
+                    compress: {
+                      indent_start  : 0,     // start indentation on every line (only when `beautify`)
+                      indent_level  : 4,     // indentation level (only when `beautify`)
+                      quote_keys    : false, // quote all keys in object literals?
+                      space_colon   : true,  // add a space after colon signs?
+                      ascii_only    : false, // output ASCII-safe? (encodes Unicode characters as ASCII)
+                      inline_script : false, // escape "</script"?
+                      width         : 120,    // informative maximum line width (for beautified output)
+                      max_line_len  : 32000, // maximum line length (for non-beautified output)
+                      ie_proof      : true,  // output IE-safe code?
+                      beautify      : true, // beautify output?
+                      source_map    : null,  // output a source map
+                      bracketize    : false, // use brackets every time?
+                      comments      : false, // output comments?
+                      semicolons    : true,  // use semicolons to separate statements? (otherwise, newline
+                    }
+                  };
+                  grunt.log.writeln(JSON.stringify(context));
+                }
+              }]
+            }
           }
         }
+      }
+    },
+
+    uglify: {
+      options: {
+        mangle: false
       }
     },
 
@@ -435,6 +472,5 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
-
 
 };
