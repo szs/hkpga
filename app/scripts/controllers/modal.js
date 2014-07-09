@@ -1,12 +1,13 @@
-var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+var ModalInstanceCtrl = function ($scope, $modalInstance, players) {
 
-  $scope.items = items;
+  $scope.players = players;
   $scope.selected = {
-    item: $scope.items[0]
+    winner: $scope.players[0]
   };
 
+
   $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
+    $modalInstance.close($scope.selected.winner);
   };
 
   $scope.cancel = function () {

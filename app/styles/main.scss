@@ -11,14 +11,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 $header-font:       'Roboto Condensed';
 $paragraph-font:    'Roboto';
-   
+
 $grey-darker:       lighten(#000, 13.5%); // #222
 $grey-dark:         #333333;   // #333
 // $grey:              lighten(#000, 33.5%); // #555
 // $grey-light:        lighten(#000, 60%);   // #999
 $grey:              #5f6062;
 $grey-light:        #cccccc;
-$grey-lighter:      #f3f3f3; 
+$grey-lighter:      #f3f3f3;
 $grey-shadow:       #b5b5b5;
 
 $white:             white;
@@ -52,7 +52,7 @@ $admin-red:         #f06059;
 .admin-shadow {
   box-shadow: inset -2px -2px 3px $grey-dark;
 }
-    
+
 .left-bar {
   border-left: 10px solid $brand-green;
   padding-top: 1rem;
@@ -119,7 +119,7 @@ $admin-red:         #f06059;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: $white;
-  } 
+  }
 
   // Section titles
   h2 {
@@ -227,7 +227,7 @@ $admin-red:         #f06059;
   .well {
     padding: 20px 40px;
     border-radius: 0px !important;
-    background-color: $white;    
+    background-color: $white;
     p {
       margin-bottom: 20px;
       margin-top: 10px;
@@ -258,7 +258,7 @@ $admin-red:         #f06059;
     .footerdiv {
       position: relative;
     }
-  
+
     .footer {
       padding-bottom: 40px;
       position: absolute;
@@ -279,7 +279,7 @@ $admin-red:         #f06059;
   // .2 MAIN POSTS PAGE //
 
     #main-page{
-      margin-top: -90px;  
+      margin-top: -90px;
     }
 
     .post {
@@ -323,7 +323,7 @@ $admin-red:         #f06059;
       color: $text-grey;
       padding: 22px;
       font-family: $paragraph-font;
-      font-weight: normal; 
+      font-weight: normal;
       position: relative;
       height: 100%;
       img {
@@ -381,7 +381,7 @@ $admin-red:         #f06059;
       }
     }
 
-    .articles-section {  
+    .articles-section {
       .title-row {
         h5, h4 {
           display: block;
@@ -459,8 +459,8 @@ $admin-red:         #f06059;
     }
 
 
-    // 2. PARTNERS PAGE 
-  
+    // 2. PARTNERS PAGE
+
     #partners-widget {
       .logos {
         div {
@@ -476,7 +476,7 @@ $admin-red:         #f06059;
           height: 100%;
           width: 100%;
         }
-      }    
+      }
       #official-partners .logos {
         a:nth-child(1) div {
             background-image: url(/images/logo-pgae-bw.png);
@@ -514,7 +514,7 @@ $admin-red:         #f06059;
         }
         a:nth-child(1):hover div{
             background-image: url(/images/logo-ageas.png);
-        }        
+        }
       }
       #supporting-organisations .logos {
         a:nth-child(1) div{
@@ -569,7 +569,7 @@ $admin-red:         #f06059;
             width: 260px;
             background-color: $grey-dark;
             padding-left: 15px;
-            color: $white; 
+            color: $white;
             border: none;
             box-shadow: 1px 1px 2px $grey;
           }
@@ -626,7 +626,7 @@ $admin-red:         #f06059;
       }
       .pro-details {
         margin-top: 15px;
-        @extend .description-list; 
+        @extend .description-list;
       }
       .back {
           float: right;
@@ -634,14 +634,14 @@ $admin-red:         #f06059;
     }
 
 
-    // .2 COMMITTEE & HONORARY MEMBERS 
+    // .2 COMMITTEE & HONORARY MEMBERS
 
 
 
     // .2 CONTACT //
 
     #contact-page {
-      @extend .description-list; 
+      @extend .description-list;
       i {
         margin-right: 15px;
       }
@@ -677,7 +677,7 @@ $admin-red:         #f06059;
       }
       h4 {
         border-left: none;
-        padding-left: 0px; 
+        padding-left: 0px;
         font-size: 2rem;
       }
       h5 {
@@ -803,7 +803,7 @@ $admin-red:         #f06059;
         padding-bottom: 22px;
       }
     }
-  } 
+  }
 
 
 
@@ -840,7 +840,7 @@ $admin-red:         #f06059;
         float: left;
         margin: 6px 10px 0px 10px;
         text-align: center;
-      } 
+      }
       i {
         color: $nav-grey;
         &:hover {
@@ -867,7 +867,7 @@ $admin-red:         #f06059;
         font-weight: 400;
       }
       li > a {
-        color: $nav-grey;        
+        color: $nav-grey;
         padding: 0px;
         font-size: 1.3rem;
       }
@@ -1050,7 +1050,7 @@ $admin-red:         #f06059;
       a {
         color: $brand-gold;
       }
-    }    
+    }
 
 
   /* CAROUSEL */
@@ -1097,19 +1097,19 @@ $admin-red:         #f06059;
       }
       .item:nth-child(3) {
         background-image: url(/images/clear-water-bay-golf-course.png);
-        background-size: cover;    
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
 
       }
       .item:nth-child(4) {
         background-image: url(/images/kau-sai-chau-public-golf-course.png);
-        background-size: cover;    
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
       }
       .carousel-caption > p {
-        font-style: italic; 
+        font-style: italic;
       }
     }
 
@@ -1191,14 +1191,14 @@ $admin-red:         #f06059;
   content: "\f0c8"; // filled square
   display: inline-block;
   padding-right: 14px;
-  font-size: 1.1rem; 
+  font-size: 1.1rem;
 }
 .admin .member:before{
   font-family: FontAwesome;
   content: "\f096"; // empty square
   display: inline-block;
   padding-right: 14px;
-  font-size: 1.1rem; 
+  font-size: 1.1rem;
 }
 
 // member: f096 / empty square
@@ -1348,7 +1348,7 @@ $admin-red:         #f06059;
         background-color: $admin-button-grey;
         color: $admin-green;
       }
-    } 
+    }
 
     .publish-buttons {
       i {
@@ -1374,7 +1374,7 @@ $admin-red:         #f06059;
 
 
 
-  // ADMIN MODULES 
+  // ADMIN MODULES
 
 
   .publish-buttons {
@@ -1475,7 +1475,7 @@ $admin-red:         #f06059;
     min-height : 300px;
   }
 
-} 
+}
 
 //  ADMIN EDITOR
 
@@ -1567,7 +1567,7 @@ $admin-red:         #f06059;
   }
 
 
-// NEW CONTENT FORM 
+// NEW CONTENT FORM
 
 
 .new-content-form {
@@ -1625,7 +1625,7 @@ $admin-red:         #f06059;
         margin-left: 10px;
         padding-right: 10px;
       }
-      #division-label { 
+      #division-label {
         line-height: 40px;
       }
     }
@@ -1665,7 +1665,11 @@ $admin-red:         #f06059;
     }
   }
 
+// Modal
 
+.modal {
+  margin-top: 200px;
+}
 
 // 7. MEDIA QUERIES ----------------------------------
 
@@ -1687,7 +1691,7 @@ $admin-red:         #f06059;
   }
 }
 
-// Custom query 
+// Custom query
 @media (min-width: 400px) and (max-width: 767px) {
   #committee-page {
     span {
@@ -1707,7 +1711,7 @@ $admin-red:         #f06059;
 
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: $screen-sm-min) { 
+@media (min-width: $screen-sm-min) {
   .navbar-brand {
     img {
       width: 110px;
@@ -1763,7 +1767,7 @@ $admin-red:         #f06059;
   }
 }
 
-// Custom query 
+// Custom query
 @media (min-width: 769px) and (max-width: 866px) {
   .navbar-brand {
     img {
@@ -1774,21 +1778,21 @@ $admin-red:         #f06059;
   }
 }
 
-// Custom query 
+// Custom query
 @media (min-width: 866px) {
   .open > .dropdown-menu {
     -webkit-transform: scale(1, 1);
-    transform: scale(1, 1);  
+    transform: scale(1, 1);
     opacity:1;
   }
-    
+
   .dropdown-menu {
     -webkit-transform-origin: top;
     transform-origin: top;
-    -webkit-animation-fill-mode: forwards;  
-    animation-fill-mode: forwards; 
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
     -webkit-transform: scale(1, 0);
-    display: block; 
+    display: block;
     transition: all 0.2s ease;
     -webkit-transition: all 0.2s ease;
   }
@@ -1796,7 +1800,7 @@ $admin-red:         #f06059;
 }
 
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: $screen-md-min) { 
+@media (min-width: $screen-md-min) {
 
   .navbar-brand {
     img {
@@ -1817,12 +1821,12 @@ $admin-red:         #f06059;
       margin-left: 300px;
     }
   }
-  
+
 }
 
 
 /* Large devices (large desktops, 1200px and up) */
-@media (min-width: $screen-lg-min) { 
+@media (min-width: $screen-lg-min) {
 
   .navbar-brand {
     img {
@@ -1850,7 +1854,7 @@ $admin-red:         #f06059;
 }
 
 
-// Custom query 
+// Custom query
 @media (min-width: 1620px) {
   .navbar-brand {
     img {

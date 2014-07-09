@@ -55,7 +55,7 @@ app.controller('MeritCtrl', function($scope){
     return days * 50000;
   }
 
-  var pointsScored = function(position, days){
+  var pointsScored = function(position, days, split){
     position = position - 1;
     position = Math.min(Math.max(position, 0), 44)
     return Math.floor(percentage[position] * pointsAvailable(days) / 100);

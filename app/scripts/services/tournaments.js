@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Tournament', 
+app.factory('Tournament',
   function ($firebase, FIREBASE_URL, Utils) {
     var ref = new Firebase(FIREBASE_URL + 'tournaments');
     var upcomingRef = ref.startAt(Date.now());
@@ -15,15 +15,15 @@ app.factory('Tournament',
       upcoming: upcoming,
       recent: recent,
       create : function(tournament){
-        
+
         tournaments[tournament.created_at] = tournament;
-        
+
         return tournaments.$save(tournament.created_at)
 
       },
       addParticipant : function (tournament, division, participant){
         Utils.nestedObject( tournaments[tournament.created_at], ['results', division, participant.username], participant);
-        
+
         return tournaments.$save(tournament.created_at);
       },
       removeParticipant : function (tournament, division, participant){
@@ -31,6 +31,11 @@ app.factory('Tournament',
           .$child('results')
           .$child(division)
           .$remove(participant.username);
+      },
+      setScored : function(tournament){
+        return tournaments.$child(tournament.created_at)
+                  .$child('scored')
+                  .$set(true);
       },
       updatePlayerStatus : function (participant, tournament, division){
         return tournaments
