@@ -1,14 +1,14 @@
 /* global app:true */
 'use strict';
 
-app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $location, $routeParams, Utils, Tournament, User, Archive){
-  
+app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $timeout, $location, $routeParams, Utils, Tournament, User, Archive){
+
   $scope.tournaments = Tournament.all;
-  
+
   $scope.upcoming = Tournament.upcoming;
 
   $scope.recent = Tournament.recent;
-  
+
   $scope.divisions = ['open','ladies','senior','trainee'];
   $scope.status = ['signedup','registered','played','cancelled','forfeited','disqualified'];
 
@@ -29,7 +29,7 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
 
     } else {
       $scope.reset();
-    } 
+    }
   })
 
   $scope.category = $location.path().split('/')[1];
@@ -54,10 +54,10 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
     angular.forEach($scope.tournament.results, function(players, division){
       // console.log(players)
       var scores = [];
-      
+
       angular.forEach(players, function(player, id){
         // console.log(player);
-        
+
         var scoreRow = {
           name: player.name.en,
           username: player.username
@@ -80,7 +80,7 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
     }, tournamentScores)
 
     $scope.toScore = tournamentScores;
-    
+
     var r1 = hasRound(1)
     var r2 = hasRound(2)
     var r3 = hasRound(3)
@@ -94,10 +94,10 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
                 enableCellEditOnFocus: true,
                 columnDefs: [
                   {field:'name', displayName:'Name', enableCellEdit: false},
-                  {field: '1', displayName: 'Round 1', enableCellEdit: true, visible:r1}, 
-                  {field: '2', displayName: 'Round 2', enableCellEdit: true, visible:r2}, 
-                  {field: '3', displayName: 'Round 3', enableCellEdit: true, visible:r3}, 
-                  {field: '4', displayName: 'Round 4', enableCellEdit: true, visible:r4}, 
+                  {field: '1', displayName: 'Round 1', enableCellEdit: true, visible:r1},
+                  {field: '2', displayName: 'Round 2', enableCellEdit: true, visible:r2},
+                  {field: '3', displayName: 'Round 3', enableCellEdit: true, visible:r3},
+                  {field: '4', displayName: 'Round 4', enableCellEdit: true, visible:r4},
                   {field:'username', displayName:'Username', enableCellEdit: false, visible:false}]
             },
       ladies : { data: 'toScore.ladies',
@@ -106,10 +106,10 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
                 enableCellEditOnFocus: true,
                 columnDefs: [
                   {field:'name', displayName:'Name', enableCellEdit: false},
-                  {field: '1', displayName: 'Round 1', enableCellEdit: true, visible:r1}, 
-                  {field: '2', displayName: 'Round 2', enableCellEdit: true, visible:r2}, 
-                  {field: '3', displayName: 'Round 3', enableCellEdit: true, visible:r3}, 
-                  {field: '4', displayName: 'Round 4', enableCellEdit: true, visible:r4}, 
+                  {field: '1', displayName: 'Round 1', enableCellEdit: true, visible:r1},
+                  {field: '2', displayName: 'Round 2', enableCellEdit: true, visible:r2},
+                  {field: '3', displayName: 'Round 3', enableCellEdit: true, visible:r3},
+                  {field: '4', displayName: 'Round 4', enableCellEdit: true, visible:r4},
                   {field:'username', displayName:'Username', enableCellEdit: false, visible:false}]
             },
       senior : { data: 'toScore.senior',
@@ -118,26 +118,56 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
                 enableCellEditOnFocus: true,
                 columnDefs: [
                   {field:'name', displayName:'Name', enableCellEdit: false},
-                  {field: '1', displayName: 'Round 1', enableCellEdit: true, visible:r1}, 
-                  {field: '2', displayName: 'Round 2', enableCellEdit: true, visible:r2}, 
-                  {field: '3', displayName: 'Round 3', enableCellEdit: true, visible:r3}, 
-                  {field: '4', displayName: 'Round 4', enableCellEdit: true, visible:r4}, 
+                  {field: '1', displayName: 'Round 1', enableCellEdit: true, visible:r1},
+                  {field: '2', displayName: 'Round 2', enableCellEdit: true, visible:r2},
+                  {field: '3', displayName: 'Round 3', enableCellEdit: true, visible:r3},
+                  {field: '4', displayName: 'Round 4', enableCellEdit: true, visible:r4},
                   {field:'username', displayName:'Username', enableCellEdit: false, visible:false}]
-            }, 
+            },
       trainee : { data: 'toScore.trainee',
                 enableCellSelection: true,
                 enableRowSelection: false,
                 enableCellEditOnFocus: true,
                 columnDefs: [
                   {field:'name', displayName:'Name', enableCellEdit: false},
-                  {field: '1', displayName: 'Round 1', enableCellEdit: true, visible:r1}, 
-                  {field: '2', displayName: 'Round 2', enableCellEdit: true, visible:r2}, 
-                  {field: '3', displayName: 'Round 3', enableCellEdit: true, visible:r3}, 
-                  {field: '4', displayName: 'Round 4', enableCellEdit: true, visible:r4}, 
+                  {field: '1', displayName: 'Round 1', enableCellEdit: true, visible:r1},
+                  {field: '2', displayName: 'Round 2', enableCellEdit: true, visible:r2},
+                  {field: '3', displayName: 'Round 3', enableCellEdit: true, visible:r3},
+                  {field: '4', displayName: 'Round 4', enableCellEdit: true, visible:r4},
                   {field:'username', displayName:'Username', enableCellEdit: false, visible:false}]
-            }, 
+            },
     }
   }
+
+  $scope.calculateRank = function(){
+    user.status == 'played'
+  }
+
+  $scope.calculatePoints = function(){
+
+  }
+
+  $scope.items = ['item1', 'item2', 'item3'];
+
+  $scope.openModal = function (size) {
+
+    var modalInstance = $modal.open({
+      templateUrl: 'views/suddendeath.html',
+      controller: ModalInstanceCtrl,
+      size: size,
+      resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      console.log('Modal dismissed at: ' + new Date());
+    });
+  };
 
   $scope.printScore = function(){
     console.log($scope.tournament.results)
@@ -168,8 +198,8 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
 
 
   $scope.submitScores = function (){
-    
-    angular.forEach($scope.toScore, 
+
+    angular.forEach($scope.toScore,
       function(players, division){
         players.forEach(function(player, index){
           var scores = roundsObj($scope.tournament.no_days, player);
@@ -181,9 +211,9 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
 
     Tournament.updateResults($scope.tournament)
       .then(function(){
-        angular.forEach($scope.tournament.results, 
+        angular.forEach($scope.tournament.results,
           function(players, division){
-            angular.forEach(players, 
+            angular.forEach(players,
               function(player, username){
                 User.updateResults(player, $scope.tournament)
             })
@@ -209,7 +239,7 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
     }
 
     Utils.nestedObject($scope.tournaments[t.created_at], ['results', division, participant.username], participant);
-   
+
     $timeout(function() {
       Tournament.addParticipant(t, division, participant)
         .then(function(){
@@ -221,7 +251,7 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
   }
 
   $scope.removeParticipant = function(t, division, p){
-    delete $scope.tournaments[t.created_at]['results'][division][p.username] 
+    delete $scope.tournaments[t.created_at]['results'][division][p.username]
     Tournament.removeParticipant(t, division, p)
       .then(function(){
         User.removeTournament(p, t);
@@ -233,7 +263,7 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
   $scope.publish = function(t){
     var t = t || $scope.tournament;
 
-    
+
     // t.start_date = Date.parse(t.start_date);
     // t.signup_before = Date.parse(t.signup_before);
 
@@ -274,7 +304,7 @@ app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $lo
       year : new Date($scope.tournament.start_date).getFullYear(),
       category : 'tournaments'
     }
-        
+
     Archive.create(archiveItem).then(function(){
       deferred.resolve();
     })
