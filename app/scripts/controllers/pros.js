@@ -74,7 +74,7 @@ app.controller('ProsCtrl', function($scope, $filter, $routeParams, User){
       {value : 'admin', name : 'Admin'},
       {value : 'member', name : 'Member'},
       {value : 'user', name : 'User'},
-      {value : 'non-affiliated', name : 'Non-Affiliated'},
+      {value : 'legacy', name : 'Legacy'},
     ],
     relations : [
       {value : 'full', name : 'Full Member'},

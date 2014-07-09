@@ -66,7 +66,6 @@ $admin-red:         #f06059;
 
 .title-row {
   border: 2px solid $white;
-  background-color: transparent;
 }
 
 .description-list {
@@ -131,7 +130,6 @@ $admin-red:         #f06059;
   h4 {
     font-size: 1.8rem;
     color: $text-grey-light;
-    padding-top: 11px;
     font-weight: 400;
   }
 
@@ -293,6 +291,20 @@ $admin-red:         #f06059;
         div.title-row {
           border-color: $brand-gold;
         }
+        h4,h5 {
+          color: $brand-gold;
+        }
+      }
+      h4, h5 {
+        font-size: 1.8rem;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      h4 {
+        color: $text-grey-lighter;
+      }
+      h5 {
+        color: $text-grey-light;
       }
     }
 
@@ -306,6 +318,8 @@ $admin-red:         #f06059;
       height: 100%;
       img {
         width: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
       }
       button.btn {
         float: right;
@@ -314,20 +328,39 @@ $admin-red:         #f06059;
 
     .more-news {
       border-radius: 0;
+      margin-bottom: 15px;
       img {
         width: 100%;
-      }
-      .title-row {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
       }
       h4,h5 {
         color: $text-grey;
       }
+      h4, h5 {
+        font-size: 1.8rem;
+        padding-top: 25px;
+        padding-bottom: 20px;
+        line-height: 22px;
+      }
+      h4 {
+        color: $text-grey;
+      }
+      h5 {
+        color: $text-grey-light;
+      }
       button.btn {
         float: right;
       }
+      .title-row {
+        padding-left: 20px;
+        background-color: $white;
+        border-bottom: 1px solid $text-grey-lighter;
+      }
     }
 
+    .more-news-body {
+      padding-top: 30px;
+    }
 
     .articles-section {
       a.block-anchor:hover {
@@ -343,8 +376,7 @@ $admin-red:         #f06059;
       }
     }
 
-    .articles-section, 
-    #show-article {  
+    .articles-section {  
       .title-row {
         &:hover {
           color: $brand-gold;
@@ -352,8 +384,11 @@ $admin-red:         #f06059;
         h5, h4 {
           display: block;
         }
+        h4 {
+          color: $text-grey-lighter;
+        }
         h5 {
-          padding: 12px 0px 12px 0;
+          color: $text-grey-light;
         }
         i.arrow-more {
           display: block;
@@ -364,36 +399,6 @@ $admin-red:         #f06059;
         }
       }
     }
-
-    #archive #show-article,
-    .show-news #show-article {
-      .title-row {  
-        i.arrow-more {
-            display: block;
-            padding: 13px 0px;
-            text-align: center;
-        }
-        margin-top: 3px;
-        h4 {
-          font-size: 1.8rem;
-          font-weight: 400;
-          @include bar-height(1.8rem);
-          color: $grey-light;
-        }
-        h5 {
-          font-size: 1.7rem;
-          margin-left: 25px;
-          color: $grey-light;
-        }
-        p:nth-child(2){
-          padding-top: 20px;
-        }
-      }
-      .article-body {
-        padding-top: 20px;
-      }
-    }
-
 
     .article-body {
       table {
@@ -834,10 +839,14 @@ $admin-red:         #f06059;
     }
 
     #social-media {
-      margin-right: 27px;
-      li > i {
+      margin-right: 30px;
+      a {
         font-size: 2.4rem;
-        margin: 5px 8px;
+        float: left;
+        margin: 6px 10px 0px 10px;
+        text-align: center;
+      } 
+      i {
         color: $nav-grey;
         &:hover {
           color: $white;
@@ -938,7 +947,7 @@ $admin-red:         #f06059;
   /* Widgets */
 
   .widget {
-      padding-bottom: 50px;
+      padding-bottom: 60px;
     h3 {
       vertical-align: middle;
       margin: 12px 12px;

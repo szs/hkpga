@@ -26,6 +26,21 @@ app.factory('Tournament',
         
         return tournaments.$save(tournament.created_at);
       },
+      removeParticipant : function (tournament, division, participant){
+        return tournaments.$child(tournament.created_at)
+          .$child('results')
+          .$child(division)
+          .$remove(participant.username);
+      },
+      updatePlayerStatus : function (participant, tournament, division){
+        return tournaments
+          .$child(tournament.created_at)
+          .$child('results')
+          .$child(division)
+          .$child(participant.username)
+          .$child('status')
+          .$set(participant.status);
+      },
       findBySlug : function(slug){
 
       },

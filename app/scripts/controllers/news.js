@@ -68,7 +68,7 @@ app.controller('NewsCtrl', function($scope, $q, $routeParams, $location, Utils, 
         year : new Date($scope.article.publish_date).getFullYear(),
         category : $scope.article.category
       }
-          
+
       Archive.create(archiveItem).then(function(){
         deferred.resolve();
       })

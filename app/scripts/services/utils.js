@@ -15,6 +15,10 @@ app.factory('Utils',
     return base;
 };
 
+  var goHome = function(){
+    $location.path('/')    
+  }
+  
   var createSlug = function(str) {
     var slug = '';
     var trimmed = str.trim();

@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, Utils, Tournament, User, Archive){
+app.controller('TournamentsCtrl', function($scope, $rootScope, $q, $timeout, $location, $routeParams, Utils, Tournament, User, Archive){
   
   $scope.tournaments = Tournament.all;
   
@@ -10,6 +10,7 @@ app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, 
   $scope.recent = Tournament.recent;
   
   $scope.divisions = ['open','ladies','senior','trainee'];
+  $scope.status = ['signedup','registered','played','cancelled','forfeited','disqualified'];
 
   $scope.reset = function (){
     $scope.tournament = Tournament.new();
@@ -17,6 +18,7 @@ app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, 
 
   $scope.tournaments.$on('loaded',function(){
     if ($routeParams.id){
+      $scope.edit = true
       angular.forEach($scope.tournaments, function(value, key) {
           if (value.slug == $routeParams.id){
             $scope.tournament = $scope.tournaments[key];
@@ -42,7 +44,7 @@ app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, 
   })
 
   $scope.addParticipant = function(t, division, user){
-    var t = t || $scope.tournament;
+    var t = $scope.tournament;
     var user = user.originalObject;
 
     var participant = {
@@ -57,9 +59,25 @@ app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, 
         id : t.start_date,
     }
 
-    Tournament.addParticipant(t, division, participant)
+    Utils.nestedObject($scope.tournaments[t.created_at], ['results', division, participant.username], participant);
+   
+    $timeout(function() {
+      Tournament.addParticipant(t, division, participant)
+        .then(function(){
+          User.addTournament(user, tournament);
+        }).then(function(){
+          $scope.tournaments[t.created_at] = t
+        })
+      });
+  }
+
+  $scope.removeParticipant = function(t, division, p){
+    delete $scope.tournaments[t.created_at]['results'][division][p.username] 
+    Tournament.removeParticipant(t, division, p)
       .then(function(){
-        User.addTournament(user, tournament);
+        User.removeTournament(p, t);
+      }).then(function(){
+        $scope.tournaments[t.created_at] = t
       })
   }
 
@@ -83,6 +101,22 @@ app.controller('TournamentsCtrl', function($scope, $q, $location, $routeParams, 
         $scope.reset();
         $location.path('/tournaments/'+ t.slug);})
   };
+
+   $scope.delete = function(t){
+    var t = t || $scope.tournament;
+    Tournament.delete(t.created_at)
+      .then(function(){
+        $location.path('/admin');
+      });
+  };
+
+  $scope.nextStatus = function(player, tournament, division){
+    var next = ($scope.status.indexOf(player.status) + 1) % $scope.status.length;
+    Tournament.updatePlayerStatus(player, tournament, division)
+      .then(function(){
+        player.status = $scope.status[next];
+      })
+  }
 
 
   function updateArchives(){

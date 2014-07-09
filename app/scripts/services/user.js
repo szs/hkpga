@@ -35,15 +35,11 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
       userObj.md5_hash = authUser.md5_hash;
       userObj.$priority = authUser.uid;
       users[userObj.username] = userObj;
-      users.$save(userObj.username).then(function(){
-          setCurrentUser(userObj.username);
-      });
+      users.$save(userObj.username);
     },
     update : function (user){
       users[user.username] = user;
-      users.$save(user.username).then(function(){
-          setCurrentUser(user.username);
-      });
+      users.$save(user.username);
     },
     findByUsername: function (usr) {
       if (usr) {
@@ -57,14 +53,23 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
       return $rootScope.currentUser !== undefined;
     },
     addTournament : function(user, tournament){
-
+        if (angular.isNumber(tournament) == false){
+          tournament.id = Date.parse(tournament.id)
+        }
         Utils.nestedObject( users[user.username], ['results', tournament.year, tournament.id, 'status'], 'signedup');
         
         return users.$save(user.username);
     },
+    removeTournament : function(user, tournament){
+        return users
+          .$child('results')
+          .$child(new Date(tournament.created_at).getFullYear())
+          .$remove(tournament.created_at);
+    },
     new : function(){
       return {
         "username": "",
+        "isAdmin": false,
         "achievements": {
           "en": "",
           "zh-cn": "",

@@ -1,0 +1,15 @@
+<div class="container admin-styling" id="tournament-checklist">
+  <div class="row search-bar">
+    <div class="col-md-12">
+      <h2><i class="fa fa-trophy"></i>Tournament Scores </h2>
+  	</div>
+     
+     {{ toScore }}
+
+  	<div ng-controller="TournamentsCtrl" class="row add-division">
+		<div class="gridStyle" ng-grid="gridOptions"></div>
+    </div>
+  </div>
+</div>
+
+
