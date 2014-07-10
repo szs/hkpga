@@ -1,6 +1,13 @@
 <div class="container" id="events-page">
   <div class="articles-section">
-    <h2 translate>EVENTS</h2>
+    <div class="row">
+      <div class="col-md-8">
+        <h2 translate>EVENTS</h2>
+      </div>
+      <div class-"col-md-4">
+        <div ng-include="'views/breadcrumbs.html'"></div>
+      </div>
+    </div>
     <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | orderBy: 'publish_date':true | filter:{category : 'events'} | limitTo:11">
       <div class="col-md-9">
         <a href="#/events/{{ article.slug }}" class="block-anchor">

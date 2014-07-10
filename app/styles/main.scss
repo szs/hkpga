@@ -109,7 +109,7 @@ $admin-red:         #f06059;
     background: #F3F3F3;
     background-image: url(/images/tactile-grey-bg.png);
     background-position: fixed;
-    padding-top: 110px;
+    padding-top: 140px;
     padding-bottom: 0;
   }
 
@@ -127,7 +127,7 @@ $admin-red:         #f06059;
     letter-spacing: 1px;
     color: $brand-gold;
     text-transform: uppercase;
-    margin-top: 40px;
+    margin-top: 10px;
     margin-bottom: 20px;
     @extend .left-bar;
     @include bar-height(2.4rem);
@@ -179,7 +179,8 @@ $admin-red:         #f06059;
   .breadcrumb {
     float: right;
     text-align: right;
-    margin-top: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border-radius: 0px;
     background-color: transparent;
     border-bottom: 2px solid $grey;
@@ -237,7 +238,6 @@ $admin-red:         #f06059;
   }
 
 
-
 // 2. LAYOUT ------------------------------------------------------------
 
 
@@ -281,6 +281,12 @@ $admin-red:         #f06059;
 
     #main-page{
       margin-top: -90px;
+      h2 {
+        margin-top: 40px;
+      }
+      .more-news-body {
+        margin-bottom: 20px;
+      }
     }
 
     .post {
@@ -340,6 +346,7 @@ $admin-red:         #f06059;
     .more-news {
       border-radius: 0;
       margin-bottom: 15px;
+      position: relative;
       img {
         width: 100%;
         margin-bottom: 15px;
@@ -361,11 +368,15 @@ $admin-red:         #f06059;
       }
       button.btn {
         float: right;
+        position: absolute;
+        right: 20px;
+        bottom: 10px;
       }
     }
 
     .more-news-body {
       padding-top: 30px;
+      margin-bottom: 50px;
     }
 
     .articles-section {
@@ -807,6 +818,26 @@ $admin-red:         #f06059;
   }
 
 
+  // .2 ARCHIVE PAGE 
+
+    #archive {
+      h2 {
+        float: left;
+      }
+      .search-title-row {
+        #text-search {
+          float: right;
+          color: $text-grey-light;
+          padding-top: 25px;
+          span {
+            padding-right: 15px;
+          }
+          input {
+            padding-left: 10px;
+          }
+        }        
+      }
+    }
 
 // 3. MODULE ------------------------------------------------------------
 
