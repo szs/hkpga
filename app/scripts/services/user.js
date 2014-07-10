@@ -2,7 +2,7 @@
 'use strict';
 
 app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
-  
+
   var ref = new Firebase(FIREBASE_URL + 'users');
 
   var users = $firebase(ref);
@@ -57,7 +57,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
           tournament.id = Date.parse(tournament.id)
         }
         Utils.nestedObject( users[user.username], ['results', tournament.year, tournament.id, 'status'], 'signedup');
-        
+
         return users.$save(user.username);
     },
     updateResults : function(user, tournament){
@@ -67,7 +67,10 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
         var results = {
           isPointsEligible : user.isEligable,
           rounds : user.rounds,
-          totalScore: user.totalScore
+          totalScore: user.totalScore,
+          rank : user.rank,
+          isWinner : user.isWinner,
+          points: user.points,
         }
 
         return users
@@ -75,7 +78,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
           .$child('results')
           .$child(year)
           .$child(tournament.created_at)
-          .$update(results);  
+          .$update(results);
     },
     removeTournament : function(user, tournament){
         return users
