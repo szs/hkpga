@@ -178,6 +178,7 @@ $admin-red:         #f06059;
 
   .breadcrumb {
     float: right;
+    text-align: right;
     margin-top: 40px;
     border-radius: 0px;
     background-color: transparent;
@@ -1090,20 +1091,20 @@ $admin-red:         #f06059;
         background-position: center;
       }
       .item:nth-child(2){
-        background-image: url(/images/discovery-bay-golf-club.png);
+        background-image: url(/images/jockey-club-kau-sai-chau-golf-course.png);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
       }
       .item:nth-child(3) {
-        background-image: url(/images/clear-water-bay-golf-course.png);
+        background-image: url(/images/clearwater-bay-golf-course.png);
         background-size: cover;    
         background-repeat: no-repeat;
         background-position: center;
 
       }
       .item:nth-child(4) {
-        background-image: url(/images/kau-sai-chau-public-golf-course.png);
+        background-image: url(/images/discovery-bay-golf-club.png);
         background-size: cover;    
         background-repeat: no-repeat;
         background-position: center;
