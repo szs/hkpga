@@ -1,4 +1,4 @@
-<div class="container" id="tournaments">
+<div class="container" id="tournaments-page">
   <div class="row">
     <div class = "col-md-8">
       <h2 translate>{{ {member : 'MEMBER', trainee : 'TRAINEE'}[view] }} Tournaments</h2>
@@ -11,27 +11,24 @@
     <div class="col-md-9">
         <div class="row" ng-repeat="(key, tournament) in tournaments | orderByPriority | tournamentType:view | orderBy: 'start_date':true | filterYear:year:'start_date'">
         <div class="col-md-12">
-          <a href="#/tournaments/{{ tournament.slug }}" class="block-anchor">
-            <div class="info well more-news clearfix">
+          <div class="info well more-news clearfix">
+            <a href="#/tournaments/{{ tournament.slug }}" class="block-anchor">
               <div class="title-row title-row-fill clearfix row">
                 <div class="col-lg-2 col-md-3">
                   <h5>{{ tournament.start_date | date:'dd MMM yyyy'}}</h5>
                 </div>
                 <div class="col-lg-10 col-md-9">
-                  <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }}
-                      <a class="btn btn-primary" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">
-                        {{division}} 
-                      </a> | {{ tournament.no_days }} day tournament | 
-                      <span ng-if="tournament.start_date > now">
-                        <a href="#/tournaments/ {{ tournament.rules_url }}">Rules</a>
-                        <a href="#/tournaments/{{ tournament.slug }}/prizemoney">Prize Money</a>
-                        <a href="#/tournaments/{{ tournament.slug }}/teeofftime">Tee Off Time</a>
-                      </span>
-                  </h4>
+                  <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }} {{ tournament.no_days }} day tournament </h4>
+                  <a class="btn btn-default tournament-division" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions"> {{division}} </a> 
+                  <span ng-if="tournament.start_date > now">
+                    <a href="#/tournaments/ {{ tournament.rules_url }}">Rules</a>
+                    <a href="#/tournaments/{{ tournament.slug }}/prizemoney">Prize Money</a>
+                    <a href="#/tournaments/{{ tournament.slug }}/teeofftime">Tee Off Time</a>
+                  </span>
                 </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
     </div>

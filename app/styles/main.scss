@@ -839,6 +839,55 @@ $admin-red:         #f06059;
       }
     }
 
+
+  // .2 TOURNAMENTS PAGE 
+
+
+    #tournaments-page,
+    #tournament-page {
+      .well {
+        margin-bottom: 20px;
+      }
+      h4 {
+        padding-bottom: 5px;
+      }
+      a:hover{
+        h4 {
+        color: $brand-gold;
+        }
+      }
+      .title-row {
+        border-bottom: none;
+        .btn-default {
+          border: 2px solid $text-grey;
+          margin-right: 7px;
+          margin-bottom: 20px;
+          &:hover {
+            background-color: $brand-gold;
+            color: $white;
+            border: 2px solid $grey-light;
+          }
+        }
+        a {
+          color: $text-grey;
+          text-transform: capitalize;
+        }
+      }
+    }
+
+
+    #tournament-page {
+      a:hover {
+        h4 {
+          color: $text-grey;
+        }
+      }
+      .title-row {
+        border-bottom: 1px solid $grey-light;
+      }
+    }
+
+
 // 3. MODULE ------------------------------------------------------------
 
 
@@ -984,7 +1033,6 @@ $admin-red:         #f06059;
       vertical-align: middle;
       height: 50px;
       @extend .title-row;
-      @extend .title-row-transparent;
     }
     .widget-footer {
       margin-top: -20px;

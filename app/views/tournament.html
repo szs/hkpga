@@ -1,4 +1,4 @@
-<div class="container" id="tournaments">
+<div class="container" id="tournament-page">
 
   <div class="row">
     <div class = "col-md-6">
@@ -13,36 +13,29 @@
     <div class="col-md-9">
       <div>
           <div class="info well more-news clearfix">
-          <a href="#/tournaments/{{ tournament.slug }}" class="block-anchor">
-            <div class="title-row title-row-fill clearfix row">
-              <div class="col-lg-2 col-md-3">
-                <h5>{{ tournament.start_date | date:'dd MMM yyyy'}}</h5>
-              </div>
-              <div class="col-lg-10 col-md-9">
-                <div class="row">
-                  <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }} {{ tournament.no_days }} day tournament | </h4>
+            <a href="#/tournaments/{{ tournament.slug }}" class="block-anchor">
+              <div class="title-row title-row-fill clearfix row">
+                <div class="col-lg-2 col-md-3">
+                  <h5>{{ tournament.start_date | date:'dd MMM yyyy'}}</h5>
                 </div>
-                <div class="row">
-                  <a class="btn btn-primary" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</a>
+                <div class="col-lg-10 col-md-9">
+                  <div class="row">
+                    <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }} {{ tournament.no_days }} day tournament | </h4>
+                  </div>
+                  <div class="row">
+                    <a class="btn btn-default" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</a>
+                  </div>
                 </div>
               </div>
-
-
-
-<!--               <div class="col-lg-10 col-md-9">
-                <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }} {{ tournament.no_days }} day tournament | </h4>
-              </div>
- -->        </div>
-          </a>
+            </a>
             <div>
-              <h4><a class="btn btn-primary" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</a></h4>
+              <h4><a class="btn btn-default" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</a></h4>
                 <span ng-if="tournament.start_date > now">
                   <a href="#/tournaments/ {{ tournament.rules_url }}">Rules</a>
                   <a href="#/tournaments/{{ tournament.slug }}/prizemoney">Prize Money</a>
                   <a href="#/tournaments/{{ tournament.slug }}/teeofftime">Tee Off Time</a>
                 </span>
             </div>
-
           </div>
 
         <div ng-if="currentUser.role === 'admin' ">

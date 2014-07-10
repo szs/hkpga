@@ -120,6 +120,7 @@ var translationsEN = {
   PRESS_RELEASES: 'Press Releases',
   HKPGA_MAGAZINE: 'HKPGA Magazine',
   ISSUE: 'Issue',
+  INTERNAL_ANNOUNCEMENTS: 'Internal Announcements',
 };
  
 var translationsZHHK = {
