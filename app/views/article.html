@@ -23,6 +23,9 @@
             <div class="article-body" ng-bind-html="article.html[l10n()]">
             </div>
           </div>
+          <div ng-if="currentUser.role == 'admin'" class="col-md-12">
+            <a ng-href="#/news/{{article.slug}}/edit" class="btn btn-primary back" translation> <i class="fa fa-chevron-left"> </i> &nbsp; EDIT</a>
+          </div>
         </div>
       </div>
     </div>
