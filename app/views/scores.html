@@ -7,8 +7,8 @@
   </div>
 
     <div ng-if="toScore" ng-repeat="(division, scores) in toScore" class="row add-division">
-      <h3>{{division}}</h3>
-      <div class="gridStyle" ng-grid="gridOptions[division]" ng-style="getTableStyle(division)"></div>
+      <h3>{{ division }}</h3>
+      <div class="gridStyle" ng-grid="gridOptions[division]" ng-style="getTableStyle('toScore', division)"></div>
     </div>
 
   </div>
