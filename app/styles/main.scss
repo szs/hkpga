@@ -277,10 +277,10 @@ $admin-red:         #f06059;
     }
 
     .footer {
-      padding-bottom: 40px;
+      padding-bottom: 30px;
       position: absolute;
       // bottom: 0;
-      bottom: -120px;
+      bottom: -140px;
       width: 100%;
       .contact-details p {
         padding-left: 30px;
@@ -1158,6 +1158,9 @@ $admin-red:         #f06059;
 
     #carousel {
       border-bottom: 5px solid $black;
+      .carousel-control {
+        z-index: 1000;
+      }
     }
 
     // Title
@@ -1174,6 +1177,7 @@ $admin-red:         #f06059;
         margin: 0 auto;
         vertical-align: middle;
         padding-top: 21px;
+        z-index: 20;
       }
     }
 
@@ -1837,8 +1841,8 @@ $admin-red:         #f06059;
   .navbar-brand {
     img {
       width: 110px;
-      margin-left: 35px;
-      margin-top: -4px;
+      margin-left: 20px;
+      margin-top: 7px;
     }
   }
 
@@ -1893,9 +1897,9 @@ $admin-red:         #f06059;
 @media (min-width: 769px) and (max-width: 866px) {
   .navbar-brand {
     img {
-      width: 110px;
-      margin-left: 31px;
-      margin-top: -4px;
+      width: 115px;
+      margin-left: 20px;
+      margin-top: 10px;
     }
   }
 }
@@ -1926,9 +1930,9 @@ $admin-red:         #f06059;
 
   .navbar-brand {
     img {
-      width: 110px;
-      margin-left: 50px;
-      margin-top: -4px;
+      width: 120px;
+      margin-left: 20px;
+      margin-top: 10px;
     }
   }
 
@@ -1975,10 +1979,10 @@ $admin-red:         #f06059;
 
   .navbar-brand {
     img {
-      width: 116px;
-      margin-left: 50px;
-      margin-top: 0px;
-    }
+      width: 120px;
+      margin-left: 30px;
+      margin-top: 10px;
+    } 
   }
 
   #committee-page {
@@ -2003,9 +2007,9 @@ $admin-red:         #f06059;
 @media (min-width: 1620px) {
   .navbar-brand {
     img {
-      width: 124px;
+      width: 140px;
       margin-left: 60px;
-      margin-top: 2px;
+      margin-top: 20px;
     }
   }
 }
