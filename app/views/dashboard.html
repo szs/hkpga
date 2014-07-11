@@ -16,7 +16,7 @@
   
     <div class="row" ng-controller="TournamentsCtrl">
       <h2>UPCOMING TOURNAMENTS</h2>
-      <div ng-repeat="(id, tournament) in upcoming | orderByPriority | orderBy: 'start_date':false | limitTo:2" class="col-md-4 well">
+      <div ng-repeat="(id, tournament) in tournaments | orderByPriority | orderBy: 'start_date':true | limitTo:2" class="col-md-4 well">
         <h3><a ng-href="#tournaments/{{ tournament.slug }}">{{tournament.name[l10n()]}}</a></h3>
         <h4>{{tournament.start_date | date}}</h4>
         <span>{{tournament.no_days}} Day Tournament</span>
