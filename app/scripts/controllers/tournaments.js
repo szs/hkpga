@@ -542,9 +542,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   }
 
   $scope.signUp = function(t, division, user){
-    var t = $scope.tournament;
-    var user = user.originalObject;
-
     var participant = {
       status : 'signedup',
       isEligable : User.isEligable(user),
@@ -565,7 +562,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
           User.addTournament(user, tournament);
         }).then(function(){
           $scope.tournaments[t.created_at] = t;
-          $location('/tournaments/' + tournament.year + '/' + tournament.slug);
+          $location.path('/tournaments/' + tournament.year + '/' + t.slug);
         })
       });
   }

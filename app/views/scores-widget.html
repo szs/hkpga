@@ -18,8 +18,6 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="(username, player) in tournament['results']['open'] | orderByPriority | orderBy:'rank' | limitTo:10">
-					{{player}}
-					{{username}}
 						<td>{{player.rank}}</td>
 						<td>{{player.name[l10n()]}}</td>
 						<td>{{player.totalScore}}</td>

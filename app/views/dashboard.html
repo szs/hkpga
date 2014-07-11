@@ -3,11 +3,12 @@
   
     <div class="row" ng-controller="TournamentsCtrl">
       <h1><i class="fa fa-trophy"></i>UPCOMING TOURNAMENTS</h1>
-      <div ng-repeat="(id, tournament) in tournaments | orderByPriority | orderBy: 'start_date':true | limitTo:2" class="col-md-4 well row-cards">
-        <h3><a ng-href="#tournaments/{{ tournament.slug }}">{{tournament.name[l10n()]}}</a></h3>
+      <div ng-repeat="(id, tournament) in tournaments | orderByPriority | orderBy:'start_date':true | limitTo:2" class="col-md-4 well row-cards">
+        <h3><a ng-href="#tournaments/{{ tournament.year }}/{{ tournament.slug }}">{{tournament.name[l10n()]}}</a></h3>
         <h4>{{tournament.start_date | date}}</h4>
         <span>{{tournament.no_days}} Day Tournament</span>
         <div>
+          <p>Click on division to sign up:</p>
           <a ng-click="signUp(tournament, division, currentUser)" ng-repeat="division in divisions" class="btn btn-default"> {{ division }}</a> 
         </div>
       </div>
