@@ -12,7 +12,7 @@
       <div class="row">
           <div ng-repeat="(key, coverage) in coverages" class="col-md-6">
             <div class="media-card">
-              <a ng-href="{{ coverage.url}}">
+              <a target="_blank" ng-href="{{ coverage.url}}">
                 <h5>{{ coverage.publish_date | date:'yyyy  MMMM  d'}}</h5> 
                 <h4> {{ coverage.title[l10n()] }} </h4>
                 <h4>{{ coverage.publication[l10n()] }} </h4>

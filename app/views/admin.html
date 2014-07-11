@@ -27,16 +27,6 @@
       <div class="col-md-12"><a ng-href="#/news/new"><i class="fa fa-plus-square add-new"></i></a></div>
     </div>
 
-    <div class="row" ng-controller="FeedbackCtrl">
-      <h2 class="left-i"><i class="fa fa-database"></i></h2>
-      <h2 translate>LATEST_FEEDBACK</h2>
-      <div class="well clearfix" ng-repeat="(id, feedback) in fb | orderByPriority | orderBy: 'created_at':true | limitTo:3">
-          <div class="col-md-10">
-            <span>{{feedback.created_at | date }}</span> <i class="fa fa-comment-o"></i> <a href="#/feedback">{{feedback.text | characters:200}}</a>
-          </div>
-      </div>
-    </div>
-
    <div class="row new-tournament row-cards" ng-controller="TournamentsCtrl">
       <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>LATEST_TOURNAMENTS</h2>
@@ -73,6 +63,16 @@
       <h2 translate>PUBLISH_NEW</h2>
       <div ng-repeat="(url, title) in resources" class="col-md-2 well">
           <a ng-href="#/{{url}}/new">{{title}}<i class="fa fa-plus-square add-new"></i></a>
+      </div>
+    </div>
+
+    <div class="row" ng-controller="FeedbackCtrl">
+      <h2 class="left-i"><i class="fa fa-database"></i></h2>
+      <h2 translate>LATEST_FEEDBACK</h2>
+      <div class="well clearfix" ng-repeat="(id, feedback) in fb | orderByPriority | orderBy: 'created_at':true | limitTo:3">
+          <div class="col-md-10">
+            <span>{{feedback.created_at | date }}</span> <i class="fa fa-comment-o"></i> <a href="#/feedback">{{feedback.text | characters:200}}</a>
+          </div>
       </div>
     </div>
 
