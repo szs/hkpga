@@ -35,6 +35,9 @@ app.config(function ($routeProvider) {
         })
         .when('/contact', {
           templateUrl: 'views/contact.html',
+        })
+        .when('/terms', {
+          templateUrl: 'views/terms.html',
           controller: 'ContactCtrl'
         })
         .when('/contact/:action', {
