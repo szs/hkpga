@@ -2120,4 +2120,8 @@ $admin-red:         #f06059;
     content: "\f017";
     @extend .scoreLabel;
   }
+
+  .full:before, .tournament:before, .associate:before .member:before{
+    display: none;
+  }
 }
