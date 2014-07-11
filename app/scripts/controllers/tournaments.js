@@ -5,16 +5,25 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
 
   $scope.tournaments = Tournament.all;
   $scope.upcoming = Tournament.upcoming;
-  $scope.recent = Tournament.recent;
 
   $scope.divisions = ['open','ladies','senior','trainee'];
   $scope.status = ['signedup','registered','played','cancelled','forfeited','disqualified'];
+
+  $scope.category = $location.path().split('/')[1];
+  $scope.archiveYear = $location.path().split('/')[2];
+  $scope.view = $location.path().split('/')[4];
+  $scope.now = Date.now();
 
   $scope.reset = function (){
     $scope.tournament = Tournament.new();
   };
 
   $scope.tournaments.$on('loaded',function(){
+
+    angular.forEach($scope.tournaments, function(tournament, created_at){
+      tournament.year = new Date(tournament.start_date).getFullYear();
+    })
+
     if ($routeParams.id){
       $scope.edit = true
       angular.forEach($scope.tournaments, function(value, key) {
@@ -22,25 +31,22 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
             $scope.tournament = $scope.tournaments[key];
           }
        })
-      firebase2grid();
-      setGridOptions()
+      if ($scope.view =='score'){
+        firebase2grid();
+        setGridOptions()
+      }
     } else {
       $scope.reset();
     }
   })
 
-  $scope.category = $location.path().split('/')[1];
-  $scope.view = $location.path().split('/')[2];
-  $scope.year = $location.path().split('/')[3];
-  $scope.now = Date.now();
-
   var archives = Archive.all;
 
   archives.$on('loaded', function(){
-    if ($scope.year == 'latest') {
-      $scope.year = archives[$scope.category].sort().reverse()[0];
+    if ($scope.archiveYear == 'latest') {
+      $scope.archiveYear = archives[$scope.category].sort().reverse()[0];
     } else {
-      $scope.year = parseInt($scope.year);
+      $scope.archiveYear = parseInt($scope.archiveYear);
     }
   })
 

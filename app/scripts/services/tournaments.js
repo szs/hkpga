@@ -3,17 +3,11 @@
 app.factory('Tournament',
   function ($firebase, FIREBASE_URL, Utils) {
     var ref = new Firebase(FIREBASE_URL + 'tournaments');
-    var upcomingRef = ref.startAt(Date.now());
-    var recentRef = ref.endAt(Date.now());
 
     var tournaments = $firebase(ref);
-    var upcoming = $firebase(upcomingRef);
-    var recent = $firebase(recentRef);
 
     var Tournament = {
       all: tournaments,
-      upcoming: upcoming,
-      recent: recent,
       create : function(tournament){
 
         tournaments[tournament.created_at] = tournament;
