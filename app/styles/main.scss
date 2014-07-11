@@ -906,7 +906,36 @@ $admin-red:         #f06059;
   // .2 DASHBOARD PAGE
 
     #dashboard-page {
-
+      i {
+          padding-right: 30px;
+      }
+      .row {
+        padding-bottom: 20px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid $white;
+      }
+      textarea {
+        width: 100%;
+        min-width: 400px;
+        min-height: 100px;
+      } 
+      h1 {
+        margin-bottom: 20px;
+      }
+      .row-cards {
+        margin-right: 30px;
+        box-shadow: 5px 5px 5px $black;
+        .btn-default {
+          margin-top: 15px;
+        }
+      }
+      .feedback-form {
+        .btn-primary {
+          width: 80px;
+          margin-top: 20px;
+        }
+      }
     }
 
 // 3. MODULE ------------------------------------------------------------

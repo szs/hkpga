@@ -122,7 +122,9 @@ var translationsEN = {
   ISSUE: 'Issue',
   INTERNAL_ANNOUNCEMENTS: 'Internal Announcements',
   UNSCORED_TOURNAMENT: 'Unscored Tournament',
-  LATEST_FEEDBACK: 'Latest Feedback'
+  LATEST_FEEDBACK: 'Latest Feedback',
+  MEMBER_DASHBOARD: 'Member Dashboard'
+
 };
  
 var translationsZHHK = {
@@ -247,6 +249,11 @@ var translationsZHHK = {
   PRESS_RELEASES: '新聞發佈',
   HKPGA_MAGAZINE: 'HKPGA 雜誌',
   ISSUE: '期',
+  INTERNAL_ANNOUNCEMENTS: '內部通告',
+  UNSCORED_TOURNAMENT: '不計分賽事',
+  LATEST_FEEDBACK: '最新意見',
+  MEMBER_DASHBOARD: 'Member Dashboard'
+
 };
 
 var translationsZHCN = {
@@ -372,4 +379,9 @@ var translationsZHCN = {
   PRESS_RELEASES: '新闻发布',
   HKPGA_MAGAZINE: 'HKPGA杂志',
   ISSUE: '期',
+  INTERNAL_ANNOUNCEMENTS: '內部通告',
+  UNSCORED_TOURNAMENT: '不计分赛事',
+  LATEST_FEEDBACK: '最新意见',
+  MEMBER_DASHBOARD: 'Member Dashboard'
+
 };
