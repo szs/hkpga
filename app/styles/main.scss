@@ -1323,12 +1323,12 @@ $admin-red:         #f06059;
     }
     h4 {
       border-bottom: 1px solid $text-grey-light;
-      padding-bottom: 15px;
+      padding-bottom: 20px;
       margin-bottom: 20px;
-      font-size: 1.6rem;
+      font-size: 1.7rem;
     }
     i, span {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin-right: 20px;
       color: $white;
     }
@@ -1940,6 +1940,9 @@ $admin-red:         #f06059;
   .pros-legend {
     position: fixed;
     width: 280px;
+    .well {
+      padding: 20px 26px
+    }
   }
 
   #pros-page {
