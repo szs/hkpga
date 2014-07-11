@@ -1,18 +1,20 @@
 <div class="container admin admin-styling">
   <h1 translate>ADMIN</h1>
   <div class="well clearfix" id="admin-panel">
-    <div class="row" ng-controller="TournamentsCtrl">
+
+    <div class="row clearfix admin-unscored-tournament" ng-controller="TournamentsCtrl">
       <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>UNSCORED_TOURNAMENT</h2>
-      <div ng-repeat="(key, unscored) in tournaments | orderByPriority | filter:{scored : false} | orderBy:'start_date':true | limitTo:1">
+      <div ng-repeat="(key, unscored) in tournaments | orderByPriority | filter:{scored : false} | orderBy:'start_date':true | limitTo:1" class="well clearfix">
         <div class="col-md-10">
-          <span>{{unscored.start_date | date }}</span> <i class="fa fa-rocket"></i><a ng-href="#/tournaments/{{unscored.year}}/{{unscored.slug}}">{{unscored.name[l10n()]}}</a> 
+          <span>{{unscored.start_date | date }}</span> <i class="fa fa-tasks"></i><a ng-href="#/tournaments/{{unscored.year}}/{{unscored.slug}}">{{unscored.name[l10n()]}}</a> 
         </div>
         <div class="col-md-2 publish-buttons">
-          <a ng-href="#/tournaments/{{unscored.year}}/{{unscored.slug}}/score" class="btn"> <i class="fa fa-dice"></i> score</a>
+          <a ng-href="#/tournaments/{{unscored.year}}/{{unscored.slug}}/score" class="btn"> <i class="fa fa-sliders"></i> score</a>
         </div>
       </div>
     </div>
+
     <div class="row" ng-controller="NewsCtrl">
       <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>LATEST_ARTICLES</h2>

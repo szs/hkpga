@@ -13,15 +13,18 @@
       </div>
     </div>
 
-  <div class="row">
+  <div class="row ranking-dashboard">
     <h1><i class="fa fa-arrows-v"></i>RANKING</h1>
+      <div class="well">
       {{ currentUser.results | json }}
+      </div>
   </div>
-  
-  <div class="row" ng-controller="NewsCtrl">
-    <h1><i class="fa fa-exclamation"></i>INTERNAL ANNOUNCEMENTS</h1>
-    <div ng-repeat="(id, article) in articles | orderByPriority | orderBy: 'publish_date':true | filter:{internal:true} | limitTo:3">
-        <a ng-href="#/news/{{article.slug}}">{{article.title[l10n()]}}</a>
+
+  <div class="row internal-announcements" ng-controller="NewsCtrl">
+    <h1><i class="fa fa-bullhorn"></i>INTERNAL ANNOUNCEMENTS</h1>
+    <div ng-repeat="(id, article) in articles | orderByPriority | orderBy: 'publish_date':true | filter:{internal:true} | limitTo:3" class="well">
+    <h5>{{ article.publish_date | date:'dd MMM yyyy'}}</h5>
+      <a ng-href="#/news/{{article.slug}}">{{article.title[l10n()]}}</a>
     </div>
   </div>
 
