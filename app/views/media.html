@@ -14,9 +14,9 @@
             <div class="media-card">
               <a ng-href="{{ coverage.url}}">
                 <h5>{{ coverage.publish_date | date:'yyyy  MMMM  d'}}</h5> 
-                <h4> {{ coverage.title[l10n()] }} </h4>
+                <h4>{{ coverage.title[l10n()] }} </h4>
                 <h4>{{ coverage.publication[l10n()] }} </h4>
-                <img ng-src="http://drive.google.com/uc?export=view&id={{ coverage.cover }}">
+                <img ng-src="{{ coverage.cover | DriveOrUrl }}">
               </a>
             </div>
           </div>

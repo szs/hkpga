@@ -24,7 +24,8 @@ var app = angular.module('hkpgaApp', [
   'frapontillo.bootstrap-switch',
   'DateFilters',
   'TournamentFilters',
-  'angucomplete-alt'
+  'angucomplete-alt',
+  'ResourceFilters'
 ]);
 
 app.config(function ($routeProvider) {
