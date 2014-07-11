@@ -21,7 +21,7 @@
          </div>
          <div class="pros row" ng-repeat="(alpha, pros) in alphaPro">
             <div class="col-md-12">
-               <div ng-repeat="pro in pros | filter:active | filter:search | filter:statusFilter">
+               <div ng-repeat="pro in pros | filter:listed() | filter:{active :true} | filter:search | filter:statusFilter">
                   <h2 ng-show="$first">{{alpha}}</h2>
                   <div class="pro-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
                      <a class="{{pro.status}}" ng-href="#/pros/{{pro.username}}" class="col-md-4">{{pro.name[l10n()]}}</a>

@@ -117,5 +117,13 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
     } else {
       return false;
     }
-  };  
+  };
+
+  $scope.listed = function() {
+    return function( pro ) {
+      var entrants = ['full', 'tournament', 'associate', 'member', 'trainer', 'trainee', 'seniortrainee']
+      return entrants.indexOf(pro.status) > -1
+    };
+  };
+
 });
