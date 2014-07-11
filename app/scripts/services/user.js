@@ -9,9 +9,6 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
 
   $rootScope.$on('$firebaseSimpleLogin:login', function (e, authUser) {
     var query = $firebase(ref.startAt(authUser.uid).endAt(authUser.uid));
-    console.log(authUser)
-    console.log(query)
-    console.log(query.$getIndex())
     query.$on('loaded', function () {
       setCurrentUser(query.$getIndex()[0]);
     });
@@ -22,7 +19,6 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
   });
 
   function setCurrentUser (usr) {
-    console.log(usr);
     $rootScope.currentUser = User.findByUsername(usr);
   }
 
