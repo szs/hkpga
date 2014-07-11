@@ -359,6 +359,7 @@ $admin-red:         #f06059;
         margin-top: 15px;
         margin-bottom: 15px;
       }
+      a.btn,
       button.btn {
         float: right;
       }
@@ -387,6 +388,7 @@ $admin-red:         #f06059;
       h5 {
         color: $text-grey-light;
       }
+      a.btn,
       button.btn {
         float: right;
         position: absolute;
@@ -943,6 +945,7 @@ $admin-red:         #f06059;
 
   /* Buttons */
 
+    a.btn.btn-gold, 
     button.btn {
       background-color: $brand-gold;
       color: $white;
@@ -953,6 +956,7 @@ $admin-red:         #f06059;
       }
     }
 
+    a.back,
     button.back {
       margin-bottom: 30px;
     }
@@ -1087,6 +1091,7 @@ $admin-red:         #f06059;
     .widget-footer {
       margin-top: -20px;
       padding: 0px 18px 13px;
+      a.btn,
       button.btn {
         float: right;
         }

@@ -43,9 +43,9 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         money2grid();
         setGridMoneyOptions();
       }
-    } else if ($scope.archiveYear == 'merit'){
+    } else if ($scope.archiveYear == 'merit' || $scope.category == ""){
       var archiveYear = $location.path().split('/')[3];
-      if (archiveYear == 'latest') {
+      if (archiveYear == 'latest' || $scope.category == "") {
         $scope.archiveYear = archives['tournaments'].sort().reverse()[0];
       } else {
         $scope.archiveYear = parseInt($scope.archiveYear);
@@ -396,7 +396,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
     angular.forEach($scope.money,
       function(prizes, division){
-        console.log(prizes);
         var deferred = $q.defer();
         prizes.forEach(function(prize){
           $scope.tournament.prize_money[division][prize.rank] = parseInt(prize.prize);
