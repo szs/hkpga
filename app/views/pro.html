@@ -46,7 +46,7 @@
             </div>
           </dl>
         </div>
-        <div class="col-md-12">
+        <div ng-if="currentUser.role == 'admin'" class="col-md-12">
           <a href="#/pros">
             <a ng-href="#/pros/{{pro.username}}/edit" class="btn btn-primary back" translation> <i class="fa fa-chevron-left"> </i> &nbsp; EDIT</a>
           </a>

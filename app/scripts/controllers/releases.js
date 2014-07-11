@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('ReleasesCtrl', function($scope, $rootScope, $location, Release){
+app.controller('ReleasesCtrl', function($scope, $rootScope, $location, Utils, Release){
   $scope.releases = Release.all;
 
   $scope.reset = function (){
@@ -17,7 +17,7 @@ app.controller('ReleasesCtrl', function($scope, $rootScope, $location, Release){
 
     Release.create(r).then(function(){
       $scope.reset();
-      $location.path('#/press/releases');
+      $location.path('/press/releases');
     });
   };
 

@@ -48,9 +48,8 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
     },
     findByUsername: function (usr) {
       if (usr) {
-        return users.$child(usr)
-
-;      }
+        return users.$child(usr);
+      }
     },
     getCurrent: function () {
       return $rootScope.currentUser;

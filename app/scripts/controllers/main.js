@@ -2,12 +2,15 @@
 'use strict';
 
 app.controller('MainCtrl', function($scope, User){
-	$('.carousel').carousel({
-		interval: false
-	});
+
+  User.setMart();
+  
+  $('.carousel').carousel({
+    interval: false
+  });
+  
 });
  
-User.setMart();
 
 
 $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
