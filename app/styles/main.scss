@@ -1300,18 +1300,39 @@ $admin-red:         #f06059;
 }
 .trainer:before{
    font-family: FontAwesome;
-   content: "\f006"; // empty star
+   content: "\f111;"; // filled circle
    display: inline-block;
    padding-right: 14px;
    font-size: 1.2rem;
 }
 .trainee:before{
    font-family: FontAwesome;
-   content: "\f1db"; // empty circle or thicker circle f10c
+   content: "\f10c"; // empty circle 
    display: inline-block;
    padding-right: 14px;
    font-size: 1.2rem;
 }
+
+
+  // .4 PROS LEGEND
+
+  .pros-legend {
+    .well {
+      background-color: transparent;
+      border: 2px solid $white;
+    }
+    h4 {
+      border-bottom: 1px solid $text-grey-light;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+    }
+    i, span {
+      font-size: 1.3rem;
+      margin-right: 20px;
+      color: $white;
+    }
+  }
 
   // .4 Coming soon //
 
@@ -1907,6 +1928,26 @@ $admin-red:         #f06059;
   #committee-page {
     .dl-horizontal dd {
       margin-left: 300px;
+    }
+  }
+
+  .side-nav {
+    position: fixed;
+    width: 280px;
+    top: 219px;
+  }
+
+  .pros-legend {
+    position: fixed;
+    width: 280px;
+  }
+
+  #pros-page {
+    .side-nav {
+      top: 249px;
+    }
+    .pros-legend {
+      top: 450px;
     }
   }
 
