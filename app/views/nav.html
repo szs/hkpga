@@ -25,9 +25,14 @@
           <li ng-hide="signedIn()">
             <a translate href="#/login">LOGIN</a>
           </li>
-          <li ng-show="currentUser.role == 'admin'">  
+          <li ng-if="currentUser.role == 'admin'">  
             <a translate ng-href="#/admin">
               <span class="glyphicon glyphicon-cog"></span>
+            </a>
+          </li>
+          <li ng-if="currentUser.role != 'admin'">  
+            <a translate ng-href="#/dashboard">
+              <i class="fa fa-user"></i>
             </a>
           </li>
         </ul>
@@ -66,7 +71,7 @@
           <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_TOURNAMENTS</a>
             <ul class="dropdown-menu">
                 <li><a ng-href="#/tournaments/merit"> / Order of Merit </a></li>
-                <li><a href="#/tournaments/schedule-results"> / Schedule &amp; Results </a></li>
+                <li><a href="#/tournaments"> / Schedule &amp; Results </a></li>
             </ul>
           </li>
           <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_PROS</a>

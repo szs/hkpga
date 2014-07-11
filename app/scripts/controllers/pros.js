@@ -90,6 +90,7 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
       {value : 'member', name : 'Member'},
       {value : 'trainer', name : 'Certified Trainer'},
       {value : 'trainee', name : 'Trainee'},
+      {value : 'seniortrainee', name : 'Senior Division Trainee'},
       {value : 'honorary', name : 'Honorary'},
       {value : 'none', name : 'None'},
     ]
@@ -106,7 +107,8 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
       'associate' : 3,
       'member' : 3,
       'trainer' : 2,
-      'trainee' : 1
+      'trainee' : 1,
+      'seniortrainee' : 1
     }
 
     if (memberStatus[pro.status] === $scope.filterItem.pro.status) {

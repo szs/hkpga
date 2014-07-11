@@ -33,7 +33,7 @@
                 <span ng-if="tournament.start_date > now">
                   <a href="#/tournaments/ {{ tournament.rules_url }}">Rules</a>
                   <a href="#/tournaments/{{ tournament.slug }}/prizemoney">Prize Money</a>
-                  <a href="#/tournaments/{{ tournament.slug }}/teeofftime">Tee Off Time</a>
+                  <a href="{{ tournament.tee_off }}">Tee Off Time</a>
                 </span>
             </div>
           </div>

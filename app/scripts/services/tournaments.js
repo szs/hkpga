@@ -31,20 +31,26 @@ app.factory('Tournament',
                   .$child('scored')
                   .$set(true);
       },
-      updatePlayerStatus : function (participant, tournament, division){
+      updatePlayerStatus : function (participant, status, tournament, division){
         return tournaments
           .$child(tournament.created_at)
           .$child('results')
           .$child(division)
           .$child(participant.username)
           .$child('status')
-          .$set(participant.status);
+          .$set(status);
       },
       updateResults : function (tournament) {
          return tournaments
           .$child(tournament.created_at)
           .$child('results')
           .$update(tournament.results)
+      },
+      setPrizePot : function (tournament) {
+         return tournaments
+          .$child(tournament.created_at)
+          .$child('prize_money')
+          .$update(tournament.prize_money)
       },
       findBySlug : function(slug){
 
@@ -72,12 +78,12 @@ app.factory('Tournament',
           },
           rules_url : '',
           scored: false,
-          prize_money: {},
-          tee_off: {
-            start_time: Date.now(),
-            grid_width: 4,
-            slots: {},
-          },
+          // tee_off: {
+          //   start_time: Date.now(),
+          //   grid_width: 4,
+          //   slots: {},
+          // },
+          tee_off: '',
           divisions: {
             open : true,
             ladies: true,

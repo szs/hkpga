@@ -102,12 +102,20 @@ app.config(function ($routeProvider) {
         .when('/tournaments/merit', {
           redirectTo: '/tournaments/merit/latest',
         })
+        .when('/tournaments/:year', {
+          templateUrl: 'views/tournaments.html',
+          controller: 'TournamentsCtrl',
+        })
         .when('/tournaments/merit/:year', {
           templateUrl: 'views/merit.html',
           controller: 'TournamentsCtrl',
         })
-        .when('/tournaments/:year', {
-          templateUrl: 'views/tournaments.html',
+        .when('/tournaments/:year/:id/prizemoney', {
+          templateUrl: 'views/money.html',
+          controller: 'TournamentsCtrl',
+        })
+        .when('/tournaments/:year/:id/prizemoney/edit', {
+          templateUrl: 'views/money.html',
           controller: 'TournamentsCtrl',
         })
         .when('/tournaments/:year/:id', {
@@ -126,10 +134,6 @@ app.config(function ($routeProvider) {
         //   templateUrl: 'views/teeofftime.html',
         //   controller: 'TournamentsCtrl',
         // })
-        .when('/tournaments/:year/:id/prizemoney', {
-          templateUrl: 'views/pricemoney.html',
-          controller: 'TournamentsCtrl',
-        })
         .when('/tournaments/:year/:id/edit', {
           templateUrl: 'views/new.html',
           controller: 'NewCtrl'

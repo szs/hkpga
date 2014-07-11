@@ -2085,3 +2085,43 @@ $admin-red:         #f06059;
     }
   }
 }
+
+
+.scoreLabel {
+    font-family: FontAwesome;
+    width: 30px;
+    height: 25px;
+    margin-left: -30px;
+    overflow: visible;
+    background-color: #999;
+    display: block;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 8px;
+    padding-top: 1px;
+    color: black;
+}
+
+.gridStyle {
+  .ngViewport {
+    overflow: visible;
+  }
+  .none:before {
+    content: "\f072";
+    @extend .scoreLabel;
+  }
+
+  .trainee:before {
+    content: "\f19d";
+    @extend .scoreLabel;
+  }
+
+  .seniortrainee:before {
+    content: "\f017";
+    @extend .scoreLabel;
+  }
+
+  .full:before, .tournament:before, .associate:before .member:before{
+    display: none;
+  }
+}
