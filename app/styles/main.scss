@@ -2077,6 +2077,9 @@ $admin-red:         #f06059;
       text-transform: capitalize;
     }
   }
+  #page-nav li#contact-li {
+    margin-bottom: 30px;
+  }
   .navbar-inverse .navbar-toggle {
     border-color: $brand-gold;
   }
@@ -2086,11 +2089,21 @@ $admin-red:         #f06059;
   #user-nav {
     margin-top: 0;
   }
-  #language-controls {
-    max-width: 150px;
-    margin: 0 auto;
+  ul#language-controls {
     text-align: center;
     margin-top: 8px;
+    li.user-lang {
+      display: inline;
+      border: none;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+      margin-left: 0px;
+    }
+  }
+  ul#social-media {
+    margin: 0 auto;
   }
   .navbar .navbar-default .navbar-fixed-top .navbar-inverse {
       border-bottom: 4px solid $black;
