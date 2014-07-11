@@ -12,12 +12,15 @@
       <div class="row">
         <div ng-repeat="(key, magazine) in magazines" class="col-md-6">
           <div class="media-card">
-            <a ng-href="{{ magazine.url}}">
+            <a target="_blank" ng-href="{{ magazine.url}}">
               <h5> {{ magazine.publish_date | date:'yyyy' }} </h5> 
               <h4> Issue: {{ magazine.publish_date | date:'MMMM'  }} </h4>
               <h4> Cover Story: {{ magazine.coverstory[l10n()] }} </h4>
               <img ng-src="{{ magazine.cover | DriveOrUrl }}">
             </a>
+          </div>
+          <div>
+              <a class="btn btn-primary" ng-click="edit(magazine)">Edit</a>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ app.controller('MainCtrl', function($scope, User){
   User.setMart();
   
   $('.carousel').carousel({
-    interval: false
+    interval: 6000,
   });
   
 });

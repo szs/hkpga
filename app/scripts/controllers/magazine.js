@@ -25,4 +25,13 @@ app.controller('MagazineCtrl', function($scope, $location, Utils, Magazine){
       $location.path('/press/magazine');
     });
   };
+
+  $scope.delete = function(m){
+    var m = m || $scope.magazine;
+
+    Magazine.delete(m.created_at).then(function(){
+      $scope.reset();
+    });
+  };
+
 });
