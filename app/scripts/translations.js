@@ -121,6 +121,8 @@ var translationsEN = {
   HKPGA_MAGAZINE: 'HKPGA Magazine',
   ISSUE: 'Issue',
   INTERNAL_ANNOUNCEMENTS: 'Internal Announcements',
+  UNSCORED_TOURNAMENT: 'Unscored Tournament',
+  LATEST_FEEDBACK: 'Latest Feedback'
 };
  
 var translationsZHHK = {
