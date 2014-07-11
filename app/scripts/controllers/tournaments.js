@@ -583,8 +583,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   $scope.publish = function(t){
     var t = t || $scope.tournament;
 
-    // t.start_date = Date.parse(t.start_date);
-    // t.signup_before = Date.parse(t.signup_before);
+    t.start_date = angular.isNumber(t.start_date) ? t.start_date : Date.parse(t.start_date);
+    t.signup_before = angular.isNumber(t.signup_before) ? t.signup_before : Date.parse(t.signup_before);
 
     t = Utils.logUpdate(t);
 
@@ -615,6 +615,12 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         player.status = $scope.status[next];
       })
   }
+
+  $scope.recent = function() {
+    return function( item ) {
+      return Date.now() > item.started_at;
+    };
+  };
 
   function updateArchives(){
     var deferred = $q.defer()

@@ -58,7 +58,8 @@ app.factory('Utils',
 
   var logUpdate = function(obj){
     return angular.extend(obj, {
-      author: getCurrentUser('username'),
+      // author: getCurrentUser('username'),
+      author: 'martvandeven',
       updated_at: Date.now()
     });
   }

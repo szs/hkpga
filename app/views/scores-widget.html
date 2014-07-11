@@ -1,11 +1,11 @@
-<div id="scores-widget">
+<div id="scores-widget" ng-repeat="(key, tournament) in tournaments | orderByPriority | filter:{scored: true} | orderBy:'start_date':true | limitTo:1">
 	<h2 style="font-size: 2rem;" translate>LATEST_TOURNAMENT_SCORES</h2>
 	<div class="widget">
 		<div class="widget-title col-md-12">
 			<h5 translate>VENUE:</h5>
-			<h3>The Hong Kong Golf Club - New Course</h3>
+			<h3>{{tournament.venue[l10n()]}}</h3>
 			<h5 translate>DATE:</h5>
-			<h3>28th - 29th May 2014</h3>
+			<h3>{{tournament.start_date | date}} | {{tournament.no_days}} Days</h3>
 		</div>
 		<div class="table-responsive">
     		<table class="table table-striped .table-condensed">
@@ -13,59 +13,16 @@
 					<tr>
 						<th translate>RANK</th>
 						<th translate>PLAYER</th>
-						<th translate>POINTS</th>
+						<th translate>SCORE</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>James Wong</td>
-						<td>39095</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Tim Tang</td>
-						<td>27975</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>James Stewart</td>
-						<td>25049</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>Chris Tang</td>
-						<td>24382</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>Dominique Boulet</td>
-						<td>21348</td>
-					</tr>
-					<tr>
-						<td>6</td>
-						<td>James Wong</td>
-						<td>39095</td>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td>Tim Tang</td>
-						<td>27975</td>
-					</tr>
-					<tr>
-						<td>8</td>
-						<td>James Stewart</td>
-						<td>25049</td>
-					</tr>
-					<tr>
-						<td>9</td>
-						<td>Chris Tang</td>
-						<td>24382</td>
-					</tr>
-					<tr>
-						<td>10</td>
-						<td>Dominique Boulet</td>
-						<td>21348</td>
+					<tr ng-repeat="(username, player) in tournament['results']['open'] | orderByPriority | orderBy:'rank' | limitTo:10">
+					{{player}}
+					{{username}}
+						<td>{{player.rank}}</td>
+						<td>{{player.name[l10n()]}}</td>
+						<td>{{player.totalScore}}</td>
 					</tr>
 				</tbody>
 			</table>
