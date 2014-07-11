@@ -65,7 +65,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
 
         return users.$save(user.username);
     },
-    updateResults : function(user, tournament){
+    updateResults : function(user, tournament, division){
 
         var year = new Date(tournament.start_date).getFullYear();
 
@@ -76,6 +76,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
           rank : user.rank,
           isWinner : user.isWinner,
           points: user.points,
+          division: division
         }
 
         return users

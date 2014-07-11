@@ -91,7 +91,7 @@ app.factory('Utils',
       sumObj : sumObj,
       sortByKey : sortByKey,
       valuesToArray : valuesToArray,
-      countInArray: countInArray
+      countInArray: countInArray,
     };
 
     return Utils;

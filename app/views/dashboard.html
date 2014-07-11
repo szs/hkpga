@@ -21,10 +21,10 @@
         <h4>{{tournament.start_date | date}}</h4>
         <span>{{tournament.no_days}} Day Tournament</span>
         <div>
-          <a ng-click="addParticipant(tournament, division, currentUser)" ng-repeat="division in divisions" class="btn btn-default"> {{ division }}</a> 
+          <a ng-click="signUp(tournament, division, currentUser)" ng-repeat="division in divisions" class="btn btn-default"> {{ division }}</a> 
         </div>
       </div>
-    </div>
+    </div>  
 
   <div class="row" ng-controller="NewsCtrl">
     <h2 translate>INTERNAL_ANNOUNCEMENTS</h2>

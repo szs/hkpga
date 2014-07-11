@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $timeout, $location, $routeParams, Utils, Tournament, User, Archive){
+app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, $q, $timeout, $location, $routeParams, Utils, Tournament, User, Archive){
 
   $scope.tournaments = Tournament.all;
 
@@ -19,6 +19,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
   $scope.reset = function (){
     $scope.tournament = Tournament.new();
   };
+
+  // Load & Route Logic
 
   $scope.tournaments.$on('loaded',function(){
 
@@ -41,6 +43,15 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
         money2grid();
         setGridMoneyOptions();
       }
+    } else if ($scope.archiveYear == 'merit'){
+      var archiveYear = $location.path().split('/')[3];
+      if (archiveYear == 'latest') {
+        $scope.archiveYear = archives['tournaments'].sort().reverse()[0];
+      } else {
+        $scope.archiveYear = parseInt($scope.archiveYear);
+      }
+      calculateMerit();
+      setGridMeritOptions();
     } else {
       $scope.reset();
     }
@@ -49,10 +60,10 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
   var archives = Archive.all;
 
   archives.$on('loaded', function(){
-    if ($scope.year == 'latest') {
-      $scope.year = archives[$scope.category].sort().reverse()[0];
+    if ($scope.archiveYear == 'latest') {
+      $scope.archiveYear = archives[$scope.category].sort().reverse()[0];
     } else {
-      $scope.year = parseInt($scope.year);
+      $scope.archiveYear = parseInt($scope.archiveYear);
     }
   })
 
@@ -113,6 +124,21 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
     return deferred.promise;
   }
 
+  var orderMeritByRank = function(points){
+    var currentPoints = 1000000
+    var currentRank = 0
+    var scale = points;
+    scale.forEach(function(user, index){
+        if (parseInt(user.points) < currentPoints){
+          currentPoints = user.points;
+          currentRank = index + 1;
+        } 
+        user.rank = currentRank;
+        scale[index]['rank'] = currentRank;
+    })
+    return scale;
+  }
+
   var resolveTiedFirst = function(players){
     var deferred = $q.defer()
 
@@ -153,7 +179,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
         var split = Utils.countInArray(ranks, player.rank);
         var points = pointsScored(player.rank, $scope.tournament.no_days, split)
 
-        console.log(points)
         player.points = points;
         deferred.resolve();
       })
@@ -161,6 +186,47 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
     })
 
     return $q.all(promises);
+  }
+
+  // Merit
+
+  var calculateMerit = function(){
+    var merit = {};
+
+    $scope.divisions.forEach(function (division) {
+      var meritSum = {}
+      merit[division] = []
+      angular.forEach(pros, function(pro, username){
+        if (username[0] != '$'){
+          if (pro.hasOwnProperty('results') && pro['results'].hasOwnProperty($scope.archiveYear)){
+            angular.forEach(pro['results'][$scope.archiveYear], function(result, tournament){
+              if (result.hasOwnProperty('points') && result.hasOwnProperty('division') && result['division'] == division) {
+                if (meritSum.hasOwnProperty(username)) {
+                  meritSum[username].points += result.points;
+                } else {
+                  meritSum[username] = meritObj(result, username, pro);
+                }
+              }
+            });
+          };
+        };
+      });
+
+      merit[division].push($filter('orderByPriority')(meritSum));
+      var order = Utils.sortByKey(merit[division][0], 'points').reverse()
+      merit[division] = orderMeritByRank(order)
+    });
+
+    $scope.merit = merit;
+
+  };
+
+  var meritObj = function(result, username, pro){
+    return {
+        points: result.points,
+        username: username,
+        name: pro.name
+     };
   }
 
   // Modal
@@ -198,7 +264,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
 
   var firebase2grid = function(){
     var tournamentScores = {}
-    console.log($scope.tournament)
     var width = $scope.tournament.no_days;
 
     angular.forEach($scope.tournament.results, function(players, division){
@@ -244,6 +309,58 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
     return $q.all(promises);
   };
 
+  var ScoreGrid = function(division){
+    var columnDefs = [{field:'name[l10n()]', displayName:'Name', enableCellEdit: false}];
+    
+    columnDefs = columnDefs.concat(RoundSubGrid($scope.tournament.no_days));
+
+    columnDefs = columnDefs.concat([
+      {field:'rank', displayName:'Rank', enableCellEdit: false, visible:$scope.tournament.scored},
+      {field:'points:number:0', displayName:'Points', enableCellEdit: false, visible:$scope.tournament.scored},
+      {field:'relation', displayName:'Relation', enableCellEdit: false, visible:false},
+      {field:'username', displayName:'Username', enableCellEdit: false, visible:false}
+    ])
+    
+    return { 
+      data: 'toScore.' + division,
+      enableCellSelection: true,
+      enableRowSelection: false,
+      enableCellEditOnFocus: true,
+      rowTemplate:'<div style="height: 100%" ng-class="row.getProperty(\'relation\')"><div ng-style="{ \'cursor\': row.cursor }" ng-repeat="col in renderedColumns" ng-class="col.colIndex()" class="ngCell ">' +
+                  '<div class="ngVerticalBar" ng-style="{height: rowHeight}" ng-class="{ ngVerticalBarVisible: !$last }"> </div>' +
+                  '<div ng-cell></div>' +
+                  '</div></div>{{row}}',
+      columnDefs: columnDefs
+    }
+  }
+
+  var setGridOptions = function(){
+    $scope.gridOptions = {
+      open : ScoreGrid('open'),
+      ladies : ScoreGrid('ladies'),
+      senior : ScoreGrid('senior'),
+      trainee : ScoreGrid('trainee'),
+    }
+  }
+
+  var RoundSubGrid = function(days){
+    var rounds = [];
+    for (var i = 1; i <= days; i++) {
+      rounds.push({field: '' + i, displayName: 'Round ' + 1, enableCellEdit: true})
+    };
+    return rounds;
+  };
+
+    // data Object
+
+  var roundsObj = function(days, player){
+    var rounds = {};
+    var player = player || {};
+    for (var i = 0; i < days; i++) {
+      rounds[i+1] = parseInt(player[i+1]) || 0
+    };
+    return rounds;
+  };
 
   // ng-grid Money
 
@@ -293,68 +410,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
   };
 
   $scope.addMoneyRow = function(division) {
-    console.log($scope.money[division].length)
-    console.log($scope.money[division])
-    console.log($scope.money[division][$scope.money[division].length - 1])
       var lastRank = parseInt($scope.money[division][parseInt($scope.money[division].length) -1].rank);
       $scope.money[division].push({rank: lastRank + 1, prize: 0});
-      console.log($scope.money[division])
-  };
-
-  // ng-grid Helper
-
-  $scope.getTableStyle= function(container, division) {
-     var rowHeight=30;
-     var headerHeight=45;
-     return {
-        height: ($scope[container][division].length * rowHeight + headerHeight) + "px"
-     };
-  };
-
-  // Options
-
-  var ScoreGrid = function(division){
-    var columnDefs = [{field:'name', displayName:'Name', enableCellEdit: false}];
-    
-    columnDefs = columnDefs.concat(RoundSubGrid($scope.tournament.no_days));
-
-    columnDefs = columnDefs.concat([
-      {field:'rank', displayName:'Rank', enableCellEdit: false, visible:$scope.tournament.scored},
-      {field:'points', displayName:'Points', enableCellEdit: false, visible:$scope.tournament.scored},
-      {field:'relation', displayName:'Relation', enableCellEdit: false, visible:false},
-      {field:'username', displayName:'Username', enableCellEdit: false, visible:false}
-    ])
-    
-    console.log(columnDefs)
-
-    return { 
-      data: 'toScore.' + division,
-      enableCellSelection: true,
-      enableRowSelection: false,
-      enableCellEditOnFocus: true,
-      rowTemplate:'<div style="height: 100%" ng-class="row.getProperty(\'relation\')"><div ng-style="{ \'cursor\': row.cursor }" ng-repeat="col in renderedColumns" ng-class="col.colIndex()" class="ngCell ">' +
-                  '<div class="ngVerticalBar" ng-style="{height: rowHeight}" ng-class="{ ngVerticalBarVisible: !$last }"> </div>' +
-                  '<div ng-cell></div>' +
-                  '</div></div>{{row}}',
-      columnDefs: columnDefs
-    }
-  }
-
-  var setGridOptions = function(){
-    $scope.gridOptions = {
-      open : ScoreGrid('open'),
-      ladies : ScoreGrid('ladies'),
-      senior : ScoreGrid('senior'),
-      trainee : ScoreGrid('trainee'),
-    }
-  }
-
-  var RoundSubGrid = function(days){
-    var rounds = []
-    for (var i = 1; i <= days; i++) {
-      rounds.push({field: '' + i, displayName: 'Round ' + 1, enableCellEdit: true})
-    };
-    return rounds;
   };
 
   var MoneyGrid = function(division){
@@ -378,16 +435,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
       trainee : MoneyGrid('trainee'),
     };
   }
-  // tournament helpers
 
-  var roundsObj = function(days, player){
-    var rounds = {};
-    var player = player || {};
-    for (var i = 0; i < days; i++) {
-      rounds[i+1] = parseInt(player[i+1]) || 0
-    };
-    return rounds;
-  };
+    // data Object
 
   var moneyObj = function(splits){
     var prizePot = {}
@@ -397,6 +446,41 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
     return prizePot;
   }
 
+  // ng-grid merit
+
+  var setGridMeritOptions = function(){
+    $scope.gridMeritOptions = {
+      open : MeritGrid('open'),
+      ladies : MeritGrid('ladies'),
+      senior : MeritGrid('senior'),
+      trainee : MeritGrid('trainee'),
+    }
+  }
+
+  var MeritGrid = function(division){
+    return {  
+      data: 'merit.' + division,
+        enableCellSelection: true,
+        enableRowSelection: false,
+        enableCellEditOnFocus: true,
+        columnDefs: [
+          {field:'name[l10n()]', displayName:'Name', enableCellEdit: false},
+          {field: 'points|number:0', displayName: 'Points', enableCellEdit: true},
+          {field: 'rank', displayName: 'Rank', enableCellEdit: true},
+          {field:'username', displayName:'Username', enableCellEdit: false, visible:false}]
+    }
+  }
+  
+  // ng-grid Helper
+
+  $scope.getTableStyle= function(container, division) {
+     var rowHeight=30;
+     var headerHeight=45;
+     return {
+        height: ($scope[container][division].length * rowHeight + headerHeight) + "px"
+     };
+  };
+ 
   // actions
 
   $scope.submitScores = function (){
@@ -411,7 +495,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
             function(players, division){
               angular.forEach(players,
                 function(player, username){
-                  User.updateResults(player, $scope.tournament)
+                  User.updateResults(player, $scope.tournament, division)
               })
             })
         })
@@ -454,6 +538,35 @@ app.controller('TournamentsCtrl', function($scope, $modal, $rootScope, $q, $time
           User.addTournament(user, tournament);
         }).then(function(){
           $scope.tournaments[t.created_at] = t
+        })
+      });
+  }
+
+  $scope.signUp = function(t, division, user){
+    var t = $scope.tournament;
+    var user = user.originalObject;
+
+    var participant = {
+      status : 'signedup',
+      isEligable : User.isEligable(user),
+      name : user.name,
+      username : user.username,
+    }
+
+    var tournament = {
+        year : new Date(t.start_date).getFullYear(),
+        id : t.start_date,
+    }
+
+    Utils.nestedObject($scope.tournaments[t.created_at], ['results', division, participant.username], participant);
+
+    $timeout(function() {
+      Tournament.addParticipant(t, division, participant)
+        .then(function(){
+          User.addTournament(user, tournament);
+        }).then(function(){
+          $scope.tournaments[t.created_at] = t;
+          $location('/tournaments/' + tournament.year + '/' + tournament.slug);
         })
       });
   }

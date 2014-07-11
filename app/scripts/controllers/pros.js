@@ -36,7 +36,6 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
     $scope.pros.$on('loaded',function(){
       $scope.hunt = $filter('orderByPriority')($scope.pros);
       $scope.hunt.forEach(function(e){
-        console.log(e)
         e['name_en'] = e.name['en'];
         e['name_hk'] = e.name['zh-hk'];
         e['name_ch'] = e.name['zh-cn'];
