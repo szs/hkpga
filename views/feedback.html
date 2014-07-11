@@ -1,0 +1,1 @@
+<div class="container admin" class="admin-styling"> <h1 translate>FEEDBACK</h1> <div class="row" ng-controller="FeedbackCtrl"> <div class="well clearfix" ng-repeat="(id, feedback) in fb | orderByPriority | orderBy: 'created_at':true"> <div class="col-md-10"> <span>{{feedback.created_at | date }}</span> <i class="fa fa-comment-o"></i> {{feedback.text}} </div> </div> </div> </div>
