@@ -67,11 +67,22 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
       categories.forEach(function(key){
         var years = {};
         $scope.archives[key].forEach(function(i){
+            years[i] = i;
+          });
+        menuStructure[key] = years;
+      });
+      $scope.pages = menuStructure[$scope.category];
+    } else if (page == 'merit'){
+      var categories = $scope.archives.$getIndex();
+      categories.forEach(function(key){
+        var years = {};
+        $scope.archives[key].forEach(function(i){
             years[page + '/' + i] = i;
           });
         menuStructure[key] = years;
       });
       $scope.pages = menuStructure[$scope.category];
+
     } else {
       var categories = $scope.archives.$getIndex();
       categories.forEach(function(key){

@@ -90,7 +90,7 @@ app.config(function ($routeProvider) {
           controller: 'ProsCtrl'
         })
         .when('/tournaments', {
-          redirectTo: '/tournaments/merit',
+          redirectTo: '/tournaments/latest',
         })
         .when('/tournaments/new', {
           templateUrl: 'views/new.html',
@@ -103,41 +103,31 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/merit.html',
           controller: 'TournamentsCtrl',
         })
-        .when('/tournaments/member', {
-          redirectTo: '/tournaments/member/latest',
-        })
-        .when('/tournaments/member/:year', {
+        .when('/tournaments/:year', {
           templateUrl: 'views/tournaments.html',
           controller: 'TournamentsCtrl',
         })
-        .when('/tournaments/trainee', {
-          redirectTo: '/tournaments/trainee/latest',
-        })
-        .when('/tournaments/trainee/:year', {
-          templateUrl: 'views/tournaments.html',
-          controller: 'TournamentsCtrl',
-        })
-        .when('/tournaments/:id', {
+        .when('/tournaments/:year/:id', {
           templateUrl: 'views/tournament.html',
           controller: 'TournamentsCtrl',
         })
-        .when('/tournaments/:id/checklist', {
+        .when('/tournaments/:year/:id/checklist', {
           templateUrl: 'views/checklist.html',
           controller: 'ProsCtrl',
         })
-        .when('/tournaments/:id/score', {
+        .when('/tournaments/:year/:id/score', {
           templateUrl: 'views/scores.html',
           controller: 'TournamentsCtrl',
         })
-        .when('/tournaments/:id/teeofftime', {
-          templateUrl: 'views/teeofftime.html',
-          controller: 'TournamentsCtrl',
-        })
-        .when('/tournaments/:id/prizemoney', {
+        // .when('/tournaments/:year/:id/teeofftime', {
+        //   templateUrl: 'views/teeofftime.html',
+        //   controller: 'TournamentsCtrl',
+        // })
+        .when('/tournaments/:year/:id/prizemoney', {
           templateUrl: 'views/pricemoney.html',
           controller: 'TournamentsCtrl',
         })
-        .when('/tournaments/:id/edit', {
+        .when('/tournaments/:year/:id/edit', {
           templateUrl: 'views/new.html',
           controller: 'NewCtrl'
         })
