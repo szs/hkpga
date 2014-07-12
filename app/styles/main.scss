@@ -875,8 +875,18 @@ $admin-red:         #f06059;
       .well {
         margin-bottom: 20px;
       }
+      a.btn {
+        float: none;
+        position: relative;
+        display: inline;
+        left: 0px;
+      }
+      a.btn:nth-child(1) {
+        margin-left: 20px;
+      }
       h4 {
         padding-bottom: 5px;
+        margin-bottom: 23px;
       }
       a:hover{
         h4 {
