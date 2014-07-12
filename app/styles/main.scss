@@ -876,7 +876,8 @@ $admin-red:         #f06059;
         margin-bottom: 20px;
       }
       a.btn {
-        float: none;
+        clear: none;
+        float: left;
         position: relative;
         display: inline;
         left: 0px;
