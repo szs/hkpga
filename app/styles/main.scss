@@ -877,13 +877,9 @@ $admin-red:         #f06059;
       }
       a.btn {
         clear: none;
-        float: left;
         position: relative;
-        display: inline;
-        left: 0px;
-      }
-      a.btn:nth-child(1) {
-        margin-left: 20px;
+        width: 64px;
+        display: inline-block;
       }
       h4 {
         padding-bottom: 5px;
