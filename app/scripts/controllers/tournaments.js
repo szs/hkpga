@@ -270,7 +270,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       var scores = [];
       angular.forEach(players, function(player, id){
         var scoreRow = {
-          name: player.name.en,
+          name: player.name,
           username: player.username,
           rank: player.rank,
           points: player.points,
@@ -316,7 +316,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
     columnDefs = columnDefs.concat([
       {field:'rank', displayName:'Rank', enableCellEdit: false, visible:$scope.tournament.scored},
-      {field:'points:number:0', displayName:'Points', enableCellEdit: false, visible:$scope.tournament.scored},
+      {field:'points', displayName:'Points', enableCellEdit: false, visible:$scope.tournament.scored},
       {field:'relation', displayName:'Relation', enableCellEdit: false, visible:false},
       {field:'username', displayName:'Username', enableCellEdit: false, visible:false}
     ])
@@ -617,6 +617,10 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     return function( item ) {
       return Date.now() > item.started_at;
     };
+  };
+
+  $scope.upcoming = function(item) {
+      return Date.now() < item.started_at;
   };
 
   function updateArchives(){
