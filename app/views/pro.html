@@ -5,7 +5,7 @@
     <div class="col-md-9">
       <div class="well clearfix">
         <div class="pro-pic col-lg-3 col-md-4 col-sm-4 col-xs-5">
-          <img class="profile-pic img-responsive img-rounded" ng-src="{{ pro.profile_picture  | DriveOrUrl }}">
+          <img ng-if="pro.profile_picture" class="profile-pic img-responsive img-rounded" ng-src="{{ pro.profile_picture  | DriveOrUrl }}">
         </div>
         <div class="pro-name col-lg-9 col-m3-8 col-sm-8 col-xs-7">
           <h1>{{ pro.name[l10n()] }}</h1>

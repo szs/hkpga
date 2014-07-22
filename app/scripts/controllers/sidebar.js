@@ -21,12 +21,15 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
       member : 'Members',
       trainee : 'Trainees'
     },
+    honorary : {
+      directory : 'Directory',
+    },
     pros : {
       directory : 'Directory',
       'training-program'  : 'Training Programme'
     },
     community : {
-      'project-skyhigh' : 'Project Skyhigh'  
+      'project-skyhigh' : 'Project Skyhigh'
     },
     events : {},
     press : {

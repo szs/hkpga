@@ -31,8 +31,6 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
 
     $scope.alphaPro = alphaPro;
 
-    console.log(alphaPro);
-
   });
 
   if ($scope.action == 'checklist'){

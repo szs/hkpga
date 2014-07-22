@@ -173,6 +173,9 @@ app.config(function ($routeProvider) {
         .when('/honorary', {
           redirectTo: '/about/committee-honorary',
         })
+        .when('/honorary/directory', {
+          redirectTo: '/about/committee-honorary',
+        })
         .when('/honorary/new', {
           redirectTo: '/pros/new',
         })
