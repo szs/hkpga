@@ -18,9 +18,12 @@
                   <h5>{{ tournament.start_date | date:'dd MMM yyyy'}}</h5>
                 </div>
                 <div class="col-lg-10 col-md-9">
-                  <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }} {{ tournament.no_days }} day tournament </h4>
-                  <a class="btn btn-default tournament-division" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions"> {{division}} </a>
-                  <a class="btn btn-default" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/score"> Score </a>
+                  <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }} <em> {{ tournament.no_days }} day tournament </em></h4>
+            </a>
+                  <h5>Divisions: </h5>
+                  <span class="label label-default tournament-division" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</span>
+
+                  <a class="btn btn-default" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/score"> Scores </a>
                   <div ng-if="isUpcoming(tournament)">
                     <a href="{{ tournament.rules_url }}">Rules</a>
                     <a href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/prizemoney">Prize Money</a>
@@ -29,7 +32,6 @@
                   </div>
                 </div>
               </div>
-            </a>
           </div>
         </div>
       </div>

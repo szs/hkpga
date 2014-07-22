@@ -1,14 +1,16 @@
-<div class="container admin-styling" id="tournament-checklist">
-  <div class="row search-bar">
-    <div class="col-md-11">
+<div class="container admin-styling" id="tournament-scores">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
       <h2><i class="fa fa-trophy"></i>Tournament Scores</h2>
+      <h4>{{ tournament.name[l10n()] }}</h4>
+      <br>
+      <hr>
     </div>
-      <a class="btn btn-primary col-md-1" ng-click="submitScores()">Submit</a>
-  </div>
-
-    <div ng-hide="division=='ladies'" ng-if="toScore" ng-repeat="(division, scores) in toScore" class="row add-division">
-      <h3>{{ division }}</h3>
-      <div class="gridStyle" ng-grid="gridOptions[division]" ng-style="getTableStyle('toScore', division)"></div>
+    <div ng-hide="division=='ladies'" ng-if="toScore" ng-repeat="(division, scores) in toScore" class="row add-division col-md-10 col-md-offset-1">
+      <a class="btn btn-primary" ng-click="submitScores()">Submit</a>
+      <h3> {{ division }} Division </h3>
+      <div class="gridStyle" ng-grid="gridOptions[division]" ng-style="getTableStyle('toScore', division)">
+      </div>
     </div>
   </div>
 </div>

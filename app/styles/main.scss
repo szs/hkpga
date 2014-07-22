@@ -876,16 +876,20 @@ $admin-red:         #f06059;
         margin-bottom: 20px;
       }
       a.btn {
-        clear: none;
-        float: left;
         position: relative;
         width: 64px;
         left: 0;
+        bottom: 0;
         display: inline;
       }
       h4 {
         padding-bottom: 5px;
-        margin-bottom: 23px;
+        margin-bottom: 15px;
+        padding-top: 0px;
+      }
+      h5 {
+        float: left;
+        padding: 0px;
       }
       a:hover{
         h4 {
@@ -898,6 +902,16 @@ $admin-red:         #f06059;
           color: $text-grey;
           text-transform: capitalize;
         }
+      }
+      .label {
+        padding: 0.3em 0.8em 0.3em;
+        font-size: 100%;
+        line-height: 1.4;
+        margin-left: 8px;
+        margin-top: 6px;
+        font-weight: normal;
+        text-transform: capitalize;
+        display: inline-block;
       }
     }
 
@@ -912,6 +926,62 @@ $admin-red:         #f06059;
         border-bottom: 1px solid $grey-light;
       }
     }
+
+// TOURNAMENT CHECKLIST
+
+  #tournament-scores,
+  #tournament-checklist {
+    .search-bar {
+      width: 80%;
+      margin: 0 auto;
+      h2 {
+        text-align: center;
+      }
+    }
+    .add-division .btn {
+      background-color: $brand-green;
+      border: none;
+      width: 100px;
+      display: block;
+      float: left;
+      margin-right: 15px;
+      margin-left: 15px;
+      margin-top: 20px;
+      box-shadow: 3px 3px 3px $black;
+      text-transform: capitalize;
+      &:active {
+        background-color: $brand-green-light;
+      }
+    }
+    .players-list {
+      .title-h3{
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  #tournament-scores {
+    h2 {
+      text-align: center;
+    }
+    h3 {
+      margin-bottom: 30px;
+    }
+    h4 {
+      text-align: center;
+      color: $white;
+    }
+    .add-division {
+      text-transform: capitalize;
+    }
+    .btn.btn-primary {
+      float: right;
+      margin-top: 15px;
+    }
+  }
+
 
 
   // .2 DASHBOARD PAGE
@@ -1801,38 +1871,6 @@ $admin-red:         #f06059;
 }
 
 
-// TOURNAMENT CHECKLIST
-
-  #tournament-checklist {
-    .search-bar {
-      width: 80%;
-      margin: 0 auto;
-      h2 {
-        text-align: center;
-      }
-    }
-    .add-division .btn {
-      background-color: $brand-green;
-      border: none;
-      width: 100px;
-      display: block;
-      float: left;
-      margin-right: 15px;
-      margin-left: 15px;
-      margin-top: 20px;
-      box-shadow: 3px 3px 3px $black;
-      &:active {
-        background-color: $brand-green-light;
-      }
-    }
-    .players-list {
-      .title-h3{
-        text-transform: uppercase;
-        margin-bottom: 20px;
-        margin-top: 20px;
-      }
-    }
-  }
 
 // Modal
 
