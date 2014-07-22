@@ -25,9 +25,9 @@
 
                   <a class="btn btn-default" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/score"> Scores </a>
                   <div ng-if="isUpcoming(tournament)">
-                    <a href="{{ tournament.rules_url }}">Rules</a>
-                    <a href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/prizemoney">Prize Money</a>
-                    <a href="{{ tournament.tee_off }}">Tee Off Time</a>
+                    <a class="btn btn-default" href="{{ tournament.rules_url }}">Rules</a>
+                    <a class="btn btn-default" href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/prizemoney">Prize</a>
+                    <a class="btn btn-default" href="{{ tournament.tee_off }}">Tee Off</a>
                     <!-- <a href="#/tournaments/{{ tournament.slug }}/teeofftime">Tee Off Time</a> -->
                   </div>
                 </div>
