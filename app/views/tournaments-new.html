@@ -4,11 +4,10 @@
     <!-- Form Name -->
     <h1>Tournament</h1>
     <div class="well clearfix">
-
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="tournament-start-date">Start Date</label>  
+      <label class="col-md-2 control-label" for="tournament-start-date">Start Date</label>
       <div class="col-md-9">
-        <div> 
+        <div>
           <div class="date-picker">
             <span class="date-view">Selected date is: <em>{{tournament.start_date | date:'fullDate' }}</em><a ng-click="durb = !durb"><i class="fa fa-calendar"></i></a></span>
             <div class="dropdown calendar" ng-class="{ open: durb }">
@@ -20,9 +19,9 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="tournament-signup-before">SignupBefore</label>  
+      <label class="col-md-2 control-label" for="tournament-signup-before">SignupBefore</label>
       <div class="col-md-9">
-        <div> 
+        <div>
           <div class="date-picker">
             <span class="date-view">Selected date is: <em>{{tournament.signup_before | date:'fullDate' }}</em><a ng-click="isOpen2 = !isOpen2"><i class="fa fa-calendar"></i></a></span>
             <div class="dropdown calendar" ng-class="{ open: isOpen2 }">
@@ -44,7 +43,7 @@
 
     <!-- Text input-->
       <div class="form-group row">
-        <label class="col-md-2 control-label" for="tournament-name-en">Name (EN)</label>  
+        <label class="col-md-2 control-label" for="tournament-name-en">Name (EN)</label>
         <div class="col-md-9">
         <input id="tournament-name-en" name="tournament-name-en" type="text" placeholder="e.g. The Hong Kong Professional Golfers" class="form-control input-md" required="" ng-model="tournament.name.en">
         </div>
@@ -52,7 +51,7 @@
 
       <!-- Text input-->
       <div class="form-group row">
-        <label class="col-md-2 control-label" for="tournament-name-zh-hk">Name (HK)</label>  
+        <label class="col-md-2 control-label" for="tournament-name-zh-hk">Name (HK)</label>
         <div class="col-md-9">
         <input id="tournament-name-zh-hk" name="tournament-name-zh-hk" type="text" placeholder="e.g. 香港職業高爾夫球協會宣布委任李家瑜為行政總裁" class="form-control input-md" required="" ng-model="tournament.name['zh-hk']">
         </div>
@@ -60,7 +59,7 @@
 
       <!-- Text input-->
       <div class="form-group row">
-        <label class="col-md-2 control-label" for="tournament-name-zh-cn">Name (CN)</label>  
+        <label class="col-md-2 control-label" for="tournament-name-zh-cn">Name (CN)</label>
         <div class="col-md-9">
         <input id="tournament-name-zh-cn" name="tournament-name-zh-cn" type="text" placeholder="e.g. 香港职业高尔夫球协会宣布委任李家瑜为行政总裁" class="form-control input-md" required="" ng-model="tournament.name['zh-cn']">
         </div>
@@ -69,7 +68,7 @@
       <hr>
       <!-- Text input-->
       <div class="form-group row">
-        <label class="col-md-2 control-label" for="tournament-name-en">Venue (EN)</label>  
+        <label class="col-md-2 control-label" for="tournament-name-en">Venue (EN)</label>
         <div class="col-md-9">
         <input id="tournament-name-en" name="tournament-name-en" type="text" placeholder="e.g. The Hong Kong Professional Golfers" class="form-control input-md" required="" ng-model="tournament.venue.en">
         </div>
@@ -77,7 +76,7 @@
 
       <!-- Text input-->
       <div class="form-group row">
-        <label class="col-md-2 control-label" for="tournament-name-zh-hk">Venue (HK)</label>  
+        <label class="col-md-2 control-label" for="tournament-name-zh-hk">Venue (HK)</label>
         <div class="col-md-9">
         <input id="tournament-name-zh-hk" name="tournament-name-zh-hk" type="text" placeholder="e.g. 香港職業高爾夫球協會宣布委任李家瑜為行政總裁" class="form-control input-md" required="" ng-model="tournament.venue['zh-hk']">
         </div>
@@ -85,7 +84,7 @@
 
       <!-- Text input-->
       <div class="form-group row">
-        <label class="col-md-2 control-label" for="tournament-name-zh-cn">Venue (CN)</label>  
+        <label class="col-md-2 control-label" for="tournament-name-zh-cn">Venue (CN)</label>
         <div class="col-md-9">
         <input id="tournament-name-zh-cn" name="tournament-name-zh-cn" type="text" placeholder="e.g. 香港职业高尔夫球协会宣布委任李家瑜为行政总裁" class="form-control input-md" required="" ng-model="tournament.venue['zh-cn']">
         </div>
@@ -94,7 +93,7 @@
       <hr>
       <!-- Text input-->
       <div class="form-group row">
-        <label class="col-md-2 control-label" for="tournament-url">Rules URL</label>  
+        <label class="col-md-2 control-label" for="tournament-url">Rules URL</label>
         <div class="col-md-9">
         <input id="tournament-url" name="tournament-url" type="text" placeholder="Google Docs URL" class="form-control input-md" required="" ng-model="tournament.rules_url">
         </div>
@@ -102,7 +101,7 @@
 
       <!-- Text input-->
       <div class="form-group row">
-        <label class="col-md-2 control-label" for="tournament-teeoff-time">Tee-off Time</label>  
+        <label class="col-md-2 control-label" for="tournament-teeoff-time">Tee-off Time</label>
         <div class="col-md-9">
         <input id="tournament-teeoff-time" name="tournament-teeoff-time" type="text" placeholder="Google Docs URL" class="form-control input-md" required="" ng-model="tournament.tee_off">
         </div>
@@ -111,7 +110,7 @@
       <hr>
     <!-- Text input-->
       <div class="form-group form-group-sm checkbox row" id="tournament-divisions">
-        <label class="col-xs-2 control-label" for="tournament-divisions">Divisions</label>  
+        <label class="col-xs-2 control-label" for="tournament-divisions">Divisions</label>
         <label ng-repeat="(division, enabled) in tournament.divisions" class="checkbox-inline">
           <div class="col-md-2 checkbox">
             <input type="checkbox" class="form-control input-md" ng-model="tournament.divisions[division]"> <span id="division-label">{{division}}</span>

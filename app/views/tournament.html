@@ -31,7 +31,7 @@
             </a>
             <div>
                 <div ng-if="tournament && isUpcoming(tournament)">
-                  <a class="btn btn-primary" href="#/tournaments/{{ tournament.year }}/{{ tournament.rules_url }}">Rules</a>
+                  <a class="btn btn-primary" href="{{ tournament.rules_url }}">Rules</a>
                   <a class="btn btn-primary" href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/prizemoney">Prize Money</a>
                   <a class="btn btn-primary" href="{{ tournament.tee_off }}">Tee Off Time</a>
                 </div>
