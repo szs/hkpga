@@ -36,6 +36,7 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
   if ($scope.action == 'checklist'){
     $scope.pros.$on('loaded',function(){
       $scope.hunt = $filter('orderByPriority')($scope.pros);
+      $scope.hunt = $filter('filter')($scope.hunt, {active:true});
       $scope.hunt.forEach(function(e){
         e['name_en'] = e.name['en'];
         e['name_hk'] = e.name['zh-hk'];
