@@ -25,12 +25,12 @@
           <li ng-hide="signedIn()">
             <a translate href="#/login">LOGIN</a>
           </li>
-          <li ng-if="currentUser.role == 'admin'">  
+          <li ng-if="currentUser.role == 'admin'">
             <a translate ng-href="#/admin">
               <span class="glyphicon glyphicon-cog"></span>
             </a>
           </li>
-          <li ng-if="currentUser.role != 'admin'">  
+          <li ng-if="currentUser.role != 'admin'">
             <a translate ng-href="#/dashboard">
               <i class="fa fa-user"></i>
             </a>
@@ -45,9 +45,9 @@
           <li class="user-lang" ng-hide="l10n() == 'zh-hk'">
             <a ng-click="changeLanguage('zh-hk')" translate="LANG_ZH_HK" class="btn"></a>
           </li>
-          <li class="user-lang" ng-hide="l10n() == 'zh-cn'"> 
+          <li class="user-lang" ng-hide="l10n() == 'zh-cn'">
             <a ng-click="changeLanguage('zh-cn')" translate="LANG_ZH_CN" class="btn"></a>
-          </li> 
+          </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right clearfix hidden-xs hidden-sm" id="social-media">
@@ -57,7 +57,7 @@
 <!--           <li><i class="fa fa-youtube"></i></li>
           <li><i class="fa fa-linkedin"></i></li> -->
         </ul>
-      </div>  
+      </div>
 
       <ul class="nav navbar-nav navbar-right" id="page-nav">
         <li><a translate ng-href="#">MENU_HOME</a></li>
@@ -84,7 +84,7 @@
             <ul class="dropdown-menu">
                 <li><a ng-href="#/community/project-skyhigh"> / Project Skyhigh </a></li>
             </ul>
-          </li>    
+          </li>
 <!--           <li><a translate ng-href="#/events">MENU_EVENTS</a></li> -->
           <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_PRESS</a>
             <ul class="dropdown-menu">

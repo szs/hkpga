@@ -7,7 +7,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
   var martRef = new Firebase(FIREBASE_URL + 'users/martvandeven');
 
   var users = $firebase(ref);
-  
+
   var setMart = function(){
     martRef.setPriority('simplelogin:14')
   }
@@ -58,12 +58,13 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
       return $rootScope.currentUser !== undefined;
     },
     addTournament : function(user, tournament){
-        if (angular.isNumber(tournament) == false){
-          tournament.id = Date.parse(tournament.id)
-        }
-        Utils.nestedObject( users[user.username], ['results', tournament.year, tournament.id, 'status'], 'signedup');
+      if (angular.isNumber(tournament.id) == false){
+        tournament.id = Date.parse(tournament.id)
+      }
 
-        return users.$save(user.username);
+      Utils.nestedObject( users[user.username], ['results', tournament.year, tournament.id, 'status'], 'signedup');
+
+      return users.$save(user.username);
     },
     updateResults : function(user, tournament, division){
 
@@ -88,6 +89,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
     },
     removeTournament : function(user, tournament){
         return users
+          .$child(user.username)
           .$child('results')
           .$child(new Date(tournament.created_at).getFullYear())
           .$remove(tournament.created_at);

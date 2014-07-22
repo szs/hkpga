@@ -5,7 +5,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
   $scope.tournaments = Tournament.all;
 
-  var pros = User.all;
+  $scope.pros = User.all;
 
   $scope.divisions = ['open','ladies','senior','trainee'];
   $scope.status = ['signedup','registered','played','cancelled','forfeited','disqualified'];
@@ -37,7 +37,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
        })
       if ($scope.view =='score'){
         firebase2grid();
-        setGridOptions()
+        setGridOptions();
       }
       if ($scope.view =='prizemoney'){
         money2grid();
@@ -196,7 +196,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     $scope.divisions.forEach(function (division) {
       var meritSum = {}
       merit[division] = []
-      angular.forEach(pros, function(pro, username){
+      angular.forEach($scope.pros, function(pro, username){
         if (username[0] != '$'){
           if (pro.hasOwnProperty('results') && pro['results'].hasOwnProperty($scope.archiveYear)){
             angular.forEach(pro['results'][$scope.archiveYear], function(result, tournament){
@@ -275,7 +275,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
           rank: player.rank,
           points: player.points,
           totalScore: player.totalScore,
-          relation: pros[player.username].relation
+          relation: $scope.pros[player.username].relation
         };
         player.rounds = player.rounds || roundsObj(width);
 
@@ -529,7 +529,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
     var tournament = {
         year : new Date(t.start_date).getFullYear(),
-        id : t.start_date,
+        id : t.created_at,
+        division: division
     }
 
     Utils.nestedObject($scope.tournaments[t.created_at], ['results', division, participant.username], participant);
@@ -600,13 +601,36 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         $location.path('/tournaments/'+ t.year + '/' + rot.slug);})
   };
 
-   $scope.delete = function(t){
+
+  $scope.delete = function(t){
     var t = t || $scope.tournament;
-    Tournament.delete(t.created_at)
+    removeTournamentFromAllPlayers(t)
+      .then(function(){
+        Tournament.delete(t.created_at)
       .then(function(){
         $location.path('/admin');
       });
+    });
   };
+
+  var removeTournamentFromAllPlayers = function(t){
+    var promises = [];
+    var t = t || $scope.tournament;
+
+    angular.forEach(t.results, function(players, division){
+      var deferred = $q.defer();
+
+      angular.forEach(players, function(player, username){
+
+        User.removeTournament(player, t);
+        deferred.resolve();
+      })
+
+      promises.push(deferred.promise);
+    })
+
+    return $q.all(promises);
+  }
 
   $scope.nextStatus = function(player, tournament, division){
     var next = ($scope.status.indexOf(player.status) + 1) % $scope.status.length;
