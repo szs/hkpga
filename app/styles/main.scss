@@ -99,6 +99,10 @@ $admin-red:         #f06059;
 
 // 1. BASE ------------------------------------------------------------
 
+  #hello-container {
+    min-height: 400px;
+  }
+
   body {
     font-family: $header-font, sans-serif;
     font-size: 1.6rem;
@@ -112,7 +116,6 @@ $admin-red:         #f06059;
     padding-top: 140px;
     padding-bottom: 0;
   }
-
 
   h1 {
     font-size: 2.4rem;
@@ -186,6 +189,7 @@ $admin-red:         #f06059;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 0px;
+    padding-right: 0px;
     background-color: transparent;
     border-bottom: 2px solid $grey;
     li {
@@ -869,7 +873,7 @@ $admin-red:         #f06059;
 
   // .2 TOURNAMENTS PAGE 
 
-
+    #merit-page,
     #tournaments-page,
     #tournament-page {
       .well {
@@ -982,6 +986,22 @@ $admin-red:         #f06059;
     }
   }
 
+
+  // .2 MERIT PAGE 
+
+  #merit-page {
+    h2 {
+      padding-left: 0px;
+      margin-top: 25px;
+    }
+    h3 {
+      text-transform: capitalize;
+      margin-bottom: 20px;
+    }
+    hr {
+      margin-top: 25px;
+    }
+  }
 
 
   // .2 DASHBOARD PAGE

@@ -311,16 +311,16 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   };
 
   var ScoreGrid = function(division){
-    var columnDefs = [{field:'name[l10n()]', displayName:'Name', enableCellEdit: false}];
+    var columnDefs = [{field:'name[l10n()]', displayName:'Name', width: "**", enableCellEdit: false}];
 
     columnDefs = columnDefs.concat(RoundSubGrid($scope.tournament.no_days));
 
     columnDefs = columnDefs.concat([
-      {field:'totalScore', displayName:'Total Score', enableCellEdit: false, visible:$scope.tournament.scored},
-      {field:'rank', displayName:'Rank', enableCellEdit: false, visible:$scope.tournament.scored},
-      {field:'points', displayName:'Points', enableCellEdit: false, visible:$scope.tournament.scored},
-      {field:'relation', displayName:'Relation', enableCellEdit: false, visible:false},
-      {field:'username', displayName:'Username', enableCellEdit: false, visible:false}
+      {field:'totalScore', displayName:'Total Score', width: "*", enableCellEdit: false, visible:$scope.tournament.scored},
+      {field:'rank', displayName:'Rank', width: "*", enableCellEdit: false, visible:$scope.tournament.scored},
+      {field:'points', displayName:'Points', width: "*", enableCellEdit: false, visible:$scope.tournament.scored},
+      {field:'relation', displayName:'Relation', width: "*", enableCellEdit: false, visible:false},
+      {field:'username', displayName:'Username', width: "*", enableCellEdit: false, visible:false}
     ])
 
     return {
