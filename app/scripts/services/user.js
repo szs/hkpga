@@ -66,6 +66,17 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
 
       return users.$save(user.username);
     },
+    updateStatus : function(user, status, tournament){
+      var year = new Date(tournament.start_date).getFullYear();
+
+      return users
+        .$child(user.username)
+        .$child('results')
+        .$child(year)
+        .$child(tournament.created_at)
+        .$child('status')
+        .$set(status);
+    },
     updateResults : function(user, tournament, division){
 
         var year = new Date(tournament.start_date).getFullYear();
@@ -77,6 +88,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
           rank : user.rank,
           isWinner : user.isWinner,
           points: user.points,
+          status: user.status,
           division: division
         }
 

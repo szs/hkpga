@@ -8,7 +8,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   $scope.pros = User.all;
 
   $scope.divisions = ['open','ladies','senior','trainee'];
-  $scope.status = ['signedup','registered','played','cancelled','forfeited','disqualified'];
+  $scope.status = ['signedup','registered','played','retired','withdrawn','missedcut','disqualified'];
 
   $scope.category = $location.path().split('/')[1];
   $scope.archiveYear = $location.path().split('/')[2];
@@ -598,7 +598,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       .then(updateArchives)
       .then(function(){
         $scope.reset();
-        $location.path('/tournaments/'+ t.year + '/' + rot.slug);})
+        $location.path('/tournaments/'+ t.year + '/' + t.slug);})
   };
 
 
@@ -632,12 +632,52 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     return $q.all(promises);
   }
 
-  $scope.nextStatus = function(player, tournament, division){
-    var next = ($scope.status.indexOf(player.status) + 1) % $scope.status.length;
-    Tournament.updatePlayerStatus(player, $scope.status[next], tournament, division)
+  $scope.nextStatus = function(player, tournament, division, status){
+    var deferred = $q.defer()
+    var nxtStatus = status || $scope.status[($scope.status.indexOf(player.status) + 1) % $scope.status.length];
+    Tournament.updatePlayerStatus(player, nxtStatus, tournament, division)
       .then(function(){
-        player.status = $scope.status[next];
+        User.updateStatus(player, nxtStatus, tournament)
       })
+      .then(function(){
+        deferred.resolve();
+        player.status = nxtStatus;
+      })
+
+    return deferred.promise;
+  }
+
+  $scope.setPlayedStatus = function (player, tournament, division) {
+    var deferred = $q.defer()
+
+    $scope.nextStatus(player, tournament, division, 'played')
+      .then(function(){
+        deferred.resolve();
+      })
+
+    return deferred.promise;
+  }
+
+  $scope.setPlayed = function(stage){
+    var promises = [];
+
+    angular.forEach($scope.tournament.results, function(players, division){
+      var deferred = $q.defer();
+
+      angular.forEach(players, function(player, username){
+        if (player.status == stage){
+          $scope.setPlayedStatus(player, $scope.tournament, division)
+            .then(function(){
+              deferred.resolve();
+            })
+        }
+      })
+
+      promises.push(deferred.promise);
+    })
+
+    return $q.all(promises);
+
   }
 
   $scope.recent = function() {
