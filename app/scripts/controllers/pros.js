@@ -2,12 +2,13 @@
 'use strict';
 
 app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, User){
-  
+
   $scope.pros = User.all;
 
   $scope.category = $location.path().split('/')[1];
   $scope.view = $location.path().split('/')[2];
   $scope.action = $location.path().split('/')[3];
+  $scope.action = $location.path().split('/')[4] || $scope.action;
 
   if ($routeParams.id){
       $scope.edit = true
@@ -18,7 +19,7 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
   User.all.$bind($scope, 'pros').then(function() {
     var usernames = $scope.pros.$getIndex();
     var alphaPro = {}
-    
+
     angular.forEach(usernames, function(username) {
       var alpha = $scope.pros[username].name.en[0];
       if (alphaPro.hasOwnProperty(alpha)){
@@ -40,7 +41,7 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
         e['name_hk'] = e.name['zh-hk'];
         e['name_ch'] = e.name['zh-cn'];
       });
-      $scope.done = $scope.hunt; 
+      $scope.done = $scope.hunt;
     });
   }
 
@@ -98,7 +99,7 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
   $scope.filterItem = {
     pro: $scope.filterOptions.pros[0]
   }
-  
+
   $scope.statusFilter = function (pro) {
     var memberStatus =  {
       'full' : 3,

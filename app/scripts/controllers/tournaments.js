@@ -132,7 +132,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         if (parseInt(user.points) < currentPoints){
           currentPoints = user.points;
           currentRank = index + 1;
-        } 
+        }
         user.rank = currentRank;
         scale[index]['rank'] = currentRank;
     })
@@ -289,7 +289,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
     $scope.toScore = tournamentScores;
   };
-  
+
   var grid2Firebase = function(){
     var promises = [];
 
@@ -311,7 +311,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
   var ScoreGrid = function(division){
     var columnDefs = [{field:'name[l10n()]', displayName:'Name', enableCellEdit: false}];
-    
+
     columnDefs = columnDefs.concat(RoundSubGrid($scope.tournament.no_days));
 
     columnDefs = columnDefs.concat([
@@ -320,8 +320,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       {field:'relation', displayName:'Relation', enableCellEdit: false, visible:false},
       {field:'username', displayName:'Username', enableCellEdit: false, visible:false}
     ])
-    
-    return { 
+
+    return {
       data: 'toScore.' + division,
       enableCellSelection: true,
       enableRowSelection: false,
@@ -414,7 +414,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   };
 
   var MoneyGrid = function(division){
-    return {  
+    return {
       data: 'money.' + division,
         enableCellSelection: true,
         enableRowSelection: false,
@@ -457,7 +457,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   }
 
   var MeritGrid = function(division){
-    return {  
+    return {
       data: 'merit.' + division,
         enableCellSelection: true,
         enableRowSelection: false,
@@ -469,7 +469,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
           {field:'username', displayName:'Username', enableCellEdit: false, visible:false}]
     }
   }
-  
+
   // ng-grid Helper
 
   $scope.getTableStyle= function(container, division) {
@@ -479,7 +479,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         height: ($scope[container][division].length * rowHeight + headerHeight) + "px"
      };
   };
- 
+
   // actions
 
   $scope.submitScores = function (){
@@ -594,7 +594,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       .then(updateArchives)
       .then(function(){
         $scope.reset();
-        $location.path('/tournaments/'+ t.slug);})
+        $location.path('/tournaments/'+ t.year + '/' + rot.slug);})
   };
 
    $scope.delete = function(t){
@@ -615,13 +615,19 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
   $scope.recent = function() {
     return function( item ) {
-      return Date.now() > item.started_at;
+      return Date.now() > item.start_date;
     };
   };
 
-  $scope.upcoming = function(item) {
-      return Date.now() < item.started_at;
+  $scope.upcoming = function() {
+    return function( item ) {
+      return Date.now() < item.start_date;
+    };
   };
+
+  $scope.isUpcoming = function(tournament) {
+     return Date.now() < tournament.start_date;
+  }
 
   function updateArchives(){
     var deferred = $q.defer()
@@ -638,7 +644,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     return deferred.promise;
   }
 
-  var percentage = [15.85, 10.85, 6.1, 4.93, 4.1, 3.39, 2.91, 2.51, 2.2, 1.97, 1.8, 1.68, 1.57, 1.5, 1.44, 1.38, 1.32, 
+  var percentage = [15.85, 10.85, 6.1, 4.93, 4.1, 3.39, 2.91, 2.51, 2.2, 1.97, 1.8, 1.68, 1.57, 1.5, 1.44, 1.38, 1.32,
                     1.26, 1.21, 1.17, 1.14, 1.11, 1.08, 1.05, 1.02, 0.99, 0.96, 0.93, 0.9, 0.87, 0.84, 0.81, 0.79, 0.77,
                     0.75, 0.73, 0.71, 0.69, 0.67, 0.65, 0.63, 0.61, 0.59, 0.57, 0.55];
 

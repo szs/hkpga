@@ -1,12 +1,12 @@
 <div class="container admin-styling" id="tournament-checklist">
   <div class="row search-bar">
-    <div class="col-md-12">
+    <div class="col-md-12" ng-if="done">
       <h2><i class="fa fa-trophy"></i>Tournament Registration &amp; Checklist </h2>
       <angucomplete-alt id="ex1"
         place-holder="Search countries"
         pause="100"
-        selected-object="user"
-        local-data="hunt"
+        selected-object="$parent.user"
+        local-data="done"
         search-fields="name_en,name_hk"
         title-field="name_en"
         minlength="1"
@@ -15,7 +15,11 @@
         match-class="highlight"
         placeholder="Type a member name to add them to a division..."/>
     </div>
-    <h3>Selected: <span class="label label-success">{{ user.title }}<span></h3>
+  </div>
+  <div class="row search-bar">
+    <div class="col-md-12" ng-if="done">
+      <h3>Selected: <span class="label label-success">{{ user.title }}<span></h3>
+    </div>
   </div>
 
   <div ng-controller="TournamentsCtrl">

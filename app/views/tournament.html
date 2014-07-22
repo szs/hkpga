@@ -24,17 +24,17 @@
                   </div>
                   <div class="row">
                     <a class="btn btn-default" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</a>
-                    <a class="btn btn-default pull-right" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/score"> Scores</a> 
+                    <a class="btn btn-default pull-right" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/score"> Scores</a>
                   </div>
                 </div>
               </div>
             </a>
             <div>
-                <span ng-if="upcoming(tournament)">
-                  <a href="#/tournaments/ {{ tournament.rules_url }}">Rules</a>
-                  <a href="#/tournaments/{{ tournament.slug }}/prizemoney">Prize Money</a>
-                  <a href="{{ tournament.tee_off }}">Tee Off Time</a>
-                </span>
+                <div ng-if="tournament && isUpcoming(tournament)">
+                  <a class="btn btn-primary" href="#/tournaments/{{ tournament.year }}/{{ tournament.rules_url }}">Rules</a>
+                  <a class="btn btn-primary" href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/prizemoney">Prize Money</a>
+                  <a class="btn btn-primary" href="{{ tournament.tee_off }}">Tee Off Time</a>
+                </div>
             </div>
           </div>
 
