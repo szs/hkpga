@@ -274,6 +274,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
           username: player.username,
           rank: player.rank,
           points: player.points,
+          totalScore: player.totalScore,
           relation: pros[player.username].relation
         };
         player.rounds = player.rounds || roundsObj(width);
@@ -315,6 +316,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     columnDefs = columnDefs.concat(RoundSubGrid($scope.tournament.no_days));
 
     columnDefs = columnDefs.concat([
+      {field:'totalScore', displayName:'Total Score', enableCellEdit: false, visible:$scope.tournament.scored},
       {field:'rank', displayName:'Rank', enableCellEdit: false, visible:$scope.tournament.scored},
       {field:'points', displayName:'Points', enableCellEdit: false, visible:$scope.tournament.scored},
       {field:'relation', displayName:'Relation', enableCellEdit: false, visible:false},
@@ -346,7 +348,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   var RoundSubGrid = function(days){
     var rounds = [];
     for (var i = 1; i <= days; i++) {
-      rounds.push({field: '' + i, displayName: 'Round ' + 1, enableCellEdit: true})
+      rounds.push({field: '' + i, displayName: 'Round ' + i, enableCellEdit: true})
     };
     return rounds;
   };

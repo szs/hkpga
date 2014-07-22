@@ -52,6 +52,10 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/admin.html',
           controller: 'AdminCtrl'
         })
+        .when('/admin/people', {
+          templateUrl: 'views/people.html',
+          controller: 'ProsCtrl'
+        })
         .when('/dashboard', {
           templateUrl: 'views/dashboard.html',
           controller: 'AdminCtrl'

@@ -31,6 +31,8 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
 
     $scope.alphaPro = alphaPro;
 
+    console.log(alphaPro);
+
   });
 
   if ($scope.action == 'checklist'){
@@ -108,7 +110,9 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
       'member' : 3,
       'trainer' : 2,
       'trainee' : 1,
-      'seniortrainee' : 1
+      'seniortrainee' : 1,
+      'honorary' : 0,
+      'none' : 0,
     }
 
     if (memberStatus[pro.status] === $scope.filterItem.pro.status) {

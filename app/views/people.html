@@ -1,10 +1,14 @@
 <div ng-class="{admin: 'admin'}[currentUser.role]" class="container" id="pros-page">
    <div class="row">
       <div class="col-md-8">
-         <h2 translate>PROS</h2>
+         <h2>People Directory</h2>
       </div>
       <div class="col-md-4">
-         <div ng-include="'views/breadcrumbs.html'"></div>
+         <ol class="breadcrumb">
+             <li><a href="#/">Home</a></li>
+             <li><a class="category" href="#/admin"> Admin</a></li>
+             <li ng-if="page" class="active"> People</li>
+         </ol>
       </div>
    </div>
    <div class="col-md-9">
@@ -21,7 +25,7 @@
          </div>
          <div class="pros row" ng-repeat="(alpha, pros) in alphaPro">
             <div class="col-md-12">
-               <div ng-repeat="pro in pros | filter:listed() | filter:{active :true} | filter:search | filter:statusFilter">
+               <div ng-repeat="pro in pros | filter:search | filter:statusFilter">
                   <h2 ng-show="$first">{{alpha}}</h2>
                   <div class="pro-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
                      <a class="{{pro.status}}" ng-href="#/pros/{{pro.username}}" class="col-md-4">{{pro.name[l10n()]}}</a>
@@ -32,7 +36,17 @@
       </div>
    </div>
    <div class="col-md-3">
-      <div ng-include="'/views/sidebar.html'" ng-controller="SidebarCtrl"></div>
+      <div class="side-nav">
+        <ul>
+          <li class="side-level-1" translate> Admin </li>
+            <ul>
+               <li class="side-level-2" >
+                <a href="#/people/people" > / people</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
       <div class="pros-legend">
          <div class="well">
             <h4>Categories </h4>
