@@ -332,7 +332,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
                   '<div class="ngVerticalBar" ng-style="{height: rowHeight}" ng-class="{ ngVerticalBarVisible: !$last }"> </div>' +
                   '<div ng-cell></div>' +
                   '</div></div>{{row}}',
-      columnDefs: columnDefs
+      columnDefs: columnDefs,
+      noTabInterference: true
     }
   }
 
