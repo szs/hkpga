@@ -174,6 +174,10 @@ $admin-red:         #f06059;
     max-width: 100%;
   }
 
+  dl {
+    margin-bottom: 0px;
+  }
+
   .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
   .breadcrumb {
@@ -238,6 +242,18 @@ $admin-red:         #f06059;
   }
 
 
+  .btn-default {
+    border: 2px solid $text-grey;
+    margin-right: 7px;
+    margin-bottom: 20px;
+    &:hover {
+      background-color: $brand-gold;
+      color: $white;
+      border: 2px solid $grey-light;
+    }
+  }
+
+
 // 2. LAYOUT ------------------------------------------------------------
 
 
@@ -261,14 +277,19 @@ $admin-red:         #f06059;
     }
 
     .footer {
-      padding-bottom: 40px;
+      padding-bottom: 30px;
       position: absolute;
       // bottom: 0;
-      bottom: -120px;
+      bottom: -140px;
       width: 100%;
-      p {
+      .contact-details p {
         padding-left: 30px;
-        text-align: center;
+        text-align: left;
+      }
+      .terms-copyright p {
+        text-align: right;
+        padding-right: 20px;
+        float:right;
       }
       padding-top: 20px;
       color: #777;
@@ -338,6 +359,7 @@ $admin-red:         #f06059;
         margin-top: 15px;
         margin-bottom: 15px;
       }
+      a.btn,
       button.btn {
         float: right;
       }
@@ -366,6 +388,7 @@ $admin-red:         #f06059;
       h5 {
         color: $text-grey-light;
       }
+      a.btn,
       button.btn {
         float: right;
         position: absolute;
@@ -657,6 +680,10 @@ $admin-red:         #f06059;
       i {
         margin-right: 15px;
       }
+      .well {
+        padding-top: 30px;
+        padding-bottom: 40px;
+      }
     }
 
 
@@ -848,8 +875,17 @@ $admin-red:         #f06059;
       .well {
         margin-bottom: 20px;
       }
+      a.btn {
+        clear: none;
+        float: left;
+        position: relative;
+        width: 64px;
+        left: 0;
+        display: inline;
+      }
       h4 {
         padding-bottom: 5px;
+        margin-bottom: 23px;
       }
       a:hover{
         h4 {
@@ -858,16 +894,6 @@ $admin-red:         #f06059;
       }
       .title-row {
         border-bottom: none;
-        .btn-default {
-          border: 2px solid $text-grey;
-          margin-right: 7px;
-          margin-bottom: 20px;
-          &:hover {
-            background-color: $brand-gold;
-            color: $white;
-            border: 2px solid $grey-light;
-          }
-        }
         a {
           color: $text-grey;
           text-transform: capitalize;
@@ -888,11 +914,47 @@ $admin-red:         #f06059;
     }
 
 
+  // .2 DASHBOARD PAGE
+
+    #dashboard-page {
+      i {
+          padding-right: 30px;
+      }
+      .row {
+        padding-bottom: 20px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid $white;
+      }
+      textarea {
+        width: 100%;
+        min-width: 400px;
+        min-height: 100px;
+      } 
+      h1 {
+        margin-bottom: 20px;
+      }
+      .row-cards {
+        margin-right: 30px;
+        box-shadow: 5px 5px 5px $black;
+        .btn-default {
+          margin-top: 15px;
+        }
+      }
+      .feedback-form {
+        .btn-primary {
+          width: 80px;
+          margin-top: 20px;
+        }
+      }
+    }
+
 // 3. MODULE ------------------------------------------------------------
 
 
   /* Buttons */
 
+    a.btn.btn-gold, 
     button.btn {
       background-color: $brand-gold;
       color: $white;
@@ -903,6 +965,7 @@ $admin-red:         #f06059;
       }
     }
 
+    a.back,
     button.back {
       margin-bottom: 30px;
     }
@@ -1037,6 +1100,7 @@ $admin-red:         #f06059;
     .widget-footer {
       margin-top: -20px;
       padding: 0px 18px 13px;
+      a.btn,
       button.btn {
         float: right;
         }
@@ -1137,6 +1201,9 @@ $admin-red:         #f06059;
 
     #carousel {
       border-bottom: 5px solid $black;
+      .carousel-control {
+        z-index: 1000;
+      }
     }
 
     // Title
@@ -1153,6 +1220,7 @@ $admin-red:         #f06059;
         margin: 0 auto;
         vertical-align: middle;
         padding-top: 21px;
+        z-index: 20;
       }
     }
 
@@ -1292,18 +1360,39 @@ $admin-red:         #f06059;
 }
 .trainer:before{
    font-family: FontAwesome;
-   content: "\f006"; // empty star
+   content: "\f111;"; // filled circle
    display: inline-block;
    padding-right: 14px;
    font-size: 1.2rem;
 }
 .trainee:before{
    font-family: FontAwesome;
-   content: "\f1db"; // empty circle or thicker circle f10c
+   content: "\f10c"; // empty circle 
    display: inline-block;
    padding-right: 14px;
    font-size: 1.2rem;
 }
+
+
+  // .4 PROS LEGEND
+
+  .pros-legend {
+    .well {
+      background-color: transparent;
+      border: 2px solid $white;
+    }
+    h4 {
+      border-bottom: 1px solid $text-grey-light;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      font-size: 1.7rem;
+    }
+    i, span {
+      font-size: 1.4rem;
+      margin-right: 20px;
+      color: $white;
+    }
+  }
 
   // .4 Coming soon //
 
@@ -1444,7 +1533,7 @@ $admin-red:         #f06059;
         color: $admin-blue;
       }
     }
-
+    
 
 // End of .admin-styling
 }
@@ -1795,8 +1884,8 @@ $admin-red:         #f06059;
   .navbar-brand {
     img {
       width: 110px;
-      margin-left: 35px;
-      margin-top: -4px;
+      margin-left: 20px;
+      margin-top: 7px;
     }
   }
 
@@ -1851,9 +1940,9 @@ $admin-red:         #f06059;
 @media (min-width: 769px) and (max-width: 866px) {
   .navbar-brand {
     img {
-      width: 110px;
-      margin-left: 31px;
-      margin-top: -4px;
+      width: 115px;
+      margin-left: 20px;
+      margin-top: 10px;
     }
   }
 }
@@ -1884,9 +1973,9 @@ $admin-red:         #f06059;
 
   .navbar-brand {
     img {
-      width: 110px;
-      margin-left: 50px;
-      margin-top: -4px;
+      width: 120px;
+      margin-left: 20px;
+      margin-top: 10px;
     }
   }
 
@@ -1902,6 +1991,29 @@ $admin-red:         #f06059;
     }
   }
 
+  .side-nav {
+    position: fixed;
+    width: 280px;
+    top: 219px;
+  }
+
+  .pros-legend {
+    position: fixed;
+    width: 280px;
+    .well {
+      padding: 20px 26px
+    }
+  }
+
+  #pros-page {
+    .side-nav {
+      top: 249px;
+    }
+    .pros-legend {
+      top: 450px;
+    }
+  }
+
 }
 
 
@@ -1910,10 +2022,10 @@ $admin-red:         #f06059;
 
   .navbar-brand {
     img {
-      width: 116px;
-      margin-left: 50px;
-      margin-top: 0px;
-    }
+      width: 120px;
+      margin-left: 30px;
+      margin-top: 10px;
+    } 
   }
 
   #committee-page {
@@ -1938,9 +2050,9 @@ $admin-red:         #f06059;
 @media (min-width: 1620px) {
   .navbar-brand {
     img {
-      width: 124px;
+      width: 140px;
       margin-left: 60px;
-      margin-top: 2px;
+      margin-top: 20px;
     }
   }
 }
@@ -2008,6 +2120,9 @@ $admin-red:         #f06059;
       text-transform: capitalize;
     }
   }
+  #page-nav li#contact-li {
+    margin-bottom: 30px;
+  }
   .navbar-inverse .navbar-toggle {
     border-color: $brand-gold;
   }
@@ -2017,11 +2132,21 @@ $admin-red:         #f06059;
   #user-nav {
     margin-top: 0;
   }
-  #language-controls {
-    max-width: 150px;
-    margin: 0 auto;
+  ul#language-controls {
     text-align: center;
     margin-top: 8px;
+    li.user-lang {
+      display: inline;
+      border: none;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+      margin-left: 0px;
+    }
+  }
+  ul#social-media {
+    margin: 0 auto;
   }
   .navbar .navbar-default .navbar-fixed-top .navbar-inverse {
       border-bottom: 4px solid $black;
@@ -2031,5 +2156,44 @@ $admin-red:         #f06059;
     a {
       color: $text-grey !important;
     }
+  }
+}
+
+.scoreLabel {
+    font-family: FontAwesome;
+    width: 30px;
+    height: 25px;
+    margin-left: -30px;
+    overflow: visible;
+    background-color: #999;
+    display: block;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 8px;
+    padding-top: 1px;
+    color: black;
+}
+
+.gridStyle {
+  .ngViewport {
+    overflow: visible;
+  }
+  .none:before {
+    content: "\f072";
+    @extend .scoreLabel;
+  }
+
+  .trainee:before {
+    content: "\f19d";
+    @extend .scoreLabel;
+  }
+
+  .seniortrainee:before {
+    content: "\f017";
+    @extend .scoreLabel;
+  }
+
+  .full:before, .tournament:before, .associate:before .member:before{
+    display: none;
   }
 }

@@ -9,9 +9,9 @@
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.css" />
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" />
-    <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/redactor.css -->
@@ -28,7 +28,7 @@
 
     <!-- Add your site or application content here -->
     <div class="header">
-      <div ng-controller="NavCtrl" ng-include="'views/nav.html'"></div>
+      <div ng-include="'views/nav.html'"></div>
     </div>
 
   <div class="footerdiv">
@@ -37,11 +37,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class="footer">
-          <div class="col-md-6">
+          <div class="col-md-6 contact-details">
             <p>Email: info@hkpga.com.hk | Tel: +852 2671 7455 | Fax: +852 2671 1489      | Address: 70 Ting Kok Road, Tai Po, N. T. </p>
           </div>
-          <div class=" col-md-offset-2 col-md-4">
-            <p class="copyright">Copyright © 2002-2014 HKPGA. All Rights Reserved.</p>
+          <div class="terms-copyright col-md-6">
+            <p class=""> <a href="#/terms#tc"> Terms &amp; Conditions &nbsp; </a> | <a href="#/terms#privacy"> &nbsp; Privacy Policy &nbsp; </a>| &nbsp; Copyright © 2002-2014 HKPGA. &nbsp; | &nbsp; Design + Code by <a href="http://szs.io">szs.io</a></p>
           </div>
         </div>
       </div>
@@ -116,18 +116,15 @@
     <script src="scripts/controllers/lang.js"></script>
     <script src="scripts/controllers/magazine.js"></script>
     <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/merit.js"></script>
     <script src="scripts/controllers/modal.js"></script>
-    <script src="scripts/controllers/nav.js"></script>
     <script src="scripts/controllers/new.js"></script>
     <script src="scripts/controllers/feedback.js"></script>
+    <script src="scripts/controllers/sidebar.js"></script>
     <script src="scripts/controllers/news.js"></script>
     <script src="scripts/controllers/partners.js"></script>
     <script src="scripts/controllers/pros.js"></script>
     <script src="scripts/controllers/tournaments.js"></script>
     <script src="scripts/controllers/releases.js"></script>
-    <script src="scripts/controllers/scores.js"></script>
-    <script src="scripts/controllers/sidebar.js"></script>
     <script src="scripts/controllers/static.js"></script>
     <script src="scripts/services/archives.js"></script>
     <script src="scripts/services/articles.js"></script>
@@ -143,6 +140,7 @@
     <script src="scripts/services/utils.js"></script>
     <script src="scripts/filters/date.js"></script>
     <script src="scripts/filters/tournaments.js"></script>
+    <script src="scripts/filters/resources.js"></script>
     <!-- endbuild -->
 </body>
 </html>

@@ -25,9 +25,14 @@
           <li ng-hide="signedIn()">
             <a translate href="#/login">LOGIN</a>
           </li>
-          <li ng-show="currentUser.role == 'admin'">  
+          <li ng-if="currentUser.role == 'admin'">  
             <a translate ng-href="#/admin">
               <span class="glyphicon glyphicon-cog"></span>
+            </a>
+          </li>
+          <li ng-if="currentUser.role != 'admin'">  
+            <a translate ng-href="#/dashboard">
+              <i class="fa fa-user"></i>
             </a>
           </li>
         </ul>
@@ -45,7 +50,7 @@
           </li> 
         </ul>
 
-        <ul class="nav navbar-nav navbar-right clearfix" id="social-media">
+        <ul class="nav navbar-nav navbar-right clearfix hidden-xs hidden-sm" id="social-media">
           <a><li><i class="fa fa-facebook"></i></li></a>
           <a><li><i class="fa fa-twitter"></i></li></a>
           <a><li><i class="fa fa-weibo"></i></li></a>
@@ -66,8 +71,7 @@
           <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_TOURNAMENTS</a>
             <ul class="dropdown-menu">
                 <li><a ng-href="#/tournaments/merit"> / Order of Merit </a></li>
-                <li><a href="#/tournaments/member"> / Member Tournaments </a></li>
-                <li><a href="#/tournaments/trainee"> / Trainee tournaments </a></li>
+                <li><a href="#/tournaments"> / Schedule &amp; Results </a></li>
             </ul>
           </li>
           <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_PROS</a>
@@ -76,12 +80,12 @@
                 <li><a href="#/pros/training-program"> / Training program </a></li>
             </ul>
           </li>
-          <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_COMMUNITY</a>
+          <li><a translate class="dropdown-toggle hidden-xs hidden-sm" data-toggle="dropdown">MENU_COMMUNITY</a>
             <ul class="dropdown-menu">
                 <li><a ng-href="#/community/project-skyhigh"> / Project Skyhigh </a></li>
             </ul>
           </li>    
-          <li><a translate ng-href="#/events">MENU_EVENTS</a></li>
+<!--           <li><a translate ng-href="#/events">MENU_EVENTS</a></li> -->
           <li><a translate class="dropdown-toggle" data-toggle="dropdown">MENU_PRESS</a>
             <ul class="dropdown-menu">
                 <li><a ng-href="#/press/releases"> / Press releases</a></li>
@@ -89,7 +93,7 @@
                 <li><a href="#/press/magazine"> / Magazine </a></li>
             </ul>
           </li>
-          <li><a translate ng-href="#/contact">MENU_CONTACT</a></li>
+          <li id="contact-li"><a translate ng-href="#/contact">MENU_CONTACT</a></li>
       </ul>
 
     </div><!-- /.navbar-collapse -->

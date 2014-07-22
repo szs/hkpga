@@ -42,7 +42,7 @@
     <div class="form-group">
       <label class="col-md-2 control-label" for="magazine-cover">Cover Image</label>  
       <div class="col-md-9">
-      <input id="magazine-cover" name="magazine-cover" type="text" placeholder="Google Docs Image ID" class="form-control input-md" required="" ng-model="magazine.cover">
+      <input id="magazine-cover" name="magazine-cover" type="text" placeholder="Google Drive Image ID, e.g. '0B3pCyAyA57SLaGQ0M0t5OEJhbzQ' or URL starting with 'http://'" class="form-control input-md" required="" ng-model="magazine.cover">
       </div>
     </div>
 
@@ -64,6 +64,7 @@
 
   </fieldset>
   <div class="publish-buttons">
+    <a ng-if="edit" class="btn btn-primary" ng-click="delete(tournament)">Delete</a>
     <input type="submit" value="Publish" class="btn btn-primary" />
     <i class="fa fa-send"></i>
   </div>

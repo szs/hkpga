@@ -1,10 +1,14 @@
 /* global app:true */
 'use strict';
 
-app.controller('MainCtrl', function($scope){
-	$('.carousel').carousel({
-		interval: false
-	});
+app.controller('MainCtrl', function($scope, User){
+
+  User.setMart();
+  
+  $('.carousel').carousel({
+    interval: 6000,
+  });
+  
 });
  
 

@@ -36,7 +36,6 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
     $scope.pros.$on('loaded',function(){
       $scope.hunt = $filter('orderByPriority')($scope.pros);
       $scope.hunt.forEach(function(e){
-        console.log(e)
         e['name_en'] = e.name['en'];
         e['name_hk'] = e.name['zh-hk'];
         e['name_ch'] = e.name['zh-cn'];
@@ -90,6 +89,7 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
       {value : 'member', name : 'Member'},
       {value : 'trainer', name : 'Certified Trainer'},
       {value : 'trainee', name : 'Trainee'},
+      {value : 'seniortrainee', name : 'Senior Division Trainee'},
       {value : 'honorary', name : 'Honorary'},
       {value : 'none', name : 'None'},
     ]
@@ -106,7 +106,8 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
       'associate' : 3,
       'member' : 3,
       'trainer' : 2,
-      'trainee' : 1
+      'trainee' : 1,
+      'seniortrainee' : 1
     }
 
     if (memberStatus[pro.status] === $scope.filterItem.pro.status) {
@@ -116,5 +117,13 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
     } else {
       return false;
     }
-  };  
+  };
+
+  $scope.listed = function() {
+    return function( pro ) {
+      var entrants = ['full', 'tournament', 'associate', 'member', 'trainer', 'trainee', 'seniortrainee']
+      return entrants.indexOf(pro.status) > -1
+    };
+  };
+
 });

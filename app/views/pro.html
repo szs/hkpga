@@ -5,7 +5,7 @@
     <div class="col-md-9">
       <div class="well clearfix">
         <div class="pro-pic col-lg-3 col-md-4 col-sm-4 col-xs-5">
-          <img class="profile-pic img-responsive img-rounded" ng-src="{{pro.profile_picture}}">
+          <img class="profile-pic img-responsive img-rounded" ng-src="{{ pro.profile_picture  | DriveOrUrl }}">
         </div>
         <div class="pro-name col-lg-9 col-m3-8 col-sm-8 col-xs-7">
           <h1>{{ pro.name[l10n()] }}</h1>
@@ -46,7 +46,7 @@
             </div>
           </dl>
         </div>
-        <div class="col-md-12">
+        <div ng-if="currentUser.role == 'admin'" class="col-md-12">
           <a href="#/pros">
             <a ng-href="#/pros/{{pro.username}}/edit" class="btn btn-primary back" translation> <i class="fa fa-chevron-left"> </i> &nbsp; EDIT</a>
           </a>
