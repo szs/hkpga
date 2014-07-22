@@ -17,7 +17,7 @@
     </div>
     <h3>Selected: <span class="label label-success">{{ user.title }}<span></h3>
   </div>
-    
+
   <div ng-controller="TournamentsCtrl">
     <div class="row add-division">
       <div class="col-md-12">
@@ -31,10 +31,10 @@
     </div>
     <div ng-repeat="(division, players) in tournament.results">
       <div class="row">
-        <h3>{{division}}</h3>
+        <h3>{{division}} |  </h3>
       </div>
       <div ng-repeat="player in players" class="row">
-        <div class="col-md-6 panel panel-default">
+        <div class="col-md-6 panel panel-default">{{ $index +1 }} |
           <a ng-click="nextStatus(player, tournament, division)" class="col-md-2 label label-default" ng-class="{signedup: 'label-primary', registered: 'label-success', played: 'label-danger'}[player.status]">{{player.status}}</a>
           <a class="col-md-9" href="#/pros/{{player.username}}">{{player.name[l10n()]}}</a>
           <a class="col-md-1 btn btn-default" ng-click="removeParticipant(tournament, division, player)">X</a>
