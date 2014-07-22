@@ -32,7 +32,7 @@
    <div class="row new-tournament row-cards" ng-controller="TournamentsCtrl">
       <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>LATEST_TOURNAMENTS</h2>
-      <div ng-repeat="(id, tournament) in upcoming | orderByPriority | orderBy: 'start_date':false | limitTo:2" class="col-md-5 well">
+      <div ng-repeat="(id, tournament) in tournaments | orderByPriority | orderBy: 'start_date':true | limitTo:2" class="col-md-5 well">
           <span id="tournament-length">{{tournament.no_days}} Days</span>
           <h5>{{tournament.start_date | date:'fullDate' }} </h5>
           <h4><i class="fa fa-trophy"></i>{{tournament.name[l10n()]}}</h4>
