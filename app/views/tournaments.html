@@ -10,21 +10,24 @@
   <div class="row">
     <div class="col-md-9">
         <div class="row" ng-repeat="(key, tournament) in tournaments | orderByPriority | orderBy:'start_date':true | filterYear:archiveYear:'start_date'">
-        <div class="col-md-12">
+        <div>
           <div class="info well more-news clearfix">
             <a href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}" class="block-anchor">
               <div class="title-row title-row-fill clearfix row">
-                <div class="col-lg-2 col-md-3">
+                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
                   <h5>{{ tournament.start_date | date:'dd MMM yyyy'}}</h5>
                 </div>
-                <div class="col-lg-10 col-md-9">
+                <div class="col-lg-10 col-md-9 col-sm-9 col-xs-9">
                   <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }} <em> {{ tournament.no_days }} day tournament </em></h4>
             </a>
+                <div class="divisions-tags col-lg-6 col-sm-12 col-xs-12">
                   <h5>Divisions: </h5>
                   <span class="label label-default tournament-division" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</span>
+                </div>
+                <div class="tournament-action-tags col-lg-6 col-sm-12 col-xs-12">
+                  <a ng-if="!isUpcoming(tournament)" class="btn btn-default" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/score"> Scores </a>
 
-                  <a class="btn btn-default" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/score"> Scores </a>
-                  <div ng-if="isUpcoming(tournament)">
+                  <div id="upcoming-tournament-controls" ng-if="isUpcoming(tournament)">
                     <a class="btn btn-default" href="{{ tournament.rules_url }}">Rules</a>
                     <a class="btn btn-default" href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/prizemoney">Prize</a>
                     <a class="btn btn-default" href="{{ tournament.tee_off }}">Tee Off</a>
@@ -32,6 +35,7 @@
                   </div>
                 </div>
               </div>
+            </div>
           </div>
         </div>
       </div>

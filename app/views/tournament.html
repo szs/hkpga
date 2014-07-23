@@ -1,41 +1,46 @@
 <div class="container" id="tournament-page">
 
   <div class="row">
-    <div class = "col-md-6">
+    <div class = "col-md-8">
       <h2 translate>{{ {member : 'MEMBER', trainee : 'TRAINEE'}[view] }} Tournaments</h2>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div ng-include="'views/breadcrumbs.html'"></div>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-9">
-      <div>
+      <div class="row">
           <div class="info well more-news clearfix">
             <a href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}" class="block-anchor">
               <div class="title-row title-row-fill clearfix row">
-                <div class="col-lg-2 col-md-3">
+                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
                   <h5>{{ tournament.start_date | date:'dd MMM yyyy'}}</h5>
                 </div>
-                <div class="col-lg-10 col-md-9">
+                <div class="col-lg-10 col-md-9 col-sm-9 col-xs-9">
                   <div class="row">
                     <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }} {{ tournament.no_days }} day tournament | </h4>
                   </div>
-                  <div class="row">
-                    <a class="btn btn-default" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</a>
-                    <a class="btn btn-default pull-right" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/score"> Scores</a>
+                  <div class="divisions-tags col-lg-6 col-sm-12 col-xs-12">
+                    <h5>Divisions: </h5>
+                    <span class="label label-default tournament-division" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</span>
                   </div>
+
+                <div class="tournament-action-tags col-lg-6 col-sm-12 col-xs-12">
+                  <a ng-if="!isUpcoming(tournament)" class="btn btn-default" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/score"> Scores </a>
+
+                  <div id="upcoming-tournament-controls" ng-if="isUpcoming(tournament)">
+                    <a class="btn btn-default" href="{{ tournament.rules_url }}">Rules</a>
+                    <a class="btn btn-default" href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/prizemoney">Prize</a>
+                    <a class="btn btn-default" href="{{ tournament.tee_off }}">Tee Off</a>
+                    <!-- <a href="#/tournaments/{{ tournament.slug }}/teeofftime">Tee Off Time</a> -->
+                  </div>
+                </div>
+
                 </div>
               </div>
             </a>
-            <div>
-                <div ng-if="tournament && isUpcoming(tournament)">
-                  <a class="btn btn-primary" href="{{ tournament.rules_url }}">Rules</a>
-                  <a class="btn btn-primary" href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/prizemoney">Prize Money</a>
-                  <a class="btn btn-primary" href="{{ tournament.tee_off }}">Tee Off Time</a>
-                </div>
-            </div>
           </div>
 
         <div ng-if="currentUser.role === 'admin' ">

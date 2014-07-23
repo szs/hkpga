@@ -908,17 +908,25 @@ $admin-red:         #f06059;
         }
       }
       .label {
-        padding: 0.3em 0.8em 0.3em;
+        padding: 0.4em 0.8em 0.4em;
         font-size: 100%;
         line-height: 1.4;
         margin-left: 8px;
-        margin-top: 6px;
         font-weight: normal;
         text-transform: capitalize;
         display: inline-block;
       }
     }
 
+    #tournaments-page {
+      .divisions-tags {
+        float: left;
+        padding-left: 0px;
+      }
+      .tournament-action-tags {
+        float: right;
+      }
+    }
 
     #tournament-page {
       a:hover {
@@ -945,7 +953,7 @@ $admin-red:         #f06059;
     .add-division .btn {
       background-color: $brand-green;
       border: none;
-      width: 100px;
+      min-width: 100px;
       display: block;
       float: left;
       margin-right: 15px;
