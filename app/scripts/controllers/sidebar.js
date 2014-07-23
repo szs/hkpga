@@ -65,7 +65,7 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
   $scope.page = $scope.pages[page] || page;
 
   var addArchives = function (){
-    if ($scope.category == 'tournaments') {
+    if ($scope.category == 'tournaments' && page != 'merit') {
       var categories = $scope.archives.$getIndex();
       categories.forEach(function(key){
         var years = {};
