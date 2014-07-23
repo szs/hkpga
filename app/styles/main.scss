@@ -849,7 +849,7 @@ $admin-red:         #f06059;
   }
 
 
-  // .2 ARCHIVE PAGE 
+  // .2 ARCHIVE PAGE
 
     #archive {
       h2 {
@@ -866,12 +866,12 @@ $admin-red:         #f06059;
           input {
             padding-left: 10px;
           }
-        }        
+        }
       }
     }
 
 
-  // .2 TOURNAMENTS PAGE 
+  // .2 TOURNAMENTS PAGE
 
     #merit-page,
     #tournaments-page,
@@ -994,8 +994,17 @@ $admin-red:         #f06059;
     }
   }
 
+  #tournament-checklist {
+    .panel {
+      margin-bottom : 1px;
+    }
+    .close {
+      margin-bottom : 1px;
+    }
+  }
 
-  // .2 MERIT PAGE 
+
+  // .2 MERIT PAGE
 
   #merit-page {
     h2 {
@@ -1028,7 +1037,7 @@ $admin-red:         #f06059;
         width: 100%;
         min-width: 400px;
         min-height: 100px;
-      } 
+      }
       h1 {
         margin-bottom: 20px;
       }
@@ -1052,7 +1061,7 @@ $admin-red:         #f06059;
 
   /* Buttons */
 
-    a.btn.btn-gold, 
+    a.btn.btn-gold,
     button.btn {
       background-color: $brand-gold;
       color: $white;
@@ -1343,14 +1352,14 @@ $admin-red:         #f06059;
       }
       .item:nth-child(3) {
         background-image: url(/images/clearwater-bay-golf-course.png);
-        background-size: cover;    
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
 
       }
       .item:nth-child(4) {
         background-image: url(/images/discovery-bay-golf-club.png);
-        background-size: cover;    
+        background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
       }
@@ -1465,7 +1474,7 @@ $admin-red:         #f06059;
 }
 .trainee:before{
    font-family: FontAwesome;
-   content: "\f10c"; // empty circle 
+   content: "\f10c"; // empty circle
    display: inline-block;
    padding-right: 14px;
    font-size: 1.2rem;
@@ -1631,7 +1640,7 @@ $admin-red:         #f06059;
         color: $admin-blue;
       }
     }
-    
+
 
 // End of .admin-styling
 }
@@ -2091,7 +2100,7 @@ $admin-red:         #f06059;
       width: 120px;
       margin-left: 30px;
       margin-top: 10px;
-    } 
+    }
   }
 
   #committee-page {
