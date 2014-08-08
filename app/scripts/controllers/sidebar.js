@@ -17,9 +17,7 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
       'committee-honorary' : 'Committee & Honorary Members',
     },
     tournaments : {
-      merit : 'Order of Merit',
-      member : 'Members',
-      trainee : 'Trainees'
+      merit : 'Order of Merit'
     },
     honorary : {
       directory : 'Directory',
