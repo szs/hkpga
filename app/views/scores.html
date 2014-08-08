@@ -6,7 +6,7 @@
       <br>
       <hr>
     </div>
-    <div ng-hide="division=='ladies'" ng-if="toScore" ng-repeat="(division, scores) in toScore" class="row add-division col-md-10 col-md-offset-1">
+    <div ng-hide="currentUser.role != 'admin' && division=='ladies'" ng-if="toScore" ng-repeat="(division, scores) in toScore" class="row add-division col-md-10 col-md-offset-1">
       <a class="btn btn-primary" ng-click="submitScores()">Submit</a>
       <h3> {{ division }} Division </h3>
       <div class="gridStyle" ng-grid="gridOptions[division]" ng-style="getTableStyle('toScore', division)">

@@ -1,6 +1,6 @@
 <div class="container" id="dashboard-page" ng-controller="FeedbackCtrl">
   <h2 translate>MEMBER_DASHBOARD</h2>
-  
+
     <div class="row" ng-controller="TournamentsCtrl">
       <h1><i class="fa fa-trophy"></i>UPCOMING TOURNAMENTS</h1>
       <div ng-repeat="(id, tournament) in tournaments | orderByPriority | orderBy:'start_date':true | limitTo:2" class="col-md-4 well row-cards">
@@ -9,10 +9,10 @@
         <span>{{tournament.no_days}} Day Tournament</span>
         <div>
           <p>Click on division to sign up:</p>
-          <a ng-click="signUp(tournament, division, currentUser)" ng-repeat="division in divisions" class="btn btn-default"> {{ division }}</a> 
+          <a ng-click="signUp(tournament, division, currentUser)" ng-repeat="division in divisions" class="btn btn-default"> {{ division }}</a>
         </div>
       </div>
-    </div>  
+    </div>
 
   <div class="row ranking-dashboard">
     <h1><i class="fa fa-arrows-v"></i>RANKING</h1>
@@ -29,19 +29,14 @@
     </div>
   </div>
 
-
   <div class="row">
     <div class="feedback-form col-md-12">
       <form class="form-horizontal" role="form" ng-submit="post()" ng-class="{ open: isOpen }">
         <h1><i class="fa fa-comments"></i>Anonymous Member Feedback</h1>
-        <textarea ng-model="feedback.text" ng-class="{ open: isOpen }" class="feedback" placeholder="Please provide your comments or suggestions. They are anonymous and we will treat them with care.">
-        </textarea>
-<!--         <input type="text" value="Close" class="pull-right btn btn-primary" ng-click="isOpen = !isOpen"/> -->
+        <textarea ng-model="feedback.text" ng-class="{ open: isOpen }" class="feedback" placeholder="Please provide your comments or suggestions. They are anonymous and we will treat them with care."></textarea>
         <input type="submit" value="Send" class="pull-right btn btn-primary" ng-class="{ open: isOpen }"/>
       </form>
     </div>
   </div>
-
-    <!-- <a ng-click="isOpen = !isOpen" class="btn btn-danger pull-right btn-feedback">feedback</a> -->
 
 </div>
