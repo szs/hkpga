@@ -2181,9 +2181,6 @@ $admin-red:         #f06059;
   }
   .navbar-nav>li>ul>li>a {
     text-align: center;
-    ::before {
-      content: "/ ";
-    }
   }
   .collapse.in{
     display:block !important;
