@@ -922,6 +922,12 @@ $admin-red:         #f06059;
       .divisions-tags {
         float: left;
         padding-left: 0px;
+        h5 {
+          margin-top: 6px;
+        }
+        .label-default {
+          background-color: $text-grey-lighter;
+        }
       }
       .tournament-action-tags {
         float: right;
@@ -934,8 +940,15 @@ $admin-red:         #f06059;
           color: $text-grey;
         }
       }
-      .title-row {
-        border-bottom: 1px solid $grey-light;
+      .divisions-tags {
+        float: left;
+        padding-left: 0px;
+        h5 {
+          margin-top: 6px;
+        }
+        .label-default {
+          background-color: $text-grey-lighter;
+        }
       }
     }
 
@@ -983,7 +996,14 @@ $admin-red:         #f06059;
     }
     h4 {
       text-align: center;
+      max-width: 80%;
+      margin: 0 auto;
       color: $white;
+      line-height: 30px;
+    }
+    h5 {
+      text-align: center;
+      font-size: 1.7rem;
     }
     .add-division {
       text-transform: capitalize;
