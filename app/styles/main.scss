@@ -100,7 +100,7 @@ $admin-red:         #f06059;
 // 1. BASE ------------------------------------------------------------
 
   #hello-container {
-    min-height: 400px;
+    min-height: 500px;
   }
 
   body {
@@ -584,7 +584,7 @@ $admin-red:         #f06059;
     // .2 PROS DIRECTORY PAGE //
 
 
-    #pros-page {
+    .pros-page {
       margin-top: 20px;
       h2 {
         margin-top: 30px;
@@ -993,6 +993,7 @@ $admin-red:         #f06059;
     }
     h3 {
       margin-bottom: 30px;
+      margin-top: 30px;
     }
     h4 {
       text-align: center;
@@ -1004,6 +1005,7 @@ $admin-red:         #f06059;
     h5 {
       text-align: center;
       font-size: 1.7rem;
+      margin-bottom: 30px;
     }
     .add-division {
       text-transform: capitalize;
@@ -1023,6 +1025,9 @@ $admin-red:         #f06059;
     }
   }
 
+  .gridStyle {
+    border-bottom: 2px solid white;
+  }
 
   // .2 MERIT PAGE
 
@@ -1449,28 +1454,60 @@ $admin-red:         #f06059;
 
 .admin .full:before{
   font-family: FontAwesome;
-  content: "\f005"; // filled star
+  content: "\f005"; // fa-star
   display: inline-block;
   padding-right: 14px;
   font-size: 1.2rem;
 }
 .admin .tournament:before{
   font-family: FontAwesome;
-  content: "\f140"; // bullseye
+  content: "\f140"; // fa-bullseye
   display: inline-block;
   padding-right: 14px;
   font-size: 1.2rem;
 }
 .admin .associate:before{
   font-family: FontAwesome;
-  content: "\f0c8"; // filled square
+  content: "\f0c8"; // fa-square
   display: inline-block;
   padding-right: 14px;
   font-size: 1.1rem;
 }
 .admin .member:before{
   font-family: FontAwesome;
-  content: "\f096"; // empty square
+  content: "\f096"; // fa-square-0
+  display: inline-block;
+  padding-right: 14px;
+  font-size: 1.1rem;
+}
+
+.admin .trainer:before {
+  font-family: FontAwesome;
+  content: "\f0a3"; // fa-certificate
+  display: inline-block;
+  padding-right: 14px;
+  font-size: 1.1rem;
+}
+
+.admin .trainee:before {
+  font-family: FontAwesome;
+  content: "\f19d"; // fa-graduation-cap
+  display: inline-block;
+  padding-right: 14px;
+  font-size: 1.1rem;
+}
+
+.admin .honorary:before {
+  font-family: FontAwesome;
+  content: "\f19c"; // fa-institution
+  display: inline-block;
+  padding-right: 14px;
+  font-size: 1.1rem;
+}
+
+.admin .no-relation:before {
+  font-family: FontAwesome;
+  content: "\f072"; // fa-plane
   display: inline-block;
   padding-right: 14px;
   font-size: 1.1rem;
@@ -2107,7 +2144,7 @@ $admin-red:         #f06059;
     }
   }
 
-  #pros-page {
+  .pros-page {
     .side-nav {
       top: 249px;
     }
