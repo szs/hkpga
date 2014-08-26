@@ -3,14 +3,16 @@
     <div class="col-md-10 col-md-offset-1">
       <h2><i class="fa fa-trophy"></i>Tournament Scores</h2>
       <h4>{{ tournament.name[l10n()] }}</h4>
-      <br>
+      <h5>{{ tournament.start_date | date:'dd MMM yyyy'}}</h5>
       <hr>
     </div>
     <div ng-hide="currentUser.role != 'admin' && division=='ladies'" ng-if="toScore" ng-repeat="(division, scores) in toScore" class="row add-division col-md-10 col-md-offset-1">
-      <a class="btn btn-primary" ng-click="submitScores()">Submit</a>
+      <a class="btn btn-primary" ng-if="currentUser.role == 'admin'" ng-click="submitScores()">Submit</a>
       <h3> {{ division }} Division </h3>
-      <div class="gridStyle" ng-grid="gridOptions[division]" ng-style="getTableStyle('toScore', division)">
+      <div class="gridStyle score-grid" ng-grid="gridOptions[division]" ng-style="getTableStyle('toScore', division)">
       </div>
+      <br>
+      <hr>
     </div>
   </div>
 </div>

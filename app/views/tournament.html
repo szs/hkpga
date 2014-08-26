@@ -11,7 +11,6 @@
 
   <div class="row">
     <div class="col-md-9">
-      <div class="row">
           <div class="info well more-news clearfix">
             <a href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}" class="block-anchor">
               <div class="title-row title-row-fill clearfix row">
@@ -20,15 +19,13 @@
                 </div>
                 <div class="col-lg-10 col-md-9 col-sm-9 col-xs-9">
                   <div class="row">
-                    <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }} {{ tournament.no_days }} day tournament | </h4>
+                    <h4>{{ tournament.name[l10n()] }} | {{ tournament.results.length }} {{ tournament.no_days }} day tournament </h4>
+                    <div class="divisions-tags col-lg-6 col-sm-12 col-xs-12">
+                      <h5>Divisions: </h5>
+                      <span class="label label-default tournament-division" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</span>
+                    </div>
+                    <a ng-if="!isUpcoming(tournament)" class="btn btn-default" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/score"> Scores </a>
                   </div>
-                  <div class="divisions-tags col-lg-6 col-sm-12 col-xs-12">
-                    <h5>Divisions: </h5>
-                    <span class="label label-default tournament-division" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</span>
-                  </div>
-
-                <div class="tournament-action-tags col-lg-6 col-sm-12 col-xs-12">
-                  <a ng-if="!isUpcoming(tournament)" class="btn btn-default" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/score"> Scores </a>
 
                   <div id="upcoming-tournament-controls" ng-if="isUpcoming(tournament)">
                     <a class="btn btn-default" href="{{ tournament.rules_url }}">Rules</a>
@@ -36,6 +33,7 @@
                     <a class="btn btn-default" href="{{ tournament.tee_off }}">Tee Off</a>
                     <!-- <a href="#/tournaments/{{ tournament.slug }}/teeofftime">Tee Off Time</a> -->
                   </div>
+                  <div class="tournament-action-tags col-lg-6 col-sm-12 col-xs-12">
                 </div>
 
                 </div>
@@ -48,7 +46,6 @@
           <a class="btn btn-primary" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/checklist">Checklist</a>
           <a class="btn btn-primary" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/score">Score</a>
         </div>
-      </div>
 
     </div>
 

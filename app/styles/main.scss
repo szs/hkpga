@@ -100,7 +100,7 @@ $admin-red:         #f06059;
 // 1. BASE ------------------------------------------------------------
 
   #hello-container {
-    min-height: 400px;
+    min-height: 500px;
   }
 
   body {
@@ -584,7 +584,7 @@ $admin-red:         #f06059;
     // .2 PROS DIRECTORY PAGE //
 
 
-    #pros-page {
+    .pros-page {
       margin-top: 20px;
       h2 {
         margin-top: 30px;
@@ -922,6 +922,12 @@ $admin-red:         #f06059;
       .divisions-tags {
         float: left;
         padding-left: 0px;
+        h5 {
+          margin-top: 6px;
+        }
+        .label-default {
+          background-color: $text-grey-lighter;
+        }
       }
       .tournament-action-tags {
         float: right;
@@ -934,8 +940,15 @@ $admin-red:         #f06059;
           color: $text-grey;
         }
       }
-      .title-row {
-        border-bottom: 1px solid $grey-light;
+      .divisions-tags {
+        float: left;
+        padding-left: 0px;
+        h5 {
+          margin-top: 6px;
+        }
+        .label-default {
+          background-color: $text-grey-lighter;
+        }
       }
     }
 
@@ -980,10 +993,19 @@ $admin-red:         #f06059;
     }
     h3 {
       margin-bottom: 30px;
+      margin-top: 30px;
     }
     h4 {
       text-align: center;
+      max-width: 80%;
+      margin: 0 auto;
       color: $white;
+      line-height: 30px;
+    }
+    h5 {
+      text-align: center;
+      font-size: 1.7rem;
+      margin-bottom: 30px;
     }
     .add-division {
       text-transform: capitalize;
@@ -1003,6 +1025,9 @@ $admin-red:         #f06059;
     }
   }
 
+  .gridStyle {
+    border-bottom: 2px solid white;
+  }
 
   // .2 MERIT PAGE
 
@@ -1429,28 +1454,60 @@ $admin-red:         #f06059;
 
 .admin .full:before{
   font-family: FontAwesome;
-  content: "\f005"; // filled star
+  content: "\f005"; // fa-star
   display: inline-block;
   padding-right: 14px;
   font-size: 1.2rem;
 }
 .admin .tournament:before{
   font-family: FontAwesome;
-  content: "\f140"; // bullseye
+  content: "\f140"; // fa-bullseye
   display: inline-block;
   padding-right: 14px;
   font-size: 1.2rem;
 }
 .admin .associate:before{
   font-family: FontAwesome;
-  content: "\f0c8"; // filled square
+  content: "\f0c8"; // fa-square
   display: inline-block;
   padding-right: 14px;
   font-size: 1.1rem;
 }
 .admin .member:before{
   font-family: FontAwesome;
-  content: "\f096"; // empty square
+  content: "\f096"; // fa-square-0
+  display: inline-block;
+  padding-right: 14px;
+  font-size: 1.1rem;
+}
+
+.admin .trainer:before {
+  font-family: FontAwesome;
+  content: "\f0a3"; // fa-certificate
+  display: inline-block;
+  padding-right: 14px;
+  font-size: 1.1rem;
+}
+
+.admin .trainee:before {
+  font-family: FontAwesome;
+  content: "\f19d"; // fa-graduation-cap
+  display: inline-block;
+  padding-right: 14px;
+  font-size: 1.1rem;
+}
+
+.admin .honorary:before {
+  font-family: FontAwesome;
+  content: "\f19c"; // fa-institution
+  display: inline-block;
+  padding-right: 14px;
+  font-size: 1.1rem;
+}
+
+.admin .no-relation:before {
+  font-family: FontAwesome;
+  content: "\f072"; // fa-plane
   display: inline-block;
   padding-right: 14px;
   font-size: 1.1rem;
@@ -1599,6 +1656,13 @@ $admin-red:         #f06059;
         font-size: 2.7rem;
         }
       }
+      .btn-default { 
+        margin-bottom: -2px;
+      }
+      // .dropdown.calendar {
+      //   height: 358px;
+      //   padding: 2px 10px;
+      // }
     }
 
 
@@ -2080,7 +2144,7 @@ $admin-red:         #f06059;
     }
   }
 
-  #pros-page {
+  .pros-page {
     .side-nav {
       top: 249px;
     }
@@ -2181,9 +2245,6 @@ $admin-red:         #f06059;
   }
   .navbar-nav>li>ul>li>a {
     text-align: center;
-    ::before {
-      content: "/ ";
-    }
   }
   .collapse.in{
     display:block !important;
