@@ -464,12 +464,12 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       data: 'merit.' + division,
         enableCellSelection: true,
         enableRowSelection: false,
-        enableCellEditOnFocus: true,
+        enableCellEditOnFocus: false,
         columnDefs: [
-          {field:'name[l10n()]', displayName:'Name', enableCellEdit: false},
-          {field: 'points|number:0', displayName: 'Points', enableCellEdit: true},
-          {field: 'rank', displayName: 'Rank', enableCellEdit: true},
-          {field:'username', displayName:'Username', enableCellEdit: false, visible:false}]
+          {field: 'rank', displayName: 'Rank', width: "*", cellClass: 'center-text', enableCellEdit: true},
+          {field:'name[l10n()]', displayName:'Name', width: "****", cellClass: 'center-text', enableCellEdit: false},
+          {field: 'points|number:0', displayName: 'Points', width: "****", cellClass: 'center-text', enableCellEdit: true},
+          {field:'username', displayName:'Username', cellClass: 'center-text', enableCellEdit: false, visible:false}]
     }
   }
 
