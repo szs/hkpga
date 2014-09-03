@@ -1997,9 +1997,9 @@ $admin-red:         #f06059;
 
 .navbar-brand {
   img {
-    width: 86px;
-    margin-left: 10px;
-    margin-top: -12px;
+      width: 85px;
+      margin-left: 20px;
+      margin-top: 5px;
   }
 }
 
@@ -2083,9 +2083,9 @@ $admin-red:         #f06059;
 @media (min-width: 769px) and (max-width: 866px) {
   .navbar-brand {
     img {
-      width: 115px;
+      width: 85px;
       margin-left: 20px;
-      margin-top: 10px;
+      margin-top: 5px;
     }
   }
 }
@@ -2100,13 +2100,21 @@ $admin-red:         #f06059;
 
   .dropdown-menu {
     -webkit-transform-origin: top;
+    -moz-transform-origin: top;
+    -ms-transform-origin: top;
     transform-origin: top;
     -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
     -webkit-transform: scale(1, 0);
+    -moz-transform: scale(1, 0);
+    -ms-transform: scale(1, 0);
     display: block;
     transition: all 0.2s ease;
     -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
   }
 
 }
@@ -2208,7 +2216,7 @@ $admin-red:         #f06059;
 @media (max-width: 865px) {
   .navbar-header {
     float: none;
-    height: 95px;
+    height: 65px;
   }
   .navbar-left,.navbar-right {
     float: none !important;
@@ -2222,7 +2230,7 @@ $admin-red:         #f06059;
     font-weight: 400;
     color: #bc994b;
     padding: 10px;
-    margin-top: 25px;
+    margin-top: 14px;
     margin-right: 22px;
   }
   .navbar-collapse {
