@@ -288,7 +288,7 @@ $admin-red:         #f06059;
       padding-bottom: 30px;
       position: absolute;
       // bottom: 0;
-      bottom: -140px;
+      bottom: -240px;
       width: 100%;
       .contact-details p {
         padding-left: 30px;
@@ -314,7 +314,7 @@ $admin-red:         #f06059;
         margin-top: 40px;
       }
       .more-news-body {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
       }
     }
 
@@ -333,75 +333,57 @@ $admin-red:         #f06059;
 
 
     .latest-news {
-      a.block-anchor:hover {
-        div.title-row {
-          border-color: $brand-gold;
-        }
-        h4,h5 {
-          color: $brand-gold;
-        }
-      }
       h4, h5 {
         font-size: 1.8rem;
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-      h4 {
-        color: $text-grey-lighter;
-      }
-      h5 {
-        color: $text-grey-light;
+        padding: 5px 0;
+        color: $brand-gold;
       }
     }
 
     .latest-news-body {
-      background-color: $white;
-      color: $text-grey;
-      padding: 22px;
-      font-family: $paragraph-font;
-      font-weight: normal;
-      position: relative;
-      height: 100%;
       img {
         width: 100%;
-        margin-top: 15px;
-        margin-bottom: 15px;
+        margin: 15px 0;
       }
-      a.btn,
       button.btn {
         float: right;
+        margin-bottom: 3px;
       }
     }
 
     .more-news {
-      border-radius: 0;
-      margin-bottom: 15px;
-      position: relative;
-      img {
-        width: 100%;
-        margin-bottom: 15px;
-      }
-      h4,h5 {
-        color: $text-grey;
-      }
-      h4, h5 {
-        font-size: 1.8rem;
-        padding-top: 25px;
-        padding-bottom: 20px;
-        line-height: 22px;
+      .coverphoto {
+        padding: 0px;
+        position: relative !important;
+        height: 0;
+        padding-top: 37%;
+        overflow: hidden;   
+        margin-bottom: 20px; 
+        img {
+          width: 100%;
+          margin-bottom: 15px;
+          position: absolute !important;
+          left: 0 !important;
+          right: 0 !important;
+          top: 0 !important;
+          bottom: 0 !important;
+          max-height: none;
+        }
       }
       h4 {
         color: $text-grey;
+        margin: 10px 25px 22px 15px;
+        font-size: 1.8rem;
+
       }
       h5 {
         color: $text-grey-light;
+        margin: 23px 20px 8px 15px;
+        font-size: 1.6rem;
       }
       a.btn,
       button.btn {
         float: right;
-        position: absolute;
-        right: 20px;
-        bottom: 10px;
       }
     }
 
@@ -2018,6 +2000,13 @@ $admin-red:         #f06059;
       }
     }
   }
+
+  .more-news {
+    .coverphoto {
+      padding-top: 70%;
+    }
+  }
+
 }
 
 
@@ -2077,6 +2066,13 @@ $admin-red:         #f06059;
       }
     }
   }
+
+  .more-news {
+    .coverphoto {
+      padding-top: 60%;
+    }
+  }
+
 }
 
 // Custom query
@@ -2165,6 +2161,21 @@ $admin-red:         #f06059;
     }
   }
 
+  #main-page {
+    .more-news-body {
+      p {
+        margin-top: -4px;
+        padding-left: 30px;
+      }
+    }
+  }
+
+  .more-news {
+    .coverphoto {
+      padding-top: 48%;
+    }
+  }
+
 }
 
 
@@ -2191,6 +2202,13 @@ $admin-red:         #f06059;
   #committee-page {
     .dl-horizontal dd {
       margin-left: 380px;
+    }
+  }
+
+
+  .more-news {
+    .coverphoto {
+      padding-top: 37%;
     }
   }
 

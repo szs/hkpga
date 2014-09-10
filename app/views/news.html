@@ -35,20 +35,16 @@
     <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | orderBy: 'publish_date':true | filter:{category : 'news'} | filter:{internal : false} | limitTo:11" ng-hide="$first">
       <div class="col-md-12">
         <a href="#/news/{{ article.slug }}" class="block-anchor">
-          <div class="info more-news clearfix" ng-class="{true: 'draft', false:''}[article.draft]">
+          <div class="more-news clearfix" ng-class="{true: 'draft', false:''}[article.draft]">
               <div class="title-row title-row-fill clearfix">
-                <div class="col-lg-2 col-md-3">
                   <h5>{{ article.publish_date | date:'dd MMM yyyy'}}</h5>
-                </div> 
-                <div class="col-lg-10 col-md-9">
                   <h4>{{ article.title[l10n()] }}</h4>
-                </div>
               </div>
             <div class="more-news-body clearfix well">
-              <div class="col-lg-7 col-md-7 col-sm-12">
-                <img ng-show="article.cover" class="cover" ng-src="{{ article.cover }}">
+              <div class="coverphoto col-lg-6 col-md-6 col-sm-12">
+                <img ng-show="article.cover" ng-src="{{ article.cover }}">
               </div>
-              <p>{{ article.html[l10n()] | characters:350:l10n() }}</p>
+              <p class="col-lg-6 col-md-6 col-sm-12">{{ article.html[l10n()] | characters:350:l10n() }}</p>
               <div class="widget-footer col-md-12">
                 <button type="button" class="btn" translate>READ_MORE</button>
               </div>
