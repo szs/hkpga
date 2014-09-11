@@ -1,7 +1,7 @@
-<div class="container admin-styling" id="merit-page">
+<div class="container" id="merit-page">
   <div class="row">
     <div class="col-md-8">
-      <h2><i class="fa fa-trophy"></i>Order of Merit - {{archiveYear}} </h2>
+      <h1><i class="fa fa-trophy"></i>Order of Merit - {{archiveYear}} </h1>
     </div>
     <div class="col-md-4">
         <div ng-include="'views/breadcrumbs.html'"></div>
@@ -11,7 +11,7 @@
     <div class="col-md-9">
       <div ng-if="merit[division]" ng-repeat="(division, scores) in merit" class="row add-division">
         <div class="col-md-12">
-          <h3>{{ division }} Division </h3>
+          <h2>{{ division }} Division </h2>
           <div class="gridStyle" ng-grid="gridMeritOptions[division]" ng-style="getTableStyle('merit', division)"></div>
           <hr>
         </div>
