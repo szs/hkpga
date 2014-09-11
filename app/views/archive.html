@@ -18,15 +18,12 @@
 	        <a href="#/{{ category }}/{{ article.slug }}" class="block-anchor">
 	          <div class="info well more-news clearfix" ng-class="{true: 'draft', false:''}[article.draft]">
 	             	<div class="title-row clearfix row">
-	                	<div class="col-lg-2 col-md-3">
 	                  		<h5>{{ article.publish_date | date:'dd MMM yyyy'}}</h5>
-	                	</div>
-	                	<div class="col-lg-10 col-md-9">
 	                  		<h4>{{ article.title[l10n()] }}</h4>
-	                	</div>
 	              	</div>
+	              	<hr>
 	              	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-	            		<img ng-show="article.cover" class="cover" ng-src="{{ article.cover }}">
+	            		<img ng-show="article.cover" ng-src="{{ article.cover }}">
 	            	</div>
 	            	<div class="more-news-body archive-body col-md-12 col-sm-12" ng-bind-html="article.html[l10n()] | characters:350:l10n()"></div>
 		            <div class="widget-footer col-md-12 col-sm-12">
