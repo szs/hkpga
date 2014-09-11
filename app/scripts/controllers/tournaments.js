@@ -177,7 +177,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       })
       angular.forEach(players, function(player, username){
         var split = Utils.countInArray(ranks, player.rank);
-        var points = pointsScored(player.rank, $scope.tournament.no_days, split)
+        var rawPoints = pointsScored(player.rank, $scope.tournament.no_days, split)
+        var points = Math.round(rawPoints * 10) / 10
 
         player.points = points;
         deferred.resolve();

@@ -135,7 +135,6 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
         },
         "role": "member",
         "sex": "",
-        "status": "",
         "teaching_experience": {
           "en": "",
           "zh-cn": "",
