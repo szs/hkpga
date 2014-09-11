@@ -7,6 +7,12 @@ app.controller('MainCtrl', function($scope, User){
     interval: 6000,
   });
 
+  $('#carousel').on('slide.bs.carousel', function (e) {
+    if (e.type == "slide" && e.direction == "right" && e.relatedTarget.className != "item"){
+      return e.preventDefault()
+    }
+  })
+
 });
 
 
