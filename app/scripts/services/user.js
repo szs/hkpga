@@ -4,13 +4,8 @@
 app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
 
   var ref = new Firebase(FIREBASE_URL + 'users');
-  var martRef = new Firebase(FIREBASE_URL + 'users/martvandeven');
 
   var users = $firebase(ref);
-
-  var setMart = function(){
-    martRef.setPriority('simplelogin:14')
-  }
 
   $rootScope.$on('$firebaseSimpleLogin:login', function (e, authUser) {
     var query = $firebase(ref.startAt(authUser.uid).endAt(authUser.uid));
@@ -31,7 +26,6 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
 
   var User = {
     all: users,
-    setMart: setMart,
     isEligable: function(user){
       return pointsEligible.indexOf(user.status) > -1 && user.active;
     },
