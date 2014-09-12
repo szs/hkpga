@@ -24,6 +24,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
   $scope.tournaments.$on('loaded',function(){
 
+
     angular.forEach($scope.tournaments, function(tournament, created_at){
       if (created_at[0] != '$'){
         tournament.year = new Date(tournament.start_date).getFullYear();
@@ -31,9 +32,9 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     })
 
     if ($routeParams.id){
-      $scope.edit = true
+      $scope.edit = true;
       angular.forEach($scope.tournaments, function(value, key) {
-        if (created_at[0] != '$'){
+        if (key[0] != '$'){
           if (value.slug == $routeParams.id){
             $scope.tournament = $scope.tournaments[key];
           }
@@ -698,7 +699,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   };
 
   $scope.isUpcoming = function(tournament) {
-     return Date.now() < tournament.start_date;
+    console.log(tournament);
+    return Date.now() < tournament.start_date;
   }
 
   function updateArchives(){
