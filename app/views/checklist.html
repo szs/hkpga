@@ -43,7 +43,7 @@
         <div class="col-md-12 panel panel-default">
           <span class="pull-left col-md-1">{{ $index +1 }} ) </span>
           <a ng-click="nextStatus(player, tournament, division)" class="col-md-2 label label-default" ng-class="{signedup: 'label-primary', registered: 'label-success', played: 'label-danger'}[player.status]">{{player.status}}</a>
-          <a class="col-md-7" href="#/pros/{{player.username}}">{{player.name[l10n()]}}</a>
+          <a class="col-md-7" href="#/pros/{{player.username}}">{{l10n(player.name)}}</a>
           <a class="col-md-1 btn btn-default close" ng-click="removeParticipant(tournament, division, player)">X</a>
         </div>
       </div>

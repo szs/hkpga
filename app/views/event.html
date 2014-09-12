@@ -17,11 +17,11 @@
                   <h5>{{ article.publish_date | date:'dd MMM yyyy'}}</h5>
                 </div>
                 <div class="col-lg-10 col-md-9">
-                  <h4>{{ article.title[l10n()] }} | {{ article.venue[l10n()] }} | {{ article.organizer[l10n()] }}</h4>
+                  <h4>{{ l10n(article.title) }} | {{ l10n(article.venue) }} | {{ l10n(article.organizer) }}</h4>
                 </div>
             </div>
             <div class="info well">
-              <div class="article-body" ng-bind-html="article.html[l10n()]">
+              <div class="article-body" ng-bind-html="l10n(article.html)">
               </div>
             </div>
           </div>

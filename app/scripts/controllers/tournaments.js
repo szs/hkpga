@@ -25,15 +25,19 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   $scope.tournaments.$on('loaded',function(){
 
     angular.forEach($scope.tournaments, function(tournament, created_at){
-      tournament.year = new Date(tournament.start_date).getFullYear();
+      if (created_at[0] != '$'){
+        tournament.year = new Date(tournament.start_date).getFullYear();
+      }
     })
 
     if ($routeParams.id){
       $scope.edit = true
       angular.forEach($scope.tournaments, function(value, key) {
+        if (created_at[0] != '$'){
           if (value.slug == $routeParams.id){
             $scope.tournament = $scope.tournaments[key];
           }
+        }
        })
       if ($scope.view =='score'){
         firebase2grid();
@@ -312,7 +316,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   };
 
   var ScoreGrid = function(division){
-    var columnDefs = [{field:'name[l10n()]', displayName:'Name', width: "**", enableCellEdit: false}];
+    var columnDefs = [{field:'name[currentLanguage()]', displayName:'Name', width: "**", enableCellEdit: false}];
 
     columnDefs = columnDefs.concat(RoundSubGrid($scope.tournament.no_days));
 
@@ -468,7 +472,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         enableCellEditOnFocus: false,
         columnDefs: [
           {field: 'rank', displayName: 'Rank', width: "*", cellClass: 'center-text', enableCellEdit: true},
-          {field:'name[l10n()]', displayName:'Name', width: "****", cellClass: 'center-text', enableCellEdit: false},
+          {field:'name[currentLanguage()]', displayName:'Name', width: "****", cellClass: 'center-text', enableCellEdit: false},
           {field: 'points|number:0', displayName: 'Points', width: "****", cellClass: 'center-text', enableCellEdit: true},
           {field:'username', displayName:'Username', cellClass: 'center-text', enableCellEdit: false, visible:false}]
     }

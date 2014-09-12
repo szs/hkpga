@@ -3,7 +3,7 @@
 	<div class="widget">
 		<div class="widget-title clearfix col-md-12">
 			<h5 translate>VENUE:</h5>
-			<h3>{{tournament.venue[l10n()]}}</h3>
+			<h3>{{l10n(tournament.venue)}}</h3>
 			<h5 translate>DATE:</h5>
 			<h3>{{tournament.start_date | date}} | {{tournament.no_days}} Days</h3>
 		</div>
@@ -19,7 +19,7 @@
 				<tbody>
 					<tr ng-repeat="(username, player) in tournament['results']['open'] | orderByPriority | orderBy:'rank' | limitTo:10">
 						<td>{{player.rank}}</td>
-						<td>{{player.name[l10n()]}}</td>
+						<td>{{l10n(player.name)}}</td>
 						<td>{{player.totalScore}}</td>
 					</tr>
 				</tbody>

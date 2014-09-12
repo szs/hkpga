@@ -13,10 +13,10 @@
         <div class="col-md-12">
           <div class="title-row title-row-fill clearfix">
                 <h5>{{ article.publish_date | date:'dd MMM yyyy'}}</h5>
-                <h4>{{ article.title[l10n()] }}</h4>
+                <h4>{{ l10n(article.title) }}</h4>
           </div>
           <div class="info well">
-            <div class="article-body" ng-bind-html="article.html[l10n()]">
+            <div class="article-body" ng-bind-html="l10n(article.html)">
             </div>
           </div>
           <div ng-if="currentUser.role == 'admin'" class="col-md-12">
