@@ -3,14 +3,18 @@
 
 app.controller('MainCtrl', function($scope, User){
 
-  User.setMart();
-  
   $('.carousel').carousel({
     interval: 6000,
   });
-  
+
+  $('#carousel').on('slide.bs.carousel', function (e) {
+    if (e.type == "slide" && e.direction == "right" && e.relatedTarget.className != "item"){
+      return e.preventDefault()
+    }
+  })
+
 });
- 
+
 
 
 $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
@@ -28,10 +32,10 @@ $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
   // If a sibling menu is already open we close it
   $(this).parent().siblings().removeClass('open').children().removeClass('open');
   $(this).siblings().children().removeClass('open');
-  
+
   var menu = $(this).parent().find("ul");
   var menupos = menu.offset();
-  
+
   if (menupos.left + menu.width() > $(window).width()) {
     var newpos = -$(menu).width();
     menu.css({ left: newpos });

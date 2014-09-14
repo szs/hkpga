@@ -42,13 +42,13 @@
 
         <ul ng-controller="LangCtrl" class="nav navbar-nav navbar-right clearfix" id="language-controls">
           <li class="user-lang" translate>LANG_CURRENT</li>
-          <li class="user-lang" ng-hide="l10n() == 'en'">
+          <li class="user-lang" ng-hide="currentLanguage() == 'en'">
             <a ng-click="changeLanguage('en')" translate="LANG_EN" class="btn"></a>
           <li>
-          <li class="user-lang" ng-hide="l10n() == 'zh-hk'">
+          <li class="user-lang" ng-hide="currentLanguage() == 'zh-hk'">
             <a ng-click="changeLanguage('zh-hk')" translate="LANG_ZH_HK" class="btn"></a>
           </li>
-          <li class="user-lang" ng-hide="l10n() == 'zh-cn'">
+          <li class="user-lang" ng-hide="currentLanguage() == 'zh-cn'">
             <a ng-click="changeLanguage('zh-cn')" translate="LANG_ZH_CN" class="btn"></a>
           </li>
         </ul>

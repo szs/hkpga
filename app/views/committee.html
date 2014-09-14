@@ -5,7 +5,7 @@
 		</div>
 		<div class="col-md-6">
 			<div ng-include="'views/breadcrumbs.html'"></div>
-		</div>		
+		</div>
 	</div>
 	<div class="row">
        	<div class="col-md-9">
@@ -16,8 +16,8 @@
 		            </dt>
 		            <dd>
 		            	<p>
-		            		<span ng-repeat="(key, pro) in pros | orderByPriority | filter:{committee: item.value}:true"> <a ng-href="#/pros/{{pro.username}}">{{ pro.name[l10n()] }}</a><span>
-		            		
+		            		<span ng-repeat="(key, pro) in pros | orderByPriority | filter:{committee: item.value}:true"> <a ng-href="#/pros/{{pro.username}}">{{ l10n(pro.name) }}</a><span>
+
 		            	</p>
 		            </dd>
 		        </dl>
@@ -30,7 +30,7 @@
 		            </dt>
 		            <dd>
 		            	<p>
-		            		<span ng-repeat="(key, pro) in pros | orderByPriority | filter:{honorary: item.value}:true"><a ng-href="#/honorary/{{pro.username}}">{{ pro.name[l10n()] }}</a><span>
+		            		<span ng-repeat="(key, pro) in pros | orderByPriority | filter:{honorary: item.value}:true"><a ng-href="#/honorary/{{pro.username}}">{{ l10n(pro.name) }}</a><span>
 		            	</p>
 		            </dd>
 		        </dl>

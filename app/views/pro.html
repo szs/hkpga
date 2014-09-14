@@ -8,29 +8,29 @@
           <img ng-if="pro.profile_picture" class="profile-pic img-responsive img-rounded" ng-src="{{ pro.profile_picture  | DriveOrUrl }}">
         </div>
         <div class="pro-name col-lg-9 col-m3-8 col-sm-8 col-xs-7">
-          <h1>{{ pro.name[l10n()] }}</h1>
+          <h1>{{ l10n(pro.name)  }}</h1>
         </div>
         <div class="pro-details col-md-12 col-sm-12 col-xs-12">
           <dl class="dl-horizontal">
-            <div ng-if="pro.introduction[l10n()]">
+            <div ng-if="l10n(pro.introduction) ">
               <dt><h3>Introduction</h3></dt>
-              <dd><p>{{ pro.introduction[l10n()] }}</p></dd>
+              <dd><p>{{ l10n(pro.introduction)  }}</p></dd>
             </div>
-            <div ng-if="pro.qualifications[l10n()]">
+            <div ng-if="l10n(pro.qualifications) ">
               <dt><h3>Qualifications</h3></dt>
-              <dd><p>{{ pro.qualifications[l10n()] }}</p></dd>
+              <dd><p>{{ l10n(pro.qualifications)  }}</p></dd>
             </div>
             <div ng-if="pro.pro_since">
               <dt><h3>Turned pro</h3></dt>
               <dd><p>{{ pro.pro_since }}</p></dd>
             </div>
-            <div ng-if="pro.achievements[l10n()]">
+            <div ng-if="l10n(pro.achievements) ">
               <dt><h3>Achievements</h3></dt>
-              <dd><p>{{ pro.achievements[l10n()] }}</p></dd>
+              <dd><p>{{ l10n(pro.achievements)  }}</p></dd>
             </div>
-            <div ng-if="pro.teaching_experience[l10n()]">
+            <div ng-if="l10n(pro.teaching_experience) ">
               <dt><h3>Teaching Experience</h3></dt>
-              <dd><p>{{ pro.teaching_experience[l10n()] }}</p></dd>
+              <dd><p>{{ l10n(pro.teaching_experience)  }}</p></dd>
             </div>
             <div ng-if="pro.member_since">
               <dt><h3>Since</h3></dt>

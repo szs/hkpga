@@ -8,14 +8,14 @@
     </div>
   </div>
   <div class="row">
-    <div class = "col-md-9">  
+    <div class = "col-md-9">
       <div class="row">
         <div ng-repeat="(key, magazine) in magazines" class="col-md-6">
           <div class="media-card">
             <a target="_blank" ng-href="{{ magazine.url}}">
-              <h5> {{ magazine.publish_date | date:'yyyy' }} </h5> 
+              <h5> {{ magazine.publish_date | date:'yyyy' }} </h5>
               <h4> Issue: {{ magazine.publish_date | date:'MMMM'  }} </h4>
-              <h4> Cover Story: {{ magazine.coverstory[l10n()] }} </h4>
+              <h4> Cover Story: {{ l10n(magazine.coverstory) }} </h4>
               <img ng-src="{{ magazine.cover | DriveOrUrl }}">
             </a>
           </div>
@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class = "col-md-3">  
+    <div class = "col-md-3">
       <div ng-include="'/views/sidebar.html'" ng-controller="SidebarCtrl"></div>
     </div>
   </div>

@@ -24,16 +24,21 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
   $scope.tournaments.$on('loaded',function(){
 
+
     angular.forEach($scope.tournaments, function(tournament, created_at){
-      tournament.year = new Date(tournament.start_date).getFullYear();
+      if (created_at[0] != '$'){
+        tournament.year = new Date(tournament.start_date).getFullYear();
+      }
     })
 
     if ($routeParams.id){
-      $scope.edit = true
+      $scope.edit = true;
       angular.forEach($scope.tournaments, function(value, key) {
+        if (key[0] != '$'){
           if (value.slug == $routeParams.id){
             $scope.tournament = $scope.tournaments[key];
           }
+        }
        })
       if ($scope.view =='score'){
         firebase2grid();
@@ -177,7 +182,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       })
       angular.forEach(players, function(player, username){
         var split = Utils.countInArray(ranks, player.rank);
-        var points = pointsScored(player.rank, $scope.tournament.no_days, split)
+        var rawPoints = pointsScored(player.rank, $scope.tournament.no_days, split)
+        var points = Math.round(rawPoints * 10) / 10
 
         player.points = points;
         deferred.resolve();
@@ -311,7 +317,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   };
 
   var ScoreGrid = function(division){
-    var columnDefs = [{field:'name[l10n()]', displayName:'Name', width: "**", enableCellEdit: false}];
+    var columnDefs = [{field:'name[currentLanguage()]', displayName:'Name', width: "**", enableCellEdit: false}];
 
     columnDefs = columnDefs.concat(RoundSubGrid($scope.tournament.no_days));
 
@@ -467,7 +473,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         enableCellEditOnFocus: false,
         columnDefs: [
           {field: 'rank', displayName: 'Rank', width: "*", cellClass: 'center-text', enableCellEdit: true},
-          {field:'name[l10n()]', displayName:'Name', width: "****", cellClass: 'center-text', enableCellEdit: false},
+          {field:'name[currentLanguage()]', displayName:'Name', width: "****", cellClass: 'center-text', enableCellEdit: false},
           {field: 'points|number:0', displayName: 'Points', width: "****", cellClass: 'center-text', enableCellEdit: true},
           {field:'username', displayName:'Username', cellClass: 'center-text', enableCellEdit: false, visible:false}]
     }
@@ -693,7 +699,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   };
 
   $scope.isUpcoming = function(tournament) {
-     return Date.now() < tournament.start_date;
+    console.log(tournament);
+    return Date.now() < tournament.start_date;
   }
 
   function updateArchives(){

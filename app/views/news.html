@@ -10,7 +10,7 @@
                 <h5>{{ latest.publish_date | date:'dd MMM yyyy'}}</h5>
               </div>
               <div class="col-lg-10 col-md-9">
-                <h4>{{ latest.title[l10n()] }}</h4>
+                <h4>{{ l10n(latest.title) }}</h4>
               </div>
             </div>
           </div>
@@ -19,7 +19,7 @@
               <img  class="cover" ng-show="latest.cover" ng-src="{{latest.cover}}">
             </div>
             <div class="col-md-12">
-              <p>{{ latest.html[l10n()] | characters:550:l10n() }}</p>
+              <p>{{ l10n(latest.html) | characters:550:currentLanguage() }}</p>
             </div>
             <div class="widget-footer col-md-12">
               <a href="#/news/{{ latest.slug }}">
@@ -32,23 +32,25 @@
     </div>
 
     <h2 translate>MORE_NEWS</h2>
-    <div class="article row" ng-repeat="(articleId, article) in articles | orderByPriority | orderBy: 'publish_date':true | filter:{category : 'news'} | filter:{internal : false} | limitTo:11" ng-hide="$first">
+    <div class="article row" ng-repeat="article in articles | orderByPriority | orderBy: 'publish_date':true | filter:{category : 'news'} | filter:{internal : false} | limitTo:11" ng-hide="$first">
       <div class="col-md-12">
           <div class="clearfix" ng-class="{true: 'draft', false:''}[article.draft]">
             <div class="more-news">
               <a href="#/news/{{ article.slug }}" class="block-anchor">
                 <div class="title-row title-row-fill clearfix">
                       <h5>{{ article.publish_date | date:'dd MMM yyyy'}}</h5>
-                      <h4>{{ article.title[l10n()] }}</h4>
+                      <h4>{{ l10n(article.title) }}</h4>
                 </div>
               </a>
               <div class="more-news-body clearfix well">
                 <div class="coverphoto col-lg-6 col-md-6 col-sm-12">
                   <img ng-show="article.cover" ng-src="{{ article.cover }}">
                 </div>
-                <p class="col-lg-6 col-md-6 col-sm-12">{{ article.html[l10n()] | characters:350:l10n() }}</p>
+                <p class="col-lg-6 col-md-6 col-sm-12">{{ l10n(article.html) | characters:350:currentLanguage() }}</p>
                 <div class="widget-footer col-md-12">
-                  <button type="button" class="btn" translate>READ_MORE</button>
+                  <a href="#/news/{{ article.slug }}">
+                    <button type="button" class="btn" translate>READ_MORE</button>
+                  </a>
                 </div>
               </div>
             </div>

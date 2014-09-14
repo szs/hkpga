@@ -7,7 +7,10 @@
       <h2 translate>UNSCORED_TOURNAMENT</h2>
       <div ng-repeat="(key, unscored) in tournaments | orderByPriority | filter:{scored : false} | orderBy:'start_date':true | limitTo:1" class="well clearfix">
         <div class="col-md-10">
-          <span>{{unscored.start_date | date }}</span> <i class="fa fa-tasks"></i><a ng-href="#/tournaments/{{unscored.year}}/{{unscored.slug}}">{{unscored.name[l10n()]}}</a>
+        {{ unscored | json }}
+          <span>{{unscored.start_date | date }}</span> <i class="fa fa-tasks"></i><a ng-href="#/tournaments/{{unscored.year}}/{{unscored.slug}}">{{l10n(unscored.name)}}</a>
+        }
+        }
         </div>
         <div class="col-md-2 publish-buttons">
           <a ng-href="#/tournaments/{{unscored.year}}/{{unscored.slug}}/score" class="btn"> <i class="fa fa-sliders"></i> score</a>
@@ -20,7 +23,7 @@
       <h2 translate>LATEST_ARTICLES</h2>
       <div class="well clearfix" ng-repeat="(id, article) in articles | orderByPriority | orderBy: 'publish_date':true |filter:{category : 'news'} | limitTo:3">
           <div class="col-md-10">
-            <span>{{article.publish_date | date }}</span> <i class="fa fa-file-o"></i><a ng-href="#/news/{{article.slug}}">{{article.title[l10n()]}}</a>
+            <span>{{article.publish_date | date }}</span> <i class="fa fa-file-o"></i><a ng-href="#/news/{{article.slug}}">{{l10n(article.title)}}</a>
           </div>
           <div class="col-md-2 publish-buttons">
             <a ng-href="#/news/{{article.slug}}/edit" class="btn"> <i class="fa fa-pencil"></i> edit</a>
@@ -35,7 +38,7 @@
       <div ng-repeat="(id, tournament) in tournaments | orderByPriority | orderBy: 'start_date':true | limitTo:2" class="col-md-5 well">
           <span id="tournament-length">{{tournament.no_days}} Days</span>
           <h5>{{tournament.start_date | date:'fullDate' }} </h5>
-          <h4><i class="fa fa-trophy"></i>{{tournament.name[l10n()]}}</h4>
+          <h4><i class="fa fa-trophy"></i>{{l10n(tournament.name)}}</h4>
           <em>At {{tournament.venue.en}}</em>
           <a ng-href="#/tournaments/{{tournament.slug}}"></a><a ng-href="#/tournaments/{{tournament.slug}}/edit" class="btn publish-buttons"><i class="fa fa-pencil"></i> edit</a>
       </div>
@@ -52,7 +55,7 @@
       <div ng-repeat="(id, pro) in pros | orderByPriority | orderBy: 'updated_at':true | limitTo:3" class="col-md-3 well publish-buttons clearfix">
           <img ng-src="{{pro.profile_picture}}">
           <span><a ng-href="#/pros/{{pro.username}}"></a></span>
-          {{pro.name[l10n()]}}</a>
+          {{l10n(pro.name)}}</a>
           <a ng-href="#/pros/{{pro.username}}/edit" class="btn"><i class="fa fa-pencil"></i>edit</a>
       </div>
       <div class="col-md-2">
