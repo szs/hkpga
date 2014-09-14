@@ -1957,30 +1957,139 @@ $admin-red:         #f06059;
   }
 }
 
+
+
+
 // Custom query
-@media (min-width: 400px) and (max-width: 767px) {
+@media (min-width: 1620px) {
+  .navbar-brand {
+    img {
+      width: 140px;
+      margin-left: 60px;
+      margin-top: 20px;
+    }
+  }
+}
+
+
+
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) {
+  .navbar-brand {
+    img {
+      width: 120px;
+      margin-left: 30px;
+      margin-top: 10px;
+    }
+  }
   #committee-page {
     span {
       display: block;
     }
+    .dl-horizontal dt {
+      width: 350px;
+    }
   }
-  #static-pages {
-    table {
-      td {
-        padding-right: 7px;
-        padding-left: 3px;
+  #committee-page {
+    .dl-horizontal dd {
+      margin-left: 380px;
+    }
+  }
+  .more-news {
+    .coverphoto {
+      padding-top: 34%;
+      margin-bottom: 0px;
+    }
+  }
+}
+
+
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min) {
+  .navbar-brand {
+    img {
+      width: 120px;
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+  }
+  #committee-page {
+    .dl-horizontal dt {
+      width: 270px;
+    }
+  }
+  #committee-page {
+    .dl-horizontal dd {
+      margin-left: 300px;
+    }
+  }
+  .side-nav {
+    position: fixed;
+    width: 280px;
+    top: 219px;
+  }
+  .pros-legend {
+    position: fixed;
+    width: 280px;
+    .well {
+      padding: 20px 26px
+    }
+  }
+  .pros-page {
+    .side-nav {
+      top: 249px;
+    }
+    .pros-legend {
+      top: 450px;
+    }
+  }
+  #main-page {
+    .more-news-body {
+      p {
+        margin-top: -4px;
+        padding-left: 35px;
+        padding-right: 0px;
       }
     }
   }
-
   .more-news {
     .coverphoto {
-      padding-top: 70%;
+      padding-top: 48%;
     }
   }
-
 }
 
+
+
+
+// Custom query (866px)
+@media (min-width: 866px) {
+  .open > .dropdown-menu {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity:1;
+  }
+  .dropdown-menu {
+    -webkit-transform-origin: top;
+    -moz-transform-origin: top;
+    -ms-transform-origin: top;
+    transform-origin: top;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-transform: scale(1, 0);
+    -moz-transform: scale(1, 0);
+    -ms-transform: scale(1, 0);
+    display: block;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+  }
+}
 
 
 /* Small devices (tablets, 768px and up) */
@@ -1992,7 +2101,6 @@ $admin-red:         #f06059;
       margin-top: 7px;
     }
   }
-
   #committee-page {
     span {
       display: block;
@@ -2020,7 +2128,6 @@ $admin-red:         #f06059;
       }
     }
   }
-
   #committee-page {
     .dl-horizontal dd {
       margin-left: 325px;
@@ -2030,7 +2137,6 @@ $admin-red:         #f06059;
       }
     }
   }
-
   #static-pages {
     table {
       td {
@@ -2038,16 +2144,15 @@ $admin-red:         #f06059;
       }
     }
   }
-
   .more-news {
     .coverphoto {
       padding-top: 60%;
     }
   }
-
 }
 
-// Custom query
+
+// Custom query (769px - 866px)
 @media (min-width: 769px) and (max-width: 866px) {
   .navbar-brand {
     img {
@@ -2058,148 +2163,65 @@ $admin-red:         #f06059;
   }
 }
 
-// Custom query
-@media (min-width: 866px) {
-  .open > .dropdown-menu {
-    -webkit-transform: scale(1, 1);
-    transform: scale(1, 1);
-    opacity:1;
-  }
-
-  .dropdown-menu {
-    -webkit-transform-origin: top;
-    -moz-transform-origin: top;
-    -ms-transform-origin: top;
-    transform-origin: top;
-    -webkit-animation-fill-mode: forwards;
-    -moz-animation-fill-mode: forwards;
-    -ms-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-    -webkit-transform: scale(1, 0);
-    -moz-transform: scale(1, 0);
-    -ms-transform: scale(1, 0);
-    display: block;
-    transition: all 0.2s ease;
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -ms-transition: all 0.2s ease;
-  }
-
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: $screen-md-min) {
-
-  .navbar-brand {
-    img {
-      width: 120px;
-      margin-left: 20px;
-      margin-top: 10px;
-    }
-  }
-
-  #committee-page {
-    .dl-horizontal dt {
-      width: 270px;
-    }
-  }
-
-  #committee-page {
-    .dl-horizontal dd {
-      margin-left: 300px;
-    }
-  }
-
-  .side-nav {
-    position: fixed;
-    width: 280px;
-    top: 219px;
-  }
-
-  .pros-legend {
-    position: fixed;
-    width: 280px;
-    .well {
-      padding: 20px 26px
-    }
-  }
-
-  .pros-page {
-    .side-nav {
-      top: 249px;
-    }
-    .pros-legend {
-      top: 450px;
-    }
-  }
-
-  #main-page {
-    .more-news-body {
-      p {
-        margin-top: -4px;
-        padding-left: 35px;
-        padding-right: 0px;
-      }
-    }
-  }
-
-  .more-news {
-    .coverphoto {
-      padding-top: 48%;
-    }
-  }
-
-}
 
 
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: $screen-lg-min) {
-
-  .navbar-brand {
-    img {
-      width: 120px;
-      margin-left: 30px;
-      margin-top: 10px;
-    }
-  }
-
+// Custom query (400px - 767px)
+@media (min-width: 400px) and (max-width: 767px) {
   #committee-page {
     span {
       display: block;
     }
-    .dl-horizontal dt {
-      width: 350px;
+  }
+  #static-pages {
+    table {
+      td {
+        padding-right: 7px;
+        padding-left: 3px;
+      }
     }
   }
-
-  #committee-page {
-    .dl-horizontal dd {
-      margin-left: 380px;
-    }
-  }
-
-
   .more-news {
     .coverphoto {
-      padding-top: 34%;
-      margin-bottom: 0px;
-    }
-  }
-
-}
-
-
-// Custom query
-@media (min-width: 1620px) {
-  .navbar-brand {
-    img {
-      width: 140px;
-      margin-left: 60px;
-      margin-top: 20px;
+      padding-top: 70%;
     }
   }
 }
 
+
+
+// Custom query - up to 470px;
+@media (max-width : 470px) {
+  .hideelement {
+    display: none !important;
+  }
+  .more-news .coverphoto {
+    padding-top: 70%;
+  }
+  #merit-page,
+  #tournaments-page,
+  #tournament-page  {
+    span.tournament-division {
+      display: none;
+    }
+  }
+  #profile-page {
+    img.profile-pic {
+      max-width: 140px;
+      min-width: 130px;
+    }
+  }
+}
+
+
+// Custom query - up to 400px;
+@media (max-width: 400px) {
+  #profile-page {
+    img.profile-pic {
+      max-width: 110px;
+      min-width: 100px;
+    }
+  }
+}
 
 
 
