@@ -19,11 +19,7 @@
 				<tbody>
 					<tr ng-repeat="(username, player) in tournament['results']['open'] | orderByPriority | orderBy:'rank' | limitTo:10">
 						<td>{{player.rank}}</td>
-<<<<<<< HEAD
-						<td><a href="#/pros/{{player.username}}">{{player.name[l10n()]}}</a></td>
-=======
-						<td>{{l10n(player.name)}}</td>
->>>>>>> b894db2679860f6d58e8039bedf487bcaa2a5298
+						<td><a href="#/pros/{{player.username}}">{{l10n(player.name)}}</a></td>
 						<td>{{player.totalScore}}</td>
 					</tr>
 				</tbody>
