@@ -20,7 +20,7 @@
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
                 <h4>{{ l10n(tournament.name) }} | {{ tournament.results.length }} {{ tournament.no_days }} day tournament </h4>
-                <h5>Divisions: </h5>
+                <h5 class="hideelement">Divisions: </h5>
                 <span class="label label-default tournament-division" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</span>
             </div>
             <div class="tournament-action-tags col-lg-2 col-md-2 col-sm-2 col-xs-12 clearfix">
