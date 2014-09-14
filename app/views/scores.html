@@ -1,6 +1,6 @@
 <div class="container" id="tournament-scores">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div ng-if="tournament" class="col-md-10 col-md-offset-1">
       <h1><i class="fa fa-trophy"></i>Tournament Scores</h1>
       <h4>{{ l10n(tournament.name) }}</h4>
       <h5>{{ tournament.start_date | date:'dd MMM yyyy'}}</h5>
