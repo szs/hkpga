@@ -78,7 +78,9 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
       categories.forEach(function(key){
         var years = {};
         $scope.archives[key].forEach(function(i){
-            years[page + '/' + i] = i;
+            if (i > 2012){ // Only show Order of Merit from 2013 onwards.
+              years[page + '/' + i] = i;
+            }
           });
         menuStructure[key] = years;
       });
