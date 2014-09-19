@@ -77,7 +77,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     var promises = [];
 
     angular.forEach($scope.tournament.results, function(players, division){
-     var deferred = $q.defer();
+      var deferred = $q.defer();
       players = Utils.valuesToArray(players);
       orderByRank(
         Utils.sortByKey(players, 'totalScore'), division).then(function(data){
@@ -98,18 +98,23 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       playerOrder.push(player.username)
     });
 
-    var currentScore = 0
-    var currentRank = 0
-    var firstPlace = 1
+    var currentScore = 0;
+    var currentRank = 0;
+    var firstPlace = 1;
+    var userRank = 0;
     playerOrder.forEach(function(username, index){
-        var usr = $scope.tournament.results[division][username]
-        if (usr.totalScore > currentScore){
-          currentScore = usr.totalScore;
-          currentRank = index + 1;
-        } else if (currentRank == 1){
-          firstPlace++;
-        }
-        usr.rank = currentRank;
+      var usr = $scope.tournament.results[division][username]
+      if (typeof usr.totalScore === 'string'){
+        userRank = usr.totalScore
+      } else if (usr.totalScore > currentScore){
+        currentScore = usr.totalScore;
+        currentRank = index + 1;
+        userRank = currentRank;
+      } else if (currentRank == 1){
+        firstPlace++;
+        userRank = currentRank;
+      }
+      usr.rank = userRank;
     })
 
     var first = playerOrder.slice(0,firstPlace);
@@ -175,14 +180,14 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
     angular.forEach($scope.tournament.results, function(players, division){
       var deferred = $q.defer();
-      var ranks = []
+      var ranks = [];
       angular.forEach(players, function(player, username){
         ranks.push(player.rank);
       })
       angular.forEach(players, function(player, username){
         var split = Utils.countInArray(ranks, player.rank);
-        var rawPoints = pointsScored(player.rank, $scope.tournament.no_days, split)
-        var points = Math.round(rawPoints * 10) / 10
+        var rawPoints = pointsScored(player.rank, $scope.tournament.no_days, split);
+        var points = Math.round(rawPoints * 10) / 10;
 
         player.points = points;
         deferred.resolve();
@@ -317,7 +322,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         players.forEach(function(player, index){
           var scores = roundsObj($scope.tournament.no_days, player);
           $scope.tournament.results[division][player.username]['rounds'] = scores;
-          $scope.tournament.results[division][player.username]['totalScore'] = Utils.sumObj(scores);
+          $scope.tournament.results[division][player.username]['totalScore'] = Utils.sumObjOrStr(scores);
           deferred.resolve();
         });
       promises.push(deferred.promise);
@@ -333,9 +338,9 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     columnDefs = columnDefs.concat(RoundSubGrid($scope.tournament.no_days));
 
     columnDefs = columnDefs.concat([
-      {field:'totalScore', displayName:'Total Score', width: "*", enableCellEdit: false, visible:$scope.tournament.scored},
-      {field:'rank', displayName:'Rank', width: "*", enableCellEdit: false, visible:$scope.tournament.scored},
-      {field:'points', displayName:'Points', width: "*", enableCellEdit: false, visible:$scope.tournament.scored},
+      {field:'totalScore', displayName:'Total Score', width: "*", enableCellEdit: false, visible:$scope.tournament.scored, sortFn: alphanumericSortFN},
+      {field:'rank', displayName:'Rank', width: "*", enableCellEdit: false, visible:$scope.tournament.scored, sortFn: alphanumericSortFN},
+      {field:'points', displayName:'Points', width: "*", enableCellEdit: false, visible:$scope.tournament.scored, sortFn: alphanumericSortFN},
       {field:'relation', displayName:'Relation', width: "*", enableCellEdit: false, visible:false},
       {field:'username', displayName:'Username', width: "*", enableCellEdit: false, visible:false}
     ])
@@ -350,6 +355,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
                   '<div ng-cell></div>' +
                   '</div></div>{{row}}',
       columnDefs: columnDefs,
+      sortInfo: {fields: ['rank','getName()'],directions:['asc','asc']},
       noTabInterference: true
     }
   }
@@ -366,9 +372,25 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   var RoundSubGrid = function(days){
     var rounds = [];
     for (var i = 1; i <= days; i++) {
-      rounds.push({field: '' + i, displayName: 'Round ' + i, enableCellEdit: true})
+      rounds.push({field: '' + i, displayName: 'Round ' + i, enableCellEdit: true, sortFn: alphanumericSortFN})
     };
     return rounds;
+  };
+
+    // custom sort
+  var alphanumericSortFN = function(a,b){
+    var isAString = typeof a === 'string' || b === undefined;
+    var isBString = typeof b === 'string' || a === undefined;
+    if (isAString && isBString){
+      return 0;
+    } else if (isAString){
+      return 1;
+    } else if (isBString){
+      return -1;
+    }
+    if (a > b) return 1;
+    if (a < b) return -1;
+    return 0;
   };
 
     // data Object
@@ -377,10 +399,26 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     var rounds = {};
     var player = player || {};
     for (var i = 0; i < days; i++) {
-      rounds[i+1] = parseInt(player[i+1]) || 0;
+      var score = parseInt(player[i+1]) || 0;
+      if (player.hasOwnProperty('status') && (score === 0 || typeof score === 'string')){
+        score = statusMap[player.status];
+      }
+      rounds[i+1] = score;
     };
     return rounds;
   };
+
+  // Participant Tournament Status
+
+  var statusMap = {
+    'signedup':'np',
+    'registered':'np',
+    'played':0,
+    'retired':'rt',
+    'withdrawn':'wd',
+    'missedcut':'mc',
+    'disqualified':'dq'
+  }
 
   // ng-grid Money
 

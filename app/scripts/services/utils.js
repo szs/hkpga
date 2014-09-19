@@ -15,20 +15,39 @@ app.factory('Utils',
     return base;
 };
 
-  var sumObj = function(obj){
+  var sumObjOrStr = function(obj){
     var values = [];
+    var result;
       for (var k in obj) {
         if (obj.hasOwnProperty(k)) {
           values.push(obj[k]);
         }
       }
-    return values.reduce(function(a,b){return a + b});
+    var allNumbers = values.every(function(v){
+        return typeof v == 'number';
+      });
+    if (allNumbers){
+      result = values.reduce(function(a,b){return a + b});
+    } else {
+      values.forEach(function(v){if(typeof v == 'string'){result = v}})
+    }
+    return result;
   }
 
   var sortByKey = function(array, key) {
     return array.sort(function(a, b) {
         var x = a[key]; var y = b[key];
-        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        var isAString = typeof a[key] === 'string';
+        var isBString = typeof b[key] === 'string';
+        if (isAString && isBString){
+          return 0;
+        } else if (isAString){
+          return 1;
+        } else if (isBString){
+          return -1;
+        } else {
+          return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        }
     });
   }
 
@@ -89,7 +108,7 @@ app.factory('Utils',
       logUpdate : logUpdate,
       slugify : createSlug,
       nestedObject : nestedObject,
-      sumObj : sumObj,
+      sumObjOrStr : sumObjOrStr,
       sortByKey : sortByKey,
       valuesToArray : valuesToArray,
       countInArray: countInArray,
