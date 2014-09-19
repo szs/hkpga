@@ -105,8 +105,10 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     playerOrder.forEach(function(username, index){
       var usr = $scope.tournament.results[division][username]
       if (typeof usr.totalScore === 'string'){
-        userRank = usr.totalScore
-      } else if (usr.totalScore > currentScore){
+        userRank = usr.totalScore;
+      }
+
+      else if (usr.totalScore > currentScore){
         currentScore = usr.totalScore;
         currentRank = index + 1;
         userRank = currentRank;
@@ -188,6 +190,9 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         var split = Utils.countInArray(ranks, player.rank);
         var rawPoints = pointsScored(player.rank, $scope.tournament.no_days, split);
         var points = Math.round(rawPoints * 10) / 10;
+        if (!User.isEligable($scope.pros[username])){
+          points = 0;
+        }
 
         player.points = points;
         deferred.resolve();
@@ -210,7 +215,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         if (username[0] != '$'){
           if (pro.hasOwnProperty('results') && pro['results'].hasOwnProperty($scope.archiveYear)){
             angular.forEach(pro['results'][$scope.archiveYear], function(result, tournament){
-              if (result.hasOwnProperty('points') && result.hasOwnProperty('division') && result['division'] == division) {
+              if (result.hasOwnProperty('points') && result['points'] > 0 && result.hasOwnProperty('division') && result['division'] == division) {
                 if (meritSum.hasOwnProperty(username)) {
                   meritSum[username].points += result.points;
                 } else {
@@ -294,6 +299,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
           points: player.points,
           totalScore: player.totalScore,
           relation: $scope.pros[player.username].relation,
+          active: player.active,
           getName: function () {
             return $rootScope.l10n(this.name);
           }
@@ -411,13 +417,13 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   // Participant Tournament Status
 
   var statusMap = {
-    'signedup':'np',
-    'registered':'np',
+    'signedup':'NP',
+    'registered':'NP',
     'played':0,
-    'retired':'rt',
-    'withdrawn':'wd',
-    'missedcut':'mc',
-    'disqualified':'dq'
+    'retired':'RT',
+    'withdrawn':'WD',
+    'missedcut':'MC',
+    'disqualified':'DQ'
   }
 
   // ng-grid Money

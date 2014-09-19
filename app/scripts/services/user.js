@@ -27,7 +27,8 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
   var User = {
     all: users,
     isEligable: function(user){
-      return pointsEligible.indexOf(user.status) > -1 && user.active;
+      console.log(user);
+      return pointsEligible.indexOf(user.relation) > -1 && user.active;
     },
     create : function (authUser, user){
       var userObj = user;
