@@ -775,6 +775,9 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   }
 
   var pointsScored = function(rank, days, split){
+    if (typeof rank == 'string'){
+      return 0;
+    }
     var prize = [];
 
     for (var i = 0; i < split; i++) {
