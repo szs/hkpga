@@ -24,7 +24,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
   $scope.tournaments.$on('loaded',function(){
 
-
     angular.forEach($scope.tournaments, function(tournament, created_at){
       if (created_at[0] != '$'){
         tournament.year = new Date(tournament.start_date).getFullYear();
@@ -225,25 +224,20 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
     $scope.merit = merit;
 
-    angular.forEach($scope.merit, function (division) {
-      angular.forEach(division, function (row) {
-        row.getName = function () {
-          return $rootScope.l10n(row.name);
-        };
-        row.getPoints = function () {
-          var points = row.points | 0;
-          return points;
-        };
-      });
-    });
-
   };
 
   var meritObj = function(result, username, pro){
     return {
         points: result.points,
         username: username,
-        name: pro.name
+        name: pro.name,
+        getName : function () {
+          return $rootScope.l10n(this.name);
+        },
+        getPoints : function () {
+          var points = this.points | 0;
+          return points;
+        }
      };
   }
 
@@ -291,9 +285,13 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
           name: player.name,
           username: player.username,
           rank: player.rank,
+          status: player.status,
           points: player.points,
           totalScore: player.totalScore,
-          relation: $scope.pros[player.username].relation
+          relation: $scope.pros[player.username].relation,
+          getName: function () {
+            return $rootScope.l10n(this.name);
+          }
         };
         player.rounds = player.rounds || roundsObj(width);
 
@@ -308,13 +306,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
     $scope.toScore = tournamentScores;
 
-    angular.forEach($scope.toScore, function (division) {
-      angular.forEach(division, function (row) {
-        row.getName = function () {
-          return $rootScope.l10n(row.name);
-        };
-      });
-    });
   };
 
   var grid2Firebase = function(){
@@ -386,7 +377,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     var rounds = {};
     var player = player || {};
     for (var i = 0; i < days; i++) {
-      rounds[i+1] = parseInt(player[i+1]) || 0
+      rounds[i+1] = parseInt(player[i+1]) || 0;
     };
     return rounds;
   };
