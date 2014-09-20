@@ -15,7 +15,11 @@ app.controller('MainCtrl', function($scope, User){
 
 });
 
-
+$(function(){
+  $('body').on('click', '.navbar-collapse li.open ul.dropdown-menu li a, .navbar-nav > li > a[href]', function(event) {
+    $('.navbar-collapse.in').removeClass('in');
+  })
+})
 
 $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
   // Avoid following the href location when clicking
