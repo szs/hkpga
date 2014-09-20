@@ -32,7 +32,7 @@ app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth)
   }
 
   $scope.register = function () {
-    
+
     $scope.user.role = $scope.user.honorary ? 'user' : roleMap[$scope.user.relation];
 
     if ($scope.user.role == 'member' || $scope.user.isAdmin){
@@ -51,8 +51,8 @@ app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth)
         $scope.error = error.toString().split(':')[3];
       });
     } else {
-      $scope.user.username = createUsername($scope.user.name.en);      
-      $scope.update($scope.user);         
+      $scope.user.username = createUsername($scope.user.name.en);
+      $scope.update($scope.user);
     }
   };
 

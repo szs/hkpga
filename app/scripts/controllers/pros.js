@@ -101,7 +101,7 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
   }
 
   $scope.statusFilter = function (pro) {
-    var memberStatus =  {
+    var memberRelationStatus =  {
       'full' : 3,
       'tournament' : 3,
       'associate' : 3,
@@ -113,7 +113,7 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
       'none' : 0,
     }
 
-    if (memberStatus[pro.status] === $scope.filterItem.pro.status) {
+    if (memberRelationStatus[pro.relation] === $scope.filterItem.pro.status) {
       return true;
     } else if ($scope.filterItem.pro.status === 4) {
       return true;
@@ -125,7 +125,7 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
   $scope.listed = function() {
     return function( pro ) {
       var entrants = ['full', 'tournament', 'associate', 'member', 'trainer', 'trainee', 'seniortrainee']
-      return entrants.indexOf(pro.status) > -1
+      return entrants.indexOf(pro.relation) > -1
     };
   };
 
