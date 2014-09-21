@@ -565,16 +565,17 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         .then(function(){
           Tournament.setScored($scope.tournament)
         })
-        .then($scope.printScore)
+        .then($location.path('/tournaments/' + $scope.tournament.year + '/' + $scope.tournament.slug));
       });
   }
 
   $scope.submitMoney = function(){
     money2Firebase()
       .then(function(){
-        console.log($scope.tournament.prize_money)
         Tournament.setPrizePot($scope.tournament)
-      });
+      }).then(
+        $location.path('/tournaments/' + $scope.tournament.year + '/' + $scope.tournament.slug)
+      );
   }
 
   $scope.addParticipant = function(t, division, user){
