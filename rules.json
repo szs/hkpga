@@ -1,0 +1,97 @@
+{
+    "rules": {
+        "coverage" : {
+          ".read": true,
+          ".write": "auth != null && auth.isAdmin == true"
+          },
+        "releases" : {
+          ".read": true,
+          ".write": "auth != null && auth.isAdmin == true"
+          },
+        "articles" : {
+          ".read": true,
+          ".write": "auth != null && auth.isAdmin == true"
+          },
+        "archives" : {
+          ".read": true,
+          ".write": "auth != null && auth.isAdmin == true"
+          },
+        "magazines" : {
+          ".read": true,
+          ".write": "auth != null && auth.isAdmin == true"
+          },
+        "feedback" : {
+          ".read": "auth.isAdmin == true",
+          "$feedback_id" : {
+            ".write": "!data.exists() || !newData.exists()"
+            }
+          },
+        "users" : {
+          ".read": true,
+          "$uid": {
+            ".write": "(!data.exists() && newData.exists()) || (auth != null && auth.username == $uid) || auth.isAdmin == true"
+            }
+          },
+        "tournaments" : {
+          ".read": true,
+          "$tournament_id" : {
+            "author":  {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "created_at":  {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "divisions": {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "name": {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "no_days":  {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "prize_money": {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "results": {
+              "$division" : {
+                "$uid": {
+                  ".write": "auth != null && auth.username == $uid || auth.isAdmin == true"
+                }
+              }
+            },
+            "rules_url":  {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "scored":  {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "signup_before":  {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "slug":  {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "start_date":  {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "tee_off":  {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "updated_at":  {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "venue": {
+               ".write": "auth != null && auth.isAdmin == true"
+            },
+            "year":  {
+               ".write": "auth != null && auth.isAdmin == true"
+            }
+          }
+        },
+        "pages" : {
+          ".read": true,
+          ".write": "auth != null && auth.isAdmin == true"
+        }
+    }
+}
