@@ -28,6 +28,7 @@
         <div class="publish-buttons">
           <a ng-if="article.draft" ng-click="publish(article)" class="btn btn-info"><i class="fa fa-send"></i>publish</a>
           <a ng-click="save(article)" class="btn btn-primary"><i class="fa fa-save"></i>save</a>
+          <a ng-if="edit" ng-click="delete(article)" class="btn btn-primary"><i class="fa fa-remove"></i>delete</a>
         </div>
       </div>
     </header>

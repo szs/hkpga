@@ -6,7 +6,7 @@
           <span>{{feedback.created_at | date }}</span> <i class="fa fa-comment-o"></i> {{feedback.text}}
         </div>
         <div class="col-md-1">
-        	<a class="col-md-1 btn btn-default close" ng-click="">X</a>
+        	<a ng-click="delete(feedback)" class="col-md-1 btn btn-default close">X</a>
         </div>
     </div>
   </div>

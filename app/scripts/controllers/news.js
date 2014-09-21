@@ -11,6 +11,7 @@ app.controller('NewsCtrl', function($scope, $q, $routeParams, $location, Utils, 
 
   if ($routeParams.id){
     $scope.article = Article.find($routeParams.id);
+    $scope.edit = true
   } else {
     $scope.reset();
   }
@@ -57,8 +58,11 @@ app.controller('NewsCtrl', function($scope, $q, $routeParams, $location, Utils, 
     // $location.path(a.category + '/' + a.slug);
   };
 
-  $scope.delete = function(articleID) {
-    Article.delete(articleID);
+  $scope.delete = function(article) {
+    Article.delete(article.slug)
+      .then(
+        $location.path('/news/new')
+      )
   };
 
   function updateArchives(){

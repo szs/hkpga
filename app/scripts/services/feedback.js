@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Feedback', 
+app.factory('Feedback',
   function ($firebase, FIREBASE_URL) {
     var ref = new Firebase(FIREBASE_URL + 'feedback');
     var feedback = $firebase(ref);
@@ -8,19 +8,19 @@ app.factory('Feedback',
     var Archive = {
       all: feedback,
       create : function(fb){
-        
+
         feedback[fb.created_at] = fb;
-        
+
         feedback.$save(fb.created_at).then(function(){
-          console.log('Feedback delivered on ' + fb.created_at);
+          // console.log('Feedback delivered on ' + fb.created_at);
         });
 
       },
       find : function(fb){
         return feedback.$child(fb);
       },
-      delete : function(fb){
-        return feedback.$remove(fb);
+      delete : function(fbID){
+        return feedback.$remove(fbID);
       },
       new : function(){
         return {

@@ -6,8 +6,6 @@ app.controller('NewCtrl', function($scope, $routeParams, $location){
   if (category == 'press'){
     category = $location.path().split('/')[2];
   }
-  console.log(category)
  	$scope.subview = category;
   $scope.subviewurl = 'views/' + category + '-new.html';
-  console.log($scope.subviewurl)
 });
