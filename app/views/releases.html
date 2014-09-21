@@ -14,11 +14,12 @@
 				    <li ng-repeat="(key, release) in releases">
 				      	<h5 class="release-date">{{ release.updated_at | date:'yyyy  MMMM  d'}}</h5>
 				      	<h4 class="press-title"><a target="_blank" ng-href="{{ l10n(release.url) }}">{{ l10n(release.title) }}</a></h4>
+	              <a ng-if="currentUser.role == 'admin'" class="btn btn-primary" ng-click="edit(release)">Edit</a>
 				    </li>
 				</ul>
 			</div>
 		</div>
-		<div class = "col-md-3 clearfix">	
+		<div class = "col-md-3 clearfix">
 			<div ng-include="'/views/sidebar.html'" ng-controller="SidebarCtrl"></div>
 		</div>
 	</div>

@@ -20,7 +20,7 @@
               <img ng-src="{{ magazine.cover | DriveOrUrl }}">
             </a>
           </div>
-          <div>
+          <div ng-if="currentUser.role == 'admin'">
               <a class="btn btn-primary" ng-click="edit(magazine)">Edit</a>
           </div>
         </div>

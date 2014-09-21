@@ -1,16 +1,16 @@
 'use strict';
 
-app.factory('Release', 
+app.factory('Release',
   function ($firebase, FIREBASE_URL) {
     var ref = new Firebase(FIREBASE_URL + 'releases');
     var releases = $firebase(ref);
- 
+
     var Release = {
       all: releases,
       create : function(release){
-        
+
         releases[release.created_at] = release;
-        
+
         return releases.$save(release.created_at).then(function(){
           console.log('released ' + release.title.en);
         });
@@ -39,6 +39,10 @@ app.factory('Release',
           created_at: Date.now(),
           updated_at: Date.now(),
         };
+      },
+      update : function (release){
+        releases[release.created_at] = release;
+        releases.$save(release.created_at);
       }
     };
 

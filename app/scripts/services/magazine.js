@@ -1,16 +1,16 @@
 'use strict';
 
-app.factory('Magazine', 
+app.factory('Magazine',
   function ($firebase, FIREBASE_URL) {
     var ref = new Firebase(FIREBASE_URL + 'magazines');
     var magazines = $firebase(ref);
- 
+
     var Magazine = {
       all: magazines,
       create : function(magazine){
-        
+
         magazines[magazine.created_at] = magazine;
-        
+
         return magazines.$save(magazine.created_at).then(function(){
           console.log('magazined ' + magazine.coverstory);
         });
@@ -36,6 +36,10 @@ app.factory('Magazine',
           updated_at: Date.now(),
           created_at: Date.now()
         };
+      },
+      update : function (magazine){
+        magazines[magazine.created_at] = magazine;
+        magazines.$save(magazine.created_at);
       }
     };
 

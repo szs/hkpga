@@ -1,5 +1,5 @@
 <div class="container admin-styling new-content-form">
-  <form class="form-horizontal" role="form" ng-submit="submit(coverage)" class="coverage-forms" ng-controller="CoverageCtrl">
+  <form class="form-horizontal" role="form" ng-submit="edit ? update(coverage): submit(coverage)" class="coverage-forms" ng-controller="CoverageCtrl">
   <fieldset>
 
   <!-- Form Name -->
@@ -8,7 +8,7 @@
   <!-- Text input-->
   <div class="well clearfix">
     <div class="form-group">
-      <label class="col-md-2 control-label" for="coverage-cover-story-en">Title (EN)</label>  
+      <label class="col-md-2 control-label" for="coverage-cover-story-en">Title (EN)</label>
       <div class="col-md-9">
       <input id="coverage-cover-story-en" name="coverage-cover-story-en" type="text" placeholder="e.g. The Hong Kong Professional Golfers" class="form-control input-md" required="" ng-model="coverage.title.en">
       </div>
@@ -16,7 +16,7 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-2 control-label" for="coverage-cover-story-zh-hk">Title (HK)</label>  
+      <label class="col-md-2 control-label" for="coverage-cover-story-zh-hk">Title (HK)</label>
       <div class="col-md-9">
       <input id="coverage-cover-story-zh-hk" name="coverage-cover-story-zh-hk" type="text" placeholder="e.g. 香港職業高爾夫球協會宣布委任李家瑜為行政總裁" class="form-control input-md" required="" ng-model="coverage.title['zh-hk']">
       </div>
@@ -24,7 +24,7 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-2 control-label" for="coverage-cover-story-zh-cn">Title (CN)</label>  
+      <label class="col-md-2 control-label" for="coverage-cover-story-zh-cn">Title (CN)</label>
       <div class="col-md-9">
       <input id="coverage-cover-story-zh-cn" name="coverage-cover-story-zh-cn" type="text" placeholder="e.g. 香港职业高尔夫球协会宣布委任李家瑜为行政总裁" class="form-control input-md" required="" ng-model="coverage.title['zh-cn']">
       </div>
@@ -32,7 +32,7 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-2 control-label" for="coverage-cover-story-en">Publication (EN)</label>  
+      <label class="col-md-2 control-label" for="coverage-cover-story-en">Publication (EN)</label>
       <div class="col-md-9">
       <input id="coverage-cover-story-en" name="coverage-cover-story-en" type="text" placeholder="e.g. The Hong Kong Professional Golfers" class="form-control input-md" required="" ng-model="coverage.publication.en">
       </div>
@@ -40,7 +40,7 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-2 control-label" for="coverage-cover-story-zh-hk">Publication (HK)</label>  
+      <label class="col-md-2 control-label" for="coverage-cover-story-zh-hk">Publication (HK)</label>
       <div class="col-md-9">
       <input id="coverage-cover-story-zh-hk" name="coverage-cover-story-zh-hk" type="text" placeholder="e.g. 香港職業高爾夫球協會宣布委任李家瑜為行政總裁" class="form-control input-md" required="" ng-model="coverage.publication['zh-hk']">
       </div>
@@ -48,7 +48,7 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-2 control-label" for="coverage-cover-story-zh-cn">Publication (CN)</label>  
+      <label class="col-md-2 control-label" for="coverage-cover-story-zh-cn">Publication (CN)</label>
       <div class="col-md-9">
       <input id="coverage-cover-story-zh-cn" name="coverage-cover-story-zh-cn" type="text" placeholder="e.g. 香港职业高尔夫球协会宣布委任李家瑜为行政总裁" class="form-control input-md" required="" ng-model="coverage.publication['zh-cn']">
       </div>
@@ -56,7 +56,7 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-2 control-label" for="coverage-url">URL</label>  
+      <label class="col-md-2 control-label" for="coverage-url">URL</label>
       <div class="col-md-9">
       <input id="coverage-url" name="coverage-url" type="text" placeholder="Google Docs URL" class="form-control input-md" required="" ng-model="coverage.url">
       </div>
@@ -64,16 +64,16 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-2 control-label" for="coverage-cover">Cover Image</label>  
+      <label class="col-md-2 control-label" for="coverage-cover">Cover Image</label>
       <div class="col-md-9">
       <input id="coverage-cover" name="coverage-cover" type="text" placeholder="Google Drive Image ID, e.g. '0B3pCyAyA57SLaGQ0M0t5OEJhbzQ' or URL starting with 'http://'" class="form-control input-md" required="" ng-model="coverage.cover">
       </div>
     </div>
 
     <div class="form-group">
-      <label class="col-md-2 control-label" for="coverage-publish_date">Publication Date </label>  
+      <label class="col-md-2 control-label" for="coverage-publish_date">Publication Date </label>
       <div class="col-md-9">
-        <div> 
+        <div>
           <div class="date-picker">
             <span class="date-view">Selected date is: <em>{{coverage.publish_date | date:'fullDate' }}</em><a ng-click="isOpen = !isOpen"><i class="fa fa-calendar"></i></a></span>
             <div class="dropdown calendar" ng-class="{ open: isOpen }">
@@ -87,9 +87,10 @@
   </div>
   </fieldset>
   <div class="publish-buttons">
+    <a ng-if="edit" class="btn btn-primary" ng-click="delete(coverage)">Delete</a>
     <input type="submit" value="Publish" class="btn btn-primary" />
     <i class="fa fa-send"></i>
   </div>
   </form>
-  
+
 </div>

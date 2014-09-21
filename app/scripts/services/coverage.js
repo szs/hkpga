@@ -1,16 +1,16 @@
 'use strict';
 
-app.factory('Coverage', 
+app.factory('Coverage',
   function ($firebase, FIREBASE_URL) {
     var ref = new Firebase(FIREBASE_URL + 'coverage');
     var coverages = $firebase(ref);
- 
+
     var Coverage = {
       all: coverages,
       create : function(coverage){
-        
+
         coverages[coverage.created_at] = coverage;
-        
+
         return coverages.$save(coverage.created_at).then(function(){
           console.log('Released ' + coverage.title.en);
         });
@@ -40,6 +40,10 @@ app.factory('Coverage',
           updated_at: Date.now(),
           created_at: Date.now()
         };
+      },
+      update : function (coverage){
+        coverages[coverage.created_at] = coverage;
+        coverages.$save(coverage.created_at);
       }
     };
 

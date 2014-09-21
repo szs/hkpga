@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('MagazineCtrl', function($scope, $location, Utils, Magazine){
+app.controller('MagazineCtrl', function($scope, $location, $routeParams, Utils, Magazine){
 
   $scope.magazines = Magazine.all;
 
@@ -13,7 +13,12 @@ app.controller('MagazineCtrl', function($scope, $location, Utils, Magazine){
     $scope.magazine = Magazine.new();
   };
 
-  $scope.reset()
+  if ($routeParams.id){
+    $scope.edit = true
+    $scope.magazine = Magazine.find($routeParams.id);
+  } else {
+    $scope.reset();
+  }
 
   $scope.submit = function(m){
     var m = m || $scope.magazine;
@@ -30,8 +35,17 @@ app.controller('MagazineCtrl', function($scope, $location, Utils, Magazine){
     var m = m || $scope.magazine;
 
     Magazine.delete(m.created_at).then(function(){
-      $scope.reset();
+      $location.path('/press/magazine/new');
     });
+  };
+
+  $scope.update = function (magazine) {
+    Magazine.update(magazine);
+    $location.path('/press/magazine');
+  };
+
+  $scope.edit = function (magazine) {
+    $location.path('/press/magazine/' + magazine.created_at + '/edit');
   };
 
 });
