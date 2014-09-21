@@ -15,7 +15,6 @@
     "angular-route": "1.2.16",
     "angularfire": "~0.7.1",
     "angular-redactor-patched": "~1.0.1",
-    "angles": "*",
     "fontawesome": "~4.1.0",
     "angular-bootstrap": "~0.11.0",
     "angular-truncate": "https://github.com/tijptjik/angular-truncate.git",
