@@ -23,6 +23,7 @@ app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth)
     Auth.login($scope.user).then(function () {
       $location.path('/');
     }, function(error){
+      $scope.user.password = null;
       $scope.error = error.toString().split(':')[3];
     });
   };
