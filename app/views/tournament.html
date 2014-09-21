@@ -28,13 +28,13 @@
                 <button type="button" class="btn">Scores</button>
               </a>
               <div id="upcoming-tournament-controls" class="tournament-action-tags" ng-if="isUpcoming(tournament)">
-                <a class="btn" type="button" href="{{ tournament.rules_url }}">
+                <a ng-if="tournament.rules_url" class="btn" type="button" href="{{ tournament.rules_url }}">
                   <button type="button" class="btn">Rules</button>
                 </a>
                 <a class="btn" type="button" href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/prizemoney">
                   <button type="button" class="btn">Prize</button>
                 </a>
-                <a class="btn" type="button" href="{{ tournament.tee_off }}">
+                <a ng-if="tournament.tee_off" class="btn" type="button" href="{{ tournament.tee_off }}">
                   <button type="button" class="btn">Tee Off</button>
                 </a>
                 <!-- <a href="#/tournaments/{{ tournament.slug }}/teeofftime">Tee Off Time</a> -->
