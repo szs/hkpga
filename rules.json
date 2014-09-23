@@ -2,26 +2,26 @@
     "rules": {
         "coverage" : {
           ".read": true,
-          ".write": "auth != null && auth.isAdmin == true"
+          ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
           },
         "releases" : {
           ".read": true,
-          ".write": "auth != null && auth.isAdmin == true"
+          ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
           },
         "articles" : {
           ".read": true,
-          ".write": "auth != null && auth.isAdmin == true"
+          ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
           },
         "archives" : {
           ".read": true,
-          ".write": "auth != null && auth.isAdmin == true"
+          ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
           },
         "magazines" : {
           ".read": true,
-          ".write": "auth != null && auth.isAdmin == true"
+          ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
           },
         "feedback" : {
-          ".read": "auth.isAdmin == true",
+          ".read": "root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true",
           "$feedback_id" : {
             ".write": "!data.exists() || !newData.exists()"
             }
@@ -29,69 +29,69 @@
         "users" : {
           ".read": true,
           "$uid": {
-            ".write": "(!data.exists() && newData.exists()) || (auth != null && auth.username == $uid) || auth.isAdmin == true"
+            ".write": "(!data.exists() && newData.exists()) || (auth != null && auth.username == $uid) || root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             }
           },
         "tournaments" : {
           ".read": true,
           "$tournament_id" : {
             "author":  {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "created_at":  {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "divisions": {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "name": {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "no_days":  {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "prize_money": {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "results": {
               "$division" : {
                 "$uid": {
-                  ".write": "auth != null && auth.username == $uid || auth.isAdmin == true"
+                  ".write": "auth != null && auth.username == $uid || root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
                 }
               }
             },
             "rules_url":  {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "scored":  {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "signup_before":  {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "slug":  {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "start_date":  {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "tee_off":  {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "updated_at":  {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "venue": {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             },
             "year":  {
-               ".write": "auth != null && auth.isAdmin == true"
+               ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
             }
           }
         },
         "pages" : {
           ".read": true,
-          ".write": "auth != null && auth.isAdmin == true"
+          ".write": "auth != null && root.child('users').child(root.child('authMap').child(auth.uid).val()).child('isAdmin').val() == true"
         }
     }
 }
