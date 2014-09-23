@@ -378,10 +378,14 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   var RoundSubGrid = function(days){
     var rounds = [];
     for (var i = 1; i <= days; i++) {
-      rounds.push({field: '' + i, displayName: 'Round ' + i, enableCellEdit: true, sortFn: alphanumericSortFN})
+      rounds.push({field: '' + i, displayName: 'Round ' + i, enableCellEdit: isAdmin(), sortFn: alphanumericSortFN})
     };
     return rounds;
   };
+
+  var isAdmin = function(){
+    return $rootScope.hasOwnProperty('currentUser') && $rootScope.currentUser.role == 'admin';
+  }
 
     // custom sort
   var alphanumericSortFN = function(a,b){
@@ -485,7 +489,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         enableCellEditOnFocus: true,
         columnDefs: [
           {field:'rank', displayName:'Rank', enableCellEdit: false},
-          {field: 'prize', displayName: 'Prize', enableCellEdit: true},
+          {field: 'prize', displayName: 'Prize', enableCellEdit: "currentUser.role == 'admin'"},
           {field:'username', displayName:'Username', enableCellEdit: false, visible:false}]
     }
   }
@@ -527,9 +531,9 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         enableRowSelection: false,
         enableCellEditOnFocus: false,
         columnDefs: [
-          {field: 'rank', displayName: 'Rank', width: "*", cellClass: 'center-text', enableCellEdit: true},
+          {field: 'rank', displayName: 'Rank', width: "*", cellClass: 'center-text', enableCellEdit: "currentUser.role == 'admin'"},
           {field:'getName()', displayName:'Name', width: "****", cellClass: 'center-text', enableCellEdit: false},
-          {field: 'getPoints()', displayName: 'Points', width: "****", cellClass: 'center-text', enableCellEdit: true},
+          {field: 'getPoints()', displayName: 'Points', width: "****", cellClass: 'center-text', enableCellEdit: "currentUser.role == 'admin'"},
           {field:'username', displayName:'Username', cellClass: 'center-text', enableCellEdit: false, visible:false}]
     }
   }
@@ -551,7 +555,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       .then(calculateRank)
       .then(calculatePoints)
       .then(function(){
-      console.log($scope.tournament.results)
       Tournament.updateResults($scope.tournament)
         .then(function(){
           angular.forEach($scope.tournament.results,

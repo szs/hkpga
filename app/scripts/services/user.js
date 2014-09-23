@@ -3,14 +3,26 @@
 
 app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
 
+  var authmapref  = new Firebase(FIREBASE_URL + 'authMap');
   var ref = new Firebase(FIREBASE_URL + 'users');
 
   var users = $firebase(ref);
+  var authMap = $firebase(authmapref);
 
   $rootScope.$on('$firebaseSimpleLogin:login', function (e, authUser) {
-    var query = $firebase(ref.startAt(authUser.uid).endAt(authUser.uid));
-    query.$on('loaded', function () {
-      setCurrentUser(query.$getIndex()[0]);
+    users.$on('loaded', function () {
+      angular.forEach(users, function(user, username){
+        if (authUser.email == user.email){
+
+          var currentUserRef = new Firebase(FIREBASE_URL + 'users/' + username);
+          currentUserRef.setPriority(authUser.uid);
+
+          authMap[authUser.uid] = username;
+          authMap.$save(authUser.uid).then(function(){
+            setCurrentUser(user);
+          });
+        };
+      });
     });
   });
 
@@ -19,7 +31,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
   });
 
   function setCurrentUser (usr) {
-    $rootScope.currentUser = User.findByUsername(usr);
+    $rootScope.currentUser = User.findByUsername(usr.username);
   }
 
   var pointsEligible = ['full','associate','tournament','member'];
@@ -27,7 +39,6 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
   var User = {
     all: users,
     isEligable: function(user){
-      console.log(user);
       return pointsEligible.indexOf(user.relation) > -1 && user.active;
     },
     create : function (authUser, user){

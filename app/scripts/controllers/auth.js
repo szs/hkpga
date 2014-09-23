@@ -2,9 +2,6 @@
 'user strict'
 
 app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth){
-  $scope.$on('$firebaseSimpleLogin:login', function () {
-    // $location.path('/');
-  });
 
   $scope.reset = function(){
     $scope.user = User.new();

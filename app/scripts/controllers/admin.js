@@ -16,8 +16,9 @@ app.controller('AdminCtrl', function($scope, Auth, User){
 		var usernames = User.all.$getIndex()
 		usernames.forEach(function(key){
 			if (User.all.$child(key).md5_hash == ''){
-				Auth.register(User.all.$child(key)).then(function (authUser){
-					User.create(authUser, User.all.$child(key))
+				Auth.register(User.all.$child(key))
+					.then(function (authUser){
+						User.create(authUser, User.all.$child(key));
 		    	}, function (error){
 		      		console.log(error);
 		    	});

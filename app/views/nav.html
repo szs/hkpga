@@ -33,7 +33,7 @@
               <span class="glyphicon glyphicon-cog"></span>
             </a>
           </li>
-          <li ng-if="currentUser.role != 'admin'">
+          <li ng-if="currentUser && currentUser.role != 'admin'">
             <a translate ng-href="#/dashboard">
               <i class="fa fa-user"></i>
             </a>

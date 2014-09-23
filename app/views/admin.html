@@ -1,4 +1,5 @@
 <div class="container admin admin-styling">
+  <div ng-if="currentUser.role == 'admin'">
   <h1 translate>ADMIN</h1>
   <div class="well clearfix" id="admin-panel">
 
@@ -88,5 +89,9 @@
         <a ng-click="createSimpleLoginAccounts()">Create SimpleLogin Accounts</a>
       </div>
     </div>
+  </div>
+    </div>
+  <div ng-if="!currentUser">
+  <h2>Admin Access Restricted.</h2>
   </div>
 </div>
