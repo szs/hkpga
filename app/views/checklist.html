@@ -1,4 +1,5 @@
 <div class="container admin-styling" id="tournament-checklist">
+  <div ng-if="currentUser.role == 'admin'">
   <div class="row search-bar">
     <div class="col-md-12" ng-if="done">
       <h2><i class="fa fa-trophy"></i>Tournament Registration &amp; Checklist </h2>
@@ -48,5 +49,9 @@
         </div>
       </div>
     </div>
+  </div>
+  </div>
+  <div ng-if="currentUser.role != 'admin'">
+    <h2>You need to be an Admin to use the Checklist.</h2>
   </div>
 </div>
