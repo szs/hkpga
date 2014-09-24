@@ -575,7 +575,8 @@ $admin-red:         #f06059;
             margin-top: 7px;
             margin-bottom: 20px;
             line-height: 22px;
-            width: 260px;
+            max-width: 100%;
+            min-width: 200px;
             background-color: $grey-dark;
             padding-left: 15px;
             color: $white;
@@ -590,7 +591,9 @@ $admin-red:         #f06059;
             color: $white;
             margin-left: 23px;
             margin-top: 5px;
-            width: 263px;
+            max-width: 100%;
+            min-width: 200px;
+
           }
         }
       }
