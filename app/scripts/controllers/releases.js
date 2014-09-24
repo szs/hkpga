@@ -20,6 +20,8 @@ app.controller('ReleasesCtrl', function($scope, $rootScope, $routeParams, $locat
 
     r = Utils.logUpdate(r);
 
+    r.publish_date = Utils.unixEpoch(r.publish_date);
+
     Release.create(r).then(function(){
       $scope.reset();
       $location.path('/press/releases');
@@ -35,6 +37,8 @@ app.controller('ReleasesCtrl', function($scope, $rootScope, $routeParams, $locat
   };
 
   $scope.update = function (release) {
+    release.publish_date = Utils.unixEpoch(release.publish_date);
+
     Release.update(release);
     $location.path('/press/releases');
   };
