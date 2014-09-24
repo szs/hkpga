@@ -80,7 +80,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       var deferred = $q.defer();
       players = Utils.valuesToArray(players);
       orderByRank(
-        Utils.sortByKey(players, 'totalScore'), division).then(function(data){
+        Utils.sortByKey(players, 'totalScore'), division, 'rank').then(function(data){
             deferred.resolve(data);
         })
 
@@ -90,7 +90,34 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     return $q.all(promises);
   }
 
-  var orderByRank = function(scores, division){
+  var calculateShadowRank = function(){
+    var promises = [];
+
+    angular.forEach($scope.tournament.results, function(players, division){
+      var deferred = $q.defer();
+      players = Utils.valuesToArray(players);
+      var eligiblePlayers = [];
+
+      players.forEach(function(user,i){
+        if (User.isEligable($scope.pros[user.username])){
+          eligiblePlayers.push(user)
+        } else {
+          user.shadowRank = '-';
+        }
+      })
+      orderByRank(
+        Utils.sortByKey(eligiblePlayers, 'totalScore'), division, 'shadowRank').then(function(data){
+            deferred.resolve(data);
+        })
+
+
+      promises.push(deferred.promise);
+    })
+
+    return $q.all(promises);
+  }
+
+  var orderByRank = function(scores, division, key){
     var deferred = $q.defer()
 
     var playerOrder = [];
@@ -116,11 +143,11 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         firstPlace++;
         userRank = currentRank;
       }
-      usr.rank = userRank;
+      usr[key] = userRank;
     })
 
     var first = playerOrder.slice(0,firstPlace);
-    var players = []
+    var players = [];
     first.forEach(function(username){
       players.push($scope.tournament.results[division][username])
     })
@@ -129,7 +156,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         deferred.resolve();
       })
     } else {
-      markWinner(players[0])
+      markWinner(players[0]);
       deferred.resolve();
     }
     return deferred.promise;
@@ -184,14 +211,15 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       var deferred = $q.defer();
       var ranks = [];
       angular.forEach(players, function(player, username){
-        ranks.push(player.rank);
+        ranks.push(player.shadowRank);
       })
       angular.forEach(players, function(player, username){
-        var split = Utils.countInArray(ranks, player.rank);
-        var rawPoints = pointsScored(player.rank, $scope.tournament.no_days, split);
-        var points = Math.round(rawPoints * 10) / 10;
-        if (!User.isEligable($scope.pros[username])){
-          points = 0;
+        if (player.shadowRank == '-'){
+          var points = 0;
+        } else {
+          var split = Utils.countInArray(ranks, player.shadowRank);
+          var rawPoints = pointsScored(player.shadowRank, $scope.tournament.no_days, split);
+          var points = Math.round(rawPoints * 10) / 10;
         }
 
         player.points = points;
@@ -553,6 +581,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   $scope.submitScores = function (){
     grid2Firebase()
       .then(calculateRank)
+      .then(calculateShadowRank)
       .then(calculatePoints)
       .then(function(){
       Tournament.updateResults($scope.tournament)
