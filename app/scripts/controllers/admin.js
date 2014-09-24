@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('AdminCtrl', function($scope, Auth, User){
+app.controller('AdminCtrl', function($scope, $q, Auth, User){
 
 	var users = User.all
 
@@ -25,4 +25,31 @@ app.controller('AdminCtrl', function($scope, Auth, User){
 			}
 		})
 	}
+
+	$scope.activateAllUsers = function(){
+		var promises = [];
+
+		var usernames = User.all.$getIndex()
+
+		usernames.forEach(function(key){
+			var deferred = $q.defer();
+
+			var onComplete = function(error) {
+			  if (error) {
+			    console.log('Synchronization failed');
+			  } else {
+			    deferred.resolve();
+			  }
+			};
+
+			users.$child(key)
+				.$child('active')
+        .$set(true, onComplete);
+
+      promises.push(deferred.promise);
+
+		})
+	return $q.all(promises);
+	};
+
 });
