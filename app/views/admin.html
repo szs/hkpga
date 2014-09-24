@@ -7,14 +7,15 @@
       <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>UNSCORED_TOURNAMENT</h2>
       <div ng-repeat="(key, unscored) in tournaments | orderByPriority | filter:{scored : false} | orderBy:'start_date':true | limitTo:1" class="well clearfix">
-        <div class="col-md-10">
-        {{ unscored | json }}
-          <span>{{unscored.start_date | date }}</span> <i class="fa fa-tasks"></i><a ng-href="#/tournaments/{{unscored.year}}/{{unscored.slug}}">{{l10n(unscored.name)}}</a>
-        }
-        }
-        </div>
+        <span id="tournament-length">{{unscored.no_days}} Days</span>
+          <h5>{{unscored.start_date | date:'fullDate' }} </h5>
+          <h4><i class="fa fa-trophy"></i>{{l10n(unscored.name)}}</h4>
+          <em>At {{unscored.venue.en}}</em>
         <div class="col-md-2 publish-buttons">
           <a ng-href="#/tournaments/{{unscored.year}}/{{unscored.slug}}/score" class="btn"> <i class="fa fa-sliders"></i> score</a>
+        </div>
+        <div class="col-md-2 publish-buttons">
+          <a ng-href="#/tournaments/{{unscored.year}}/{{unscored.slug}}/checklist" class="btn"> <i class="fa fa-male"></i>checklist</a>
         </div>
       </div>
     </div>

@@ -32,7 +32,7 @@
     </div>
 
     <h2 translate>MORE_NEWS</h2>
-    <div class="article row" ng-repeat="article in articles | orderByPriority | orderBy: 'publish_date':true | filter:{category : 'news'} | filter:{internal : false} | limitTo:11" ng-hide="$first">
+    <div ng:class="{'hidden-sm': $index > 5}" class="article row" ng-repeat="article in articles | orderByPriority | orderBy: 'publish_date':true | filter:{category : 'news'} | filter:{internal : false} | limitTo:11" ng-hide="$first">
       <div class="col-md-12">
           <div class="clearfix" ng-class="{true: 'draft', false:''}[article.draft]">
             <div class="more-news">
