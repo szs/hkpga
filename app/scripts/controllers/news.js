@@ -36,6 +36,7 @@ app.controller('NewsCtrl', function($scope, $q, $routeParams, $location, Utils, 
       slug: Utils.slugify(a.title.en),
       $priority : Date.now(),
       cover: Utils.extractImg(a.html.en),
+      publish_date: Utils.unixEpoch(a.publish_date)
     });
 
     Article.create(a)
@@ -50,6 +51,8 @@ app.controller('NewsCtrl', function($scope, $q, $routeParams, $location, Utils, 
 
   $scope.publish = function (a){
     var a = a || $scope.article;
+
+    a.publish_date = Utils.unixEpoch(a.publish_date);
 
     a.draft = false;
     $scope.save(a, function(){

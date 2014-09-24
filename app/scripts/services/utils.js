@@ -77,8 +77,8 @@ app.factory('Utils',
 
   var logUpdate = function(obj){
     return angular.extend(obj, {
-      // author: getCurrentUser('username'),
-      author: 'martvandeven',
+      author: getCurrentUser('username'),
+      // author: 'martvandeven',
       updated_at: Date.now()
     });
   }
@@ -102,6 +102,18 @@ app.factory('Utils',
     return src;
   }
 
+  var unixEpoch = function(date){
+    var timestamp;
+    if (date instanceof Date) {
+      timestamp = date.getTime();
+    } else if (typeof(date) == 'string'){
+      timestamp = new Date(date).getTime();
+    } else {
+      timestamp = date;
+    }
+    return  timestamp;
+  }
+
     var Utils = {
       extractImg : extractImg,
       getCurrentUser : getCurrentUser,
@@ -112,6 +124,7 @@ app.factory('Utils',
       sortByKey : sortByKey,
       valuesToArray : valuesToArray,
       countInArray: countInArray,
+      unixEpoch: unixEpoch
     };
 
     return Utils;

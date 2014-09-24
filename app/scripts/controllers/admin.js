@@ -1,9 +1,10 @@
 /* global app:true */
 'use strict';
 
-app.controller('AdminCtrl', function($scope, $q, Auth, User){
+app.controller('AdminCtrl', function($scope, $q, Auth, Utils, User, Article){
 
-	var users = User.all
+	var users = User.all;
+	var articles = Article.all;
 
 	$scope.resources = {
 		'press/magazine' : 'Magazine',
@@ -50,6 +51,21 @@ app.controller('AdminCtrl', function($scope, $q, Auth, User){
 
 		})
 	return $q.all(promises);
+	};
+
+	$scope.convertAllPublicationTimesToUnix = function(){
+    console.log("let's get going");
+
+		var slugs = Article.all.$getIndex()
+
+		slugs.forEach(function(key){
+
+			var cdate = Utils.unixEpoch(articles[key]['publish_date']);
+
+			articles[key]['publish_date'] = cdate;
+      articles.$save(key);
+
+		})
 	};
 
 });

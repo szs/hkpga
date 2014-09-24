@@ -25,6 +25,8 @@ app.controller('MagazineCtrl', function($scope, $location, $routeParams, Utils, 
 
     m = Utils.logUpdate(m);
 
+    m.publish_date = Utils.unixEpoch(m.publish_date);
+
     Magazine.create(m).then(function(){
       $scope.reset();
       $location.path('/press/magazine');
@@ -40,7 +42,10 @@ app.controller('MagazineCtrl', function($scope, $location, $routeParams, Utils, 
   };
 
   $scope.update = function (magazine) {
+    magazine.publish_date = Utils.unixEpoch(magazine.publish_date);
+
     Magazine.update(magazine);
+
     $location.path('/press/magazine');
   };
 

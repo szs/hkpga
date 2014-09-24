@@ -20,7 +20,7 @@ app.controller('CoverageCtrl', function($scope, $routeParams, $location, Utils, 
   $scope.submit = function(c){
     var c = c || $scope.coverage;
 
-    c = Utils.logUpdate(c);
+    c.publish_date = Utils.unixEpoch(c.publish_date);
 
     Coverage.create(c).then(function(){
       $scope.reset();
@@ -37,6 +37,7 @@ app.controller('CoverageCtrl', function($scope, $routeParams, $location, Utils, 
   };
 
   $scope.update = function (coverage) {
+    coverage.publish_date = Utils.unixEpoch(coverage.publish_date);
     Coverage.update(coverage);
     $location.path('/press/media');
   };
