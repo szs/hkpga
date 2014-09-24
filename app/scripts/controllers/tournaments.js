@@ -1,4 +1,4 @@
-/* global app:true */
+  /* global app:true */
 'use strict';
 
 app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, $q, $timeout, $location, $routeParams, Utils, Tournament, User, Archive){
@@ -8,7 +8,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   $scope.pros = User.all;
 
   $scope.divisions = ['open','ladies','senior','trainee'];
-  $scope.status = ['signedup','registered','played','retired','withdrawn','missedcut','disqualified'];
+  $scope.status = ['signedup','registered','played','retired','withdrawn','missedcut','disqualified','weathercancel'];
 
   $scope.category = $location.path().split('/')[1];
   $scope.archiveYear = $location.path().split('/')[2];
@@ -452,10 +452,11 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     'signedup':'NP',
     'registered':'NP',
     'played':0,
-    'retired':'RT',
+    'retired':'RTD',
     'withdrawn':'WD',
     'missedcut':'MC',
-    'disqualified':'DQ'
+    'disqualified':'DQ',
+    'weathercancel':'WC'
   }
 
   // ng-grid Money
