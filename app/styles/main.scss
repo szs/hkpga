@@ -458,10 +458,12 @@ $admin-red:         #f06059;
       background: #fff;
       padding:1px 25px 25px 25px;
       -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      -ms-box-shadow: 0 0 5px rgba(0,0,0,0.2);
       -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.2);
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        -webkit-border-radius: 10px;
+      -webkit-border-radius: 10px;
       -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
       border-radius: 10px;
     }
 
@@ -1724,6 +1726,7 @@ $admin-red:         #f06059;
     position: absolute;
     -webkit-transition: all 0.3s ease-in;
        -moz-transition: all 0.3s ease-in;
+       -ms-transition: all 0.3s ease-in;
          -o-transition: all 0.3s ease-in;
             transition: all 0.3s ease-in;
     &.open {
@@ -1748,6 +1751,7 @@ $admin-red:         #f06059;
     min-height: 300px;
     -webkit-transition: all 0.3s ease-in;
        -moz-transition: all 0.3s ease-in;
+       -ms-transition: all 0.3s ease-in;
          -o-transition: all 0.3s ease-in;
             transition: all 0.3s ease-in;
     .feedback {
@@ -1755,6 +1759,7 @@ $admin-red:         #f06059;
       min-height: 300px;
       -webkit-transition: all 0.3s ease-in;
        -moz-transition: all 0.3s ease-in;
+       -ms-transition: all 0.3s ease-in;
          -o-transition: all 0.3s ease-in;
             transition: all 0.3s ease-in;
       &.open {
@@ -1925,6 +1930,7 @@ $admin-red:         #f06059;
     #tournament-divisions {
       text-transform: capitalize;
       input {
+        -ms-transform: scale(1.6,1.6);
         -webkit-transform: scale(1.6,1.6);
         -moz-transform: scale(1.6,1.6);
         -o-transform: scale(1.6,1.6);
