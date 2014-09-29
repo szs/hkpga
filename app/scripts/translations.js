@@ -57,7 +57,7 @@ var translationsEN = {
   VIEW_MAGAZINES: 'See all magazines',
   PROS: 'Professionals\' Directory',
   LATEST_TOURNAMENT_SCORES: 'Latest Tournament Scores',
-  VENUE: 'Venue', 
+  VENUE: 'Venue',
   DATE: 'Date',
   ENGLISH_NAME: 'English Name',
   CHINESE_NAME: 'Chinese Name',
@@ -110,7 +110,6 @@ var translationsEN = {
   VICE_SENIOR_CAPTAIN: 'Vice Senior Captain',
   LADIES_CAPTAIN: 'Ladies Captain',
   VICE_LADIES_CAPTAIN: 'Vice Ladies Captain',
-  COMMITTEE: 'Committee',
   HONORARY_TREASURER: 'Honorary Treasurer',
   FOUNDER: 'Founder',
   PERMANENT_HONORARY_PRESIDENT: 'Permanent Honorary President',
@@ -133,7 +132,7 @@ var translationsEN = {
   MEMBER_DASHBOARD: 'Member Dashboard'
 
 };
- 
+
 var translationsZHHK = {
   LANG_EN: 'EN',
   LANG_ZH_HK: '繁體',
@@ -193,7 +192,7 @@ var translationsZHHK = {
   VIEW_MAGAZINES: '閱讀所有期刊',
   PROS: '職業高爾夫球手',
   LATEST_TOURNAMENT_SCORES: '女子比賽成績',
-  VENUE: '會議地點', 
+  VENUE: '會議地點',
   DATE: '日期',
   ENGLISH_NAME: '英文名稱',
   CHINESE_NAME: '中文名稱',
@@ -329,7 +328,7 @@ var translationsZHCN = {
   VIEW_MAGAZINES: '阅读所有期刊',
   PROS: '职业高尔夫球手',
   LATEST_TOURNAMENT_SCORES: '女子比赛成绩',
-  VENUE: '会议地点', 
+  VENUE: '会议地点',
   DATE: '日期',
   ENGLISH_NAME: '英文名称',
   CHINESE_NAME: '中文名称',
@@ -382,7 +381,6 @@ var translationsZHCN = {
   VICE_SENIOR_CAPTAIN: '长春组副会长',
   LADIES_CAPTAIN: '女子组会长',
   VICE_LADIES_CAPTAIN: '女子组副会长',
-  COMMITTEE: '委员',
   HONORARY_TREASURER: '财务总监',
   FOUNDER: '创会人',
   PERMANENT_HONORARY_PRESIDENT: '永远名誉会长',
