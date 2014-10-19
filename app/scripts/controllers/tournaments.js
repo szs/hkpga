@@ -105,7 +105,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
           user.shadowRank = '-';
         }
       })
-      orderByRank(
+      orderByShadowRank(
         Utils.sortByKey(eligiblePlayers, 'totalScore'), division, 'shadowRank').then(function(data){
             deferred.resolve(data);
         })
@@ -162,6 +162,37 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     return deferred.promise;
   }
 
+  var orderByShadowRank = function(scores, division, key){
+    var deferred = $q.defer()
+
+    var playerOrder = [];
+    scores.forEach(function(player){
+      playerOrder.push(player.username)
+    });
+
+    var currentScore = 0;
+    var currentRank = 0;
+    var firstPlace = 1;
+    var userRank = 0;
+    playerOrder.forEach(function(username, index){
+      var usr = $scope.tournament.results[division][username]
+      if (typeof usr.totalScore === 'string'){
+        userRank = usr.totalScore;
+      }
+
+      else if (usr.totalScore > currentScore){
+        currentScore = usr.totalScore;
+        currentRank = index + 1;
+        userRank = currentRank;
+      }
+      usr[key] = userRank;
+    })
+    deferred.resolve();
+
+    return deferred.promise;
+  }
+
+
   var orderMeritByRank = function(points){
     var currentPoints = 1000000
     var currentRank = 0
@@ -195,6 +226,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   var markWinner = function(player){
     player.rank = 1;
     player.isWinner = true;
+    console.log(player);
   }
 
   var markRunnerUp = function(players){
@@ -495,8 +527,11 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       function(prizes, division){
         var deferred = $q.defer();
         prizes.forEach(function(prize){
-          $scope.tournament.prize_money[division][prize.rank] = parseInt(prize.prize);
-          deferred.resolve();
+          var prizeamount = parseInt(prize.prize);
+          if (prizeamount){
+            $scope.tournament.prize_money[division][prize.rank] = prizeamount;
+            deferred.resolve();
+          }
         });
       promises.push(deferred.promise);
       }
