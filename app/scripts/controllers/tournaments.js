@@ -226,7 +226,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   var markWinner = function(player){
     player.rank = 1;
     player.isWinner = true;
-    console.log(player);
   }
 
   var markRunnerUp = function(players){
