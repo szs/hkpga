@@ -856,8 +856,9 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
     for (var i = 0; i < split; i++) {
       var r = (rank - 1 + i);
-      r = Math.min(Math.max(r, 0), 44)
-      prize.push(Math.floor(percentage[r] * pointsAvailable(days) / 100));
+      r = Math.min(Math.max(r, 0), 44);
+      var val = percentage[r] * pointsAvailable(days) / 100;
+      prize.push(Math.floor(Number(val.toFixed(1))));
     };
 
     var sum = 0;
