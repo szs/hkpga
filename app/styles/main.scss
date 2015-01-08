@@ -1473,7 +1473,14 @@ $admin-red:         #f06059;
   font-size: 1.1rem;
 }
 
-.admin .seniortrainee:before,
+.admin .seniortrainee:before {
+  font-family: FontAwesome;
+  content: "\f13b"; // fa-html5
+  display: inline-block;
+  padding-right: 14px;
+  font-size: 1.1rem;
+}
+
 .admin .trainee:before {
   font-family: FontAwesome;
   content: "\f19d"; // fa-graduation-cap
