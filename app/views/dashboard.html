@@ -9,10 +9,11 @@
           <h4>{{tournament.start_date | date}}</h4>
           <span>{{tournament.no_days}} Day Tournament</span>
           <div>
-            <p>Click on division to sign up:</p>
+            <p class="instruction-text">Click on division to sign up:</p>
             <a ng-if="held" ng-click="signUp(tournament, division, currentUser)" ng-repeat="(division, held) in tournament.divisions" class="btn btn-default"> {{ division }}</a>
           </div>
         </div>
+
       </div>
 
   <!--  Version 2.0 Release
