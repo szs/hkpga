@@ -1508,7 +1508,10 @@ $admin-red:         #f06059;
 
 // member: f096 / empty square
 
-.full:before, .tournament:before, .associate:before .member:before{
+.full:before,
+.tournament:before,
+.associate:before,
+.member:before{
    font-family: FontAwesome;
    content: "\f005"; // filled star
    display: inline-block;
@@ -1522,6 +1525,7 @@ $admin-red:         #f06059;
    padding-right: 14px;
    font-size: 1.2rem;
 }
+.seniortrainee:before,
 .trainee:before{
    font-family: FontAwesome;
    content: "\f10c"; // empty circle
