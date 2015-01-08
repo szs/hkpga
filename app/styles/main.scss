@@ -1456,7 +1456,8 @@ $admin-red:         #f06059;
   padding-right: 14px;
   font-size: 1.1rem;
 }
-.admin .member:before{
+
+.admin .member:before {
   font-family: FontAwesome;
   content: "\f096"; // fa-square-0
   display: inline-block;
@@ -1472,6 +1473,7 @@ $admin-red:         #f06059;
   font-size: 1.1rem;
 }
 
+.admin .seniortrainee:before,
 .admin .trainee:before {
   font-family: FontAwesome;
   content: "\f19d"; // fa-graduation-cap
@@ -1488,6 +1490,7 @@ $admin-red:         #f06059;
   font-size: 1.1rem;
 }
 
+.admin .none:before,
 .admin .no-relation:before {
   font-family: FontAwesome;
   content: "\f072"; // fa-plane

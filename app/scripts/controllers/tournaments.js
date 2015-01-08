@@ -976,6 +976,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   }
 
   var pointsScored = function(rank, days, split){
+    // Ignore disqualified/cancelled/withdrawn from the points calculation
     if (typeof rank == 'string'){
       return 0;
     }
