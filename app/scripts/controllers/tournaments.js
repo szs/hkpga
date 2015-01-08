@@ -116,7 +116,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       if (cutPlayers.length > 0){
 
           orderByRank(
-            Utils.sortByKey(cutPlayers, 'totalScore'), division, rankingPlayers.length - nonRankCount + 1)
+            Utils.sortByKey(cutPlayers, 'totalScore'), division, rankingPlayers.length - nonRankCount)
               .then(function(data){
                 deferred.resolve(data);
             })
@@ -176,7 +176,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       if (cutPlayers.length > 0){
 
           orderByShadowRank(
-            Utils.sortByKey(cutPlayers, 'totalScore'), division, rankingPlayers.length  + 1)
+            Utils.sortByKey(cutPlayers, 'totalScore'), division, rankingPlayers.length)
               .then(function(data){
                 deferred.resolve(data);
             })
