@@ -1,7 +1,7 @@
 <div class="container" id="dashboard-page" ng-controller="FeedbackCtrl">
   <div ng-if="currentUser">
+    <a class="btn btn-primary" ng-click="edit(currentUser)" style="float:right">Edit</a>
     <h2 translate>MEMBER_DASHBOARD</h2>
-
       <div class="row" ng-controller="TournamentsCtrl">
         <h1><i class="fa fa-trophy"></i>UPCOMING TOURNAMENTS</h1>
         <div ng-repeat="(id, tournament) in tournaments | orderByPriority | orderBy:'start_date':true | limitTo:2" class="col-md-4 well row-cards">
@@ -15,13 +15,15 @@
         </div>
       </div>
 
-  <!--  Version 2.0 Release
-   <div class="row ranking-dashboard">
+   <!-- Version 2.0 Release -->
+   <div ng-show="currentUser.results" class="row ranking-dashboard" ng-controller="ChartCtrl">
       <h1><i class="fa fa-arrows-v"></i>RANKING</h1>
-        <div class="well">
-        {{ currentUser.results | json }}
+          <div ng-repeat="(year, tournamentResults) in currentUser.results | orderByPriority" class="well">
+            <h3> {{ year }}</h3>
+            <cjs-line dataset={{ getData(tournamentResults) }} options="lineChart" segement-stroke-width="5"></cjs-line>
+              {{ tournamentResults | json }}
         </div>
-    </div> -->
+    </div>
 
     <div class="row internal-announcements" ng-controller="NewsCtrl">
       <h1><i class="fa fa-bullhorn"></i>INTERNAL ANNOUNCEMENTS</h1>
@@ -41,9 +43,10 @@
       </div>
     </div>
 
+
   </div>
   <div ng-if="!currentUser">
-  <h2>Dashboard Access Restricted.</h2>
+    <h2>Dashboard Access Restricted.</h2>
   </div>
 
 </div>
