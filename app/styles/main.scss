@@ -2443,11 +2443,18 @@ $admin-red:         #f06059;
   }
 
   .seniortrainee:before {
-    content: "\f017";
+    content: "\f13b";
     @extend .scoreLabel;
   }
 
-  .full:before, .tournament:before, .associate:before .member:before{
-    display: none;
+  .trainer:before {
+    content: "\f0a3";
+    @extend .scoreLabel;
   }
+
+  .full:before, .tournament:before, .associate:before, .member:before {
+    display: none; 
+  }
+
+
 }
