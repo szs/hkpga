@@ -1626,8 +1626,7 @@ $admin-red:         #f06059;
 }
 
 .admin-styling#news-new-page,
-.admin-styling#events-new-page
- {
+.admin-styling#events-new-page {
   .publish-buttons {
     a {
     font-size: 1.7rem;
@@ -1640,6 +1639,13 @@ $admin-red:         #f06059;
     }
   }
 }
+
+.unscored-tournament-cards {
+  .publish-buttons {
+    margin-top: 25px;
+  }
+}
+
 
 .admin-styling {
 
@@ -1886,7 +1892,7 @@ $admin-red:         #f06059;
     }
     .row-cards .well {
       margin-right: 20px;
-      height: 280px;
+      min-height: 280px;
       @extend .shadow;
       position: relative;
       span a {
@@ -1927,7 +1933,7 @@ $admin-red:         #f06059;
     }
     .row.row-cards.new-tournament {
       .well {
-        height: 250px;
+        min-height: 250px;
       }
       h4 {
         padding-top: 6px;

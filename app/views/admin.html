@@ -6,7 +6,7 @@
     <div class="row clearfix admin-unscored-tournament" ng-controller="TournamentsCtrl">
       <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>UNSCORED_TOURNAMENT</h2>
-      <div ng-repeat="(key, unscored) in tournaments | orderByPriority | filter:{scored : false} | orderBy:'start_date':true | limitTo:1" class="well clearfix">
+      <div ng-repeat="(key, unscored) in tournaments | orderByPriority | filter:{scored : false} | orderBy:'start_date':true | limitTo:1" class="well clearfix unscored-tournament-cards">
         <span id="tournament-length">{{unscored.no_days}} Days</span>
           <h5>{{unscored.start_date | date:'fullDate' }} </h5>
           <h4><i class="fa fa-trophy"></i>{{l10n(unscored.name)}}</h4>
@@ -37,11 +37,11 @@
    <div class="row new-tournament row-cards" ng-controller="TournamentsCtrl">
       <h2 class="left-i"><i class="fa fa-database"></i></h2>
       <h2 translate>LATEST_TOURNAMENTS</h2>
-      <div ng-repeat="(id, tournament) in tournaments | orderByPriority | orderBy: 'start_date':true | limitTo:2" class="col-md-5 well">
+      <div ng-repeat="(id, tournament) in tournaments | orderByPriority | orderBy: 'start_date':true | limitTo:2" class="col-md-5 well latest-tournament-cards">
           <span id="tournament-length">{{tournament.no_days}} Days</span>
           <h5>{{tournament.start_date | date:'fullDate' }} </h5>
           <h4><i class="fa fa-trophy"></i>{{l10n(tournament.name)}}</h4>
-          <em>At {{tournament.venue.en}}</em>
+          <span class="clearfix">At {{tournament.venue.en}}</span>
           <a ng-href="#/tournaments/{{tournament.slug}}"></a><a ng-href="#/tournaments/{{tournament.slug}}/edit" class="btn publish-buttons"><i class="fa fa-pencil"></i> edit</a>
       </div>
       <div class="col-md-1">
