@@ -1698,8 +1698,8 @@ $admin-red:         #f06059;
     }
 
 
-// End of .admin-styling
-}
+  // End of .admin-styling
+  }
 
 
 
@@ -1810,6 +1810,27 @@ $admin-red:         #f06059;
     min-height : 300px;
   }
 
+}
+
+#feedback-list {
+  h1 {
+    margin-bottom: 30px;
+  }
+  .well {
+    border-radius: 3px;
+  }
+  span.feedback-date {
+    display: block;
+    font-size: 1.9rem;
+    color: $brand-gold;
+  }
+  .delete-feedback a {
+    padding-right: 23px;
+  }
+  .feedback-comment {
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+  }
 }
 
 //  ADMIN EDITOR

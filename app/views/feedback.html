@@ -1,14 +1,14 @@
-<div class="container admin" class="admin-styling">
+<div class="container admin" class="admin-styling" id="feedback-list">
   <h1 translate>FEEDBACK</h1>
-    <div class="row" ng-controller="FeedbackCtrl">
+  <div class="row" ng-controller="FeedbackCtrl">
     <div class="well clearfix" ng-repeat="(id, feedback) in fb | orderByPriority | orderBy: 'created_at':true">
         <div class="col-md-10">
-          <span>{{feedback.created_at | date }}</span> <i class="fa fa-comment-o"></i> {{feedback.text}}
+          <span class="feedback-date">{{feedback.created_at | date }}</span> <i class="fa fa-comment-o"></i> 
+        <div class="feedback-comment">{{feedback.text}}</div>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-1 delete-feedback">
         	<a ng-click="delete(feedback)" class="col-md-1 btn btn-default close">X</a>
         </div>
     </div>
   </div>
-
 </div>
