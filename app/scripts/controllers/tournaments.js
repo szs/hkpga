@@ -130,15 +130,17 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     var firstPlace = 1;
     var userRank = 0;
     playerOrder.forEach(function(username, index){
+
       var usr = $scope.tournament.results[division][username]
+
       if (typeof usr.totalScore === 'string'){
         userRank = usr.totalScore;
-      }
 
-      else if (usr.totalScore > currentScore){
+      } else if (usr.totalScore > currentScore){
         currentScore = usr.totalScore;
         currentRank = index + 1;
         userRank = currentRank;
+
       } else if (currentRank == 1){
         firstPlace++;
         userRank = currentRank;
@@ -175,18 +177,57 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     var firstPlace = 1;
     var userRank = 0;
     playerOrder.forEach(function(username, index){
+
       var usr = $scope.tournament.results[division][username]
+
       if (typeof usr.totalScore === 'string'){
         userRank = usr.totalScore;
-      }
 
-      else if (usr.totalScore > currentScore){
+      } else if (usr.totalScore > currentScore){
         currentScore = usr.totalScore;
         currentRank = index + 1;
         userRank = currentRank;
+
+      } else if (currentRank == 1){
+        firstPlace++;
+        userRank = currentRank;
       }
+
       usr[key] = userRank;
+
     })
+
+    if (firstPlace > 1){
+
+      var first = playerOrder.slice(0, firstPlace);
+
+      var players = [];
+      first.forEach(function(username){
+        players.push($scope.tournament.results[division][username])
+      })
+
+      var hasWinner = false;
+
+      players.forEach(function(player){
+        if (player.isWinner) {
+          hasWinner = true;
+        }
+      })
+
+      players.forEach(function(player){
+        if (hasWinner) {
+          if (player.isWinner){
+            player.shadowRank = 1;
+          } else {
+            player.shadowRank = 2;
+          }
+          hasWinner = true;
+        } else {
+          player.shadowRank = 1;
+        }
+      })
+    }
+
     deferred.resolve();
 
     return deferred.promise;
@@ -224,6 +265,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   }
 
   var markWinner = function(player){
+    console.log('IsWinner:')
+    console.log(player)
     player.rank = 1;
     player.isWinner = true;
   }
@@ -482,7 +525,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   var statusMap = {
     'signedup':'NP',
     'registered':'NP',
-    'played':0,
+    'played': 0,
     'retired':'RTD',
     'withdrawn':'WD',
     'missedcut':'MC',

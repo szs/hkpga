@@ -87,6 +87,10 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
 
         var year = new Date(tournament.start_date).getFullYear();
 
+        if (user.isWinner){
+          console.log(user);
+        }
+
         var results = {
           isPointsEligible : user.isEligable,
           rounds : user.rounds,
