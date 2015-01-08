@@ -315,7 +315,7 @@ $admin-red:         #f06059;
       }
       #landing-content {
          @extend .bottom-bar;
-      } 
+      }
     }
 
 
@@ -349,8 +349,8 @@ $admin-red:         #f06059;
         position: relative !important;
         height: 0;
         padding-top: 37%;
-        overflow: hidden;   
-        margin-bottom: 20px; 
+        overflow: hidden;
+        margin-bottom: 20px;
         img {
           width: 100%;
           margin-bottom: 15px;
@@ -1215,16 +1215,24 @@ $admin-red:         #f06059;
     }
 
     #merit-widget {
+      .table-responsive {
+        padding: 0;
+      }
       @extend .bottom-bar;
       .widget-footer {
         background-color: $white;
+        margin-bottom: 24px;
       }
     }
 
     #scores-widget {
+      .table-responsive {
+        padding: 0;
+      }
       @extend .bottom-bar;
       .widget-footer {
         background-color: $white;
+        margin-bottom: 24px;
       }
       .widget-title {
         height: 100%;
@@ -1631,7 +1639,7 @@ $admin-red:         #f06059;
         font-size: 2.7rem;
         }
       }
-      .btn-default { 
+      .btn-default {
         margin-bottom: -2px;
       }
       // .dropdown.calendar {
