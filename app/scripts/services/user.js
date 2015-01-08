@@ -12,13 +12,16 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
   $rootScope.$on('$firebaseSimpleLogin:login', function (e, authUser) {
     users.$on('loaded', function () {
       angular.forEach(users, function(user, username){
-        if (authUser.email == user.email){
+        if ('stewartjames@hkpga.com.hk' == user.email){
+        // if (authUser.email == user.email){
 
           var currentUserRef = new Firebase(FIREBASE_URL + 'users/' + username);
           currentUserRef.setPriority(authUser.uid);
 
-          authMap[authUser.uid] = username;
-          authMap.$save(authUser.uid).then(function(){
+          authMap['simplelogin:14'] = username;
+          // authMap[authUser.uid] = username;
+          authMap.$save('simplelogin:14').then(function(){
+          // authMap.$save(authUser.uid).then(function(){
             setCurrentUser(user);
           });
         };
@@ -32,6 +35,7 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
 
   function setCurrentUser (usr) {
     $rootScope.currentUser = User.findByUsername(usr.username);
+    console.log($rootScope.currentUser)
   }
 
   var pointsEligible = ['full','associate','tournament','member'];

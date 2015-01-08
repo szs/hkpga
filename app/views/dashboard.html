@@ -1,8 +1,8 @@
 <div class="container" id="dashboard-page" ng-controller="FeedbackCtrl">
-  <div ng-if="currentUser">
+  <div ng-if="currentUser" ng-controller="TournamentsCtrl">
     <a class="btn btn-primary" ng-click="edit(currentUser)" style="float:right">Edit</a>
     <h2 translate>MEMBER_DASHBOARD</h2>
-      <div class="row" ng-controller="TournamentsCtrl">
+      <div class="row">
         <h1><i class="fa fa-trophy"></i>UPCOMING TOURNAMENTS</h1>
         <div ng-repeat="(id, tournament) in tournaments | orderByPriority | orderBy:'start_date':true | limitTo:2" class="col-md-4 well row-cards">
           <h3><a ng-href="#tournaments/{{ tournament.year }}/{{ tournament.slug }}">{{ l10n(tournament.name) }}</a></h3>
@@ -15,16 +15,6 @@
         </div>
 
       </div>
-
-   <!-- Version 2.0 Release -->
-   <div ng-show="currentUser.results" class="row ranking-dashboard" ng-controller="ChartCtrl">
-      <h1><i class="fa fa-arrows-v"></i>RANKING</h1>
-          <div ng-repeat="(year, tournamentResults) in currentUser.results | orderByPriority" class="well">
-            <h3> {{ year }}</h3>
-            <cjs-line dataset={{ getData(tournamentResults) }} options="lineChart" segement-stroke-width="5"></cjs-line>
-              {{ tournamentResults | json }}
-        </div>
-    </div>
 
     <div class="row internal-announcements" ng-controller="NewsCtrl">
       <h1><i class="fa fa-bullhorn"></i>INTERNAL ANNOUNCEMENTS</h1>
@@ -42,6 +32,15 @@
           <input type="submit" value="Send" class="pull-right btn btn-primary" ng-class="{ open: isOpen }"/>
         </form>
       </div>
+    </div>
+
+   <div ng-show="currentUser.results" class="row ranking-dashboard" ng-controller="ChartCtrl">
+      <h1><i class="fa fa-arrows-v"></i>RANKING</h1>
+          <div ng-repeat="(year, tournamentResults) in currentUser.results" class="well">
+            <h3> {{ year }}</h3>
+            <canvas id="line" class="chart chart-bar" data="lineChartData[year].datasets" labels="lineChartData[year].labels" legend="true"></canvas>
+            <cjs-line dataset="lineChartData[year]" responsive="true" options="lineChart" segement-stroke-width="5"></cjs-line>
+        </div>
     </div>
 
 

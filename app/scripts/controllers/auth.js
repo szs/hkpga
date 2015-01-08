@@ -18,7 +18,7 @@ app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth)
 
   $scope.login = function () {
     Auth.login($scope.user).then(function () {
-      $location.path('/');
+      $location.path('/dashboard');
     }, function(error){
       $scope.user.password = null;
       $scope.error = error.toString().split(':')[3];
@@ -65,6 +65,22 @@ app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth)
 
   $scope.signedIn = function (){
     return Auth.signedIn();
+  };
+
+  $scope.passwordReset = function () {
+    Auth.passwordReset($scope.user.email).then(function () {
+      $location.path('/');
+    }, function(error){
+      $scope.error = error.toString().split(':')[3];
+    });
+  };
+
+  $scope.changePassword = function () {
+    Auth.changePassword($scope.user.email, $scope.user.oldpassword, $scope.user.oldpassword).then(function () {
+      $location.path('/');
+    }, function(error){
+      $scope.error = error.toString().split(':')[3];
+    });
   };
 
   var roleMap = {

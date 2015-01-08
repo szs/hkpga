@@ -22,4 +22,8 @@ app.controller('FeedbackCtrl', function ($location, $scope, Feedback){
                 $location.path('/feedback');
         });
     }
+
+    $scope.edit = function (user) {
+        $location.path('/pros/' + user.username + '/edit');
+    };
 });

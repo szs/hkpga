@@ -24,6 +24,24 @@ app.factory('Auth',
       },
       logout: function (){
         return auth.$logout();
+      },
+      changePassword: function(user, oldPass, newPass){
+        return auth.$changePassword(user.email, oldPass, newPass, function(error) {
+          if (error === null) {
+            console.log("Password changed successfully");
+          } else {
+            console.log("Error changing password:", error);
+          }
+        });
+      },
+      passwordReset: function(email){
+        return auth.$sendPasswordResetEmail(email, function(error) {
+          if (error === null) {
+            console.log("Password reset email sent successfully");
+          } else {
+            console.log("Error sending password reset email:", error);
+          }
+        });
       }
     };
 

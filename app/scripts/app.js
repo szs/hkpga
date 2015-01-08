@@ -25,7 +25,8 @@ var app = angular.module('hkpgaApp', [
   'DateFilters',
   'TournamentFilters',
   'angucomplete-alt',
-  'ResourceFilters'
+  'ResourceFilters',
+  'chart.js'
 ]);
 
 app.config(function ($routeProvider) {
@@ -46,6 +47,10 @@ app.config(function ($routeProvider) {
         })
         .when('/login', {
           templateUrl: 'views/login.html',
+          controller: 'AuthCtrl'
+        })
+        .when('/resetpassword', {
+          templateUrl: 'views/resetpassword.html',
           controller: 'AuthCtrl'
         })
         .when('/admin', {
