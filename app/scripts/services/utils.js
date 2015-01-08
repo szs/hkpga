@@ -15,7 +15,7 @@ app.factory('Utils',
     return base;
 };
 
-  var sumObjOrStr = function(obj){
+  var sumObjOrStr = function(obj, ignore){
     var values = [];
     var result;
       for (var k in obj) {
@@ -23,11 +23,11 @@ app.factory('Utils',
           values.push(obj[k]);
         }
       }
-    var allNumbers = values.every(function(v){
-        return typeof v == 'number';
+    var passableValues = values.every(function(v){
+        return typeof v == 'number' || ignore.indexOf(v) > -1;
       });
-    if (allNumbers){
-      result = values.reduce(function(a,b){return a + b});
+    if (passableValues){
+      result = values.reduce(function(a,b){return (typeof b == 'number' ? a + b : a)})
     } else {
       values.forEach(function(v){if(typeof v == 'string'){result = v}})
     }

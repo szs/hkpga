@@ -77,12 +77,50 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     var promises = [];
 
     angular.forEach($scope.tournament.results, function(players, division){
+
       var deferred = $q.defer();
       players = Utils.valuesToArray(players);
+
+      var rankingPlayers = [];
+      var cutPlayers = [];
+
+      // Account for players who missed the cut
+
+      if ($scope.tournament.no_days > 2) {
+        var nonRankCount = 0;
+
+        players.forEach(function(player){
+          if (player.status != "played" && player.status != "missedcut") {
+            nonRankCount++;
+          }
+          if (player['rounds'][3] == 'MC') {
+            cutPlayers.push(player)
+          } else {
+            rankingPlayers.push(player)
+          }
+
+        })
+
+      } else {
+        rankingPlayers = players;
+      }
+
       orderByRank(
-        Utils.sortByKey(players, 'totalScore'), division, 'rank').then(function(data){
+        Utils.sortByKey(rankingPlayers, 'totalScore'), division, 0)
+          .then(function(data){
             deferred.resolve(data);
         })
+
+      // Account for players who missed the cut
+
+      if (cutPlayers.length > 0){
+
+          orderByRank(
+            Utils.sortByKey(cutPlayers, 'totalScore'), division, rankingPlayers.length - nonRankCount + 1)
+              .then(function(data){
+                deferred.resolve(data);
+            })
+      }
 
       promises.push(deferred.promise);
     })
@@ -98,6 +136,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       players = Utils.valuesToArray(players);
       var eligiblePlayers = [];
 
+
       players.forEach(function(user,i){
         if (User.isEligable($scope.pros[user.username])){
           eligiblePlayers.push(user)
@@ -105,11 +144,43 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
           user.shadowRank = '-';
         }
       })
+
+      var rankingPlayers = [];
+      var cutPlayers = [];
+
+      // Account for players who missed the cut
+
+      if ($scope.tournament.no_days > 2) {
+
+        eligiblePlayers.forEach(function(player){
+          if (player['rounds'][3] == 'MC') {
+            cutPlayers.push(player)
+          } else {
+            rankingPlayers.push(player)
+          }
+
+        })
+
+      } else {
+
+        rankingPlayers = eligiblePlayers;
+
+      }
+
       orderByShadowRank(
-        Utils.sortByKey(eligiblePlayers, 'totalScore'), division, 'shadowRank').then(function(data){
+        Utils.sortByKey(rankingPlayers, 'totalScore'), division, 0)
+          .then(function(data){
             deferred.resolve(data);
         })
 
+      if (cutPlayers.length > 0){
+
+          orderByShadowRank(
+            Utils.sortByKey(cutPlayers, 'totalScore'), division, rankingPlayers.length  + 1)
+              .then(function(data){
+                deferred.resolve(data);
+            })
+      }
 
       promises.push(deferred.promise);
     })
@@ -117,7 +188,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     return $q.all(promises);
   }
 
-  var orderByRank = function(scores, division, key){
+  var orderByRank = function(scores, division, start){
     var deferred = $q.defer()
 
     var playerOrder = [];
@@ -126,7 +197,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     });
 
     var currentScore = 0;
-    var currentRank = 0;
+    var currentRank = start;
     var firstPlace = 1;
     var userRank = 0;
     playerOrder.forEach(function(username, index){
@@ -138,33 +209,38 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
       } else if (usr.totalScore > currentScore){
         currentScore = usr.totalScore;
-        currentRank = index + 1;
+        currentRank = start + index + 1;
         userRank = currentRank;
 
       } else if (currentRank == 1){
         firstPlace++;
         userRank = currentRank;
       }
-      usr[key] = userRank;
+      usr['rank'] = userRank;
     })
 
-    var first = playerOrder.slice(0,firstPlace);
-    var players = [];
-    first.forEach(function(username){
-      players.push($scope.tournament.results[division][username])
-    })
-    if (firstPlace > 1){
-      resolveTiedFirst(players).then(function(){
-        deferred.resolve();
+    if (start === 0) {
+      var first = playerOrder.slice(0,firstPlace);
+      var players = [];
+      first.forEach(function(username){
+        players.push($scope.tournament.results[division][username])
       })
+      if (firstPlace > 1){
+        resolveTiedFirst(players).then(function(){
+          deferred.resolve();
+        })
+      } else {
+        markWinner(players[0]);
+        deferred.resolve();
+      }
     } else {
-      markWinner(players[0]);
-      deferred.resolve();
+        deferred.resolve();
     }
+
     return deferred.promise;
   }
 
-  var orderByShadowRank = function(scores, division, key){
+  var orderByShadowRank = function(scores, division, start){
     var deferred = $q.defer()
 
     var playerOrder = [];
@@ -173,7 +249,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     });
 
     var currentScore = 0;
-    var currentRank = 0;
+    var currentRank = start;
     var firstPlace = 1;
     var userRank = 0;
     playerOrder.forEach(function(username, index){
@@ -185,7 +261,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
       } else if (usr.totalScore > currentScore){
         currentScore = usr.totalScore;
-        currentRank = index + 1;
+        currentRank = start + index + 1;
         userRank = currentRank;
 
       } else if (currentRank == 1){
@@ -193,11 +269,11 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         userRank = currentRank;
       }
 
-      usr[key] = userRank;
+      usr['shadowRank'] = userRank;
 
     })
 
-    if (firstPlace > 1){
+    if (firstPlace > 1 && start === 0){
 
       var first = playerOrder.slice(0, firstPlace);
 
@@ -393,6 +469,12 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     angular.forEach($scope.tournament.results, function(players, division){
       var scores = [];
       angular.forEach(players, function(player, id){
+
+        if ($scope.pros[player.username].relation == undefined){
+          console.log('relationship undefined:')
+          console.log($scope.pros[player.username]);
+        }
+
         var scoreRow = {
           name: player.name,
           username: player.username,
@@ -430,7 +512,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         players.forEach(function(player, index){
           var scores = roundsObj($scope.tournament.no_days, player);
           $scope.tournament.results[division][player.username]['rounds'] = scores;
-          $scope.tournament.results[division][player.username]['totalScore'] = Utils.sumObjOrStr(scores);
+          $scope.tournament.results[division][player.username]['totalScore'] = Utils.sumObjOrStr(scores, ['MC']);
           deferred.resolve();
         });
       promises.push(deferred.promise);
@@ -885,7 +967,9 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
   var percentage = [15.85, 10.85, 6.1, 4.93, 4.1, 3.39, 2.91, 2.51, 2.2, 1.97, 1.8, 1.68, 1.57, 1.5, 1.44, 1.38, 1.32,
                     1.26, 1.21, 1.17, 1.14, 1.11, 1.08, 1.05, 1.02, 0.99, 0.96, 0.93, 0.9, 0.87, 0.84, 0.81, 0.79, 0.77,
-                    0.75, 0.73, 0.71, 0.69, 0.67, 0.65, 0.63, 0.61, 0.59, 0.57, 0.55];
+                    0.75, 0.73, 0.71, 0.69, 0.67, 0.65, 0.63, 0.61, 0.59, 0.57, 0.55, 0.53, 0.51, 0.49, 0.47, 0.45, 0.43,
+                    0.41, 0.39, 0.37, 0.35, 0.33, 0.31, 0.29, 0.27, 0.25, 0.23, 0.21, 0.19, 0.17, 0.15, 0.13, 0.11, 0.09,
+                    0.07, 0.05, 0.03, 0.01, 0]
 
   var pointsAvailable = function(days){
     return days * 50000;
@@ -899,7 +983,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
     for (var i = 0; i < split; i++) {
       var r = (rank - 1 + i);
-      r = Math.min(Math.max(r, 0), 44);
+      r = Math.min(Math.max(r, 0), 72);
       var val = percentage[r] * pointsAvailable(days) / 100;
       prize.push(Math.floor(Number(val.toFixed(1))));
     };
