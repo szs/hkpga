@@ -77,11 +77,13 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
       var categories = $scope.archives.$getIndex();
       categories.forEach(function(key){
         var years = {};
+        // Add links to the static pages which don't have tournament info.
+        [2004,2005,2006,2007,2008,2009].forEach(function(i){
+            years[page + '/' + i] = i;
+        });
         $scope.archives[key].forEach(function(i){
-            if (i > 2012){ // Only show Order of Merit from 2013 onwards.
-              years[page + '/' + i] = i;
-            }
-          });
+          years[page + '/' + i] = i;
+        });
         menuStructure[key] = years;
       });
       $scope.pages = menuStructure[$scope.category];

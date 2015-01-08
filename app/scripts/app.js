@@ -111,6 +111,46 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/tournaments.html',
           controller: 'TournamentsCtrl',
         })
+        .when('/tournaments/merit/2004', {
+            templateUrl: 'views/merit2004.html',
+            controller: 'TournamentsCtrl',
+          })
+        .when('/tournaments/merit/2005', {
+            templateUrl: 'views/merit2005.html',
+            controller: 'TournamentsCtrl',
+          })
+        .when('/tournaments/merit/2006', {
+            templateUrl: 'views/merit2006.html',
+            controller: 'TournamentsCtrl',
+          })
+        .when('/tournaments/merit/2007', {
+            templateUrl: 'views/merit2007.html',
+            controller: 'TournamentsCtrl',
+          })
+        .when('/tournaments/merit/2008', {
+            templateUrl: 'views/merit2008.html',
+            controller: 'TournamentsCtrl',
+          })
+        .when('/tournaments/merit/2009', {
+            templateUrl: 'views/merit2009.html',
+            controller: 'TournamentsCtrl',
+          })
+        .when('/tournaments/merit/2010', {
+            templateUrl: 'views/merit2010.html',
+            controller: 'TournamentsCtrl',
+          })
+        .when('/tournaments/merit/2011', {
+            templateUrl: 'views/merit2011.html',
+            controller: 'TournamentsCtrl',
+          })
+        .when('/tournaments/merit/2012', {
+            templateUrl: 'views/merit2012.html',
+            controller: 'TournamentsCtrl',
+          })
+        .when('/tournaments/merit/2013', {
+            templateUrl: 'views/merit2013.html',
+            controller: 'TournamentsCtrl',
+          })
         .when('/tournaments/merit/:year', {
           templateUrl: 'views/merit.html',
           controller: 'TournamentsCtrl',
