@@ -56,9 +56,9 @@ app.controller('NewsCtrl', function($scope, $q, $routeParams, $location, Utils, 
 
     a.draft = false;
     $scope.save(a, function(){
-      $scope.reset();
+      $location.path(a.category + '/' + a.slug);
     });
-    // $location.path(a.category + '/' + a.slug);
+
   };
 
   $scope.delete = function(article) {
