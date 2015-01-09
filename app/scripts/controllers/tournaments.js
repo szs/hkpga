@@ -226,9 +226,18 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         players.push($scope.tournament.results[division][username])
       })
       if (firstPlace > 1){
-        resolveTiedFirst(players).then(function(){
-          deferred.resolve();
-        })
+        console.log(players[0].results)
+        if (players[0].results[$scope.tournament.no_days - 1] == 'WC'){
+          angular.forEach(players, function(player){
+            markWinner(players);
+            deferred.resolve();
+          })
+        } else {
+          resolveTiedFirst(players).then(function(){
+            deferred.resolve();
+          })
+
+        }
       } else {
         markWinner(players[0]);
         deferred.resolve();
@@ -512,7 +521,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         players.forEach(function(player, index){
           var scores = roundsObj($scope.tournament.no_days, player);
           $scope.tournament.results[division][player.username]['rounds'] = scores;
-          $scope.tournament.results[division][player.username]['totalScore'] = Utils.sumObjOrStr(scores, ['MC']);
+          $scope.tournament.results[division][player.username]['totalScore'] = Utils.sumObjOrStr(scores, ['MC','WC']);
           deferred.resolve();
         });
       promises.push(deferred.promise);
@@ -594,11 +603,16 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     var player = player || {};
     for (var i = 0; i < days; i++) {
       var score = parseInt(player[i+1]) || 0;
-      if (player.hasOwnProperty('status') && (score === 0 || typeof score === 'string')){
+      // Weather Cancellation
+
+      if (player[i+1] == 'WC'){
+        score = 'WC';
+      } else if (player.hasOwnProperty('status') && (score === 0 || typeof score === 'string')){
         score = statusMap[player.status];
       }
       rounds[i+1] = score;
     };
+    console.log(rounds);
     return rounds;
   };
 
@@ -612,7 +626,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     'withdrawn':'WD',
     'missedcut':'MC',
     'disqualified':'DQ',
-    'weathercancel':'WC'
   }
 
   // ng-grid Money

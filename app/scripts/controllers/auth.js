@@ -40,19 +40,23 @@ app.controller('AuthCtrl', function($rootScope, $scope, $location, $cookieStore,
     $scope.user.role = $scope.user.honorary ? 'user' : roleMap[$scope.user.relation];
 
     if ($scope.user.role == 'member' || $scope.user.isAdmin){
-      Auth.register($scope.user).then(function (authUser){
+      Auth.register($scope.user)
+        .then(function (authUser){
+          Auth.passwordReset(authUser.email)
+            .then(function () {
+              if ($scope.user.isAdmin){
+                $scope.user.role = 'admin'
+              }
 
-        if ($scope.user.isAdmin){
-          $scope.user.role = 'admin'
-        }
+              $scope.user.username = createUsername($scope.user.name.en);
 
-        $scope.user.username = createUsername($scope.user.name.en);
+              User.create(authUser, $scope.user);
 
-        User.create(authUser, $scope.user);
-        $location.path('/admin');
-      }, function (error){
-        console.log(error);
-        $scope.error = error.toString().split(':')[3];
+              $location.path('/admin');
+            }, function (error){
+              console.log(error);
+              $scope.error = error.toString().split(':')[3];
+            });
       });
     } else {
       $scope.user.username = createUsername($scope.user.name.en);
