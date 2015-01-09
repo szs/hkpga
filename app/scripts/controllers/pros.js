@@ -35,13 +35,20 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
 
   if ($scope.action == 'checklist'){
     $scope.pros.$on('loaded',function(){
-      $scope.hunt = $filter('orderByPriority')($scope.pros);
-      $scope.hunt.forEach(function(e){
+      var nonHonorary = []
+
+      angular.forEach($scope.pros, function(pro, username) {
+        if (pro.relation != 'honorary' && username.charAt(0) !== '$'){
+          nonHonorary.push(pro)
+        }
+      });
+
+      nonHonorary.forEach(function(e){
         e['name_en'] = e.name['en'];
         e['name_hk'] = e.name['zh-hk'];
         e['name_ch'] = e.name['zh-cn'];
       });
-      $scope.done = $scope.hunt;
+      $scope.done = nonHonorary;
     });
   }
 
