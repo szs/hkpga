@@ -1,7 +1,7 @@
 /* global app:true */
 'user strict'
 
-app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth){
+app.controller('AuthCtrl', function($rootScope, $scope, $location, $cookieStore, User, Auth){
 
   $scope.reset = function(){
     $scope.user = User.new();
@@ -17,9 +17,15 @@ app.controller('AuthCtrl', function($scope, $location, $cookieStore, User, Auth)
   }
 
   $scope.login = function () {
-    Auth.login($scope.user).then(function () {
-      $location.path('/dashboard');
-    }, function(error){
+    Auth.login($scope.user).then(
+      function (authUser) {
+        var usr = User.findByUsername(User.authMap[authUser.uid]);
+        if (usr.isAdmin){
+          $location.path('/admin');
+        } else {
+          $location.path('/dashboard');
+        }
+      }, function(error){
       $scope.user.password = null;
       $scope.error = error.toString().split(':')[3];
     });
