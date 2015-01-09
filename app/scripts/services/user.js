@@ -12,15 +12,12 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
   $rootScope.$on('$firebaseSimpleLogin:login', function (e, authUser) {
     users.$on('loaded', function () {
       angular.forEach(users, function(user, username){
-        // if ('stewartjames@hkpga.com.hk' == user.email){
         if (authUser.email == user.email){
 
           var currentUserRef = new Firebase(FIREBASE_URL + 'users/' + username);
           currentUserRef.setPriority(authUser.uid);
 
-          // authMap['simplelogin:14'] = username;
           authMap[authUser.uid] = username;
-          // authMap.$save('simplelogin:14').then(function(){
           authMap.$save(authUser.uid).then(function(){
             setCurrentUser(user);
           });
