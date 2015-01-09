@@ -1236,6 +1236,7 @@ $admin-red:         #f06059;
     #merit-widget {
       .table-responsive {
         padding: 0;
+        overflow-x: visible;
       }
       @extend .bottom-bar;
       .widget-footer {
@@ -1247,6 +1248,7 @@ $admin-red:         #f06059;
     #scores-widget {
       .table-responsive {
         padding: 0;
+        overflow-x: visible;
       }
       @extend .bottom-bar;
       .widget-footer {
