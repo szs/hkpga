@@ -82,8 +82,12 @@ app.controller('AuthCtrl', function($rootScope, $scope, $location, $cookieStore,
   };
 
   $scope.changePassword = function () {
-    Auth.changePassword($scope.user.email, $scope.user.oldpassword, $scope.user.oldpassword).then(function () {
-      $location.path('/');
+    var result = Auth.changePassword(
+      $scope.currentUser.email,
+      $scope.currentUser.oldpassword,
+      $scope.currentUser.newpassword)
+      .then(function () {
+        $location.path('/');
     }, function(error){
       $scope.error = error.toString().split(':')[3];
     });

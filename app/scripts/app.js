@@ -53,6 +53,10 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/resetpassword.html',
           controller: 'AuthCtrl'
         })
+        .when('/changepassword', {
+          templateUrl: 'views/changepassword.html',
+          controller: 'AuthCtrl'
+        })
         .when('/admin', {
           templateUrl: 'views/admin.html',
           controller: 'AdminCtrl'

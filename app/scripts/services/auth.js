@@ -2,7 +2,7 @@
 'use strict';
 
 app.factory('Auth',
-  function ($firebase, $firebaseSimpleLogin, FIREBASE_URL, $rootScope){
+  function ($firebase, $q, $firebaseSimpleLogin, FIREBASE_URL, $rootScope){
 
     // $rootScope.$on("$firebaseSimpleLogin:login", function(e, user) {
     //   console.log("User " + user.id + " successfully logged in!");
@@ -10,6 +10,16 @@ app.factory('Auth',
 
     var ref = new Firebase(FIREBASE_URL);
     var auth = $firebaseSimpleLogin(ref);
+
+    var authClient = new FirebaseSimpleLogin(ref, function(error, user) {
+      if (error !== null) {
+        // console.log("Error authenticating:", error);
+      } else if (user !== null) {
+        // console.log("User is logged in:", user);
+      } else {
+        // console.log("User is logged out");
+      }
+    });
 
     var Auth = {
       register: function (user){
@@ -25,14 +35,18 @@ app.factory('Auth',
       logout: function (){
         return auth.$logout();
       },
-      changePassword: function(user, oldPass, newPass){
-        return auth.$changePassword(user.email, oldPass, newPass, function(error) {
-          if (error === null) {
-            console.log("Password changed successfully");
-          } else {
-            console.log("Error changing password:", error);
-          }
-        });
+      changePassword: function(email, oldPass, newPass){
+        var deferred = $q.defer()
+
+        authClient.changePassword(email, oldPass, newPass, function(error) {
+            if (error === null) {
+              deferred.resolve();
+            } else {
+              deferred.resolve(error);
+            }
+          });
+
+        return deferred.promise;
       },
       passwordReset: function(email){
         return auth.$sendPasswordResetEmail(email, function(error) {

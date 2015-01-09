@@ -35,7 +35,6 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
 
   function setCurrentUser (usr) {
     $rootScope.currentUser = User.findByUsername(usr.username);
-    console.log($rootScope.currentUser)
   }
 
   var pointsEligible = ['full','associate','tournament','member'];
@@ -91,10 +90,6 @@ app.factory('User', function ($firebase, $rootScope, FIREBASE_URL, Utils, Auth){
     updateResults : function(user, tournament, division){
 
         var year = new Date(tournament.start_date).getFullYear();
-
-        if (user.isWinner){
-          console.log(user);
-        }
 
         var results = {
           isPointsEligible : user.isEligable,

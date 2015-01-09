@@ -438,7 +438,7 @@ $admin-red:         #f06059;
       div.well {
         margin-top: 40px;
         margin-bottom: 40px;
-        height: 288px;
+        min-height: 288px;
         width: 400px;
         position: absolute;
         top: 50%;
@@ -2453,7 +2453,7 @@ $admin-red:         #f06059;
   }
 
   .full:before, .tournament:before, .associate:before, .member:before {
-    display: none; 
+    display: none;
   }
 
 

@@ -26,6 +26,7 @@ var translationsEN = {
   LOGIN: 'Member Login',
   LOGOUT: 'Logout',
   RESETPASSWORD: 'Reset Password',
+  CHANGEPASSWORD: 'Change Password',
   OLDPASSWORD: 'Old Password',
   NEWPASSWORD: 'New Password',
   LANG_EN: 'EN',
