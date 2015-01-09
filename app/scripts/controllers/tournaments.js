@@ -229,7 +229,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         console.log(players)
         if (players[0].rounds[$scope.tournament.no_days] == 'WC'){
           angular.forEach(players, function(player){
-            markWinner(players);
+            markWinner(player);
             deferred.resolve();
           })
         } else {
@@ -478,11 +478,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     angular.forEach($scope.tournament.results, function(players, division){
       var scores = [];
       angular.forEach(players, function(player, id){
-
-        if ($scope.pros[player.username].relation == undefined){
-          console.log('relationship undefined:')
-          console.log($scope.pros[player.username]);
-        }
 
         var scoreRow = {
           name: player.name,
