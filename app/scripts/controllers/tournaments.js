@@ -226,8 +226,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         players.push($scope.tournament.results[division][username])
       })
       if (firstPlace > 1){
-        console.log(players[0].results)
-        if (players[0].results[$scope.tournament.no_days - 1] == 'WC'){
+        console.log(players)
+        if (players[0].rounds[$scope.tournament.no_days] == 'WC'){
           angular.forEach(players, function(player){
             markWinner(players);
             deferred.resolve();
