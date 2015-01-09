@@ -24,6 +24,15 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
   $scope.tournaments.$on('loaded',function(){
 
+    // if($location.url() === '/dashboard'){
+    //   $scope.years = [2011,2012,2013,2014];
+    // }
+
+    $scope.$on('calculateGlobalMerit', function(event, args) {
+      calculateGlobalMerit(args);
+    });
+
+
     angular.forEach($scope.tournaments, function(tournament, created_at){
       if (created_at[0] != '$'){
         tournament.year = new Date(tournament.start_date).getFullYear();
@@ -420,6 +429,39 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     });
 
     $scope.merit = merit;
+
+  };
+
+  var calculateGlobalMerit = function(years){
+    var merit = {};
+
+    angular.forEach(years, function (year){
+      merit[year] = {};
+      $scope.divisions.forEach(function (division) {
+        merit[year][division] = []
+        var meritSum = {}
+        angular.forEach($scope.pros, function(pro, username){
+          if (username[0] != '$'){
+            if (pro.hasOwnProperty('results') && pro['results'].hasOwnProperty(year)){
+              angular.forEach(pro['results'][year], function(result, tournament){
+                if (result.hasOwnProperty('points') && result['points'] > 0 && result.hasOwnProperty('division') && result['division'] == division) {
+                  if (meritSum.hasOwnProperty(username)) {
+                    meritSum[username].points += result.points;
+                  } else {
+                    meritSum[username] = meritObj(result, username, pro);
+                  }
+                }
+              });
+            };
+          };
+        });
+        merit[year][division].push($filter('orderByPriority')(meritSum));
+        var order = Utils.sortByKey(merit[year][division][0], 'points').reverse()
+        merit[year][division] = orderMeritByRank(order)
+      });
+    });
+
+    $scope.$broadcast('globalMeritCalculated', merit);
 
   };
 

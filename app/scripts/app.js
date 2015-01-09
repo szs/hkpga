@@ -315,4 +315,9 @@ app.config(function ($routeProvider) {
     $translateProvider.preferredLanguage('en');
     $translateProvider.fallbackLanguage('en');
   })
-  .constant('FIREBASE_URL', 'https://hkpga.firebaseio.com/');
+  .constant('FIREBASE_URL', 'https://hkpga.firebaseio.com/')
+  .filter('reverse', function() {
+    return function(items) {
+      return items.slice().reverse();
+    };
+  });

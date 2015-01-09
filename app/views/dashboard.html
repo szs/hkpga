@@ -35,11 +35,37 @@
     </div>
 
    <div ng-show="currentUser.results" class="row ranking-dashboard" ng-controller="ChartCtrl">
+      <div ng-show="playerMerit">
       <h1><i class="fa fa-arrows-v"></i>RANKING</h1>
-          <div ng-repeat="(year, tournamentResults) in currentUser.results" class="well">
-            <h3> {{ year }}</h3>
-            <canvas id="line" class="chart chart-bar" data="lineChartData[year].datasets" labels="lineChartData[year].labels" legend="true"></canvas>
-            <cjs-line dataset="lineChartData[year]" responsive="true" options="lineChart" segement-stroke-width="5"></cjs-line>
+        <table class="table table-striped">
+              <th>Year</th>
+              <th>Division</th>
+              <th>Rank</th>
+              <th>Points</th>
+           <tr ng-repeat="rankObj in playerMerit | reverse" class="well">
+              <th>{{ rankObj.year }}</th>
+              <td>{{ rankObj.division }}</td>
+              <td>{{ rankObj.rank }}</td>
+              <td>{{ rankObj.points }}</td>
+           </tr>
+        </table>
+      </div>
+      <h1><i class="fa fa-arrows-v"></i>PERFORMANCE</h1>
+          <div ng-repeat="year in years | reverse" class="well">
+            <div class="data-source">
+            <input bs-switch
+              ng-model="scoreData[year]"
+              type="checkbox"
+              switch-active="true"
+              switch-size="medium"
+              switch-animate="true"
+              switch-on-text="Score"
+              switch-off-text="Points"
+              switch-on-color="primary"
+              switch-off-color="danger">
+            </div>
+            <h3> Performance - {{ year }}</h3>
+            <canvas id="line" class="chart chart-bar" data="scoreData[year] ? lineChartData[year].datasets[0] : lineChartData[year].datasets[1]" labels="lineChartData[year].labels" height="100px"></canvas>
         </div>
     </div>
 
