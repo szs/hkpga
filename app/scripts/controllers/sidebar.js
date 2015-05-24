@@ -12,7 +12,7 @@ app.controller('SidebarCtrl', function ($scope, $location, $routeParams, Archive
   var menuStructure = {
     news : {},
     about : {
-      us : 'Us',
+      'about-us' : 'Us',
       partners : 'Partners',
       'committee-honorary' : 'Committee & Honorary Members',
     },
