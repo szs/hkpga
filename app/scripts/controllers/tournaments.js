@@ -103,7 +103,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
           if (player.status != "played" && player.status != "missedcut") {
             nonRankCount++;
           }
-          if (player['rounds'][3] == 'MC') {
+          if (player.status == 'missedcut') {
             cutPlayers.push(player)
           } else {
             rankingPlayers.push(player)
@@ -126,7 +126,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       if (cutPlayers.length > 0){
 
           orderByRank(
-            Utils.sortByKey(cutPlayers, 'totalScore'), division, rankingPlayers.length - nonRankCount)
+            Utils.sortByKey(cutPlayers, 'totalScore'), division, rankingPlayers.length - nonRankCount + 1)
               .then(function(data){
                 deferred.resolve(data);
             })
@@ -163,7 +163,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       if ($scope.tournament.no_days > 2) {
 
         eligiblePlayers.forEach(function(player){
-          if (player['rounds'][3] == 'MC') {
+          if (player.status == 'missedcut') {
             cutPlayers.push(player)
           } else {
             rankingPlayers.push(player)
@@ -385,9 +385,15 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         if (player.shadowRank == '-'){
           var points = 0;
         } else {
+          // Score Players who Missed the Cut as if they only played the cut-off number of days
           var split = Utils.countInArray(ranks, player.shadowRank);
-          var rawPoints = pointsScored(player.shadowRank, $scope.tournament.no_days, split);
-          var points = Math.round(rawPoints * 10) / 10;
+          if  (player.status != 'missedcut'){
+            var rawPoints = pointsScored(player.shadowRank, $scope.tournament.no_days, split);
+            var points = Math.round(rawPoints * 10) / 10;
+          } else {
+            var rawPoints = pointsScored(player.shadowRank, 2, split);
+            var points = Math.round(rawPoints * 10) / 10;
+          }
         }
 
         player.points = points;
