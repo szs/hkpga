@@ -274,7 +274,7 @@ var translationsZHHK = {
 
 var translationsZHCN = {
   LANG_EN: 'EN',
-  LANG_ZH_HK: '簡體',
+  LANG_ZH_HK: '繁體',
   LANG_ZH_CN: '中文',
   LANG_CURRENT: '中文',
   MENU_HOME: '首页',
