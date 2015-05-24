@@ -99,6 +99,14 @@ $admin-red:         #f06059;
   text-align: center;
 }
 
+.float-text {
+  float: left;
+}
+
+h1.float-text {
+  margin-right: 5px;
+}
+
 
 // 1. BASE ------------------------------------------------------------
 
@@ -2304,7 +2312,6 @@ $admin-red:         #f06059;
     }
   }
 }
-
 
 
 // Changing navbar collapsing breakpoint

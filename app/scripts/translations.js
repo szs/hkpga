@@ -153,7 +153,11 @@ var translationsEN = {
   ADVISOR : 'Advisor',
   ADVISORCONSTITUTION : 'Advisor (Constitution)',
   HONORARYMEMBER : 'Honorary Member',
-  FOUNDERMEMBER : 'Founder Member'
+  FOUNDERMEMBER : 'Founder Member',
+  LADIES: 'Ladies Division',
+  OPEN: 'Open Division',
+  SENIOR: 'Senior Division',
+  TRAINEE: 'Trainee Division'
 };
 
 var translationsZHHK = {
@@ -306,7 +310,11 @@ var translationsZHHK = {
   ADVISOR : '顧問',
   ADVISORCONSTITUTION : '顧問(會章)',
   HONORARYMEMBER : '名譽會員',
-  FOUNDERMEMBER : '始創永久會員'
+  FOUNDERMEMBER : '始創永久會員',
+  LADIES: '女子組',
+  OPEN: '公開組',
+  SENIOR: '長春組',
+  TRAINEE: '見習學員組'
 };
 
 var translationsZHCN = {
@@ -460,5 +468,9 @@ var translationsZHCN = {
   ADVISOR : '顾问',
   ADVISORCONSTITUTION : '顾问(会章)',
   HONORARYMEMBER : '名誉会员',
-  FOUNDERMEMBER : '始创永久会员'
+  FOUNDERMEMBER : '始创永久会员',
+  LADIES: '女子组',
+  OPEN: '公开组',
+  SENIOR: '长春组',
+  TRAINEE: '见习学员组'
 };
