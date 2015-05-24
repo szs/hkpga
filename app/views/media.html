@@ -13,7 +13,7 @@
           <div ng-repeat="(key, coverage) in coverages" class="col-md-6">
             <div class="media-card">
               <a target="_blank" ng-href="{{ coverage.url}}">
-                <h5>{{ coverage.publish_date | date:'yyyy  MMMM  d'}}</h5>
+                <h5>{{ coverage.publish_date | date:'dd MMMM yyyy'}}</h5>
                 <h4>{{ l10n(coverage.title) }} </h4>
                 <h4>{{ l10n(coverage.publication) }} </h4>
                 <img ng-src="{{ coverage.cover | DriveOrUrl }}">

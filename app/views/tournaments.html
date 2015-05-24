@@ -1,7 +1,7 @@
 <div class="container" id="tournaments-page">
   <div class="row">
     <div class = "col-md-8">
-      <h2 translate>Tournaments</h2>
+      <h2 translate>TOURNAMENTS</h2>
     </div>
     <div class="col-md-4">
         <div ng-include="'views/breadcrumbs.html'"></div>
@@ -22,11 +22,11 @@
                   <h4>{{ l10n(tournament.name) }} | {{ tournament.results.length }} <em> {{ tournament.no_days }} day tournament </em></h4>
                 </a>
                 <h5 class="hideelement">Divisions: </h5>
-                <span class="label label-default tournament-division" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</span>
+                <span translate class="label label-default tournament-division" ng-if="enabled" ng-repeat="(division, enabled) in tournament.divisions">{{division}}</span>
             </div>
             <div class="tournament-action-tags col-lg-2 col-md-2 col-sm-2 col-xs-12 clearfix">
               <a class="btn" type="button" ng-if="!isUpcoming(tournament)" ng-href="#/tournaments/{{ tournament.year }}/{{ tournament.slug }}/score">
-                <button type="button" class="btn">Scores</button>
+                <button translate type="button" class="btn">SCORES</button>
               </a>
               <div id="upcoming-tournament-controls" class="tournament-action-tags" ng-if="isUpcoming(tournament)">
                 <a ng-if="tournament.rules_url" class="btn" type="button" href="{{ tournament.rules_url }}">

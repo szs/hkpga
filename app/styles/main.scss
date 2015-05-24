@@ -99,6 +99,14 @@ $admin-red:         #f06059;
   text-align: center;
 }
 
+.float-text {
+  float: left;
+}
+
+h1.float-text {
+  margin-right: 5px;
+}
+
 
 // 1. BASE ------------------------------------------------------------
 
@@ -150,6 +158,7 @@ $admin-red:         #f06059;
     font-size: 1.8rem;
     color: $text-grey-light;
     font-weight: 400;
+    line-height: 1.4;
   }
 
   // date
@@ -1352,7 +1361,7 @@ $admin-red:         #f06059;
       position: absolute;
       width: 100%;
       margin: 0 auto;
-      top: 272px;
+      top: 320px;
       z-index: 100;
       h1 {
         text-align: center;
@@ -1545,7 +1554,7 @@ $admin-red:         #f06059;
 }
 .trainer:before{
    font-family: FontAwesome;
-   content: "\f111;"; // filled circle
+   content: "\f111"; // filled circle
    display: inline-block;
    padding-right: 14px;
    font-size: 1.2rem;
@@ -2306,12 +2315,14 @@ $admin-red:         #f06059;
 }
 
 
-
 // Changing navbar collapsing breakpoint
 
 @media (max-width: 865px) {
   body {
     padding-top: 90px;
+  }
+  .hkpga-title {
+    top: 272px;
   }
   .navbar-header {
     float: none;
