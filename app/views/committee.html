@@ -1,6 +1,9 @@
 <div class="container" id="committee-page">
 	<div class="row">
 		<div class="col-md-6" ng-controller="CommitteeCtrl">
+			<div ng-if="currentUser.role == 'admin'">
+		      	<a class="btn btn-primary" ng-click="edit()">Edit</a>
+			</div>
 			<h2 ng-hide="committee.term">Committee</h2>
 			<h2 ng-show="committee.term">{{ l10n(committee.term) }}</h2>
 		</div>

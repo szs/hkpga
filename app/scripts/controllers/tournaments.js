@@ -425,12 +425,9 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
             angular.forEach(pro['results'][$scope.archiveYear], function(result, tournament){
               var scored_points = result.hasOwnProperty('points') && result['points'] > 0;
               var in_division = result.hasOwnProperty('division') && result['division'] == division;
-              // console.log(division)
-              // console.log($scope.tournaments[tournament])
               if ($scope.tournaments.hasOwnProperty(tournament) && $scope.tournaments[tournament].hasOwnProperty('start_date')){
                 var tid = $scope.tournaments[tournament]['start_date']
               }
-              console.log(tid)
               if (scored_points && in_division) {
                 if (meritSum.hasOwnProperty(username)) {
                   meritSum[username].results[sequence.indexOf(tid)] = result.points;
@@ -685,7 +682,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       }
       rounds[i+1] = score;
     };
-    console.log(rounds);
     return rounds;
   };
 

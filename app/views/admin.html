@@ -42,7 +42,7 @@
           <h5>{{tournament.start_date | date:'fullDate' }} </h5>
           <h4><i class="fa fa-trophy"></i>{{l10n(tournament.name)}}</h4>
           <span class="clearfix">At {{tournament.venue.en}}</span>
-          <a ng-href="#/tournaments/{{tournament.slug}}"></a><a ng-href="#/tournaments/{{tournament.slug}}/edit" class="btn publish-buttons"><i class="fa fa-pencil"></i> edit</a>
+          <a ng-href="#/tournaments/{{tournament.slug}}"></a><a ng-href="#/tournaments/{{tournament.year}}/{{tournament.slug}}/edit" class="btn publish-buttons"><i class="fa fa-pencil"></i> edit</a>
       </div>
       <div class="col-md-1">
         <div>

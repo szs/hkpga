@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-app.controller('NewsCtrl', function($scope, $q, $routeParams, $location, Utils, Article, Archive){
+app.controller('NewsCtrl', function($scope, $q, $routeParams, $location, $anchorScroll, Utils, Article, Archive){
 
   $scope.articles = Article.all;
 
@@ -83,5 +83,9 @@ app.controller('NewsCtrl', function($scope, $q, $routeParams, $location, Utils, 
       return deferred.promise;
     }
 
+    if ($routeParams.id){
+      $location.hash('hello-container');
+      $anchorScroll();
+    }
 
 });
