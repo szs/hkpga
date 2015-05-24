@@ -2,9 +2,9 @@
 'use strict';
 
 app.controller('StaticCtrl', function($scope, $location, $routeParams, Utils, Page){
-  
+
   $scope.pages = Page.all;
-  
+
   $scope.page = Page.new()
 
   var pageExists = function(){
@@ -22,9 +22,14 @@ app.controller('StaticCtrl', function($scope, $location, $routeParams, Utils, Pa
 
   $scope.editable = ($routeParams.action === 'edit');
 
+  $scope.edit = function(page){
+    console.log(page)
+    $location.path('/'+ page.category +'/'+ page.slug +'/edit');
+  }
+
   $scope.save = function (p){
     var p = p || $scope.page;
-    
+
     p = Utils.logUpdate(p);
 
     angular.extend(p, {
