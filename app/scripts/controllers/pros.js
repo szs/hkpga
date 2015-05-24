@@ -70,7 +70,7 @@ app.controller('ProsCtrl', function($scope, $filter, $location, $routeParams, Us
       {value : 'captain-ladies', name : 'Ladies Captain'},
       {value : 'vice-captain-ladies', name : 'Vice Ladies Captain'},
       {value : 'committee', name : 'Committee'},
-      {value : 'treasurser', name : 'Honorary Treasurer'},
+      {value : 'treasurer', name : 'Honorary Treasurer'},
     ],
     honorary: [
       {value : false, name : 'No'},
