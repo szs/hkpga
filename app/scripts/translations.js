@@ -61,6 +61,7 @@ var translationsEN = {
   VIEW_MAGAZINES: 'See all magazines',
   PROS: 'Professionals\' Directory',
   LATEST_TOURNAMENT_SCORES: 'Latest Tournament Scores',
+  TOURNAMENT_SCORES: 'Tournament Scores',
   VENUE: 'Venue',
   DATE: 'Date',
   ENGLISH_NAME: 'English Name',
