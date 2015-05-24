@@ -1,14 +1,14 @@
 <div class="container" id="tournament-scores">
   <div class="row">
     <div ng-if="tournament" class="col-md-10 col-md-offset-1">
-      <h1><i class="fa fa-trophy"></i>Tournament Scores</h1>
+      <h1 translate><i class="fa fa-trophy"></i>TOURNAMENT_SCORES</h1>
       <h4>{{ l10n(tournament.name) }}</h4>
       <h5>{{ tournament.start_date | date:'dd MMM yyyy'}}</h5>
       <hr>
     </div>
     <div ng-hide="currentUser.role != 'admin' && division=='ladies'" ng-if="toScore" ng-repeat="(division, scores) in toScore" class="row add-division col-md-10 col-md-offset-1">
       <a class="btn btn-primary" ng-if="currentUser.role == 'admin'" ng-click="submitScores()">Submit</a>
-      <h2> {{ division }} Division </h2>
+      <h2 translate> {{ division | uppercase }} </h2>
       <div class="gridStyle score-grid" ng-grid="gridOptions[division]" ng-style="getTableStyle('toScore', division)">
       </div>
       <br>

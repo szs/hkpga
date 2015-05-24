@@ -6,10 +6,11 @@ var translationsEN = {
   MENU_COMMUNITY: 'Community',
   MENU_EVENTS: 'Events',
   MENU_PRESS: 'Press',
-  MENU_ABOUT: 'About',
+  MENU_ABOUT: 'About Us',
   MENU_CONTACT: 'Contact',
   MENU_ADMIN: 'Admin',
   ABOUT_US: 'About Us',
+  ABOUT: 'About',
   PARTNERS: 'Partners',
   COMMITTEE_HONORARY: 'Committee & Honorary Members',
   ORDER_OF_MERIT: 'Order of merit',
@@ -157,7 +158,12 @@ var translationsEN = {
   LADIES: 'Ladies Division',
   OPEN: 'Open Division',
   SENIOR: 'Senior Division',
-  TRAINEE: 'Trainee Division'
+  TRAINEE: 'Trainee Division',
+  ladies: 'Ladies',
+  open: 'Open',
+  senior: 'Senior',
+  trainee: 'Trainee',
+  SCORES: 'Scores'
 };
 
 var translationsZHHK = {
@@ -176,6 +182,7 @@ var translationsZHHK = {
   MENU_CONTACT: '聯絡',
   MENU_ADMIN: '網站管理員',
   ABOUT_US: '關於我們',
+  ABOUT: '關於我們',
   PARTNERS: '夥伴',
   COMMITTEE_HONORARY: '委員會及名譽會員',
   ORDER_OF_MERIT: '排名賽',
@@ -185,6 +192,7 @@ var translationsZHHK = {
   PROJECT_SKYHIGH: '沖天飛',
   PRESS_RELEASES: '新聞發佈',
   MEDIA_COVERAGE: '相關新聞',
+  TOURNAMENTS: '賽事',
   MAGAZINE: '期刊所有',
   HONORARY: '名譽會員',
   REGISTER: '註冊',
@@ -218,6 +226,7 @@ var translationsZHHK = {
   VIEW_MAGAZINES: '閱讀所有期刊',
   PROS: '職業高爾夫球手',
   LATEST_TOURNAMENT_SCORES: '最新的比賽成績',
+  TOURNAMENT_SCORES: '比賽成績',
   VENUE: '會議地點',
   DATE: '日期',
   ENGLISH_NAME: '英文名稱',
@@ -314,7 +323,12 @@ var translationsZHHK = {
   LADIES: '女子組',
   OPEN: '公開組',
   SENIOR: '長春組',
-  TRAINEE: '見習學員組'
+  TRAINEE: '見習學員組',
+  ladies: '女子',
+  open: '公開',
+  senior: '長春',
+  trainee: '見習學員',
+  SCORES: '成績'
 };
 
 var translationsZHCN = {
@@ -333,6 +347,7 @@ var translationsZHCN = {
   MENU_CONTACT: '联络',
   MENU_ADMIN: '网站管理员',
   ABOUT_US: '关于我们',
+  ABOUT: '关于我们',
   PARTNERS: '伙伴',
   COMMITTEE_HONORARY: '委员会及名誉会员',
   ORDER_OF_MERIT: '积分排名榜',
@@ -342,6 +357,7 @@ var translationsZHCN = {
   PROJECT_SKYHIGH: '冲天飞',
   PRESS_RELEASES: '新闻发布',
   MEDIA_COVERAGE: '相关新闻',
+  TOURNAMENTS: '赛事',
   MAGAZINE: '期刊所有',
   HONORARY: '名誉会员',
   REGISTER: '注册',
@@ -376,6 +392,7 @@ var translationsZHCN = {
   VIEW_MAGAZINES: '阅读所有期刊',
   PROS: '职业高尔夫球手',
   LATEST_TOURNAMENT_SCORES: '最新的比赛成绩',
+  TOURNAMENT_SCORES: '比赛成绩',
   VENUE: '会议地点',
   DATE: '日期',
   ENGLISH_NAME: '英文名称',
@@ -472,5 +489,10 @@ var translationsZHCN = {
   LADIES: '女子组',
   OPEN: '公开组',
   SENIOR: '长春组',
-  TRAINEE: '见习学员组'
+  TRAINEE: '见习学员组',
+  ladies: '女子',
+  open: '公开',
+  senior: '长春',
+  trainee: '见习学员',
+  SCORES: '成绩'
 };
