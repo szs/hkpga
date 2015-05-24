@@ -413,6 +413,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
             angular.forEach(pro['results'][$scope.archiveYear], function(result, tournament){
               if (result.hasOwnProperty('points') && result['points'] > 0 && result.hasOwnProperty('division') && result['division'] == division) {
                 if (meritSum.hasOwnProperty(username)) {
+                  console.log(result)
                   meritSum[username].points += result.points;
                 } else {
                   meritSum[username] = meritObj(result, username, pro);

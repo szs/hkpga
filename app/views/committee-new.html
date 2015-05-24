@@ -1,0 +1,41 @@
+<div class="container admin-styling new-content-form">
+  <form class="form-horizontal" role="form" ng-submit="update()" class="committee-forms" ng-controller="CommitteeCtrl">
+  <fieldset>
+
+  <!-- Form Name -->
+  <h1 translate>COMMITTEESETTINGS</h1>
+
+  <!-- Text input-->
+  <div class="well clearfix">
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="committee-cover-story-en">Tenure (EN)</label>
+      <div class="col-md-9">
+      <input id="committee-cover-story-en" name="committee-cover-story-en" type="text" placeholder="e.g. Committee (2013-2015)" class="form-control input-md" required="" ng-model="committee.term.en">
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="committee-cover-story-zh-hk">Tenure (HK)</label>
+      <div class="col-md-9">
+      <input id="committee-cover-story-zh-hk" name="committee-cover-story-zh-hk" type="text" placeholder="e.g. 委員會 (2013-2015)" class="form-control input-md" required="" ng-model="committee.term['zh-hk']">
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="committee-cover-story-zh-cn">Tenure (CN)</label>
+      <div class="col-md-9">
+      <input id="committee-cover-story-zh-cn" name="committee-cover-story-zh-cn" type="text" placeholder="e.g. 委员会(2013-2015)" class="form-control input-md" required="" ng-model="committee.term['zh-cn']">
+      </div>
+    </div>
+
+  </div>
+  </fieldset>
+  <div class="publish-buttons">
+    <input type="submit" value="Update" class="btn btn-primary" />
+    <i class="fa fa-send"></i>
+  </div>
+  </form>
+
+</div>

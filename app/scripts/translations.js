@@ -133,8 +133,18 @@ var translationsEN = {
   INTERNAL_ANNOUNCEMENTS: 'Internal Announcements',
   UNSCORED_TOURNAMENT: 'Unscored Tournament',
   LATEST_FEEDBACK: 'Latest Feedback',
-  MEMBER_DASHBOARD: 'Member Dashboard'
-
+  MEMBER_DASHBOARD: 'Member Dashboard',
+  CHAIRPERSON: 'Chairman',
+  VICECHAIRPERSON: 'Vice Chairman',
+  CAPTAINOPEN: 'Captain of Open Division',
+  VICECAPTAINOPEN: 'Vice Captain of Open Division',
+  CAPTAINSENIOR: 'Senior Captain',
+  VICECAPTAINSENIOR: 'Vice Senior Captain',
+  CAPTAINLADIES: 'Ladies Captain',
+  VICECAPTAINLADIES: 'Vice Ladies Captain',
+  COMMITTEE: 'Committee',
+  TREASURER: 'Honorary Treasurer',
+  COMMITTEESETTINGS: 'Committee Settings'
 };
 
 var translationsZHHK = {
@@ -268,8 +278,18 @@ var translationsZHHK = {
   INTERNAL_ANNOUNCEMENTS: '內部通告',
   UNSCORED_TOURNAMENT: '不計分賽事',
   LATEST_FEEDBACK: '最新意見',
-  MEMBER_DASHBOARD: 'Member Dashboard'
-
+  MEMBER_DASHBOARD: 'Member Dashboard',
+  CHAIRPERSON: '',
+  VICECHAIRPERSON: '',
+  CAPTAINOPEN: '',
+  VICECAPTAINOPEN: '',
+  CAPTAINSENIOR: '',
+  VICECAPTAINSENIOR: '',
+  CAPTAINLADIES: '',
+  VICECAPTAINLADIES: '',
+  COMMITTEE: '',
+  TREASURER: '',
+  COMMITTEESETTINGS: 'Committee Settings'
 };
 
 var translationsZHCN = {
@@ -404,6 +424,16 @@ var translationsZHCN = {
   INTERNAL_ANNOUNCEMENTS: '內部通告',
   UNSCORED_TOURNAMENT: '不计分赛事',
   LATEST_FEEDBACK: '最新意见',
-  MEMBER_DASHBOARD: 'Member Dashboard'
-
+  MEMBER_DASHBOARD: 'Member Dashboard',
+  CHAIRPERSON: '',
+  VICECHAIRPERSON: '',
+  CAPTAINOPEN: '',
+  VICECAPTAINOPEN: '',
+  CAPTAINSENIOR: '',
+  VICECAPTAINSENIOR: '',
+  CAPTAINLADIES: '',
+  VICECAPTAINLADIES: '',
+  COMMITTEE: '',
+  TREASURER: '',
+  COMMITTEESETTINGS: 'Committee Settings'
 };

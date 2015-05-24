@@ -1,7 +1,7 @@
 <div class="container" id="committee-page">
 	<div class="row">
-		<div class="col-md-6">
-			<h2 translate>COMMITTEE (2013-2015)</h2>
+		<div class="col-md-6" ng-controller="CommitteeCtrl">
+			<h2>{{ l10n(committee.term) }}</h2>
 		</div>
 		<div class="col-md-6">
 			<div ng-include="'views/breadcrumbs.html'"></div>
@@ -12,7 +12,7 @@
        		<div class="well">
 		        <dl class="dl-horizontal" ng-repeat="item in filterOptions.committee" ng-show="!$first">
 		            <dt>
-		            	<h3 translate>{{item.name}}</h3>
+		            	<h3 translate>{{item.value}}</h3>
 		            </dt>
 		            <dd>
 		            	<p>

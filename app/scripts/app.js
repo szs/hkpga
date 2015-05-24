@@ -106,6 +106,10 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/committee.html',
           controller: 'ProsCtrl'
         })
+        .when('/about/committee-honorary/edit', {
+          templateUrl: 'views/committee-new.html',
+          controller: 'CommitteeCtrl',
+        })
         .when('/tournaments', {
           redirectTo: '/tournaments/latest',
         })
