@@ -235,7 +235,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         players.push($scope.tournament.results[division][username])
       })
       if (firstPlace > 1){
-        console.log(players)
         if (players[0].rounds[$scope.tournament.no_days] == 'WC'){
           angular.forEach(players, function(player){
             markWinner(player);
@@ -413,7 +412,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
             angular.forEach(pro['results'][$scope.archiveYear], function(result, tournament){
               if (result.hasOwnProperty('points') && result['points'] > 0 && result.hasOwnProperty('division') && result['division'] == division) {
                 if (meritSum.hasOwnProperty(username)) {
-                  console.log(result)
                   meritSum[username].points += result.points;
                 } else {
                   meritSum[username] = meritObj(result, username, pro);
@@ -469,6 +467,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   var meritObj = function(result, username, pro){
     return {
         points: result.points,
+        results: {},
         username: username,
         name: pro.name,
         getName : function () {
@@ -612,6 +611,15 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       rounds.push({field: '' + i, displayName: 'Round ' + i, enableCellEdit: isAdmin(), sortFn: alphanumericSortFN})
     };
     return rounds;
+  };
+
+
+  var EventsSubGrid = function(sequence){
+    var events = [];
+    for (var i = 0; i < sequence.length; i++) {
+      events.push({field: '' + i, displayName: sequence[i], width: "**", cellClass: 'center-text', enableCellEdit: false, sortFn: alphanumericSortFN})
+    };
+    return events;
   };
 
   var isAdmin = function(){
@@ -763,17 +771,59 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     }
   }
 
+  var getEventSequence = function(division, year){
+    var sequence = [];
+    angular.forEach($scope.tournaments,
+      function(tournament,id){
+        if(tournament.year == year && tournament.divisions[division]){
+          sequence.push(tournament.name.en)
+        }
+      }
+    );
+    sequence = extractShortCodes(sequence);
+    return sequence;
+  }
+
+  var extractShortCodes = function(sequence){
+    var legCount = 1;
+    return sequence.map(function(name,idx,arr){
+      var str = name.toLowerCase();
+      var match = 'Leg';
+      if (str.indexOf('championship') > -1){
+        match = 'Championship'
+      } else if (str.indexOf('invitational') > -1){
+        match = 'Invitational'
+      } else {
+        match = match + ' ' + legCount;
+        legCount++;
+      }
+      return match;
+      }
+    )
+  }
+
   var MeritGrid = function(division){
+    var year = $scope.archiveYear;
+    var columnDefs =
+     [{field: 'rank', displayName: 'Rank', width: "*", cellClass: 'center-text', enableCellEdit: "currentUser.role == 'admin'"},
+      {field:'getName()', displayName:'Name', width: "****", cellClass: 'center-text', enableCellEdit: false}];
+
+    columnDefs = columnDefs.concat(
+      EventsSubGrid(
+        getEventSequence(division,year)
+        )
+      );
+
+    columnDefs = columnDefs.concat([
+          {field: 'getPoints()', displayName: 'Points', width: "**", cellClass: 'center-text', enableCellEdit: "currentUser.role == 'admin'"},
+          {field:'username', displayName:'Username', cellClass: 'center-text', enableCellEdit: false, visible:false}])
+
     return {
       data: 'merit.' + division,
         enableCellSelection: true,
         enableRowSelection: false,
         enableCellEditOnFocus: false,
-        columnDefs: [
-          {field: 'rank', displayName: 'Rank', width: "*", cellClass: 'center-text', enableCellEdit: "currentUser.role == 'admin'"},
-          {field:'getName()', displayName:'Name', width: "****", cellClass: 'center-text', enableCellEdit: false},
-          {field: 'getPoints()', displayName: 'Points', width: "****", cellClass: 'center-text', enableCellEdit: "currentUser.role == 'admin'"},
-          {field:'username', displayName:'Username', cellClass: 'center-text', enableCellEdit: false, visible:false}]
+        columnDefs: columnDefs,
     }
   }
 
