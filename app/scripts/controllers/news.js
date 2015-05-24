@@ -83,7 +83,9 @@ app.controller('NewsCtrl', function($scope, $q, $routeParams, $location, $anchor
       return deferred.promise;
     }
 
-    $location.hash('hello-container');
-    $anchorScroll();
+    if ($routeParams.id){
+      $location.hash('hello-container');
+      $anchorScroll();
+    }
 
 });

@@ -23,7 +23,6 @@ app.controller('StaticCtrl', function($scope, $location, $routeParams, Utils, Pa
   $scope.editable = ($routeParams.action === 'edit');
 
   $scope.edit = function(page){
-    console.log(page)
     $location.path('/'+ page.category +'/'+ page.slug +'/edit');
   }
 

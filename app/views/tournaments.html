@@ -1,7 +1,10 @@
 <div class="container" id="tournaments-page">
   <div class="row">
-    <div class = "col-md-8">
+    <div ng-show="tournaments" class = "col-md-8">
       <h2 translate>TOURNAMENTS</h2>
+    </div>
+    <div ng-hide="tournaments" class = "col-md-8">
+      <h2 translate>Loading ...</h2>
     </div>
     <div class="col-md-4">
         <div ng-include="'views/breadcrumbs.html'"></div>
