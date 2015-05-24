@@ -195,7 +195,7 @@ var translationsZHHK = {
   EVENTS: '活動',
   VIEW_MAGAZINES: '閱讀所有期刊',
   PROS: '職業高爾夫球手',
-  LATEST_TOURNAMENT_SCORES: '女子比賽成績',
+  LATEST_TOURNAMENT_SCORES: '最新的比賽成績',
   VENUE: '會議地點',
   DATE: '日期',
   ENGLISH_NAME: '英文名稱',
@@ -274,7 +274,7 @@ var translationsZHHK = {
 
 var translationsZHCN = {
   LANG_EN: 'EN',
-  LANG_ZH_HK: '簡體',
+  LANG_ZH_HK: '繁體',
   LANG_ZH_CN: '中文',
   LANG_CURRENT: '中文',
   MENU_HOME: '首页',
@@ -331,7 +331,7 @@ var translationsZHCN = {
   EVENTS: '活动',
   VIEW_MAGAZINES: '阅读所有期刊',
   PROS: '职业高尔夫球手',
-  LATEST_TOURNAMENT_SCORES: '女子比赛成绩',
+  LATEST_TOURNAMENT_SCORES: '最新的比赛成绩',
   VENUE: '会议地点',
   DATE: '日期',
   ENGLISH_NAME: '英文名称',
