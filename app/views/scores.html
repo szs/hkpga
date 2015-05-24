@@ -9,7 +9,9 @@
     <div ng-hide="currentUser.role != 'admin' && division=='ladies'" ng-if="toScore" ng-repeat="(division, scores) in toScore" class="row add-division col-md-10 col-md-offset-1">
       <a class="btn btn-primary" ng-if="currentUser.role == 'admin'" ng-click="submitScores()">Submit</a>
       <h2 translate> {{ division | uppercase }} </h2>
-      <div class="gridStyle score-grid" ng-grid="gridOptions[division]" ng-style="getTableStyle('toScore', division)">
+      <div class="table-responsive">
+        <div class="gridStyle score-grid" ng-grid="gridOptions[division]" ng-style="getTableStyle('toScore', division)">
+        </div>
       </div>
       <br>
       <hr>

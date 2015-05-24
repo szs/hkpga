@@ -10,7 +10,9 @@
   <div class="col-md-9">
     <div ng-if="money" ng-repeat="(division, prize) in money" class="row add-division">
       <h2>{{division}}</h2>
-      <div class="gridStyle center-text" ng-grid="gridMoneyOptions[division]" ng-style="getTableStyle('money', division)"></div>
+      <div class="table-responsive">
+        <div class="gridStyle center-text" ng-grid="gridMoneyOptions[division]" ng-style="getTableStyle('money', division)"></div>
+      </div>
       <a ng-if="currentUser.role == 'admin'" ng-click="addMoneyRow(division)" class="btn btn-success">Add Row</a>
       <br>
       <hr>
