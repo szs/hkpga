@@ -54,7 +54,7 @@ var translationsEN = {
   PLAYER: 'Player',
   POINTS: 'Points',
   SEE_LIST: 'See full list',
-  WOMENS_DIVISION: 'Women\'s Division',
+  WOMENS_DIVISION: 'Ladies Division',
   MENS_SENIOR_DIVISION: 'Men\'s Senior Division',
   BACK: 'Back',
   EVENTS: 'Events',
