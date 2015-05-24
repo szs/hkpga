@@ -1,7 +1,8 @@
 <div class="container" id="committee-page">
 	<div class="row">
 		<div class="col-md-6" ng-controller="CommitteeCtrl">
-			<h2>{{ l10n(committee.term) }}</h2>
+			<h2 ng-hide="committee.term">Committee</h2>
+			<h2 ng-show="committee.term">{{ l10n(committee.term) }}</h2>
 		</div>
 		<div class="col-md-6">
 			<div ng-include="'views/breadcrumbs.html'"></div>
