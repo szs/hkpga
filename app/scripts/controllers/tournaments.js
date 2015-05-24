@@ -849,7 +849,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   var MeritGrid = function(division){
     var year = $scope.archiveYear;
     var columnDefs =
-     [{field: 'rank', displayName: 'Rank', width: "*", cellClass: 'center-text', enableCellEdit: "currentUser.role == 'admin'"},
+     [{field: 'rank', displayName: 'Rank', width: "*", cellClass: 'center-text', enableCellEdit: false},
       {field:'getName()', displayName:'Name', width: "****", cellClass: 'left-text', enableCellEdit: false}];
 
     columnDefs = columnDefs.concat(
@@ -859,7 +859,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       );
 
     columnDefs = columnDefs.concat([
-          {field: 'getPoints()', displayName: 'Points', width: "**", cellClass: 'center-text', enableCellEdit: "currentUser.role == 'admin'"},
+          {field: 'getPoints()', displayName: 'Points', width: "**", cellClass: 'center-text', enableCellEdit: false},
           {field:'username', displayName:'Username', cellClass: 'center-text', enableCellEdit: false, visible:false}])
 
     return {

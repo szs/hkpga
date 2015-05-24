@@ -96,7 +96,7 @@ app.config(function ($routeProvider) {
           controller: 'NewsCtrl'
         })
         .when('/about', {
-          redirectTo: '/about/us',
+          redirectTo: '/about/about-us',
         })
         .when('/about/partners', {
           templateUrl: 'views/partners.html',
