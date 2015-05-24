@@ -1,7 +1,8 @@
 <div id="magazine-widget" ng-repeat="(key, magazine) in magazines | orderByPriority | orderBy: 'publish_date':true | limitTo:1" class="widget">
 	<a ng-href="{{ magazine.url }}">
-		<h2 style="font-size: 2.3rem;" translate>MAGAZINE | {{ magazine.publish_date | date:'MMM' }} Issue {{ magazineCount }}</h2>
-		<h2>Cover Story: {{ l10n(magazine.coverstory) }}</h2>
+		<h2 style="font-size: 2.3rem;" translate>MAGAZINE</h2>
+<!-- 		| {{ magazine.publish_date | date:'MMM' }} Issue {{ magazineCount }} -->
+		<h2 class="bar-subtext">Cover Story: {{ l10n(magazine.coverstory) }}</h2>
 		<div class="col-md-12">
 			<img ng-show="magazine.cover.indexOf('http') == 0" ng-src="{{ magazine.cover | DriveOrUrl }}">
 		</div>
