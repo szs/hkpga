@@ -15,6 +15,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   $scope.view = $location.path().split('/')[4];
   $scope.action = $location.path().split('/')[5];
   $scope.now = Date.now();
+  $scope.sequence = {};
 
   $scope.reset = function (){
     $scope.tournament = Tournament.new();
@@ -63,8 +64,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       } else {
         $scope.archiveYear = parseInt($scope.archiveYear);
       }
-      calculateMerit();
       setGridMeritOptions();
+      calculateMerit();
     } else {
       $scope.reset();
     }
@@ -405,16 +406,32 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
     $scope.divisions.forEach(function (division) {
       var meritSum = {}
-      merit[division] = []
+      var sequence = $scope.sequence[division].map(
+        function(seq,idx){
+          return seq.order;
+      })
+
+
+      merit[division] = [];
       angular.forEach($scope.pros, function(pro, username){
         if (username[0] != '$'){
           if (pro.hasOwnProperty('results') && pro['results'].hasOwnProperty($scope.archiveYear)){
             angular.forEach(pro['results'][$scope.archiveYear], function(result, tournament){
-              if (result.hasOwnProperty('points') && result['points'] > 0 && result.hasOwnProperty('division') && result['division'] == division) {
+              var scored_points = result.hasOwnProperty('points') && result['points'] > 0;
+              var in_division = result.hasOwnProperty('division') && result['division'] == division;
+              // console.log(division)
+              // console.log($scope.tournaments[tournament])
+              if ($scope.tournaments.hasOwnProperty(tournament) && $scope.tournaments[tournament].hasOwnProperty('start_date')){
+                var tid = $scope.tournaments[tournament]['start_date']
+              }
+              console.log(tid)
+              if (scored_points && in_division) {
                 if (meritSum.hasOwnProperty(username)) {
+                  meritSum[username].results[sequence.indexOf(tid)] = result.points;
                   meritSum[username].points += result.points;
                 } else {
-                  meritSum[username] = meritObj(result, username, pro);
+                  meritSum[username] = meritObj(result.points, username, pro);
+                  meritSum[username].results[sequence.indexOf(tid)] = result.points;
                 }
               }
             });
@@ -447,7 +464,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
                   if (meritSum.hasOwnProperty(username)) {
                     meritSum[username].points += result.points;
                   } else {
-                    meritSum[username] = meritObj(result, username, pro);
+                    meritSum[username] = meritObj(result.points, username, pro);
                   }
                 }
               });
@@ -466,8 +483,8 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
 
   var meritObj = function(result, username, pro){
     return {
-        points: result.points,
-        results: {},
+        points: result,
+        results: [],
         username: username,
         name: pro.name,
         getName : function () {
@@ -476,6 +493,10 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
         getPoints : function () {
           var points = this.points | 0;
           return points;
+        },
+        getResults : function (pos) {
+          var result = this.results[pos] | 0;
+          return result;
         }
      };
   }
@@ -617,7 +638,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
   var EventsSubGrid = function(sequence){
     var events = [];
     for (var i = 0; i < sequence.length; i++) {
-      events.push({field: '' + i, displayName: sequence[i], width: "**", cellClass: 'center-text', enableCellEdit: false, sortFn: alphanumericSortFN})
+      events.push({field: 'getResults('+i+')', displayName: sequence[i].shortcode, width: "**", cellClass: 'center-text hidden-xs hidden-sm', enableCellEdit: false, sortFn: alphanumericSortFN})
     };
     return events;
   };
@@ -776,11 +797,28 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     angular.forEach($scope.tournaments,
       function(tournament,id){
         if(tournament.year == year && tournament.divisions[division]){
-          sequence.push(tournament.name.en)
+          sequence.push({
+            id : id,
+            name : tournament.name.en,
+            order : tournament.start_date
+          })
         }
       }
-    );
-    sequence = extractShortCodes(sequence);
+    )
+
+    sequence.sort(function(a,b) { return parseFloat(a.order) - parseFloat(b.order) } );
+
+    var sequence_names = sequence.map(function(tournament,idx,arr){
+      return tournament.name;
+    });
+
+    var sequence_shortcodes = extractShortCodes(sequence_names);
+
+    sequence.map(function(tournament,idx,arr){
+      tournament.shortcode = sequence_shortcodes[idx];
+    });
+
+    $scope.sequence[division] = sequence;
     return sequence;
   }
 
@@ -806,7 +844,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     var year = $scope.archiveYear;
     var columnDefs =
      [{field: 'rank', displayName: 'Rank', width: "*", cellClass: 'center-text', enableCellEdit: "currentUser.role == 'admin'"},
-      {field:'getName()', displayName:'Name', width: "****", cellClass: 'center-text', enableCellEdit: false}];
+      {field:'getName()', displayName:'Name', width: "****", cellClass: 'left-text', enableCellEdit: false}];
 
     columnDefs = columnDefs.concat(
       EventsSubGrid(
