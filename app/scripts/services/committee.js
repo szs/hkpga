@@ -8,7 +8,6 @@ app.factory('Committee',
     var Committee = {
       committee: committees,
       update : function (c){
-        console.log(c);
         committees = c;
         committees.$save();
       }

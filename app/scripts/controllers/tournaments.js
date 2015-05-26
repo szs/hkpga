@@ -124,7 +124,6 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
       // Account for players who missed the cut
 
       if (cutPlayers.length > 0){
-
           orderByRank(
             Utils.sortByKey(cutPlayers, 'totalScore'), division, rankingPlayers.length - nonRankCount + 1)
               .then(function(data){
@@ -334,7 +333,7 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     var scale = points;
     scale.forEach(function(user, index){
         if (parseInt(user.points) < currentPoints){
-          currentPoints = user.points;
+          currentPoints = parseInt(user.points);
           currentRank = index + 1;
         }
         user.rank = currentRank;
