@@ -636,11 +636,11 @@ app.controller('TournamentsCtrl', function($scope, $modal, $filter, $rootScope, 
     return rounds;
   };
 
-
   var EventsSubGrid = function(sequence){
     var events = [];
+    var showColumns = ($(window).width() < 992) ? false : true;
     for (var i = 0; i < sequence.length; i++) {
-      events.push({field: 'getResults('+i+')', displayName: sequence[i].shortcode, width: "**", cellClass: 'center-text hidden-xs hidden-sm', enableCellEdit: false, sortFn: alphanumericSortFN})
+      events.push({field: 'getResults('+i+')', displayName: sequence[i].shortcode, visible: showColumns, cellClass: 'center-text hidden-xs hidden-sm', enableCellEdit: false, sortFn: alphanumericSortFN})
     };
     return events;
   };
